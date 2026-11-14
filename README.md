@@ -1,8 +1,8 @@
 # South India HigherEd Directory & AI Sales Agent Studio
 
 [![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/nunescbe-a11y/south-india-highered-directory)
-[![Cloudflare Tunnel](https://img.shields.io/badge/Cloudflare-Live_Tunnel-orange?logo=cloudflare)](https://programming-mike-processing-prepared.trycloudflare.com)
-[![Census](https://img.shields.io/badge/Institutions-4%2C990_Verified-emerald)](https://programming-mike-processing-prepared.trycloudflare.com)
+[![Cloudflare Tunnel](https://img.shields.io/badge/Cloudflare-Live_Tunnel-orange?logo=cloudflare)](https://symbols-qui-discussion-autos.trycloudflare.com)
+[![Census](https://img.shields.io/badge/Institutions-4%2C990_Verified-emerald)](https://symbols-qui-discussion-autos.trycloudflare.com)
 
 Interactive census, multi-district higher education directory, and autonomous AI Sales Agent Closer Studio covering **4,990 accredited institutions** across all **52 districts** in Tamil Nadu and Kerala.
 
@@ -12,8 +12,8 @@ Interactive census, multi-district higher education directory, and autonomous AI
 
 | Service | Permanent Link |
 | :--- | :--- |
-| **Cloudflare Public Web App** | [https://programming-mike-processing-prepared.trycloudflare.com](https://programming-mike-processing-prepared.trycloudflare.com) |
-| **API Health Check** | [https://programming-mike-processing-prepared.trycloudflare.com/api/health](https://programming-mike-processing-prepared.trycloudflare.com/api/health) |
+| **Cloudflare Public Web App** | [https://symbols-qui-discussion-autos.trycloudflare.com](https://symbols-qui-discussion-autos.trycloudflare.com) |
+| **API Health Check** | [https://symbols-qui-discussion-autos.trycloudflare.com/api/health](https://symbols-qui-discussion-autos.trycloudflare.com/api/health) |
 | **GitHub Source Code** | [https://github.com/nunescbe-a11y/south-india-highered-directory](https://github.com/nunescbe-a11y/south-india-highered-directory) |
 | **Local Development** | [http://localhost:3005](http://localhost:3005) |
 

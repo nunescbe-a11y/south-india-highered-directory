@@ -1,0 +1,148 @@
+/* ==========================================================================
+   NUNES HigherEd Census & AI Sales Agent Studio - Design Enhancements
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --primary-accent: #2563eb;
+  --primary-gradient: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+  --success-accent: #059669;
+  --card-radius: 1rem;
+  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Top Navigation Bar Glassmorphism */
+header {
+  backdrop-filter: blur(16px) !important;
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85) !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Polish Navigation Tabs */
+header nav button {
+  padding: 6px 14px !important;
+  border-radius: 9999px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+header nav button:hover {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+/* Download Code and Bulk Connect buttons in header */
+header button:has(svg) {
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+}
+
+/* Elevate Buttons & Interactive Elements */
+button {
+  transition: all var(--transition-fast) !important;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Card Hover Elevation */
+.bg-white.rounded-2xl,
+.bg-white.rounded-3xl,
+.border-slate-200 {
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+/* College List item hover */
+.cursor-pointer.transition-all:hover,
+div[class*="border-slate-200"]:hover {
+  border-color: #93c5fd !important;
+}
+
+/* Dark Chosen College Sidebar Glass & Depth */
+.bg-slate-900 {
+  background: linear-gradient(180deg, #0f172a 0%, #090d16 100%) !important;
+  box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.3), 0 8px 10px -6px rgba(15, 23, 42, 0.3) !important;
+}
+
+/* Filter Box Pill Enhancements */
+input[type="text"], input[type="search"], select {
+  font-family: inherit !important;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast) !important;
+}
+
+input[type="text"]:focus, input[type="search"]:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15) !important;
+}
+
+/* WhatsApp Direct CTA Button */
+a[href*="wa.me"], button[class*="whatsapp"] {
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast) !important;
+}
+
+a[href*="wa.me"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+}
+
+/* Status Pill Polish */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* Toast notification styling */
+#nunes-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #0f172a;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 99999;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+#nunes-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}

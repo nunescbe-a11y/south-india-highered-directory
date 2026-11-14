@@ -1,0 +1,16 @@
+{
+  "name": "highered-directory-sales-agent",
+  "version": "1.0.0",
+  "description": "Full React + TypeScript + Tailwind CSS Higher Education Directory covering 4,990 accredited institutions across 52 districts in Tamil Nadu and Kerala with AI Sales Agent Closer Studio.",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}

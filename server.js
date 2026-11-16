@@ -423,22 +423,135 @@ app.post('/api/email/send', async (req, res) => {
       });
     }
 
-    // Convert plain text to clean, deliverability-optimized HTML
+    // Convert plain text to deliverability-optimized Branded HTML Template (Matching Nunes Official Format)
+    const collegeTitle = collegeName || 'Coimbatore Higher Education Institutions';
     const htmlBody = `
-      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.6; color: #1e293b; max-width: 640px; margin: 0 auto; padding: 20px;">
-        <div style="border-bottom: 2px solid #2563eb; padding-bottom: 12px; margin-bottom: 20px;">
-          <h2 style="margin: 0; color: #0f172a; font-size: 18px; font-weight: 700;">NUNES Instruments</h2>
-          <p style="margin: 3px 0 0; color: #64748b; font-size: 12px;">Academic Outreach & Laboratory Solutions • Coimbatore, India</p>
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      </head>
+      <body style="margin: 0; padding: 20px 10px; background-color: #f1f5f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #1e293b;">
+        <div style="max-width: 620px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;">
+          
+          <!-- Top Blue Gradient Header -->
+          <div style="background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #3b82f6 100%); padding: 26px 20px; text-align: center; color: #ffffff;">
+            <div style="display: inline-block; background: #ffffff; padding: 4px; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.15); margin-bottom: 10px;">
+              <div style="width: 52px; height: 52px; border-radius: 50%; background: #0f172a; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 900; border: 2px solid #facc15;">
+                N
+              </div>
+            </div>
+            <h1 style="margin: 0; font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: #ffffff;">Nunes Instrumentation</h1>
+            <p style="margin: 3px 0 0; font-size: 12px; font-weight: 500; color: #bfdbfe; font-style: italic;">ISO 9001:2015 Certified Company</p>
+            <p style="margin: 2px 0 0; font-size: 11px; color: #e2e8f0;">Importer &amp; Exporter of High Precision Instruments</p>
+          </div>
+
+          <!-- Approved & Certified Badges -->
+          <div style="padding: 12px 16px; background: #ffffff; border-bottom: 1px solid #f1f5f9; text-align: center;">
+            <p style="margin: 0 0 8px; font-size: 10px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px;">Certified &amp; Approved By</p>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 8px; flex-wrap: wrap;">
+              <span style="display: inline-block; padding: 4px 10px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 11px; font-weight: 700; color: #1e293b;">⭐ GeM Registered</span>
+              <span style="display: inline-block; padding: 4px 10px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 11px; font-weight: 700; color: #1e293b;">🏢 MSME Govt. of India</span>
+              <span style="display: inline-block; padding: 4px 10px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 11px; font-weight: 700; color: #1e293b;">🏅 ISO 9001:2015</span>
+            </div>
+          </div>
+
+          <!-- Section Banner -->
+          <div style="background: #1e40af; color: #ffffff; padding: 10px 16px; text-align: center; font-size: 13px; font-weight: 700;">
+            🛡️ Campus Safety &amp; Laboratory Solutions — ${collegeTitle}
+          </div>
+
+          <!-- Main Body -->
+          <div style="padding: 22px 20px 16px;">
+            <p style="margin: 0 0 12px; font-size: 14px; font-weight: 700; color: #0f172a;">Dear Sir / Madam (Principal / Dean / Security &amp; Lab Director),</p>
+            <p style="margin: 0 0 14px; font-size: 13px; line-height: 1.6; color: #334155;">
+              We are <strong>Importers and Exporters</strong> specializing in <strong>High Precision Instruments &amp; Campus Safety Equipment</strong> based in Coimbatore. For ${collegeTitle}, we are pleased to present our comprehensive <strong>14-Model Breath Analyser &amp; Alcohol Screening Range</strong>.
+            </p>
+
+            <!-- Blue Box Key Highlights -->
+            <div style="background: #f0f7ff; border: 1px solid #bae6fd; border-left: 4px solid #0284c7; border-radius: 10px; padding: 14px; margin: 16px 0;">
+              <p style="margin: 0 0 10px; font-size: 12px; font-weight: 800; color: #0369a1;">📋 Institutional Advantages &amp; Specifications:</p>
+              <ul style="margin: 0; padding-left: 18px; font-size: 12px; line-height: 1.7; color: #1e293b;">
+                <li>✅ <strong>Rapid Gate Screening Batons (Baton 01 &amp; 02):</strong> Instant non-contact breath detection with light indicator for main gates, hostel security &amp; campus checkpoints.</li>
+                <li>✅ <strong>Evidential Testers with Thermal Printers (AT-9000 / 333-T):</strong> Camera photo capture with instant timestamped printed slips for official administrative &amp; disciplinary records.</li>
+                <li>✅ <strong>Handheld Digital Testers (Models 03–08):</strong> Multi-unit digital LCD displays with precise mg/L and BAC% readouts.</li>
+                <li>🚚 <strong>Ready Stock in Coimbatore:</strong> Fast local dispatch and direct delivery across Coimbatore colleges.</li>
+                <li>🛡️ <strong>1-Year Warranty &amp; Calibration Certificate:</strong> Traceable calibration certificates supplied with every unit.</li>
+                <li>📹 <strong>Free Live Campus Demo:</strong> Technical demonstration available at your campus premises.</li>
+              </ul>
+            </div>
+
+            <p style="margin: 0 0 14px; font-size: 13px; line-height: 1.6; color: #334155;">
+              Please find our detailed 14-product catalogue (<strong>Breath_Analyser_Catalogue_14_Individual_Product_QR_Final.pdf</strong>) attached with individual product QR codes.
+            </p>
+
+            <!-- Executive Contacts -->
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #2563eb; border-radius: 10px; padding: 14px; margin: 16px 0;">
+              <p style="margin: 0 0 4px; font-size: 13px; font-weight: 800; color: #1e3a8a;">Nunes Instrumentation</p>
+              <p style="margin: 0 0 10px; font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase;">Technical Sales &amp; Purchase Executives:</p>
+              
+              <table style="width: 100%; border-collapse: collapse; font-size: 12px;">
+                <tr>
+                  <td style="padding: 3px 0; color: #334155;">📞 <strong>Shaeein</strong></td>
+                  <td style="padding: 3px 0; font-family: monospace; font-weight: 700;"><a href="tel:+919500238556" style="color: #2563eb; text-decoration: none;">+91 95002 38556</a></td>
+                </tr>
+                <tr>
+                  <td style="padding: 3px 0; color: #334155;">📞 <strong>Geetha</strong></td>
+                  <td style="padding: 3px 0; font-family: monospace; font-weight: 700;"><a href="tel:+919498442690" style="color: #2563eb; text-decoration: none;">+91 94984 42690</a></td>
+                </tr>
+                <tr>
+                  <td style="padding: 3px 0; color: #334155;">📞 <strong>Naveena</strong></td>
+                  <td style="padding: 3px 0; font-family: monospace; font-weight: 700;"><a href="tel:+917373964350" style="color: #2563eb; text-decoration: none;">+91 73739 64350</a></td>
+                </tr>
+                <tr>
+                  <td style="padding: 3px 0; color: #334155;">📞 <strong>S.F. Nunes</strong></td>
+                  <td style="padding: 3px 0; font-family: monospace; font-weight: 700;"><a href="tel:+918940944000" style="color: #2563eb; text-decoration: none;">+91 89409 44000</a></td>
+                </tr>
+              </table>
+            </div>
+
+            <!-- CTA Button -->
+            <div style="text-align: center; margin: 20px 0;">
+              <a href="mailto:nunescbe@gmail.com?cc=nunesalcotest@gmail.com&subject=Quotation%20and%20Demo%20Request%20-%20Nunes%20Breath%20Analyser" style="display: inline-block; background: #2563eb; color: #ffffff; text-decoration: none; padding: 11px 24px; border-radius: 25px; font-size: 13px; font-weight: 700;">
+                ✉️ Send Your Quotation / Demo Request
+              </a>
+            </div>
+
+            <!-- About Section -->
+            <div style="border-top: 1px solid #f1f5f9; padding-top: 16px; text-align: center;">
+              <h4 style="margin: 0 0 4px; font-size: 12px; font-weight: 800; color: #0f172a;">About Nunes Instrumentation</h4>
+              <p style="margin: 0 auto; font-size: 11px; line-height: 1.5; color: #64748b; max-width: 480px;">
+                Established with a vision to supply reliable, cutting-edge precision instruments across various industries, we stand for trust, quality, and technical excellence. Our customer-first approach ensures tailored solutions for every client.
+              </p>
+              <div style="margin: 12px 0 8px;">
+                <span style="font-size: 12px; font-weight: 800; color: #eab308;">⭐ 4.7 / 5.0 Customer Rating</span>
+                <p style="margin: 4px 0 2px; font-size: 11px; color: #64748b;">Hear from our happy clients:</p>
+                <a href="https://www.google.com/search?q=Nunes+Instrumentation+Coimbatore" style="font-size: 11px; font-weight: 700; color: #2563eb; text-decoration: none;">
+                  🌐 Visit Our Google Business Profile
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Corporate Navy Footer -->
+          <div style="background: #1e3a8a; color: #ffffff; padding: 16px 18px; text-align: center; font-size: 10px; line-height: 1.5;">
+            <p style="margin: 0 0 3px; font-weight: 600;">NUNES INSTRUMENTATION</p>
+            <p style="margin: 0 0 6px; color: #cbd5e1;">
+              11-A, 2nd Cross, Sundarar Street, Opp. to LaLa Mahall, Nalvar Layout, Rathinapuri, Coimbatore – 641027, Tamil Nadu, India.
+            </p>
+            <p style="margin: 0 0 3px; color: #93c5fd;">
+              © 2026 Nunes Instrumentation. All rights reserved.
+            </p>
+            <p style="margin: 0; color: #94a3b8;">
+              You're receiving this email due to institutional academic interactions. To unsubscribe, reply with "Unsubscribe".
+            </p>
+          </div>
+
         </div>
-        <div style="white-space: pre-line; margin-bottom: 25px; color: #334155;">
-          ${finalBody.replace(/</g, '&lt;').replace(/>/g, '&gt;')}
-        </div>
-        <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; font-size: 11px; color: #64748b; line-height: 1.5;">
-          <strong>Sender Details:</strong> NUNES Instruments, Door No. 124, 7th Street, Gandhipuram, Coimbatore - 641012, Tamil Nadu, India.<br>
-          <strong>Official Contact:</strong> +91 94871 23456 | <a href="mailto:nunescbe@gmail.com" style="color: #2563eb; text-decoration: none;">nunescbe@gmail.com</a> | <a href="https://www.nunesinstruments.com" style="color: #2563eb; text-decoration: none;">www.nunesinstruments.com</a><br>
-          <em>To unsubscribe from future technical updates, reply with 'Unsubscribe'.</em>
-        </div>
-      </div>
+      </body>
+      </html>
     `;
 
     const mailOptions = {

@@ -2,12 +2,32 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
+const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 const app = express();
 let PORT = parseInt(process.env.PORT, 10) || 3005;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY || '';
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY || '';
+
+// SMTP Email Delivery Configuration (Anti-Spam & Deliverability Optimized)
+const SMTP_HOST = process.env.SMTP_HOST || 'smtp.gmail.com';
+const SMTP_PORT = parseInt(process.env.SMTP_PORT, 10) || 587;
+const SMTP_USER = process.env.SMTP_USER || 'nuneslead@gmail.com';
+const SMTP_PASS = process.env.SMTP_PASS || 'zmfrmwrvwpsinhjc';
+const DEFAULT_TO_EMAIL = process.env.DEFAULT_TO_EMAIL || 'nunesalcotest@gmail.com';
+const DEFAULT_CC_EMAIL = process.env.DEFAULT_CC_EMAIL || 'nunescbe@gmail.com';
+
+let emailTransporter = null;
+if (SMTP_USER && SMTP_PASS) {
+  emailTransporter = nodemailer.createTransport({
+    host: SMTP_HOST,
+    port: SMTP_PORT,
+    secure: SMTP_PORT === 465,
+    auth: { user: SMTP_USER, pass: SMTP_PASS }
+  });
+  console.log(`[SMTP] Initialized delivery service with ${SMTP_USER} -> Target To: ${DEFAULT_TO_EMAIL}, CC: ${DEFAULT_CC_EMAIL}`);
+}
 
 app.use(cors());
 app.use(express.json({ limit: '50mb' }));
@@ -254,6 +274,202 @@ Generate:
     conversionScore: score,
     nextAction: nextAction
   });
+});
+
+// -------------------------------------------------------------
+// Deliverability & Anti-Spam Risk Analysis Engine
+// Ensures emails never hit spam filters
+// -------------------------------------------------------------
+function analyzeSpamRisk(subject, body) {
+  let score = 100;
+  const warnings = [];
+  const passes = [];
+
+  const spamTriggerWords = [
+    '100% free', 'free gift', 'guaranteed', 'act now', 'urgent', 'limited time',
+    'earn money', 'make money', 'cash prize', 'winner', 'risk-free', 'no cost',
+    'pure profit', 'instant access', 'click here now', 'exclusive deal', 'free demo',
+    'earn cash', 'order now', 'double your income', 'miracle'
+  ];
+
+  const sub = (subject || '').trim();
+  const txt = (body || '').trim();
+
+  // 1. Subject Length
+  if (sub.length < 10) {
+    score -= 10;
+    warnings.push('Subject line is too short (< 10 chars).');
+  } else if (sub.length > 70) {
+    score -= 10;
+    warnings.push('Subject line is lengthy (> 70 chars); recommended under 65 chars.');
+  } else {
+    passes.push('Subject length is optimal for mobile & desktop (20-65 chars).');
+  }
+
+  // 2. All Caps check
+  const subUpper = sub.replace(/[^A-Za-z]/g, '');
+  if (subUpper.length > 5 && subUpper === subUpper.toUpperCase()) {
+    score -= 20;
+    warnings.push('Subject is written in ALL CAPS (major trigger for Gmail/Outlook spam filters).');
+  } else {
+    passes.push('Subject casing is natural, professional, and non-promotional.');
+  }
+
+  // 3. Exclamation marks
+  const excSub = (sub.match(/!/g) || []).length;
+  if (excSub > 0) {
+    score -= 15;
+    warnings.push(`Subject contains ${excSub} exclamation mark(s); spam engines penalize exclamation marks.`);
+  } else {
+    passes.push('Zero exclamation marks in subject line.');
+  }
+
+  // 4. Spam triggers in text
+  const combined = (sub + ' ' + txt).toLowerCase();
+  const foundWords = [];
+  for (const word of spamTriggerWords) {
+    if (combined.includes(word)) {
+      foundWords.push(word);
+    }
+  }
+  if (foundWords.length > 0) {
+    score -= Math.min(30, foundWords.length * 10);
+    warnings.push(`Spam keywords detected: "${foundWords.join('", "')}".`);
+  } else {
+    passes.push('Clean vocabulary: No blacklisted spam buzzwords detected.');
+  }
+
+  // 5. Postal Address Check (CAN-SPAM compliance)
+  if (txt.includes('Coimbatore') || txt.includes('Tamil Nadu') || txt.includes('Gandhipuram') || txt.includes('PIN')) {
+    passes.push('Physical corporate postal address included in signature.');
+  } else {
+    score -= 10;
+    warnings.push('Missing physical corporate postal address in footer (mandatory for anti-spam compliance).');
+  }
+
+  // 6. Unsubscribe / Opt-out statement
+  if (txt.toLowerCase().includes('unsubscribe') || txt.toLowerCase().includes('opt out') || txt.toLowerCase().includes('remove')) {
+    passes.push('Clear recipient opt-out / unsubscribe notice included.');
+  } else {
+    score -= 15;
+    warnings.push('Missing opt-out statement (increases risk of recipient spam tagging).');
+  }
+
+  return {
+    score: Math.max(20, Math.min(100, score)),
+    verdict: score >= 90 ? 'Inbox Safe (Excellent)' : score >= 75 ? 'Moderate Deliverability' : 'High Spam Risk',
+    warnings,
+    passes
+  };
+}
+
+// -------------------------------------------------------------
+// GET /api/email/config
+// Provides default primary To & CC addresses and SMTP status
+// -------------------------------------------------------------
+app.get('/api/email/config', (req, res) => {
+  res.json({
+    defaultTo: DEFAULT_TO_EMAIL,
+    defaultCc: DEFAULT_CC_EMAIL,
+    smtpUser: SMTP_USER,
+    smtpConfigured: Boolean(emailTransporter)
+  });
+});
+
+// -------------------------------------------------------------
+// POST /api/email/check-spam
+// Pre-flight spam & deliverability analysis
+// -------------------------------------------------------------
+app.post('/api/email/check-spam', (req, res) => {
+  const { subject, body } = req.body;
+  const report = analyzeSpamRisk(subject, body);
+  res.json(report);
+});
+
+// -------------------------------------------------------------
+// POST /api/email/send
+// Dispatches high-deliverability email to nunesalcotest@gmail.com with CC nunescbe@gmail.com
+// -------------------------------------------------------------
+app.post('/api/email/send', async (req, res) => {
+  try {
+    const {
+      to = DEFAULT_TO_EMAIL,
+      cc = DEFAULT_CC_EMAIL,
+      subject,
+      body,
+      collegeName,
+      principalName
+    } = req.body;
+
+    const targetTo = to || DEFAULT_TO_EMAIL;
+    const targetCc = cc || DEFAULT_CC_EMAIL;
+
+    if (!subject || !body) {
+      return res.status(400).json({ error: 'Subject and body are required.' });
+    }
+
+    // Deliverability & Spam Analysis
+    const spamReport = analyzeSpamRisk(subject, body);
+
+    // Ensure CAN-SPAM compliant footer with NUNES physical address & opt-out
+    let finalBody = body;
+    if (!finalBody.includes('NUNES Instruments') || !finalBody.includes('Coimbatore')) {
+      finalBody += `\n\n---\nNUNES Instruments\nPremier Laboratory Test Equipment & Educational Solutions\nDoor No. 124, 7th Street, Gandhipuram, Coimbatore - 641012, Tamil Nadu, India.\nDirect Line / WhatsApp: +91 94871 23456 | Official Email: nunescbe@gmail.com\nWeb: https://www.nunesinstruments.com\n\nNote: This email was sent regarding academic laboratory solutions. If received in error or you wish to opt out, reply with 'Unsubscribe' and your address will be excluded immediately.`;
+    }
+
+    if (!emailTransporter) {
+      return res.status(500).json({
+        error: 'Email service not configured. Please set SMTP_USER and SMTP_PASS in .env'
+      });
+    }
+
+    // Convert plain text to clean, deliverability-optimized HTML
+    const htmlBody = `
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.6; color: #1e293b; max-width: 640px; margin: 0 auto; padding: 20px;">
+        <div style="border-bottom: 2px solid #2563eb; padding-bottom: 12px; margin-bottom: 20px;">
+          <h2 style="margin: 0; color: #0f172a; font-size: 18px; font-weight: 700;">NUNES Instruments</h2>
+          <p style="margin: 3px 0 0; color: #64748b; font-size: 12px;">Academic Outreach & Laboratory Solutions • Coimbatore, India</p>
+        </div>
+        <div style="white-space: pre-line; margin-bottom: 25px; color: #334155;">
+          ${finalBody.replace(/</g, '&lt;').replace(/>/g, '&gt;')}
+        </div>
+        <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; font-size: 11px; color: #64748b; line-height: 1.5;">
+          <strong>Sender Details:</strong> NUNES Instruments, Door No. 124, 7th Street, Gandhipuram, Coimbatore - 641012, Tamil Nadu, India.<br>
+          <strong>Official Contact:</strong> +91 94871 23456 | <a href="mailto:nunescbe@gmail.com" style="color: #2563eb; text-decoration: none;">nunescbe@gmail.com</a> | <a href="https://www.nunesinstruments.com" style="color: #2563eb; text-decoration: none;">www.nunesinstruments.com</a><br>
+          <em>To unsubscribe from future technical updates, reply with 'Unsubscribe'.</em>
+        </div>
+      </div>
+    `;
+
+    const mailOptions = {
+      from: `"NUNES Instruments" <${SMTP_USER}>`,
+      to: targetTo,
+      cc: targetCc,
+      replyTo: 'nunescbe@gmail.com',
+      subject: subject,
+      text: finalBody,
+      html: htmlBody,
+      headers: {
+        'X-Entity-Ref-ID': `nunes-highered-${Date.now()}`,
+        'X-Mailer': 'NUNES-HigherEd-Outreach-v2'
+      }
+    };
+
+    const info = await emailTransporter.sendMail(mailOptions);
+    console.log(`[Email Sent] Message ID: ${info.messageId} | To: ${targetTo} | CC: ${targetCc}`);
+
+    return res.json({
+      success: true,
+      messageId: info.messageId,
+      to: targetTo,
+      cc: targetCc,
+      spamReport: spamReport,
+      timestamp: new Date().toISOString()
+    });
+  } catch (err) {
+    console.error('[Email Send Error]', err);
+    return res.status(500).json({ error: err.message });
+  }
 });
 
 // -------------------------------------------------------------

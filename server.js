@@ -466,8 +466,25 @@ Nunes Instrumentation Team`;
       });
     }
 
-    // Attachments configuration - attach desktop PDF (optimized 5.16 MB email-ready)
+    // Reload clean lightweight template dynamically
+    if (fs.existsSync(templatePath)) {
+      htmlContent = fs.readFileSync(templatePath, 'utf8');
+    }
+
+    // Attachments configuration
     let attachments = [];
+
+    // 1. Inline Brand Logo CID (Prevents Gmail blocking & broken icon)
+    const logoPath = path.join(publicDir, 'nunes_logo.png');
+    if (fs.existsSync(logoPath)) {
+      attachments.push({
+        filename: 'nunes_logo.png',
+        path: logoPath,
+        cid: 'nunes-logo'
+      });
+    }
+
+    // 2. Breath Analyser 14-Product Catalogue PDF (5.16 MB)
     if (attachCatalogue) {
       const desktopPdf = 'C:\\Users\\NUNES\\Desktop\\Breath_Analyser_Catalogue_14_Individual_Product_QR_Final_EmailReady.pdf';
       const publicPdf = path.join(publicDir, 'Breath_Analyser_Catalogue_14_Individual_Product_QR_Final.pdf');
@@ -479,6 +496,17 @@ Nunes Instrumentation Team`;
           path: attachmentPath
         });
       }
+    }
+
+    // 3. Coimbatore Verified Colleges Directory CSV
+    const cbeCsvPath = path.join(publicDir, 'Coimbatore_Higher_Education_Colleges_Verified_Directory.csv');
+    const desktopCsv = 'C:\\Users\\NUNES\\Desktop\\Coimbatore_Higher_Education_Colleges_Verified_Directory.csv';
+    const csvAttachment = fs.existsSync(desktopCsv) ? desktopCsv : (fs.existsSync(cbeCsvPath) ? cbeCsvPath : null);
+    if (csvAttachment) {
+      attachments.push({
+        filename: 'Coimbatore_Higher_Education_Colleges_Verified_Directory.csv',
+        path: csvAttachment
+      });
     }
 
     const mailOptions = {
@@ -504,7 +532,7 @@ Nunes Instrumentation Team`;
       messageId: info.messageId,
       to: targetTo,
       cc: targetCc,
-      attachedPdf: attachments.length > 0 ? attachments[0].filename : null,
+      attachedFiles: attachments.map(a => a.filename),
       spamReport: spamReport,
       timestamp: new Date().toISOString()
     });

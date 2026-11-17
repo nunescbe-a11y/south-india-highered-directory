@@ -3,3 +3,9 @@ node_modules/
 dist/
 *.log
 .DS_Store
+*.pdf
+count_stats.js
+direct_email_send.js
+inspect_geo.js
+patch_server.js
+test_send.js

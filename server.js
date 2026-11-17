@@ -501,10 +501,10 @@ Nunes Instrumentation Team`;
 
 
     const mailOptions = {
-      from: `"Nunes Instrumentation" <${SMTP_USER}>`,
+      from: '"Nunes Instrumentation" <nunesalcotest@gmail.com>',
       to: targetTo,
       cc: targetCc,
-      replyTo: 'nunescbe@gmail.com',
+      replyTo: 'nunesalcotest@gmail.com, nunescbe@gmail.com',
       subject: subject,
       text: plainTextFallback,
       html: htmlContent,
@@ -529,6 +529,125 @@ Nunes Instrumentation Team`;
     });
   } catch (err) {
     console.error('[Email Send Error]', err);
+    return res.status(500).json({ error: err.message });
+  }
+});
+
+// -------------------------------------------------------------
+// -------------------------------------------------------------
+// POST /api/email/batch-college-send
+// Dispatches personalized campus outreach emails to Coimbatore colleges list
+// From: nunesalcotest@gmail.com, CC: nunescbe@gmail.com
+// -------------------------------------------------------------
+app.post('/api/email/batch-college-send', async (req, res) => {
+  try {
+    const {
+      limit = 10,
+      offset = 0,
+      filterDistrict = 'coimbatore',
+      delayMs = 1200
+    } = req.body;
+
+    if (!institutionsData || !institutionsData.allInstitutions) {
+      return res.status(404).json({ error: 'Institutions dataset not found' });
+    }
+
+    if (!emailTransporter) {
+      return res.status(500).json({ error: 'SMTP email service not configured.' });
+    }
+
+    // Filter target colleges
+    const colleges = institutionsData.allInstitutions.filter(c => {
+      const pin = (c.pincode || '').trim();
+      const phone = (c.phone || '').trim();
+      const loc = (c.locality || '').toLowerCase();
+      const zone = (c.areaZone || '').toLowerCase();
+      return pin.startsWith('641') || phone.startsWith('0422') || loc.includes('coimbatore') || zone.includes('coimbatore');
+    });
+
+    const targetBatch = colleges.slice(offset, offset + limit);
+    console.log(`[Batch Email] Starting dispatch to ${targetBatch.length} institutions (offset: ${offset}, limit: ${limit})...`);
+
+    let templateHtml = nunesEmailTemplate;
+    if (fs.existsSync(templatePath)) {
+      templateHtml = fs.readFileSync(templatePath, 'utf8');
+    }
+
+    // Prepare attachments
+    let attachments = [];
+    const logoPath = path.join(publicDir, 'nunes_logo.png');
+    if (fs.existsSync(logoPath)) {
+      attachments.push({ filename: 'nunes_logo.png', path: logoPath, cid: 'nunes-logo' });
+    }
+    const desktopPdf = 'C:\\Users\\NUNES\\Desktop\\Breath_Analyser_Catalogue_14_Individual_Product_QR_Final_EmailReady.pdf';
+    const publicPdf = path.join(publicDir, 'Breath_Analyser_Catalogue_14_Individual_Product_QR_Final.pdf');
+    const attachmentPath = fs.existsSync(desktopPdf) ? desktopPdf : (fs.existsSync(publicPdf) ? publicPdf : null);
+    if (attachmentPath) {
+      attachments.push({ filename: 'Breath_Analyser_Catalogue_14_Individual_Product_QR_Final.pdf', path: attachmentPath });
+    }
+
+    const results = [];
+
+    for (let i = 0; i < targetBatch.length; i++) {
+      const college = targetBatch[i];
+      const targetEmail = college.email ? college.email.trim() : null;
+
+      if (!targetEmail || !targetEmail.includes('@')) {
+        results.push({ college: college.name, email: targetEmail, status: 'skipped_no_email' });
+        continue;
+      }
+
+      try {
+        const mailOptions = {
+          from: '"Nunes Instrumentation" <nunesalcotest@gmail.com>',
+          to: targetEmail,
+          cc: 'nunescbe@gmail.com',
+          replyTo: 'nunesalcotest@gmail.com, nunescbe@gmail.com',
+          subject: 'Campus Breath Analyser Range | Nunes Instrumentation, Coimbatore',
+          html: templateHtml,
+          attachments: attachments,
+          headers: {
+            'X-Entity-Ref-ID': `nunes-batch-${college.id || Date.now()}-${i}`,
+            'X-Mailer': 'NUNES-Campus-Outreach-v2'
+          }
+        };
+
+        const info = await emailTransporter.sendMail(mailOptions);
+        console.log(`[Batch Email Sent] (${i+1}/${targetBatch.length}) ${college.name} <${targetEmail}> | Message ID: ${info.messageId}`);
+        results.push({
+          college: college.name,
+          email: targetEmail,
+          status: 'sent',
+          messageId: info.messageId
+        });
+
+        // Safe rate limiting delay to avoid triggering Gmail SMTP throttle
+        if (i < targetBatch.length - 1 && delayMs > 0) {
+          await new Promise(resolve => setTimeout(resolve, delayMs));
+        }
+      } catch (sendErr) {
+        console.error(`[Batch Email Failed] ${college.name} <${targetEmail}>:`, sendErr.message);
+        results.push({
+          college: college.name,
+          email: targetEmail,
+          status: 'failed',
+          error: sendErr.message
+        });
+      }
+    }
+
+    return res.json({
+      success: true,
+      totalProcessed: targetBatch.length,
+      sentCount: results.filter(r => r.status === 'sent').length,
+      failedCount: results.filter(r => r.status === 'failed').length,
+      skippedCount: results.filter(r => r.status === 'skipped_no_email').length,
+      fromAddress: 'nunesalcotest@gmail.com',
+      ccAddress: 'nunescbe@gmail.com',
+      results: results
+    });
+  } catch (err) {
+    console.error('[Batch Email General Error]', err);
     return res.status(500).json({ error: err.message });
   }
 });

@@ -49,6 +49,18 @@ if (fs.existsSync(datasetPath)) {
   }
 }
 
+// Cache the verified Tamil Nadu Police Stations dataset
+let policeData = null;
+const policePath = path.join(publicDir, 'TamilNadu_Police_Stations_Dataset.json');
+if (fs.existsSync(policePath)) {
+  try {
+    policeData = JSON.parse(fs.readFileSync(policePath, 'utf8'));
+    console.log(`[Police Dataset] Loaded ${policeData.allStations?.length || 0} verified Tamil Nadu police stations.`);
+  } catch (err) {
+    console.error('[Police Dataset] Error reading police dataset:', err.message);
+  }
+}
+
 // -------------------------------------------------------------
 // Helper: Gemini API Client
 // -------------------------------------------------------------
@@ -586,6 +598,17 @@ app.post('/api/email/send', async (req, res) => {
 });
 
 // -------------------------------------------------------------
+// GET /api/police
+// Full verified Tamil Nadu Police Stations dataset endpoint
+// -------------------------------------------------------------
+app.get('/api/police', (req, res) => {
+  if (policeData) {
+    return res.json(policeData);
+  }
+  return res.status(404).json({ error: 'Police dataset not found' });
+});
+
+// -------------------------------------------------------------
 // GET /api/colleges
 // Full 4,990 higher education institutions dataset endpoint
 // -------------------------------------------------------------
@@ -603,12 +626,14 @@ app.get('/api/colleges', (req, res) => {
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'online',
-    appName: 'TN & Kerala HigherEd Directory & AI Sales Agent Studio',
+    appName: 'TN & Kerala HigherEd Directory & Police Law Enforcement Studio',
     port: PORT,
     geminiConfigured: Boolean(GEMINI_API_KEY),
     openaiConfigured: Boolean(OPENAI_API_KEY),
     datasetLoaded: Boolean(institutionsData),
     totalColleges: institutionsData?.allInstitutions?.length || 0,
+    policeDatasetLoaded: Boolean(policeData),
+    totalPoliceStations: policeData?.allStations?.length || 0,
     timestamp: new Date().toISOString()
   });
 });

@@ -589,23 +589,22 @@ Academic Outreach & Technical Sales Division`;
           </div>
         </div>
 
+        <a href="/Tamil_Nadu_Police_Station_Directory_Verified.csv" download="Tamil_Nadu_Police_Station_Directory_Verified.csv" style="display:inline-flex;align-items:center;gap:6px;background:#10b981;color:#ffffff;text-decoration:none;padding:10px 14px;border-radius:10px;font-size:12px;font-weight:700;box-shadow:0 2px 6px rgba(16,185,129,0.3);">
+              <span>📥</span> <span>Download Verified CSV</span>
+            </a>
         <!-- Filter & Search Controls -->
         <div style="background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 16px; margin-bottom: 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
           <div style="flex: 1; min-width: 260px;">
             <input type="text" id="nunes-police-search" placeholder="🔍 Search station name, area, inspector, or pincode..." style="width: 100%; box-sizing: border-box; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 13px; outline: none;">
           </div>
           <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-            <select id="nunes-police-district" style="padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 12px; font-weight: 600; color: #334155; background: #f8fafc;">
-              <option value="all">All Districts &amp; Commissionerates (${stations.length})</option>
-              <option value="Coimbatore City">Coimbatore City Police (${stations.filter(s => s.commissionerate.includes('City')).length})</option>
-              <option value="Coimbatore District">Coimbatore Rural Police (${stations.filter(s => s.commissionerate.includes('District')).length})</option>
-              <option value="Chennai">Greater Chennai Police (${stations.filter(s => s.district === 'Chennai').length})</option>
-              <option value="Tiruppur">Tiruppur Police (${stations.filter(s => s.district === 'Tiruppur').length})</option>
-              <option value="Erode">Erode Police (${stations.filter(s => s.district === 'Erode').length})</option>
-              <option value="Salem">Salem Police (${stations.filter(s => s.district === 'Salem').length})</option>
-              <option value="Tiruchirappalli">Trichy Police (${stations.filter(s => s.district === 'Tiruchirappalli').length})</option>
-              <option value="Madurai">Madurai Police (${stations.filter(s => s.district === 'Madurai').length})</option>
-              <option value="other">Other TN Districts (${stations.filter(s => ['Vellore','The Nilgiris','Tirunelveli'].includes(s.district)).length})</option>
+            <!-- Dynamic District Filter -->
+            <select id="nunes-police-district" style="padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 12px; font-weight: 700; color: #1e3a8a; background: #f8fafc;">
+              <option value="all">All Districts &amp; Units (${stations.length})</option>
+              ${[...new Set(stations.map(s => s.district))].sort().map(d => {
+                const count = stations.filter(s => s.district === d).length;
+                return `<option value="${d}">${d} (${count})</option>`;
+              }).join('')}
             </select>
 
             <select id="nunes-police-category" style="padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 12px; font-weight: 600; color: #334155; background: #f8fafc;">
@@ -701,13 +700,17 @@ Academic Outreach & Technical Sales Division`;
             </div>
           </div>
 
-          <div style="display: flex; gap: 8px;">
-            <button class="nunes-btn-pitch-police" data-station="${encodeURIComponent(JSON.stringify(s))}" style="flex: 1; background: #2563eb; color: #ffffff; border: none; padding: 8px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; transition: background 0.15s;">
-              📩 Pitch Breath Analysers
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <button class="nunes-btn-pitch-police" data-station="${encodeURIComponent(JSON.stringify(s))}" style="flex: 2; min-width: 140px; background: #2563eb; color: #ffffff; border: none; padding: 8px 10px; border-radius: 8px; font-size: 11.5px; font-weight: 700; cursor: pointer; transition: background 0.15s;">
+              📩 Pitch Catalogue
             </button>
-            <a href="tel:${s.phone.replace(/[^0-9]/g,'')}" style="background: #f1f5f9; color: #0f172a; border: 1px solid #cbd5e1; padding: 8px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; text-decoration: none; display: flex; align-items: center; justify-content: center;">
+            <a href="tel:${(s.mobile !== '-' ? s.mobile : s.phone).replace(/[^0-9]/g,'')}" style="flex: 1; min-width: 70px; background: #f1f5f9; color: #0f172a; border: 1px solid #cbd5e1; padding: 8px 8px; border-radius: 8px; font-size: 11.5px; font-weight: 700; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px;">
               📞 Call
             </a>
+            ${s.whatsapp && s.whatsapp !== '-' ? `
+            <a href="https://wa.me/${s.whatsapp.replace(/[^0-9]/g,'')}?text=Hello%20${encodeURIComponent(s.officerTitle)}%2C%20Nunes%20Instrumentation%20Coimbatore%20provides%20official%20Breath%20Analyser%20solutions%20for%20${encodeURIComponent(s.name)}." target="_blank" rel="noopener noreferrer" style="flex: 1; min-width: 90px; background: #25d366; color: #ffffff; border: none; padding: 8px 8px; border-radius: 8px; font-size: 11.5px; font-weight: 700; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px;">
+              💬 WhatsApp
+            </a>` : ''}
           </div>
         </div>
       `).join('');

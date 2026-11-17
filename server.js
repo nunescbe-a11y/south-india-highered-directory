@@ -498,16 +498,7 @@ Nunes Instrumentation Team`;
       }
     }
 
-    // 3. Coimbatore Verified Colleges Directory CSV
-    const cbeCsvPath = path.join(publicDir, 'Coimbatore_Higher_Education_Colleges_Verified_Directory.csv');
-    const desktopCsv = 'C:\\Users\\NUNES\\Desktop\\Coimbatore_Higher_Education_Colleges_Verified_Directory.csv';
-    const csvAttachment = fs.existsSync(desktopCsv) ? desktopCsv : (fs.existsSync(cbeCsvPath) ? cbeCsvPath : null);
-    if (csvAttachment) {
-      attachments.push({
-        filename: 'Coimbatore_Higher_Education_Colleges_Verified_Directory.csv',
-        path: csvAttachment
-      });
-    }
+
 
     const mailOptions = {
       from: `"Nunes Instrumentation" <${SMTP_USER}>`,

@@ -40,7 +40,7 @@
       "Kannur",
       "Kasaragod"
     ],
-    "lastUpdated": "2026-11-19T05:25:44.550Z",
+    "lastUpdated": "2026-11-19T05:42:03.802Z",
     "totalCount": 416
   },
   "allStations": [
@@ -7098,6 +7098,28 @@
       "lat": 12.3125,
       "lng": 75.0924,
       "state": "Kerala"
+    },
+    {
+      "id": "gp-pol-3801-0",
+      "name": "E1 Singanallur Police Station",
+      "stationName": "E1 Singanallur Police Station",
+      "institutionName": "E1 Singanallur Police Station",
+      "address": "222H+5RH, Agraharam, Singanallur, Coimbatore, Tamil Nadu 641005, India",
+      "state": "Tamil Nadu",
+      "district": "Coimbatore",
+      "category": "Law & Order",
+      "rating": 4.2,
+      "lat": 11.0004402,
+      "lng": 77.0296006,
+      "placeId": "ChIJ6_DndmxXqDsRAiiPzYRu3wY",
+      "landline": "0422 258 0354",
+      "phone": "0422 258 0354",
+      "officialEmail": "-",
+      "email": "-",
+      "website": "-",
+      "verifiedSource": "Google Places API (Cloud Console Places API New)",
+      "dateAdded": "2026-11-19T05:42:03.802Z",
+      "isNew": true
     }
   ]
 }

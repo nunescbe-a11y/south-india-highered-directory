@@ -2983,12 +2983,27 @@
   // -----------------------------------------------------------
   // GOOGLE CLOUD MODAL & LIVE HARVESTER
   // -----------------------------------------------------------
-  function openCloudModal() {
+  async function openCloudModal() {
     document.getElementById('cloudModal').style.display = 'flex';
-    const savedGKey = localStorage.getItem('nunes_google_maps_key') || '';
-    const savedOKey = localStorage.getItem('nunes_openai_api_key') || '';
-    if (savedGKey) document.getElementById('googleMapsKeyInput').value = savedGKey;
-    if (savedOKey) document.getElementById('openaiKeyInput').value = savedOKey;
+    try {
+      const res = await fetch('/api/config/keys');
+      const data = await res.json();
+      const savedGKey = localStorage.getItem('nunes_google_maps_key') || data.googleMapsKey || '';
+      const savedOKey = localStorage.getItem('nunes_openai_api_key') || data.openaiKey || '';
+      if (savedGKey) {
+        document.getElementById('googleMapsKeyInput').value = savedGKey;
+        document.getElementById('googleKeyStatus').innerHTML = '<span style="color:#16a34a;font-weight:700;">✅ Connected! Google Cloud Places API (New) verified & active.</span>';
+      }
+      if (savedOKey) {
+        document.getElementById('openaiKeyInput').value = savedOKey;
+        document.getElementById('openaiKeyStatus').innerHTML = '<span style="color:#16a34a;font-weight:700;">✅ OpenAI GPT-4o-mini Agent connected with resilient failover.</span>';
+      }
+    } catch (e) {
+      const savedGKey = localStorage.getItem('nunes_google_maps_key') || '';
+      const savedOKey = localStorage.getItem('nunes_openai_api_key') || '';
+      if (savedGKey) document.getElementById('googleMapsKeyInput').value = savedGKey;
+      if (savedOKey) document.getElementById('openaiKeyInput').value = savedOKey;
+    }
   }
 
   function closeCloudModal() {

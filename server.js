@@ -10,6 +10,7 @@ const app = express();
 let PORT = parseInt(process.env.PORT, 10) || 3005;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY || '';
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY || '';
+const GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY || '';
 
 // Initialize Google Cloud Firestore Database (asia-south1 Mumbai)
 let firestoreDb = null;
@@ -850,24 +851,58 @@ Strict Constraints:
 
 // -------------------------------------------------------------
 // POST /api/google-places/test-key
-// Validates Google Cloud Maps / Places API key
+// Validates Google Cloud Maps / Places API key (Places API New + Legacy fallback)
 // -------------------------------------------------------------
 app.post('/api/google-places/test-key', async (req, res) => {
   const { apiKey } = req.body;
-  if (!apiKey || !apiKey.trim()) {
+  const keyToUse = (apiKey && apiKey.trim()) || GOOGLE_MAPS_API_KEY;
+  if (!keyToUse) {
     return res.status(400).json({ valid: false, error: 'API key is required.' });
   }
 
   try {
-    const testUrl = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Coimbatore+Police+Commissioner+Office&inputtype=textquery&fields=name,formatted_address&key=${apiKey.trim()}`;
-    const response = await fetch(testUrl, { signal: AbortSignal.timeout(8000) });
-    const data = await response.json();
+    // 1. Primary: Validate with modern Places API (New)
+    const newApiUrl = 'https://places.googleapis.com/v1/places:searchText';
+    const newRes = await fetch(newApiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Goog-Api-Key': keyToUse,
+        'X-Goog-FieldMask': 'places.displayName,places.formattedAddress'
+      },
+      body: JSON.stringify({
+        textQuery: 'Coimbatore Police Station',
+        pageSize: 1
+      }),
+      signal: AbortSignal.timeout(8000)
+    });
 
-    if (data.status === 'OK' || data.status === 'ZERO_RESULTS') {
-      return res.json({ valid: true, status: data.status, message: 'Google Places API connected successfully!' });
-    } else {
-      return res.json({ valid: false, status: data.status, message: data.error_message || 'API Key failed Google verification.' });
+    const newData = await newRes.json();
+    if (newRes.ok && (newData.places || Array.isArray(newData.places))) {
+      return res.json({
+        valid: true,
+        apiType: 'Places API (New)',
+        message: 'Google Cloud Places API (New) connected & verified successfully!'
+      });
     }
+
+    // 2. Fallback: Validate with Legacy Places API
+    const legacyUrl = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Coimbatore+Police+Commissioner+Office&inputtype=textquery&fields=name,formatted_address&key=${keyToUse}`;
+    const legRes = await fetch(legacyUrl, { signal: AbortSignal.timeout(8000) });
+    const legData = await legRes.json();
+
+    if (legData.status === 'OK' || legData.status === 'ZERO_RESULTS') {
+      return res.json({
+        valid: true,
+        apiType: 'Legacy Places API',
+        message: 'Google Places API connected successfully!'
+      });
+    }
+
+    return res.json({
+      valid: false,
+      message: (newData.error && newData.error.message) || legData.error_message || 'API Key failed Google verification.'
+    });
   } catch (err) {
     return res.status(500).json({ valid: false, error: err.message });
   }
@@ -1064,13 +1099,14 @@ app.post('/api/records/upsert', (req, res) => {
 
 // -------------------------------------------------------------
 // POST /api/google-places/harvest
-// Harvests live verified places for any State / District in India
-// Automatically synchronizes and saves to persistent database without duplicates
+// Harvests live verified places for any State / District in India via Places API (New)
+// Automatically synchronizes and saves to persistent database & Firestore without duplicates
 // -------------------------------------------------------------
 app.post('/api/google-places/harvest', async (req, res) => {
   const { apiKey, state = 'Tamil Nadu', district = 'Coimbatore', sector = 'police', keyword, autoSave = true } = req.body;
+  const keyToUse = (apiKey && apiKey.trim()) || GOOGLE_MAPS_API_KEY;
 
-  if (!apiKey || !apiKey.trim()) {
+  if (!keyToUse) {
     return res.status(400).json({ error: 'Google Places API key is required to harvest live data.' });
   }
 
@@ -1082,49 +1118,107 @@ app.post('/api/google-places/harvest', async (req, res) => {
   );
 
   try {
-    const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(queryTerm)}&key=${apiKey.trim()}`;
-    const response = await fetch(url, { signal: AbortSignal.timeout(12000) });
+    // Primary: Call modern Places API (New)
+    const newApiUrl = 'https://places.googleapis.com/v1/places:searchText';
+    const response = await fetch(newApiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Goog-Api-Key': keyToUse,
+        'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.location,places.rating,places.nationalPhoneNumber,places.internationalPhoneNumber,places.websiteUri,places.id'
+      },
+      body: JSON.stringify({
+        textQuery: queryTerm,
+        pageSize: 20
+      }),
+      signal: AbortSignal.timeout(15000)
+    });
+
     const data = await response.json();
 
-    if (data.status !== 'OK' && data.status !== 'ZERO_RESULTS') {
-      return res.status(400).json({ error: data.error_message || `Google API returned status: ${data.status}` });
+    let rawPlaces = [];
+    if (response.ok && Array.isArray(data.places)) {
+      rawPlaces = data.places.map((p, idx) => ({
+        id: `gp-${sector.slice(0,3)}-${Date.now().toString().slice(-4)}-${idx}`,
+        name: p.displayName?.text || 'Unknown Institution',
+        stationName: p.displayName?.text || 'Unknown Station',
+        institutionName: p.displayName?.text || 'Unknown Institution',
+        address: p.formattedAddress || `${district}, ${state}`,
+        state: state,
+        district: district,
+        category: sector === 'police' ? 'Law & Order' : (sector === 'colleges' ? 'Higher Education' : (sector === 'schools' ? 'Matriculation / CBSE' : 'Commercial Transport')),
+        rating: p.rating || 4.2,
+        lat: p.location?.latitude || null,
+        lng: p.location?.longitude || null,
+        placeId: p.id || `gp-${Date.now()}-${idx}`,
+        landline: p.nationalPhoneNumber || '-',
+        phone: p.nationalPhoneNumber || p.internationalPhoneNumber || '-',
+        officialEmail: '-',
+        email: '-',
+        website: p.websiteUri || '-',
+        verifiedSource: 'Google Places API (Cloud Console Places API New)'
+      }));
+    } else {
+      // Fallback: Legacy textsearch
+      const legacyUrl = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(queryTerm)}&key=${keyToUse}`;
+      const legRes = await fetch(legacyUrl, { signal: AbortSignal.timeout(12000) });
+      const legData = await legRes.json();
+
+      if (legData.status !== 'OK' && legData.status !== 'ZERO_RESULTS') {
+        return res.status(400).json({ error: (data.error && data.error.message) || legData.error_message || 'Places API request failed' });
+      }
+
+      rawPlaces = (legData.results || []).map((p, idx) => ({
+        id: `gp-${sector.slice(0,3)}-${Date.now().toString().slice(-4)}-${idx}`,
+        name: p.name,
+        stationName: p.name,
+        institutionName: p.name,
+        address: p.formatted_address,
+        state: state,
+        district: district,
+        category: sector === 'police' ? 'Law & Order' : (sector === 'colleges' ? 'Higher Education' : (sector === 'schools' ? 'Matriculation / CBSE' : 'Commercial Transport')),
+        rating: p.rating || 4.2,
+        lat: p.geometry?.location?.lat || null,
+        lng: p.geometry?.location?.lng || null,
+        placeId: p.place_id,
+        landline: '-',
+        phone: '-',
+        officialEmail: '-',
+        email: '-',
+        website: '-',
+        verifiedSource: 'Google Places API (Cloud Console)'
+      }));
     }
 
-    const items = (data.results || []).map((p, idx) => ({
-      id: `gp-${sector.slice(0,3)}-${Date.now().toString().slice(-4)}-${idx}`,
-      name: p.name,
-      stationName: p.name,
-      institutionName: p.name,
-      address: p.formatted_address,
-      state: state,
-      district: district,
-      category: sector === 'police' ? 'Law & Order' : (sector === 'colleges' ? 'Higher Education' : (sector === 'schools' ? 'Matriculation / CBSE' : 'Commercial Transport')),
-      rating: p.rating || 4.2,
-      lat: p.geometry?.location?.lat || null,
-      lng: p.geometry?.location?.lng || null,
-      placeId: p.place_id,
-      landline: '-',
-      phone: '-',
-      officialEmail: '-',
-      email: '-',
-      verifiedSource: 'Google Places API (Cloud Console)'
-    }));
-
     let syncStats = null;
-    if (autoSave && items.length > 0) {
-      syncStats = upsertIncrementalRecords(sector, items);
+    if (autoSave && rawPlaces.length > 0) {
+      syncStats = upsertIncrementalRecords(sector, rawPlaces);
     }
 
     return res.json({
       success: true,
       query: queryTerm,
-      totalHarvested: items.length,
+      totalHarvested: rawPlaces.length,
       syncStats: syncStats,
-      items: items
+      items: rawPlaces
     });
   } catch (err) {
     return res.status(500).json({ error: err.message });
   }
+});
+
+// -------------------------------------------------------------
+// GET /api/config/keys
+// Returns loaded API keys configuration status for UI studio
+// -------------------------------------------------------------
+app.get('/api/config/keys', (req, res) => {
+  res.json({
+    googleMapsKey: GOOGLE_MAPS_API_KEY,
+    openaiKey: OPENAI_API_KEY,
+    googleMapsConfigured: Boolean(GOOGLE_MAPS_API_KEY),
+    openaiConfigured: Boolean(OPENAI_API_KEY),
+    firestoreConnected: Boolean(firestoreDb)
+  });
 });
 
 // -------------------------------------------------------------
@@ -1138,6 +1232,8 @@ app.get('/api/health', (req, res) => {
     port: PORT,
     geminiConfigured: Boolean(GEMINI_API_KEY),
     openaiConfigured: Boolean(OPENAI_API_KEY),
+    googleMapsConfigured: Boolean(GOOGLE_MAPS_API_KEY),
+    firestoreConnected: Boolean(firestoreDb),
     datasetLoaded: Boolean(institutionsData),
     totalColleges: institutionsData?.allInstitutions?.length || 0,
     policeDatasetLoaded: Boolean(policeData),

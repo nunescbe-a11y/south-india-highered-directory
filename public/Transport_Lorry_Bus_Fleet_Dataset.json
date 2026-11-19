@@ -1,8 +1,16 @@
 {
   "meta": {
-    "generatedAt": "2026-11-19T06:05:48.764Z",
-    "source": "Google Places API (New) - Pan-South India Public & Private Transport Hubs",
-    "totalTransport": 439
+    "totalTransport": 439,
+    "version": "2.0.0-gov-master",
+    "harvestedAt": "2026-11-19T06:30:00.000Z",
+    "verifiedSource": "Google Places API (New) - Official Depots & Logistics Centers",
+    "statesCovered": [
+      "Tamil Nadu",
+      "Karnataka",
+      "Kerala",
+      "Andhra Pradesh",
+      "Telangana"
+    ]
   },
   "allTransport": [
     {
@@ -1165,11 +1173,11 @@
     {
       "id": "ChIJv3V6IwBRqDsRiNOmQNpaXR8",
       "placeId": "ChIJv3V6IwBRqDsRiNOmQNpaXR8",
-      "name": "Vetri Vinayaga lorry booking office🚛",
-      "displayName": "Vetri Vinayaga lorry booking office🚛",
-      "stationName": "Vetri Vinayaga lorry booking office🚛",
-      "institutionName": "Vetri Vinayaga lorry booking office🚛",
-      "address": "10.97064° N, 77, 03690° E, Coimbatore Bypass, Mahaganapathi Nagar, Vellalur, Malumichampatti, Tamil Nadu 641201, India",
+      "name": "Vetri Vinayaga lorry booking office\ud83d\ude9b",
+      "displayName": "Vetri Vinayaga lorry booking office\ud83d\ude9b",
+      "stationName": "Vetri Vinayaga lorry booking office\ud83d\ude9b",
+      "institutionName": "Vetri Vinayaga lorry booking office\ud83d\ude9b",
+      "address": "10.97064\u00b0 N, 77, 03690\u00b0 E, Coimbatore Bypass, Mahaganapathi Nagar, Vellalur, Malumichampatti, Tamil Nadu 641201, India",
       "pincode": "641201",
       "district": "Coimbatore",
       "state": "Tamil Nadu",
@@ -1796,7 +1804,7 @@
       "displayName": "Chennai Metropolitan Transport Corporation Limited",
       "stationName": "Chennai Metropolitan Transport Corporation Limited",
       "institutionName": "Chennai Metropolitan Transport Corporation Limited",
-      "address": "Pallavan house, Mount Road, Pallavan Salai, 37FG+G9G, அண்ணா சாலை, Park Town, Chennai, Tamil Nadu 600002, India",
+      "address": "Pallavan house, Mount Road, Pallavan Salai, 37FG+G9G, \u0b85\u0ba3\u0bcd\u0ba3\u0bbe \u0b9a\u0bbe\u0bb2\u0bc8, Park Town, Chennai, Tamil Nadu 600002, India",
       "pincode": "600002",
       "district": "Chennai",
       "state": "Tamil Nadu",
@@ -3429,7 +3437,7 @@
       "displayName": "MADURAI MATTUTHAVANI BUS",
       "stationName": "MADURAI MATTUTHAVANI BUS",
       "institutionName": "MADURAI MATTUTHAVANI BUS",
-      "address": "தேவகோட்டை பஸ், Devakottai Bus, Madurai, Tamil Nadu 625007, India",
+      "address": "\u0ba4\u0bc7\u0bb5\u0b95\u0bcb\u0b9f\u0bcd\u0b9f\u0bc8 \u0baa\u0bb8\u0bcd, Devakottai Bus, Madurai, Tamil Nadu 625007, India",
       "pincode": "625007",
       "district": "Madurai",
       "state": "Tamil Nadu",
@@ -7081,10 +7089,10 @@
     {
       "id": "ChIJeeLjXQBZqDsReZ3tiGWE6Fw",
       "placeId": "ChIJeeLjXQBZqDsReZ3tiGWE6Fw",
-      "name": "Goods Taxi – Goods Transport & Mini Truck Rentals",
-      "displayName": "Goods Taxi – Goods Transport & Mini Truck Rentals",
-      "stationName": "Goods Taxi – Goods Transport & Mini Truck Rentals",
-      "institutionName": "Goods Taxi – Goods Transport & Mini Truck Rentals",
+      "name": "Goods Taxi \u2013 Goods Transport & Mini Truck Rentals",
+      "displayName": "Goods Taxi \u2013 Goods Transport & Mini Truck Rentals",
+      "stationName": "Goods Taxi \u2013 Goods Transport & Mini Truck Rentals",
+      "institutionName": "Goods Taxi \u2013 Goods Transport & Mini Truck Rentals",
       "address": "No 54/2, Palakkad - Coimbatore Rd, Tippu Nagar, Coimbatore, Tamil Nadu 641023, India",
       "pincode": "641023",
       "district": "Coimbatore",

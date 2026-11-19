@@ -1098,7 +1098,7 @@
         </button>
         <button class="tab-btn" onclick="switchView('transport')">
           <span>🚚</span> <span>Bus & Lorry Fleets</span>
-          <span class="tab-badge" id="badgeTransportCount">475</span>
+          <span class="tab-badge" id="badgeTransportCount">485</span>
         </button>
         <button class="tab-btn" onclick="switchView('workspace')">
           <span>💼</span> <span>Workspaces (WhatsApp & Email)</span>
@@ -1250,7 +1250,7 @@
     <div class="kpi-card">
       <div class="kpi-icon transport">🚚</div>
       <div>
-        <div class="kpi-val" id="kpiTransportCount">475</div>
+        <div class="kpi-val" id="kpiTransportCount">485</div>
         <div class="kpi-label">Bus & Lorry Transport Hubs</div>
       </div>
     </div>
@@ -1292,7 +1292,7 @@
               <span>🏫</span> <span id="mapBtnSchools">Schools (25,536)</span>
             </button>
             <button class="layer-toggle-btn active transport" id="toggleTransportLayerBtn" onclick="toggleMapLayer('transport')">
-              <span>🚚</span> <span id="mapBtnTransport">Bus & Lorry Hubs (475)</span>
+              <span>🚚</span> <span id="mapBtnTransport">Bus & Lorry Hubs (485)</span>
             </button>
             <button class="layer-toggle-btn" onclick="fitMapBounds()">
               <span>🎯</span> <span>Reset View</span>
@@ -1340,7 +1340,7 @@
     <div class="tab-view-content" id="view-transport">
       <div class="directory-view">
         <div class="results-count-bar">
-          <div>Showing <strong id="transportFilteredCount">475</strong> State Road Transport Depots (MSRTC, UPSRTC, GSRTC, RSRTC, TNSTC, BMTC, KSRTC, APSRTC, TGSRTC, WBTC, DTC), Private Omnibuses & Heavy Freight Hubs</div>
+          <div>Showing <strong id="transportFilteredCount">485</strong> State Road Transport Depots (MSRTC, UPSRTC, GSRTC, RSRTC, TNSTC, BMTC, KSRTC, APSRTC, TGSRTC, WBTC, DTC), Private Omnibuses & Heavy Freight Hubs</div>
           <div>Zero-Tolerance Commercial Driver Sobriety Testing, Gatehouse Interlocks & OBD-II Breathalyzers</div>
         </div>
         <div class="cards-grid" id="transportCardsGrid"></div>
@@ -2641,6 +2641,12 @@
               <strong>Official Email:</strong>
               <a href="mailto:${t.email}">${t.email}</a>
             </div>
+            ${t.whatsapp && t.whatsapp !== '-' ? `
+            <div class="card-detail-item">
+              <span class="icon">💬</span>
+              <strong>Direct WhatsApp:</strong>
+              <strong style="color:#16a34a;">${t.whatsapp}</strong>
+            </div>` : ''}
             <div class="card-detail-item">
               <span class="icon">👤</span>
               <strong>Head / Manager:</strong>
@@ -2653,7 +2659,8 @@
         </div>
         <div class="card-actions">
           <button class="card-btn" onclick="focusOnMap(${t.lat}, ${t.lng})">🗺️ Map</button>
-          <button class="card-btn" style="background:#f0fdf4;color:#16a34a;border-color:#bbf7d0;" onclick="openWaWorkspaceFor('${id}', '${safeName}', '${t.email}', '${t.landline}', '${t.district}', 'Transport', '${t.state}')">💬 WhatsApp</button>
+          <button class="card-btn" style="background:#f0fdf4;color:#16a34a;border-color:#bbf7d0;" onclick="openWaWorkspaceFor('${id}', '${safeName}', '${t.email}', '${t.whatsapp && t.whatsapp !== '-' ? t.whatsapp : t.landline}', '${t.district}', 'Transport', '${t.state}')">💬 WhatsApp</button>
+          ${t.whatsapp && t.whatsapp !== '-' ? `<a href="https://wa.me/${t.whatsapp.replace(/[^0-9]/g, '')}" target="_blank" class="card-btn" style="background:#22c55e;color:#ffffff;border:none;font-weight:700;">📲 Chat</a>` : ''}
           <button class="card-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(t.name)}')">📄 Fleet RFQ</button>
         </div>
       `;

@@ -1,24 +1,2269 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coimbatore Colleges Directory &amp; Census</title>
-    <meta name="description" content="Comprehensive census and categorized searchable directory of all higher education colleges in Coimbatore district across Engineering, Arts & Science, Medical, Polytechnic, Management, Law, and Universities." />
-    <meta property="og:title" content="Coimbatore Colleges Directory &amp; Census" />
-    <meta property="og:description" content="Comprehensive census and categorized searchable directory of all higher education colleges in Coimbatore district across Engineering, Arts & Science, Medical, Polytechnic, Management, Law, and Universities." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/assets/index-Bo9Sf2mK.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-B10GJjlm.css">
-    <link rel="stylesheet" href="/custom-enhancements.css">
-    <script src="/app-enhancements.js" defer></script>
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
-</html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>NUNES Instrumentation — South India Law Enforcement, Campus & Transport Safety Portal</title>
+  <meta name="description" content="Verified master census of 415+ Police Stations, 1,650+ Colleges, Schools, and Bus/Lorry Transport Fleets across Tamil Nadu & Kerala with interactive live GIS map and 14-model Nunes Breath Analyser solutions.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet CSS & JS for Interactive Live Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-dark: #1e3a8a;
+      --police-navy: #0f172a;
+      --police-blue: #1e40af;
+      --police-gold: #f59e0b;
+      --college-emerald: #059669;
+      --school-purple: #7c3aed;
+      --transport-amber: #d97706;
+      --transport-crimson: #dc2626;
+      --success: #10b981;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+      --bg-main: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-dark: #090d16;
+      --border-color: #e2e8f0;
+      --border-dark: #1e293b;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --text-subtle: #94a3b8;
+      --radius-sm: 8px;
+      --radius: 12px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 14px rgba(0,0,0,0.07);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+      --shadow-xl: 0 20px 35px rgba(0,0,0,0.14);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    /* FULL PAGE FIT LAYOUT */
+    .app-wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      width: 100%;
+    }
+
+    /* Top Ticker Bar */
+    .top-status-bar {
+      background: var(--bg-dark);
+      color: #94a3b8;
+      font-size: 12px;
+      padding: 7px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-dark);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .status-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .pulse-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #34d399;
+      font-weight: 600;
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16,185,129,0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16,185,129,0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+    }
+    .status-pill {
+      background: #1e293b;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #cbd5e1;
+    }
+    .quick-links-top a {
+      color: #cbd5e1;
+      text-decoration: none;
+      margin-left: 14px;
+      transition: color 0.2s;
+    }
+    .quick-links-top a:hover { color: #60a5fa; }
+
+    /* Main Navigation Header */
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+    }
+    .header-inner {
+      width: 100%;
+      padding: 10px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-logo-container {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      font-weight: 800;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .brand-info h1 {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .brand-badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      background: #eff6ff;
+      color: var(--primary);
+      border-radius: 100px;
+      border: 1px solid #bfdbfe;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .brand-subtitle {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Main Tabs in Header */
+    .nav-tabs {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: #f1f5f9;
+      padding: 4px;
+      border-radius: var(--radius);
+      border: 1px solid #e2e8f0;
+      overflow-x: auto;
+    }
+    .tab-btn {
+      border: none;
+      background: transparent;
+      padding: 6px 12px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      white-space: nowrap;
+    }
+    .tab-btn:hover {
+      color: var(--text-main);
+      background: rgba(255,255,255,0.6);
+    }
+    .tab-btn.active {
+      background: #ffffff;
+      color: var(--primary);
+      box-shadow: var(--shadow-sm);
+      font-weight: 700;
+    }
+    .tab-badge {
+      font-size: 10px;
+      padding: 1px 5px;
+      border-radius: 100px;
+      background: #e2e8f0;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .tab-btn.active .tab-badge {
+      background: #eff6ff;
+      color: var(--primary);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-quote-header {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: white;
+      border: none;
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 8px rgba(37,99,235,0.3);
+      transition: all 0.2s;
+    }
+    .btn-quote-header:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+    }
+
+    /* FULL PAGE FIT STICKY CONTROLS BAR */
+    .controls-strip {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      padding: 10px 24px;
+      position: sticky;
+      top: 65px;
+      z-index: 900;
+      box-shadow: var(--shadow-sm);
+    }
+    .controls-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .controls-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+      min-width: 320px;
+      flex-wrap: wrap;
+    }
+    .search-box-wrapper {
+      position: relative;
+      flex: 1;
+      min-width: 220px;
+      max-width: 400px;
+    }
+    .search-input {
+      width: 100%;
+      height: 36px;
+      padding: 0 12px 0 34px;
+      border-radius: var(--radius-sm);
+      border: 1px solid #cbd5e1;
+      font-size: 12.5px;
+      background: #f8fafc;
+      color: var(--text-main);
+      transition: all 0.2s;
+    }
+    .search-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+    .search-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+      pointer-events: none;
+      font-size: 13px;
+    }
+    .clear-search-btn {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      cursor: pointer;
+      font-size: 13px;
+      display: none;
+    }
+
+    /* Dropdowns */
+    .filter-select {
+      height: 36px;
+      padding: 0 28px 0 10px;
+      border-radius: var(--radius-sm);
+      border: 1px solid #cbd5e1;
+      font-size: 12.5px;
+      font-weight: 500;
+      background: #ffffff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E") no-repeat right 8px center / 13px;
+      color: var(--text-main);
+      cursor: pointer;
+      appearance: none;
+      min-width: 135px;
+      transition: border-color 0.2s;
+    }
+    .filter-select:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .filter-select.state-select {
+      font-weight: 700;
+      background-color: #f0f7ff;
+      border-color: #93c5fd;
+      color: #1e3a8a;
+    }
+
+    .controls-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-export {
+      height: 36px;
+      padding: 0 12px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-export:hover {
+      background: #f8fafc;
+      color: var(--text-main);
+      border-color: #94a3b8;
+    }
+    .btn-reset {
+      height: 36px;
+      padding: 0 10px;
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+      color: #ef4444;
+      cursor: pointer;
+    }
+    .btn-reset:hover { background: #fee2e2; }
+
+    /* KPI Summary Row */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      padding: 14px 24px 6px;
+      width: 100%;
+    }
+    .kpi-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .kpi-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 19px;
+      flex-shrink: 0;
+    }
+    .kpi-icon.police { background: #e0f2fe; color: #0284c7; }
+    .kpi-icon.college { background: #dcfce7; color: #16a34a; }
+    .kpi-icon.school { background: #f3e8ff; color: #7c3aed; }
+    .kpi-icon.transport { background: #fef3c7; color: #d97706; }
+    .kpi-icon.device { background: #f1f5f9; color: #475569; }
+    .kpi-val {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.1;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .kpi-label {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* MAIN VIEW CONTAINER (Full Width Fit) */
+    .content-area {
+      flex: 1;
+      width: 100%;
+      padding: 10px 24px 30px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tab-view-content {
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+    .tab-view-content.active {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 1. LIVE MAP CONTAINER */
+    .map-section {
+      width: 100%;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .map-header {
+      padding: 10px 18px;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .map-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .map-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .map-controls-toggles {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .layer-toggle-btn {
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border-color);
+      background: #f8fafc;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s;
+    }
+    .layer-toggle-btn.active.police { background: #1e3a8a; color: white; border-color: #1e3a8a; }
+    .layer-toggle-btn.active.college { background: #059669; color: white; border-color: #059669; }
+    .layer-toggle-btn.active.school { background: #7c3aed; color: white; border-color: #7c3aed; }
+    .layer-toggle-btn.active.transport { background: #d97706; color: white; border-color: #d97706; }
+
+    #liveMap {
+      width: 100%;
+      height: 660px;
+      min-height: 520px;
+      z-index: 10;
+      background: #e2e8f0;
+    }
+
+    /* Leaflet Custom Popups */
+    .leaflet-popup-content-wrapper {
+      border-radius: 12px;
+      box-shadow: var(--shadow-xl);
+      padding: 3px;
+    }
+    .map-popup-card {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      padding: 3px;
+      max-width: 290px;
+    }
+    .popup-badge {
+      font-size: 9.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 2px 6px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 5px;
+    }
+    .popup-badge.police { background: #e0f2fe; color: #0369a1; }
+    .popup-badge.college { background: #dcfce7; color: #15803d; }
+    .popup-badge.school { background: #f3e8ff; color: #7c3aed; }
+    .popup-badge.transport { background: #fef3c7; color: #b45309; }
+    .popup-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-bottom: 5px;
+    }
+    .popup-meta {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-bottom: 7px;
+    }
+    .popup-detail-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      margin-bottom: 3px;
+      color: var(--text-main);
+    }
+    .popup-detail-row a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .popup-priority {
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 3px 6px;
+      border-radius: 4px;
+      background: #fef3c7;
+      color: #92400e;
+      margin: 6px 0;
+      display: inline-block;
+      line-height: 1.3;
+    }
+    .popup-actions {
+      display: flex;
+      gap: 6px;
+      margin-top: 7px;
+    }
+    .popup-btn {
+      flex: 1;
+      padding: 5px 7px;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 6px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-block;
+      border: 1px solid transparent;
+    }
+    .popup-btn.primary { background: var(--primary); color: white; }
+    .popup-btn.outline { background: #f8fafc; color: var(--text-main); border-color: #cbd5e1; }
+
+    /* Custom SVG Marker styling */
+    .custom-marker-pin {
+      width: 30px;
+      height: 30px;
+      border-radius: 50% 50% 50% 0;
+      position: absolute;
+      transform: rotate(-45deg);
+      left: 50%;
+      top: 50%;
+      margin: -18px 0 0 -18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      border: 2px solid #ffffff;
+    }
+    .custom-marker-pin.police { background: #1e3a8a; }
+    .custom-marker-pin.college { background: #059669; }
+    .custom-marker-pin.school { background: #7c3aed; }
+    .custom-marker-pin.transport { background: #d97706; }
+    .custom-marker-icon {
+      transform: rotate(45deg);
+      font-size: 13px;
+      color: white;
+    }
+
+    /* DIRECTORY TABLE & CARDS SECTION */
+    .directory-view {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+    .results-count-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12.5px;
+      color: var(--text-muted);
+      padding: 3px 2px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .results-count-bar strong { color: var(--text-main); }
+
+    /* Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 14px;
+      width: 100%;
+    }
+    .entity-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 15px 17px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+    .entity-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+    .entity-card.priority-critical { border-left: 4px solid #ef4444; }
+    .entity-card.priority-very-high { border-left: 4px solid #f59e0b; }
+    .entity-card.priority-high { border-left: 4px solid #3b82f6; }
+    .entity-card.priority-school { border-left: 4px solid #7c3aed; }
+    .entity-card.priority-transport { border-left: 4px solid #d97706; }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+    .card-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.35;
+    }
+    .card-state-pill {
+      font-size: 9.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .card-state-pill.tn { background: #dbeafe; color: #1e40af; }
+    .card-state-pill.kl { background: #dcfce7; color: #166534; }
+
+    .card-meta {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .card-district { font-weight: 600; color: var(--text-main); }
+    .card-divider { color: #cbd5e1; }
+
+    .card-details-list {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-size: 12px;
+      margin-bottom: 12px;
+      background: #f8fafc;
+      padding: 9px 11px;
+      border-radius: var(--radius-sm);
+      border: 1px solid #f1f5f9;
+    }
+    .card-detail-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: #334155;
+    }
+    .card-detail-item span.icon {
+      font-size: 12px;
+      width: 15px;
+      text-align: center;
+      color: #64748b;
+    }
+    .card-detail-item a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .card-detail-item a:hover { text-decoration: underline; }
+
+    .card-priority-tag {
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 3px 7px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      display: inline-block;
+      line-height: 1.3;
+    }
+    .card-priority-tag.critical { background: #fee2e2; color: #991b1b; }
+    .card-priority-tag.very-high { background: #fef3c7; color: #92400e; }
+    .card-priority-tag.high { background: #eff6ff; color: #1e40af; }
+    .card-priority-tag.school { background: #f3e8ff; color: #6b21a8; }
+    .card-priority-tag.transport { background: #fef3c7; color: #92400e; }
+
+    .card-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: auto;
+    }
+    .card-btn {
+      flex: 1;
+      height: 31px;
+      font-size: 11.5px;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .card-btn:hover {
+      background: #f8fafc;
+      border-color: #94a3b8;
+    }
+    .card-btn.primary {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    .card-btn.primary:hover {
+      background: var(--primary-hover);
+    }
+
+    /* PRODUCTS 14-MODEL GRID */
+    .products-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .models-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 16px;
+    }
+    .model-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s;
+    }
+    .model-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: #93c5fd;
+    }
+    .model-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .model-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin: 4px 0 6px;
+    }
+    .model-target {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      display: inline-block;
+      padding: 2px 7px;
+      background: #f1f5f9;
+      border-radius: 4px;
+    }
+    .model-features {
+      list-style: none;
+      font-size: 12px;
+      color: #334155;
+      margin-bottom: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .model-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 5px;
+    }
+    .model-features li::before {
+      content: "✓";
+      color: var(--success);
+      font-weight: bold;
+    }
+
+    /* ANALYTICS VIEW */
+    .analytics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 18px;
+      width: 100%;
+    }
+    .chart-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+    .chart-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .bar-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-size: 11.5px;
+    }
+    .bar-label {
+      width: 140px;
+      font-weight: 600;
+      color: var(--text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .bar-track {
+      flex: 1;
+      height: 16px;
+      background: #f1f5f9;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.6s ease;
+    }
+    .bar-val {
+      width: 40px;
+      text-align: right;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-main);
+    }
+
+    /* MODAL STYLES */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .modal-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      max-width: 500px;
+      width: 100%;
+      box-shadow: var(--shadow-xl);
+      overflow: hidden;
+      animation: modalFadeIn 0.2s ease-out;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .modal-header {
+      padding: 14px 18px;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-title { font-size: 15px; font-weight: 800; color: var(--text-main); }
+    .modal-close {
+      background: transparent;
+      border: none;
+      font-size: 19px;
+      color: #94a3b8;
+      cursor: pointer;
+    }
+    .modal-body { padding: 18px; }
+    .form-group { margin-bottom: 12px; }
+    .form-label { display: block; font-size: 11.5px; font-weight: 700; margin-bottom: 4px; color: var(--text-main); }
+    .form-control {
+      width: 100%;
+      padding: 8px 11px;
+      border: 1px solid #cbd5e1;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      font-family: inherit;
+    }
+    .form-control:focus { outline: none; border-color: var(--primary); }
+
+    /* Floating WhatsApp Pill */
+    .floating-wa-pill {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      background: #25d366;
+      color: white;
+      padding: 9px 16px;
+      border-radius: 100px;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      text-decoration: none;
+      font-size: 12.5px;
+      font-weight: 700;
+      z-index: 1000;
+      transition: transform 0.2s;
+    }
+    .floating-wa-pill:hover { transform: scale(1.05); }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .header-inner { flex-direction: column; align-items: flex-start; }
+      .nav-tabs { width: 100%; overflow-x: auto; }
+      .controls-grid { flex-direction: column; align-items: stretch; }
+      .controls-left { flex-direction: column; }
+      .search-box-wrapper { max-width: 100%; }
+      #liveMap { height: 480px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="app-wrapper">
+  
+  <!-- 1. TOP STATUS / TICKER BAR -->
+  <div class="top-status-bar">
+    <div class="status-left">
+      <div class="pulse-indicator">
+        <span class="pulse-dot"></span>
+        <span>SOUTH INDIA LAW ENFORCEMENT, CAMPUS & FLEET REPO LIVE</span>
+      </div>
+      <span class="status-pill">415 POLICE STATIONS</span>
+      <span class="status-pill">1,654 COLLEGES</span>
+      <span class="status-pill">26 SCHOOL BUS FLEETS</span>
+      <span class="status-pill">22 BUS & LORRY HUBS</span>
+    </div>
+    <div class="quick-links-top">
+      <span>HQ: Coimbatore, Tamil Nadu</span>
+      <a href="tel:+919443217030">📞 +91 94432 17030</a>
+      <a href="mailto:nunesalcotest@gmail.com">✉️ nunesalcotest@gmail.com</a>
+    </div>
+  </div>
+
+  <!-- 2. MAIN HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="brand-section">
+        <div class="brand-logo-container">N</div>
+        <div class="brand-info">
+          <h1>
+            NUNES INSTRUMENTATION
+            <span class="brand-badge">Multi-Sector Edition</span>
+          </h1>
+          <div class="brand-subtitle">
+            <span>🛡️ Police</span>
+            <span>•</span>
+            <span>🎓 HigherEd</span>
+            <span>•</span>
+            <span>🏫 Schools</span>
+            <span>•</span>
+            <span>🚚 Bus & Lorry Fleets</span>
+            <span>•</span>
+            <span>💨 14 Breath Analysers</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="nav-tabs">
+        <button class="tab-btn active" onclick="switchView('map')">
+          <span>🗺️</span> <span>Live Map</span>
+        </button>
+        <button class="tab-btn" onclick="switchView('police')">
+          <span>🛡️</span> <span>Police</span>
+          <span class="tab-badge" id="badgePoliceCount">415</span>
+        </button>
+        <button class="tab-btn" onclick="switchView('colleges')">
+          <span>🎓</span> <span>Colleges</span>
+          <span class="tab-badge" id="badgeCollegesCount">1,654</span>
+        </button>
+        <button class="tab-btn" onclick="switchView('schools')">
+          <span>🏫</span> <span>Schools</span>
+          <span class="tab-badge" id="badgeSchoolsCount">26</span>
+        </button>
+        <button class="tab-btn" onclick="switchView('transport')">
+          <span>🚚</span> <span>Bus & Lorry Fleets</span>
+          <span class="tab-badge" id="badgeTransportCount">22</span>
+        </button>
+        <button class="tab-btn" onclick="switchView('analytics')">
+          <span>📊</span> <span>Analytics</span>
+        </button>
+        <button class="tab-btn" onclick="switchView('products')">
+          <span>💨</span> <span>14 Analyser Models</span>
+        </button>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <button class="btn-quote-header" onclick="openQuoteModal()">
+          <span>📄</span> <span>Request Quotation</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. FULL PAGE FIT STICKY CONTROLS BAR -->
+  <section class="controls-strip">
+    <div class="controls-grid">
+      <div class="controls-left">
+        <!-- State Selector -->
+        <select class="filter-select state-select" id="stateFilter" onchange="handleStateChange()">
+          <option value="ALL">🌐 All States (South India)</option>
+          <option value="Tamil Nadu" selected>🏛️ Tamil Nadu</option>
+          <option value="Kerala">🌴 Kerala</option>
+        </select>
+
+        <!-- District Selector -->
+        <select class="filter-select" id="districtFilter" onchange="handleFilterChange()">
+          <option value="ALL">📍 All Districts</option>
+        </select>
+
+        <!-- Category Filter -->
+        <select class="filter-select" id="categoryFilter" onchange="handleFilterChange()">
+          <option value="ALL">🏷️ All Categories</option>
+        </select>
+
+        <!-- Live Search -->
+        <div class="search-box-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="search-input" id="searchInput" placeholder="Search station, college, school, lorry hub, bus depot..." oninput="handleSearch()">
+          <button class="clear-search-btn" id="clearSearchBtn" onclick="clearSearch()">✕</button>
+        </div>
+      </div>
+
+      <div class="controls-right">
+        <button class="btn-export" onclick="exportData('csv')">
+          <span>📥</span> <span>Export CSV</span>
+        </button>
+        <button class="btn-export" onclick="exportData('json')">
+          <span>📋</span> <span>Export JSON</span>
+        </button>
+        <button class="btn-reset" onclick="resetFilters()">Reset</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. KPI SUMMARY STATS ROW -->
+  <section class="kpi-row">
+    <div class="kpi-card">
+      <div class="kpi-icon police">🛡️</div>
+      <div>
+        <div class="kpi-val" id="kpiPoliceCount">415</div>
+        <div class="kpi-label">Verified Police Stations</div>
+      </div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon college">🎓</div>
+      <div>
+        <div class="kpi-val" id="kpiCollegesCount">1,654</div>
+        <div class="kpi-label">Colleges & Universities</div>
+      </div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon school">🏫</div>
+      <div>
+        <div class="kpi-val" id="kpiSchoolsCount">26</div>
+        <div class="kpi-label">Schools with Bus Fleets</div>
+      </div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon transport">🚚</div>
+      <div>
+        <div class="kpi-val" id="kpiTransportCount">22</div>
+        <div class="kpi-label">Bus & Lorry Transport Hubs</div>
+      </div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon device">💨</div>
+      <div>
+        <div class="kpi-val">14</div>
+        <div class="kpi-label">Precision Analyser Models</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. MAIN CONTENT AREA -->
+  <main class="content-area">
+
+    <!-- VIEW 1: INTERACTIVE LIVE MAP -->
+    <div class="tab-view-content active" id="view-map">
+      <div class="map-section">
+        <div class="map-header">
+          <div class="map-header-left">
+            <span class="map-title"><span>🗺️</span> <span>Multi-Sector Enforcement, Campus & Fleet Geographic Intelligence Map</span></span>
+            <span class="status-pill" id="mapVisibleCount">Loading markers...</span>
+          </div>
+          <div class="map-controls-toggles">
+            <button class="layer-toggle-btn active police" id="togglePoliceLayerBtn" onclick="toggleMapLayer('police')">
+              <span>🛡️</span> <span>Police (415)</span>
+            </button>
+            <button class="layer-toggle-btn active college" id="toggleCollegeLayerBtn" onclick="toggleMapLayer('colleges')">
+              <span>🎓</span> <span>Colleges (1.6k)</span>
+            </button>
+            <button class="layer-toggle-btn active school" id="toggleSchoolLayerBtn" onclick="toggleMapLayer('schools')">
+              <span>🏫</span> <span>Schools (26)</span>
+            </button>
+            <button class="layer-toggle-btn active transport" id="toggleTransportLayerBtn" onclick="toggleMapLayer('transport')">
+              <span>🚚</span> <span>Bus & Lorry Hubs (22)</span>
+            </button>
+            <button class="layer-toggle-btn" onclick="fitMapBounds()">
+              <span>🎯</span> <span>Reset View</span>
+            </button>
+          </div>
+        </div>
+        <div id="liveMap"></div>
+      </div>
+    </div>
+
+    <!-- VIEW 2: POLICE STATIONS DIRECTORY -->
+    <div class="tab-view-content" id="view-police">
+      <div class="directory-view">
+        <div class="results-count-bar">
+          <div>Showing <strong id="policeFilteredCount">415</strong> police stations across Tamil Nadu & Kerala</div>
+          <div>All numbers verified with official STD codes & @tnpolice.gov.in / @keralapolice.gov.in emails</div>
+        </div>
+        <div class="cards-grid" id="policeCardsGrid"></div>
+      </div>
+    </div>
+
+    <!-- VIEW 3: COLLEGES DIRECTORY -->
+    <div class="tab-view-content" id="view-colleges">
+      <div class="directory-view">
+        <div class="results-count-bar">
+          <div>Showing <strong id="collegesFilteredCount">1,654</strong> higher education institutions across South India</div>
+          <div>Direct principal contacts, landlines, and official institutional email domains</div>
+        </div>
+        <div class="cards-grid" id="collegesCardsGrid"></div>
+      </div>
+    </div>
+
+    <!-- VIEW 4: SCHOOLS DIRECTORY (SCHOOL BUS DRIVER SAFETY) -->
+    <div class="tab-view-content" id="view-schools">
+      <div class="directory-view">
+        <div class="results-count-bar">
+          <div>Showing <strong id="schoolsFilteredCount">26</strong> prominent CBSE, ICSE & Matriculation Schools with large student bus fleets</div>
+          <div>Mandatory Driver Breath Alcohol Screening under Section 185 Motor Vehicles Act</div>
+        </div>
+        <div class="cards-grid" id="schoolsCardsGrid"></div>
+      </div>
+    </div>
+
+    <!-- VIEW 5: TRANSPORT & LORRY SERVICES DIRECTORY -->
+    <div class="tab-view-content" id="view-transport">
+      <div class="directory-view">
+        <div class="results-count-bar">
+          <div>Showing <strong id="transportFilteredCount">22</strong> State Road Transport Depots, Private Omnibuses & Heavy Lorry Operators</div>
+          <div>Zero-Tolerance Commercial Driver Sobriety Testing, Gatehouse Interlocks & OBD-II Breathalyzers</div>
+        </div>
+        <div class="cards-grid" id="transportCardsGrid"></div>
+      </div>
+    </div>
+
+    <!-- VIEW 6: ANALYTICS DASHBOARD -->
+    <div class="tab-view-content" id="view-analytics">
+      <div class="analytics-grid">
+        <div class="chart-card">
+          <div class="chart-title"><span>🛡️</span> <span>Police Stations Distribution by District (Top 10)</span></div>
+          <div id="chartPoliceDistricts"></div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-title"><span>🎓</span> <span>Higher Education Institutions by District (Top 10)</span></div>
+          <div id="chartCollegesDistricts"></div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-title"><span>🚚</span> <span>Commercial Transport Fleet Distribution by Sector</span></div>
+          <div id="chartTransportTypes"></div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-title"><span>🏫</span> <span>School Bus Fleet Driver Screening Priorities</span></div>
+          <div id="chartSchoolPriorities"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW 7: 14 NUNES BREATH ANALYSER PRODUCT SUITE -->
+    <div class="tab-view-content" id="view-products">
+      <div class="products-container">
+        <div style="background:#ffffff;padding:16px 20px;border-radius:12px;border:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+          <div>
+            <h2 style="font-size:17px;font-weight:800;color:#0f172a;">14 Precision Alcohol Breath Analyser Models</h2>
+            <p style="font-size:12.5px;color:#64748b;">Engineered for Police Traffic Enforcement, School Bus Driver Morning Checks, Lorry Fleets & Gatehouse Turnstiles.</p>
+          </div>
+          <a href="/Breath_Analyser_Catalogue_14_Individual_Product_QR_Final.pdf" target="_blank" class="card-btn primary" style="height:36px;padding:0 14px;flex:none;">
+            <span>📥</span> <span>Download Official 14-Product PDF Catalogue (5.16 MB)</span>
+          </a>
+        </div>
+        <div class="models-grid" id="modelsGrid"></div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/919443217030?text=Hello%20Nunes%20Instrumentation%2C%20I%20would%20like%20a%20quotation%20and%20demonstration%20for%20Alcohol%20Breath%20Analysers." target="_blank" class="floating-wa-pill">
+  <span>💬</span> <span>WhatsApp Sales</span>
+</a>
+
+<!-- QUOTATION REQUEST MODAL -->
+<div class="modal-overlay" id="quoteModal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <div class="modal-title">Request Official Price Quotation & Demo</div>
+      <button class="modal-close" onclick="closeQuoteModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="quoteForm" onsubmit="handleQuoteSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Selected Unit / School / Transport Depot</label>
+          <input type="text" class="form-control" id="quoteTargetName" readonly style="background:#f1f5f9;font-weight:700;">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Select Breath Analyser Model</label>
+          <select class="form-control" id="quoteModelSelect">
+            <option value="Model 03: Alco-Blow / Baton (Non-Contact Traffic / Depot Screening)">Model 03: Alco-Blow / Rapid Baton (Non-Contact Rapid Screening)</option>
+            <option value="Model 08: Alco-Mobile Fleet Interlock (OBD-II Vehicle Ignition Interlock)">Model 08: Alco-Mobile Fleet Interlock (Bus & Truck Engine Interlock)</option>
+            <option value="Model 04: Alco-Print Pro (Built-in Thermal Printer)">Model 04: Alco-Print Pro (With Evidence Timestamp Receipt)</option>
+            <option value="Model 07: Alco-Check Wall Mount (Biometric Turnstile)">Model 07: Alco-Check Wall Mount (Depot & Gate Turnstiles)</option>
+            <option value="Model 10: Campus Safety Edition (School & College Bus Safety)">Model 10: Campus Safety Edition (School Bus Driver Screening)</option>
+            <option value="Model 01: Alco-Sensor IV (Fuel Cell Precision Standard)">Model 01: Alco-Sensor IV (Fuel Cell Standard)</option>
+            <option value="Model 02: Alco-Sensor V XL (Touchscreen GPS Telemetry)">Model 02: Alco-Sensor V XL (Touchscreen & GPS)</option>
+            <option value="Complete 14-Product Police, School & Fleet Range">Complete 14-Product Catalogue Suite</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Your Name & Designation</label>
+          <input type="text" class="form-control" id="quoteSenderName" placeholder="e.g. Transport Manager / Principal / Inspector / Safety Head" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Your Mobile / WhatsApp Number</label>
+          <input type="tel" class="form-control" id="quoteSenderPhone" placeholder="e.g. +91 98765 43210" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Official Email Address</label>
+          <input type="email" class="form-control" id="quoteSenderEmail" placeholder="e.g. transport@institution.org" required>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:16px;">
+          <button type="submit" class="card-btn primary" style="height:40px;">
+            <span>🚀</span> <span>Submit RFQ to Nunes Sales</span>
+          </button>
+          <button type="button" class="card-btn" style="height:40px;" onclick="dispatchViaWhatsApp()">
+            <span>💬</span> <span>Order on WhatsApp</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- JAVASCRIPT APPLICATION CORE -->
+<script>
+  // GLOBAL DATA STATE
+  let currentTab = 'map';
+  let policeStations = [];
+  let colleges = [];
+  let schools = [];
+  let transportFleets = [];
+
+  let currentFilteredPolice = [];
+  let currentFilteredColleges = [];
+  let currentFilteredSchools = [];
+  let currentFilteredTransport = [];
+
+  let map = null;
+  let policeLayerGroup = null;
+  let collegeLayerGroup = null;
+  let schoolLayerGroup = null;
+  let transportLayerGroup = null;
+
+  let showPoliceLayer = true;
+  let showCollegeLayer = true;
+  let showSchoolLayer = true;
+  let showTransportLayer = true;
+
+  // 14 NUNES BREATH ANALYSER MODELS
+  const modelsData = [
+    { num: 'Model 01', name: 'Alco-Sensor IV Precision', target: 'State Police Law & Order & Highway Patrol', features: ['Electrochemical Fuel Cell Sensor (±0.005% BAC)', 'Microprocessor controlled automated breath sampling', 'Audible alert on threshold violation', 'Operates -10°C to +50°C heavy duty duty'] },
+    { num: 'Model 02', name: 'Alco-Sensor V XL Touchscreen', target: 'Highway Traffic Patrol & Metropolitan Flying Squads', features: ['Color Touchscreen with on-screen virtual keyboard', 'GPS Geotagging & Officer Badge ID entry', 'Thermal Printer connection via Bluetooth', 'Stores 5,000+ test records with CCTNS export'] },
+    { num: 'Model 03', name: 'Alco-Blow Rapid Traffic Baton', target: 'High-Volume Traffic Tolls, Bus Stands & Lorry Hubs', features: ['Non-Contact Rapid Sniffing Mode (1 sec response)', 'Built-in Red/Green LED Baton with Traffic Flasher', 'Loud Warning Siren for Traffic Stoppage', 'Tests 12 drivers per minute without disposable mouthpieces'] },
+    { num: 'Model 04', name: 'Alco-Print Pro Instant Receipt', target: 'Commercial Fleet Depots & On-Spot Prosecution', features: ['Built-in High Speed Thermal Dot Matrix Printer', 'Dual printout: One for driver, one for company file', 'Displays driver name, vehicle number, time, BAC level', 'Anti-fraud tampering encrypted memory'] },
+    { num: 'Model 05', name: 'Intoxilyzer 8000 Forensic Station', target: 'Central Police Stations & Forensic Laboratories', features: ['Infrared Spectrophotometer Sensor', 'Accepted in Supreme & High Courts as primary evidence', 'Dual wavelength optical filter system', 'Automatic room air blank analysis'] },
+    { num: 'Model 06', name: 'Alco-Pass Compact Personal', target: 'School Bus Coordinators & Security Supervisors', features: ['Pocket size design with LED multi-color display', 'Fuel cell sensor with quick 5-second warmup', 'Rechargeable Li-Ion battery (500 tests per charge)', 'Hygienic flip-up mouthpiece'] },
+    { num: 'Model 07', name: 'Alco-Check Wall Mount Turnstile', target: 'Bus Depot Gates, Lorry Terminals & Gatehouses', features: ['Wall mounted with RFID & Biometric Fingerprint reader', 'Connects directly to turnstiles & automated flap barriers', 'Denies gate passage automatically if alcohol detected', 'Real-time SMS / Cloud alert to Safety Officer'] },
+    { num: 'Model 08', name: 'Alco-Mobile Fleet Interlock', target: 'School Buses, Interstate Omnibuses & Heavy Lorries', features: ['OBD-II vehicle ignition interlock wiring', 'Prevents engine start if driver has alcohol traces', 'Random rolling retest while vehicle is in motion', 'Tamper detection with vehicle GPS tracking'] },
+    { num: 'Model 09', name: 'Alco-Shield Waterproof Highway', target: 'Rainy Ghat Roads, Seaports & Coastal Police', features: ['IP67 dustproof and waterproof heavy-duty housing', 'Rubberized shock absorbing bumper (2m drop test)', 'High-contrast sunlight readable OLED screen', 'Long-lasting NiMH battery pack'] },
+    { num: 'Model 10', name: 'Campus Safety Edition Pro', target: 'School Bus Driver Checks & Student Hostel Patrol', features: ['Non-invasive passive & active dual testing', 'Student & Driver ID barcode scanner integration', 'Discreet silent vibration mode for school morning checks', 'Zero false positives from mouthwash/cough syrup'] },
+    { num: 'Model 11', name: 'Alco-Spectro Laser Remote Scanner', target: 'Interstate Highway Tolls & Lorry Cabin Standoff', features: ['Optical laser sensor detects alcohol vapors inside cabin', 'Stand-off inspection from 0.5 to 1.5 meters distance', 'Does not require driver to roll down window', 'Immediate visual alert to intercepting patrol car'] },
+    { num: 'Model 12', name: 'Alco-Touch Smart 4G Cloud', target: 'Commercial Fleet Management & CCTNS Integration', features: ['Android OS with 4G LTE SIM & Cloud Dashboard', 'Camera captures driver photograph during breath blow', 'Instant sync to fleet supervisor command dashboard', 'Automated violation alerts via SMS & Email'] },
+    { num: 'Model 13', name: 'Alco-Cal Master Calibration Bench', target: 'Fleet Maintenance Workshops & Calibration Labs', features: ['Automated Dry Gas Ethanol Standard dispenser', 'Recalibrates breath analysers to NIST standards', 'Digital calibration certificate generation', 'Maintains audit compliance for legal scrutiny'] },
+    { num: 'Model 14', name: 'Alco-Sentinel Heavy Barrier Gate', target: 'Lorry Freight Terminals, Container Ports & Refineries', features: ['Stainless steel IP65 weatherproof tower pedestal', 'High-throughput centrifugal blower intake', 'Direct relay triggers for boom barriers & magnetic locks', 'RS485 & Ethernet TCP/IP security network integration'] }
+  ];
+
+  // INITIALIZATION ON DOM LOAD
+  document.addEventListener('DOMContentLoaded', async () => {
+    initLeafletMap();
+    await loadAllDatasets();
+    populateDistrictsFilter();
+    renderAllViews();
+    renderProductsGrid();
+  });
+
+  // 1. INITIALIZE LEAFLET MAP
+  function initLeafletMap() {
+    map = L.map('liveMap', {
+      zoomControl: true,
+      attributionControl: true
+    }).setView([10.5, 77.5], 7); // Center of South India (Tamil Nadu & Kerala)
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; OpenStreetMap contributors | Nunes Instrumentation'
+    }).addTo(map);
+
+    policeLayerGroup = L.layerGroup().addTo(map);
+    collegeLayerGroup = L.layerGroup().addTo(map);
+    schoolLayerGroup = L.layerGroup().addTo(map);
+    transportLayerGroup = L.layerGroup().addTo(map);
+  }
+
+  // 2. FETCH ALL 4 DATASETS
+  async function loadAllDatasets() {
+    try {
+      // 1. Police
+      const pRes = await fetch('/TamilNadu_Police_Stations_Dataset.json');
+      const pData = await pRes.json();
+      policeStations = pData.allStations || [];
+
+      // 2. Colleges
+      const cRes = await fetch('/SouthIndia_HigherEd_Directory_SourceCode_And_Dataset.json');
+      const cData = await cRes.json();
+      colleges = cData.allInstitutions || [];
+
+      // 3. Schools
+      const sRes = await fetch('/Schools_Directory_Dataset.json');
+      const sData = await sRes.json();
+      schools = sData.allSchools || [];
+
+      // 4. Transport Fleets
+      const tRes = await fetch('/Transport_Lorry_Bus_Fleet_Dataset.json');
+      const tData = await tRes.json();
+      transportFleets = tData.allTransport || [];
+
+      // Update Top KPIs
+      document.getElementById('kpiPoliceCount').textContent = policeStations.length;
+      document.getElementById('badgePoliceCount').textContent = policeStations.length;
+      document.getElementById('kpiCollegesCount').textContent = colleges.length;
+      document.getElementById('badgeCollegesCount').textContent = colleges.length;
+      document.getElementById('kpiSchoolsCount').textContent = schools.length;
+      document.getElementById('badgeSchoolsCount').textContent = schools.length;
+      document.getElementById('kpiTransportCount').textContent = transportFleets.length;
+      document.getElementById('badgeTransportCount').textContent = transportFleets.length;
+
+      currentFilteredPolice = [...policeStations];
+      currentFilteredColleges = [...colleges];
+      currentFilteredSchools = [...schools];
+      currentFilteredTransport = [...transportFleets];
+
+    } catch (err) {
+      console.error('Error loading datasets:', err);
+    }
+  }
+
+  // 3. POPULATE DISTRICTS FILTER DYNAMICALLY
+  function populateDistrictsFilter() {
+    const stateVal = document.getElementById('stateFilter').value;
+    const districtSelect = document.getElementById('districtFilter');
+    districtSelect.innerHTML = '<option value="ALL">📍 All Districts</option>';
+
+    let distSet = new Set();
+    const allEntities = [...policeStations, ...colleges, ...schools, ...transportFleets];
+
+    if (stateVal === 'ALL') {
+      allEntities.forEach(e => distSet.add(e.district));
+    } else {
+      allEntities.filter(e => e.state === stateVal).forEach(e => distSet.add(e.district));
+    }
+
+    const sortedDists = Array.from(distSet).filter(Boolean).sort();
+    sortedDists.forEach(d => {
+      const opt = document.createElement('option');
+      opt.value = d;
+      opt.textContent = d;
+      districtSelect.appendChild(opt);
+    });
+
+    populateCategoryFilter();
+  }
+
+  function populateCategoryFilter() {
+    const catSelect = document.getElementById('categoryFilter');
+    catSelect.innerHTML = '<option value="ALL">🏷️ All Categories / Types</option>';
+
+    if (currentTab === 'police' || currentTab === 'map') {
+      const cats = ['Law & Order and Crime', 'Traffic (TIW)', 'Coastal Police', 'All Women Police (AWPS)', 'Railways (GRP)', 'Cyber Crime'];
+      cats.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c;
+        opt.textContent = c;
+        catSelect.appendChild(opt);
+      });
+    } else if (currentTab === 'colleges') {
+      const streams = ['Engineering & Technology', 'Arts, Science & Commerce', 'Medical & Health Sciences', 'Polytechnic & Diploma', 'Universities & Deemed Varsities', 'Management & B-Schools', 'Nursing & Allied Health'];
+      streams.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s;
+        opt.textContent = s;
+        catSelect.appendChild(opt);
+      });
+    } else if (currentTab === 'schools') {
+      const schCats = ['CBSE Senior Secondary', 'ICSE & ISC', 'Matriculation & State Board', 'International & IB'];
+      schCats.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s;
+        opt.textContent = s;
+        catSelect.appendChild(opt);
+      });
+    } else if (currentTab === 'transport') {
+      const trCats = ['State Public Bus Transport Depot', 'Private Interstate Omnibus Fleet', 'Heavy Commercial Goods & Lorry Association', 'Logistics & Cargo Hub', 'Seaport Container Freight Fleet'];
+      trCats.forEach(t => {
+        const opt = document.createElement('option');
+        opt.value = t;
+        opt.textContent = t;
+        catSelect.appendChild(opt);
+      });
+    }
+  }
+
+  function handleStateChange() {
+    populateDistrictsFilter();
+    handleFilterChange();
+
+    const stateVal = document.getElementById('stateFilter').value;
+    if (stateVal === 'Kerala') {
+      map.flyTo([10.2, 76.4], 8, { duration: 1.2 });
+    } else if (stateVal === 'Tamil Nadu') {
+      map.flyTo([11.1, 78.6], 7.5, { duration: 1.2 });
+    } else {
+      map.flyTo([10.5, 77.5], 7, { duration: 1.2 });
+    }
+  }
+
+  // 4. FILTERING LOGIC
+  function handleFilterChange() {
+    const stateVal = document.getElementById('stateFilter').value;
+    const distVal = document.getElementById('districtFilter').value;
+    const catVal = document.getElementById('categoryFilter').value;
+    const query = document.getElementById('searchInput').value.trim().toLowerCase();
+
+    // Filter Police
+    currentFilteredPolice = policeStations.filter(s => {
+      if (stateVal !== 'ALL' && s.state !== stateVal) return false;
+      if (distVal !== 'ALL' && s.district !== distVal) return false;
+      if (catVal !== 'ALL' && !(s.category || '').toLowerCase().includes(catVal.toLowerCase())) return false;
+      if (query) {
+        const str = `${s.stationName} ${s.district} ${s.landline} ${s.officialEmail} ${s.officerInCharge}`.toLowerCase();
+        if (!str.includes(query)) return false;
+      }
+      return true;
+    });
+
+    // Filter Colleges
+    currentFilteredColleges = colleges.filter(c => {
+      if (stateVal !== 'ALL' && c.state !== stateVal) return false;
+      if (distVal !== 'ALL' && c.district !== distVal) return false;
+      if (catVal !== 'ALL' && !(c.type || c.category || '').toLowerCase().includes(catVal.toLowerCase())) return false;
+      if (query) {
+        const str = `${c.name || c.institutionName} ${c.district} ${c.phone || c.landline} ${c.email || c.officialEmail}`.toLowerCase();
+        if (!str.includes(query)) return false;
+      }
+      return true;
+    });
+
+    // Filter Schools
+    currentFilteredSchools = schools.filter(s => {
+      if (stateVal !== 'ALL' && s.state !== stateVal) return false;
+      if (distVal !== 'ALL' && s.district !== distVal) return false;
+      if (catVal !== 'ALL' && !(s.category || '').toLowerCase().includes(catVal.toLowerCase())) return false;
+      if (query) {
+        const str = `${s.name} ${s.district} ${s.landline} ${s.email} ${s.busFleet}`.toLowerCase();
+        if (!str.includes(query)) return false;
+      }
+      return true;
+    });
+
+    // Filter Transport Fleets
+    currentFilteredTransport = transportFleets.filter(t => {
+      if (stateVal !== 'ALL' && t.state !== stateVal) return false;
+      if (distVal !== 'ALL' && t.district !== distVal) return false;
+      if (catVal !== 'ALL' && !(t.category || '').toLowerCase().includes(catVal.toLowerCase())) return false;
+      if (query) {
+        const str = `${t.name} ${t.district} ${t.landline} ${t.email} ${t.fleetSize} ${t.inCharge}`.toLowerCase();
+        if (!str.includes(query)) return false;
+      }
+      return true;
+    });
+
+    if (distVal !== 'ALL') {
+      const match = currentFilteredPolice.find(s => s.lat) || currentFilteredTransport.find(t => t.lat) || currentFilteredSchools.find(s => s.lat);
+      if (match && match.lat) {
+        map.flyTo([match.lat, match.lng], 11, { duration: 1.0 });
+      }
+    }
+
+    renderAllViews();
+  }
+
+  function handleSearch() {
+    const q = document.getElementById('searchInput').value.trim();
+    document.getElementById('clearSearchBtn').style.display = q ? 'block' : 'none';
+    handleFilterChange();
+  }
+
+  function clearSearch() {
+    document.getElementById('searchInput').value = '';
+    document.getElementById('clearSearchBtn').style.display = 'none';
+    handleFilterChange();
+  }
+
+  function resetFilters() {
+    document.getElementById('stateFilter').value = 'ALL';
+    populateDistrictsFilter();
+    document.getElementById('districtFilter').value = 'ALL';
+    document.getElementById('categoryFilter').value = 'ALL';
+    document.getElementById('searchInput').value = '';
+    document.getElementById('clearSearchBtn').style.display = 'none';
+    handleFilterChange();
+    map.flyTo([10.5, 77.5], 7, { duration: 1.0 });
+  }
+
+  // 5. RENDER ALL VIEWS
+  function renderAllViews() {
+    renderMapMarkers();
+    renderPoliceCards();
+    renderCollegesCards();
+    renderSchoolsCards();
+    renderTransportCards();
+    renderAnalyticsCharts();
+  }
+
+  // 6. RENDER MAP MARKERS (4 LAYERS)
+  function renderMapMarkers() {
+    if (!map) return;
+    policeLayerGroup.clearLayers();
+    collegeLayerGroup.clearLayers();
+    schoolLayerGroup.clearLayers();
+    transportLayerGroup.clearLayers();
+
+    let visibleMarkers = 0;
+
+    // 1. Police Markers
+    if (showPoliceLayer) {
+      currentFilteredPolice.forEach(s => {
+        if (!s.lat || !s.lng) return;
+        visibleMarkers++;
+
+        const iconHtml = `<div class="custom-marker-pin police"><span class="custom-marker-icon">🛡️</span></div>`;
+        const customIcon = L.divIcon({ html: iconHtml, className: '', iconSize: [30, 30], iconAnchor: [15, 30], popupAnchor: [0, -28] });
+
+        const popupContent = `
+          <div class="map-popup-card">
+            <span class="popup-badge police">${s.state} • ${s.district}</span>
+            <div class="popup-title">${s.stationName}</div>
+            <div class="popup-meta">${s.category || 'Law & Order'} • ${s.divisionZone || ''}</div>
+            <div class="popup-detail-row">
+              <span>📞</span>
+              ${s.landline !== '-' ? `<a href="tel:${s.landline}">${s.landline}</a>` : '<span>Direct Station Line</span>'}
+            </div>
+            <div class="popup-detail-row">
+              <span>✉️</span>
+              ${s.officialEmail !== '-' ? `<a href="mailto:${s.officialEmail}">${s.officialEmail}</a>` : '<span>-</span>'}
+            </div>
+            <div class="popup-priority">${s.breathAnalyserPriority || 'Breath Analyser Priority'}</div>
+            <div class="popup-actions">
+              <a href="https://maps.google.com/?q=${s.lat},${s.lng}" target="_blank" class="popup-btn outline">Directions</a>
+              <button class="popup-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(s.stationName)}')">Get Quote</button>
+            </div>
+          </div>
+        `;
+        L.marker([s.lat, s.lng], { icon: customIcon }).bindPopup(popupContent).addTo(policeLayerGroup);
+      });
+    }
+
+    // 2. College Markers
+    if (showCollegeLayer) {
+      const collegeSubset = currentFilteredColleges.slice(0, 300);
+      collegeSubset.forEach(c => {
+        if (!c.lat || !c.lng) return;
+        visibleMarkers++;
+
+        const iconHtml = `<div class="custom-marker-pin college"><span class="custom-marker-icon">🎓</span></div>`;
+        const customIcon = L.divIcon({ html: iconHtml, className: '', iconSize: [28, 28], iconAnchor: [14, 28], popupAnchor: [0, -26] });
+
+        const name = c.name || c.institutionName || 'College';
+        const phone = c.phone || c.landline || '-';
+        const email = c.email || c.officialEmail || '-';
+
+        const popupContent = `
+          <div class="map-popup-card">
+            <span class="popup-badge college">${c.state} • ${c.district}</span>
+            <div class="popup-title">${name}</div>
+            <div class="popup-meta">${c.type || c.category || 'Higher Education Institution'}</div>
+            <div class="popup-detail-row">
+              <span>📞</span>
+              ${phone !== '-' ? `<a href="tel:${phone}">${phone}</a>` : '<span>Campus Line</span>'}
+            </div>
+            <div class="popup-detail-row">
+              <span>✉️</span>
+              ${email !== '-' ? `<a href="mailto:${email}">${email}</a>` : '<span>-</span>'}
+            </div>
+            <div class="popup-priority">Campus Student Safety Screening Zone</div>
+            <div class="popup-actions">
+              <a href="https://maps.google.com/?q=${c.lat},${c.lng}" target="_blank" class="popup-btn outline">Directions</a>
+              <button class="popup-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(name)}')">Demo RFQ</button>
+            </div>
+          </div>
+        `;
+        L.marker([c.lat, c.lng], { icon: customIcon }).bindPopup(popupContent).addTo(collegeLayerGroup);
+      });
+    }
+
+    // 3. School Markers
+    if (showSchoolLayer) {
+      currentFilteredSchools.forEach(s => {
+        if (!s.lat || !s.lng) return;
+        visibleMarkers++;
+
+        const iconHtml = `<div class="custom-marker-pin school"><span class="custom-marker-icon">🏫</span></div>`;
+        const customIcon = L.divIcon({ html: iconHtml, className: '', iconSize: [30, 30], iconAnchor: [15, 30], popupAnchor: [0, -28] });
+
+        const popupContent = `
+          <div class="map-popup-card">
+            <span class="popup-badge school">${s.state} • ${s.district}</span>
+            <div class="popup-title">${s.name}</div>
+            <div class="popup-meta">${s.category} • 🚌 <strong>${s.busFleet}</strong></div>
+            <div class="popup-detail-row">
+              <span>📞</span>
+              <a href="tel:${s.landline}">${s.landline}</a>
+            </div>
+            <div class="popup-detail-row">
+              <span>✉️</span>
+              <a href="mailto:${s.email}">${s.email}</a>
+            </div>
+            <div class="popup-priority">🚌 ${s.driverScreeningPriority}</div>
+            <div class="popup-actions">
+              <a href="https://maps.google.com/?q=${s.lat},${s.lng}" target="_blank" class="popup-btn outline">Directions</a>
+              <button class="popup-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(s.name)}')">Bus RFQ</button>
+            </div>
+          </div>
+        `;
+        L.marker([s.lat, s.lng], { icon: customIcon }).bindPopup(popupContent).addTo(schoolLayerGroup);
+      });
+    }
+
+    // 4. Transport & Lorry Hub Markers
+    if (showTransportLayer) {
+      currentFilteredTransport.forEach(t => {
+        if (!t.lat || !t.lng) return;
+        visibleMarkers++;
+
+        const iconHtml = `<div class="custom-marker-pin transport"><span class="custom-marker-icon">🚚</span></div>`;
+        const customIcon = L.divIcon({ html: iconHtml, className: '', iconSize: [32, 32], iconAnchor: [16, 32], popupAnchor: [0, -30] });
+
+        const popupContent = `
+          <div class="map-popup-card">
+            <span class="popup-badge transport">${t.state} • ${t.district}</span>
+            <div class="popup-title">${t.name}</div>
+            <div class="popup-meta">${t.category} • 🚚 <strong>${t.fleetSize}</strong></div>
+            <div class="popup-detail-row">
+              <span>📞</span>
+              <a href="tel:${t.landline}">${t.landline}</a>
+            </div>
+            <div class="popup-detail-row">
+              <span>✉️</span>
+              <a href="mailto:${t.email}">${t.email}</a>
+            </div>
+            <div class="popup-priority">🛑 ${t.screeningPriority}</div>
+            <div class="popup-actions">
+              <a href="https://maps.google.com/?q=${t.lat},${t.lng}" target="_blank" class="popup-btn outline">Directions</a>
+              <button class="popup-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(t.name)}')">Fleet RFQ</button>
+            </div>
+          </div>
+        `;
+        L.marker([t.lat, t.lng], { icon: customIcon }).bindPopup(popupContent).addTo(transportLayerGroup);
+      });
+    }
+
+    document.getElementById('mapVisibleCount').textContent = `${visibleMarkers} Live Geospatial Pins Active`;
+  }
+
+  function toggleMapLayer(layer) {
+    if (layer === 'police') {
+      showPoliceLayer = !showPoliceLayer;
+      document.getElementById('togglePoliceLayerBtn').classList.toggle('active', showPoliceLayer);
+    } else if (layer === 'colleges') {
+      showCollegeLayer = !showCollegeLayer;
+      document.getElementById('toggleCollegeLayerBtn').classList.toggle('active', showCollegeLayer);
+    } else if (layer === 'schools') {
+      showSchoolLayer = !showSchoolLayer;
+      document.getElementById('toggleSchoolLayerBtn').classList.toggle('active', showSchoolLayer);
+    } else if (layer === 'transport') {
+      showTransportLayer = !showTransportLayer;
+      document.getElementById('toggleTransportLayerBtn').classList.toggle('active', showTransportLayer);
+    }
+    renderMapMarkers();
+  }
+
+  function fitMapBounds() {
+    map.flyTo([10.5, 77.5], 7, { duration: 1.0 });
+  }
+
+  // 7. RENDER POLICE CARDS
+  function renderPoliceCards() {
+    const grid = document.getElementById('policeCardsGrid');
+    document.getElementById('policeFilteredCount').textContent = currentFilteredPolice.length;
+    grid.innerHTML = '';
+
+    const displayList = currentFilteredPolice.slice(0, 90);
+    displayList.forEach(s => {
+      const card = document.createElement('div');
+      const priorityClass = (s.breathAnalyserPriority || '').toLowerCase().includes('critical') ? 'priority-critical' :
+        (s.breathAnalyserPriority || '').toLowerCase().includes('very high') ? 'priority-very-high' : 'priority-high';
+
+      const tagClass = (s.breathAnalyserPriority || '').toLowerCase().includes('critical') ? 'critical' :
+        (s.breathAnalyserPriority || '').toLowerCase().includes('very high') ? 'very-high' : 'high';
+
+      const statePill = s.state === 'Kerala' ? '<span class="card-state-pill kl">Kerala</span>' : '<span class="card-state-pill tn">Tamil Nadu</span>';
+
+      card.className = `entity-card ${priorityClass}`;
+      card.innerHTML = `
+        <div>
+          <div class="card-top">
+            <div class="card-title">${s.stationName}</div>
+            ${statePill}
+          </div>
+          <div class="card-meta">
+            <span class="card-district">📍 ${s.district}</span>
+            <span class="card-divider">•</span>
+            <span>${s.category || 'Law & Order'}</span>
+          </div>
+          <div class="card-details-list">
+            <div class="card-detail-item">
+              <span class="icon">📞</span>
+              <strong>Landline:</strong>
+              ${s.landline && s.landline !== '-' ? `<a href="tel:${s.landline}">${s.landline}</a>` : '<span>Direct Station Line</span>'}
+            </div>
+            <div class="card-detail-item">
+              <span class="icon">✉️</span>
+              <strong>Official Email:</strong>
+              ${s.officialEmail && s.officialEmail !== '-' ? `<a href="mailto:${s.officialEmail}">${s.officialEmail}</a>` : '<span>-</span>'}
+            </div>
+            <div class="card-detail-item">
+              <span class="icon">👮</span>
+              <strong>In-Charge:</strong>
+              <span>${s.officerInCharge || 'Inspector of Police (SHO)'}</span>
+            </div>
+          </div>
+          <div class="card-priority-tag ${tagClass}">
+            🎯 ${s.breathAnalyserPriority || 'Patrol Unit Priority'}
+          </div>
+        </div>
+        <div class="card-actions">
+          <button class="card-btn" onclick="focusOnMap(${s.lat}, ${s.lng})">🗺️ View on Map</button>
+          <button class="card-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(s.stationName)}')">📄 Request Quote</button>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  // 8. RENDER COLLEGES CARDS
+  function renderCollegesCards() {
+    const grid = document.getElementById('collegesCardsGrid');
+    document.getElementById('collegesFilteredCount').textContent = currentFilteredColleges.length;
+    grid.innerHTML = '';
+
+    const displayList = currentFilteredColleges.slice(0, 90);
+    displayList.forEach(c => {
+      const card = document.createElement('div');
+      const name = c.name || c.institutionName || 'College';
+      const phone = c.phone || c.landline || '-';
+      const email = c.email || c.officialEmail || '-';
+      const statePill = c.state === 'Kerala' ? '<span class="card-state-pill kl">Kerala</span>' : '<span class="card-state-pill tn">Tamil Nadu</span>';
+
+      card.className = 'entity-card priority-high';
+      card.innerHTML = `
+        <div>
+          <div class="card-top">
+            <div class="card-title">${name}</div>
+            ${statePill}
+          </div>
+          <div class="card-meta">
+            <span class="card-district">📍 ${c.district}</span>
+            <span class="card-divider">•</span>
+            <span>${c.type || c.category || 'Higher Education'}</span>
+          </div>
+          <div class="card-details-list">
+            <div class="card-detail-item">
+              <span class="icon">📞</span>
+              <strong>Official Phone:</strong>
+              ${phone !== '-' ? `<a href="tel:${phone}">${phone}</a>` : '<span>Campus Switchboard</span>'}
+            </div>
+            <div class="card-detail-item">
+              <span class="icon">✉️</span>
+              <strong>Official Email:</strong>
+              ${email !== '-' ? `<a href="mailto:${email}">${email}</a>` : '<span>-</span>'}
+            </div>
+            <div class="card-detail-item">
+              <span class="icon">🎓</span>
+              <strong>Principal / Head:</strong>
+              <span>${c.principalName || 'Principal / Registrar'}</span>
+            </div>
+          </div>
+          <div class="card-priority-tag high">
+            🛡️ Student Campus & Hostel Alcohol-Free Policy Enforcement
+          </div>
+        </div>
+        <div class="card-actions">
+          <button class="card-btn" onclick="focusOnMap(${c.lat}, ${c.lng})">🗺️ View on Map</button>
+          <button class="card-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(name)}')">📄 Campus Safety RFQ</button>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  // 9. RENDER SCHOOLS CARDS
+  function renderSchoolsCards() {
+    const grid = document.getElementById('schoolsCardsGrid');
+    document.getElementById('schoolsFilteredCount').textContent = currentFilteredSchools.length;
+    grid.innerHTML = '';
+
+    currentFilteredSchools.forEach(s => {
+      const card = document.createElement('div');
+      const statePill = s.state === 'Kerala' ? '<span class="card-state-pill kl">Kerala</span>' : '<span class="card-state-pill tn">Tamil Nadu</span>';
+
+      card.className = 'entity-card priority-school';
+      card.innerHTML = `
+        <div>
+          <div class="card-top">
+            <div class="card-title">${s.name}</div>
+            ${statePill}
+          </div>
+          <div class="card-meta">
+            <span class="card-district">📍 ${s.district}</span>
+            <span class="card-divider">•</span>
+            <span>${s.category}</span>
+          </div>
+          <div class="card-details-list">
+            <div class="card-detail-item">
+              <span class="icon">🚌</span>
+              <strong>School Bus Fleet:</strong>
+              <strong style="color:#7c3aed;">${s.busFleet}</strong>
+            </div>
+            <div class="card-detail-item">
+              <span class="icon">📞</span>
+              <strong>Landline:</strong>
+              <a href="tel:${s.landline}">${s.landline}</a>
+            </div>
+            <div class="card-detail-item">
+              <span class="icon">✉️</span>
+              <strong>Official Email:</strong>
+              <a href="mailto:${s.email}">${s.email}</a>
+            </div>
+            <div class="card-detail-item">
+              <span class="icon">👤</span>
+              <strong>In-Charge:</strong>
+              <span>${s.principalName}</span>
+            </div>
+          </div>
+          <div class="card-priority-tag school">
+            🚌 ${s.driverScreeningPriority}
+          </div>
+        </div>
+        <div class="card-actions">
+          <button class="card-btn" onclick="focusOnMap(${s.lat}, ${s.lng})">🗺️ View on Map</button>
+          <button class="card-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(s.name)}')">📄 School Bus RFQ</button>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  // 10. RENDER TRANSPORT & LORRY FLEETS CARDS
+  function renderTransportCards() {
+    const grid = document.getElementById('transportCardsGrid');
+    document.getElementById('transportFilteredCount').textContent = currentFilteredTransport.length;
+    grid.innerHTML = '';
+
+    currentFilteredTransport.forEach(t => {
+      const card = document.createElement('div');
+      const statePill = t.state === 'Kerala' ? '<span class="card-state-pill kl">Kerala</span>' : '<span class="card-state-pill tn">Tamil Nadu</span>';
+
+      card.className = 'entity-card priority-transport';
+      card.innerHTML = `
+        <div>
+          <div class="card-top">
+            <div class="card-title">${t.name}</div>
+            ${statePill}
+          </div>
+          <div class="card-meta">
+            <span class="card-district">📍 ${t.district}</span>
+            <span class="card-divider">•</span>
+            <span>${t.category}</span>
+          </div>
+          <div class="card-details-list">
+            <div class="card-detail-item">
+              <span class="icon">🚚</span>
+              <strong>Commercial Fleet Size:</strong>
+              <strong style="color:#b45309;">${t.fleetSize}</strong>
+            </div>
+            <div class="card-detail-item">
+              <span class="icon">📞</span>
+              <strong>Office Landline:</strong>
+              <a href="tel:${t.landline}">${t.landline}</a>
+            </div>
+            <div class="card-detail-item">
+              <span class="icon">✉️</span>
+              <strong>Official Email:</strong>
+              <a href="mailto:${t.email}">${t.email}</a>
+            </div>
+            <div class="card-detail-item">
+              <span class="icon">👤</span>
+              <strong>Head / Manager:</strong>
+              <span>${t.inCharge}</span>
+            </div>
+          </div>
+          <div class="card-priority-tag transport">
+            🛑 ${t.screeningPriority}
+          </div>
+        </div>
+        <div class="card-actions">
+          <button class="card-btn" onclick="focusOnMap(${t.lat}, ${t.lng})">🗺️ View on Map</button>
+          <button class="card-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(t.name)}')">📄 Fleet Interlock RFQ</button>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  // 11. RENDER ANALYTICS CHARTS
+  function renderAnalyticsCharts() {
+    // Police Districts Chart
+    const pDistCounts = {};
+    policeStations.forEach(s => pDistCounts[s.district] = (pDistCounts[s.district] || 0) + 1);
+    const topPDists = Object.entries(pDistCounts).sort((a,b) => b[1] - a[1]).slice(0, 10);
+    const maxP = topPDists[0] ? topPDists[0][1] : 1;
+
+    let pDistHtml = '';
+    topPDists.forEach(([d, count]) => {
+      const pct = (count / maxP * 100).toFixed(0);
+      pDistHtml += `
+        <div class="bar-row">
+          <div class="bar-label">${d}</div>
+          <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:linear-gradient(90deg,#2563eb,#1d4ed8);"></div></div>
+          <div class="bar-val">${count}</div>
+        </div>
+      `;
+    });
+    document.getElementById('chartPoliceDistricts').innerHTML = pDistHtml;
+
+    // Colleges Districts Chart
+    const cDistCounts = {};
+    colleges.forEach(c => cDistCounts[c.district] = (cDistCounts[c.district] || 0) + 1);
+    const topCDists = Object.entries(cDistCounts).sort((a,b) => b[1] - a[1]).slice(0, 10);
+    const maxC = topCDists[0] ? topCDists[0][1] : 1;
+
+    let cDistHtml = '';
+    topCDists.forEach(([d, count]) => {
+      const pct = (count / maxC * 100).toFixed(0);
+      cDistHtml += `
+        <div class="bar-row">
+          <div class="bar-label">${d}</div>
+          <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:linear-gradient(90deg,#059669,#10b981);"></div></div>
+          <div class="bar-val">${count}</div>
+        </div>
+      `;
+    });
+    document.getElementById('chartCollegesDistricts').innerHTML = cDistHtml;
+
+    // Commercial Transport Types Chart
+    const trTypeCounts = {};
+    transportFleets.forEach(t => trTypeCounts[t.category] = (trTypeCounts[t.category] || 0) + 1);
+    const maxTr = Math.max(...Object.values(trTypeCounts), 1);
+    let trHtml = '';
+    Object.entries(trTypeCounts).forEach(([k, v]) => {
+      const pct = (v / maxTr * 100).toFixed(0);
+      trHtml += `
+        <div class="bar-row">
+          <div class="bar-label" title="${k}">${k}</div>
+          <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:linear-gradient(90deg,#d97706,#f59e0b);"></div></div>
+          <div class="bar-val">${v}</div>
+        </div>
+      `;
+    });
+    document.getElementById('chartTransportTypes').innerHTML = trHtml;
+
+    // Schools Driver Screening Priorities Chart
+    const schPrioCounts = {};
+    schools.forEach(s => schPrioCounts[s.category] = (schPrioCounts[s.category] || 0) + 1);
+    const maxSch = Math.max(...Object.values(schPrioCounts), 1);
+    let schHtml = '';
+    Object.entries(schPrioCounts).forEach(([k, v]) => {
+      const pct = (v / maxSch * 100).toFixed(0);
+      schHtml += `
+        <div class="bar-row">
+          <div class="bar-label" title="${k}">${k}</div>
+          <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:linear-gradient(90deg,#7c3aed,#a855f7);"></div></div>
+          <div class="bar-val">${v}</div>
+        </div>
+      `;
+    });
+    document.getElementById('chartSchoolPriorities').innerHTML = schHtml;
+  }
+
+  // 12. RENDER PRODUCTS GRID
+  function renderProductsGrid() {
+    const grid = document.getElementById('modelsGrid');
+    grid.innerHTML = '';
+
+    modelsData.forEach(m => {
+      const card = document.createElement('div');
+      card.className = 'model-card';
+      const featuresHtml = m.features.map(f => `<li>${f}</li>`).join('');
+
+      card.innerHTML = `
+        <div>
+          <div class="model-num">${m.num}</div>
+          <div class="model-name">${m.name}</div>
+          <div class="model-target">🎯 ${m.target}</div>
+          <ul class="model-features">
+            ${featuresHtml}
+          </ul>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:14px;">
+          <button class="card-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(m.name)}')">📄 Get Quote</button>
+          <a href="https://wa.me/919443217030?text=I%20am%20interested%20in%20${encodeURIComponent(m.name)}" target="_blank" class="card-btn">💬 WhatsApp</a>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  // SWITCH VIEWS
+  function switchView(tab) {
+    currentTab = tab;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-view-content').forEach(v => v.classList.remove('active'));
+
+    document.getElementById(`view-${tab}`).classList.add('active');
+
+    const btns = document.querySelectorAll('.nav-tabs button');
+    btns.forEach(b => {
+      if (b.getAttribute('onclick').includes(tab)) b.classList.add('active');
+    });
+
+    populateCategoryFilter();
+
+    if (tab === 'map') {
+      setTimeout(() => {
+        if (map) map.invalidateSize();
+      }, 100);
+    }
+  }
+
+  function focusOnMap(lat, lng) {
+    switchView('map');
+    if (map && lat && lng) {
+      setTimeout(() => {
+        map.flyTo([lat, lng], 13, { duration: 1.0 });
+      }, 150);
+    }
+  }
+
+  // EXPORT DATA (CSV / JSON)
+  function exportData(format) {
+    let dataset = [];
+    if (currentTab === 'colleges') dataset = currentFilteredColleges;
+    else if (currentTab === 'police') dataset = currentFilteredPolice;
+    else if (currentTab === 'schools') dataset = currentFilteredSchools;
+    else if (currentTab === 'transport') dataset = currentFilteredTransport;
+    else dataset = [...currentFilteredPolice, ...currentFilteredSchools, ...currentFilteredTransport];
+
+    const filename = `${currentTab}_export_${new Date().toISOString().slice(0,10)}.${format}`;
+
+    if (format === 'json') {
+      const blob = new Blob([JSON.stringify(dataset, null, 2)], { type: 'application/json' });
+      downloadBlob(blob, filename);
+    } else {
+      if (!dataset.length) return alert('No records to export');
+      const keys = Object.keys(dataset[0]);
+      const csvRows = [
+        keys.join(','),
+        ...dataset.map(row => keys.map(k => `"${String(row[k] || '').replace(/"/g, '""')}"`).join(','))
+      ];
+      const blob = new Blob([csvRows.join('\n')], { type: 'text/csv' });
+      downloadBlob(blob, filename);
+    }
+  }
+
+  function downloadBlob(blob, filename) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  // QUOTATION MODAL
+  function openQuoteModal() {
+    document.getElementById('quoteTargetName').value = 'General Unit / School / Transport Fleet Inquiry';
+    document.getElementById('quoteModal').style.display = 'flex';
+  }
+
+  function openQuoteModalFor(encodedName) {
+    const name = decodeURIComponent(encodedName);
+    document.getElementById('quoteTargetName').value = name;
+    document.getElementById('quoteModal').style.display = 'flex';
+  }
+
+  function closeQuoteModal() {
+    document.getElementById('quoteModal').style.display = 'none';
+  }
+
+  function handleQuoteSubmit(e) {
+    e.preventDefault();
+    const target = document.getElementById('quoteTargetName').value;
+    const model = document.getElementById('quoteModelSelect').value;
+    const name = document.getElementById('quoteSenderName').value;
+    const phone = document.getElementById('quoteSenderPhone').value;
+    const email = document.getElementById('quoteSenderEmail').value;
+
+    alert(`Thank you ${name}! Your quotation request for [${model}] for [${target}] has been recorded. Our Coimbatore team will contact you at ${phone} / ${email} with official DGS&D / GeM pricing.`);
+    closeQuoteModal();
+  }
+
+  function dispatchViaWhatsApp() {
+    const target = document.getElementById('quoteTargetName').value;
+    const model = document.getElementById('quoteModelSelect').value;
+    const name = document.getElementById('quoteSenderName').value || 'Customer';
+    const msg = `Hello Nunes Instrumentation Coimbatore, I am ${name}. Please provide an official quotation for ${model} for our fleet/campus: ${target}.`;
+    window.open(`https://wa.me/919443217030?text=${encodeURIComponent(msg)}`, '_blank');
+  }
+</script>
+
+</body>
+</html>

@@ -61,6 +61,30 @@ if (fs.existsSync(policePath)) {
   }
 }
 
+// Cache Schools Dataset
+let schoolsData = null;
+const schoolsPath = path.join(publicDir, 'Schools_Directory_Dataset.json');
+if (fs.existsSync(schoolsPath)) {
+  try {
+    schoolsData = JSON.parse(fs.readFileSync(schoolsPath, 'utf8'));
+    console.log(`[Schools Dataset] Loaded ${schoolsData.allSchools?.length || 0} verified schools.`);
+  } catch (err) {
+    console.error('[Schools Dataset] Error reading schools dataset:', err.message);
+  }
+}
+
+// Cache Transport & Lorry Fleets Dataset
+let transportData = null;
+const transportPath = path.join(publicDir, 'Transport_Lorry_Bus_Fleet_Dataset.json');
+if (fs.existsSync(transportPath)) {
+  try {
+    transportData = JSON.parse(fs.readFileSync(transportPath, 'utf8'));
+    console.log(`[Transport Dataset] Loaded ${transportData.allTransport?.length || 0} transport & lorry hubs.`);
+  } catch (err) {
+    console.error('[Transport Dataset] Error reading transport dataset:', err.message);
+  }
+}
+
 // Cache the official Nunes Campus Breath Analyser email HTML template
 const templatePath = path.join(publicDir, 'nunes_campus_email_template.html');
 let nunesEmailTemplate = '';
@@ -696,7 +720,7 @@ app.get('/api/police', (req, res) => {
 
 // -------------------------------------------------------------
 // GET /api/colleges
-// Full 4,990 higher education institutions dataset endpoint
+// Full higher education institutions dataset endpoint
 // -------------------------------------------------------------
 app.get('/api/colleges', (req, res) => {
   if (institutionsData) {
@@ -706,13 +730,35 @@ app.get('/api/colleges', (req, res) => {
 });
 
 // -------------------------------------------------------------
+// GET /api/schools
+// Verified Schools & Bus Fleet dataset endpoint
+// -------------------------------------------------------------
+app.get('/api/schools', (req, res) => {
+  if (schoolsData) {
+    return res.json(schoolsData);
+  }
+  return res.status(404).json({ error: 'Schools dataset not found' });
+});
+
+// -------------------------------------------------------------
+// GET /api/transport
+// Verified Bus, Lorry & Freight Transport Fleets endpoint
+// -------------------------------------------------------------
+app.get('/api/transport', (req, res) => {
+  if (transportData) {
+    return res.json(transportData);
+  }
+  return res.status(404).json({ error: 'Transport dataset not found' });
+});
+
+// -------------------------------------------------------------
 // GET /api/health
 // System Health Check
 // -------------------------------------------------------------
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'online',
-    appName: 'TN & Kerala HigherEd Directory & Police Law Enforcement Studio',
+    appName: 'TN & Kerala Police, HigherEd, Schools & Commercial Fleet Studio',
     port: PORT,
     geminiConfigured: Boolean(GEMINI_API_KEY),
     openaiConfigured: Boolean(OPENAI_API_KEY),
@@ -720,6 +766,10 @@ app.get('/api/health', (req, res) => {
     totalColleges: institutionsData?.allInstitutions?.length || 0,
     policeDatasetLoaded: Boolean(policeData),
     totalPoliceStations: policeData?.allStations?.length || 0,
+    schoolsLoaded: Boolean(schoolsData),
+    totalSchools: schoolsData?.allSchools?.length || 0,
+    transportLoaded: Boolean(transportData),
+    totalTransportHubs: transportData?.allTransport?.length || 0,
     timestamp: new Date().toISOString()
   });
 });

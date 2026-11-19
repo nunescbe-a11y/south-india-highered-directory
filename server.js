@@ -68,7 +68,7 @@ const policePath = path.join(publicDir, 'TamilNadu_Police_Stations_Dataset.json'
 if (fs.existsSync(policePath)) {
   try {
     policeData = JSON.parse(fs.readFileSync(policePath, 'utf8'));
-    console.log(`[Police Dataset] Loaded ${policeData.allStations?.length || 0} verified Tamil Nadu police stations.`);
+    console.log(`[Police Dataset] Loaded ${policeData.allStations?.length || 0} verified South India police stations.`);
   } catch (err) {
     console.error('[Police Dataset] Error reading police dataset:', err.message);
   }

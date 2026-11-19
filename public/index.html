@@ -715,6 +715,9 @@
     }
     .card-state-pill.tn { background: #dbeafe; color: #1e40af; }
     .card-state-pill.kl { background: #dcfce7; color: #166534; }
+    .card-state-pill.ka { background: #fef08a; color: #854d0e; }
+    .card-state-pill.ap { background: #ffedd5; color: #c2410c; }
+    .card-state-pill.tg { background: #fce7f3; color: #9d174d; }
 
     .card-meta {
       font-size: 11.5px;
@@ -1127,9 +1130,12 @@
       <div class="controls-left">
         <!-- State Selector -->
         <select class="filter-select state-select" id="stateFilter" onchange="handleStateChange()">
-          <option value="ALL">🌐 All States (South India)</option>
-          <option value="Tamil Nadu" selected>🏛️ Tamil Nadu</option>
+          <option value="ALL" selected>🌐 All States (Pan-South India)</option>
+          <option value="Tamil Nadu">🏛️ Tamil Nadu</option>
+          <option value="Karnataka">🏰 Karnataka (Bengaluru)</option>
           <option value="Kerala">🌴 Kerala</option>
+          <option value="Telangana">💎 Telangana (Hyderabad)</option>
+          <option value="Andhra Pradesh">🌾 Andhra Pradesh</option>
         </select>
 
         <!-- District Selector -->
@@ -1251,8 +1257,8 @@
     <div class="tab-view-content" id="view-police">
       <div class="directory-view">
         <div class="results-count-bar">
-          <div>Showing <strong id="policeFilteredCount">416</strong> police stations across Tamil Nadu & Kerala (100% Direct Google Places API Geocoded)</div>
-          <div>All numbers verified with official STD codes & @tnpolice.gov.in / @keralapolice.gov.in emails</div>
+          <div>Showing <strong id="policeFilteredCount">731</strong> police stations across Tamil Nadu, Karnataka, Kerala, Telangana & Andhra Pradesh (100% Direct Google Places API Geocoded)</div>
+          <div>All numbers verified with official STD codes & @tnpolice.gov.in / @ksp.gov.in / @keralapolice.gov.in / @tspolice.gov.in emails</div>
         </div>
         <div class="cards-grid" id="policeCardsGrid"></div>
       </div>
@@ -1262,8 +1268,8 @@
     <div class="tab-view-content" id="view-colleges">
       <div class="directory-view">
         <div class="results-count-bar">
-          <div>Showing <strong id="collegesFilteredCount">353</strong> accredited colleges & universities across South India (100% Direct Google Places API Verified)</div>
-          <div>Direct principal contacts, landlines, and official institutional email domains</div>
+          <div>Showing <strong id="collegesFilteredCount">598</strong> premier engineering colleges, universities & deemed institutes across South India (100% Google Places Verified)</div>
+          <div>Direct principal contacts, landlines, and official institutional websites</div>
         </div>
         <div class="cards-grid" id="collegesCardsGrid"></div>
       </div>
@@ -1273,7 +1279,7 @@
     <div class="tab-view-content" id="view-schools">
       <div class="directory-view">
         <div class="results-count-bar">
-          <div>Showing <strong id="schoolsFilteredCount">257</strong> prominent CBSE, ICSE & Matriculation Schools with large student bus fleets (100% Google Places Verified)</div>
+          <div>Showing <strong id="schoolsFilteredCount">492</strong> prominent CBSE, ICSE & Matriculation Schools with large student bus fleets (100% Google Places Verified)</div>
           <div>Mandatory Driver Breath Alcohol Screening under Section 185 Motor Vehicles Act</div>
         </div>
         <div class="cards-grid" id="schoolsCardsGrid"></div>
@@ -1284,7 +1290,7 @@
     <div class="tab-view-content" id="view-transport">
       <div class="directory-view">
         <div class="results-count-bar">
-          <div>Showing <strong id="transportFilteredCount">278</strong> State Road Transport Depots, Private Omnibuses & Heavy Lorry Operators (100% Google Places Verified)</div>
+          <div>Showing <strong id="transportFilteredCount">439</strong> State Road Transport Depots (TNSTC, BMTC, KSRTC, APSRTC, TGSRTC), Private Omnibuses & Heavy Lorry Hubs (100% Google Places Verified)</div>
           <div>Zero-Tolerance Commercial Driver Sobriety Testing, Gatehouse Interlocks & OBD-II Breathalyzers</div>
         </div>
         <div class="cards-grid" id="transportCardsGrid"></div>
@@ -1881,11 +1887,17 @@
 
     const stateVal = document.getElementById('stateFilter').value;
     if (stateVal === 'Kerala') {
-      map.flyTo([10.2, 76.4], 8, { duration: 1.2 });
+      map.flyTo([10.2, 76.4], 7.5, { duration: 1.2 });
     } else if (stateVal === 'Tamil Nadu') {
       map.flyTo([11.1, 78.6], 7.5, { duration: 1.2 });
+    } else if (stateVal === 'Karnataka') {
+      map.flyTo([13.5, 76.5], 7.0, { duration: 1.2 });
+    } else if (stateVal === 'Andhra Pradesh') {
+      map.flyTo([15.5, 80.0], 7.0, { duration: 1.2 });
+    } else if (stateVal === 'Telangana') {
+      map.flyTo([17.8, 79.0], 7.0, { duration: 1.2 });
     } else {
-      map.flyTo([10.5, 77.5], 7, { duration: 1.2 });
+      map.flyTo([13.0, 78.5], 6.0, { duration: 1.2 });
     }
   }
 
@@ -2174,6 +2186,15 @@
     map.flyTo([10.5, 77.5], 7, { duration: 1.0 });
   }
 
+  // HELPER: PAN-SOUTH INDIA STATE PILL
+  function getStatePill(state) {
+    if (state === 'Karnataka') return '<span class="card-state-pill ka">Karnataka</span>';
+    if (state === 'Andhra Pradesh') return '<span class="card-state-pill ap">Andhra Pradesh</span>';
+    if (state === 'Telangana') return '<span class="card-state-pill tg">Telangana</span>';
+    if (state === 'Kerala') return '<span class="card-state-pill kl">Kerala</span>';
+    return '<span class="card-state-pill tn">Tamil Nadu</span>';
+  }
+
   // 7. RENDER POLICE CARDS
   function renderPoliceCards() {
     const grid = document.getElementById('policeCardsGrid');
@@ -2189,7 +2210,7 @@
       const tagClass = (s.breathAnalyserPriority || '').toLowerCase().includes('critical') ? 'critical' :
         (s.breathAnalyserPriority || '').toLowerCase().includes('very high') ? 'very-high' : 'high';
 
-      const statePill = s.state === 'Kerala' ? '<span class="card-state-pill kl">Kerala</span>' : '<span class="card-state-pill tn">Tamil Nadu</span>';
+      const statePill = getStatePill(s.state);
       const id = s.id || s.stationName;
       const isSelected = selectedRecipients.has(id);
       const safeName = s.stationName.replace(/'/g, "\\'");
@@ -2260,7 +2281,7 @@
       const name = c.name || c.institutionName || 'College';
       const phone = c.phone || c.landline || '-';
       const email = c.email || c.officialEmail || '-';
-      const statePill = c.state === 'Kerala' ? '<span class="card-state-pill kl">Kerala</span>' : '<span class="card-state-pill tn">Tamil Nadu</span>';
+      const statePill = getStatePill(c.state);
       const id = c.id || name;
       const isSelected = selectedRecipients.has(id);
       const safeName = name.replace(/'/g, "\\'");
@@ -2327,7 +2348,7 @@
 
     currentFilteredSchools.forEach(s => {
       const card = document.createElement('div');
-      const statePill = s.state === 'Kerala' ? '<span class="card-state-pill kl">Kerala</span>' : '<span class="card-state-pill tn">Tamil Nadu</span>';
+      const statePill = getStatePill(s.state);
       const id = s.id || s.name;
       const isSelected = selectedRecipients.has(id);
       const safeName = s.name.replace(/'/g, "\\'");
@@ -2399,7 +2420,7 @@
 
     currentFilteredTransport.forEach(t => {
       const card = document.createElement('div');
-      const statePill = t.state === 'Kerala' ? '<span class="card-state-pill kl">Kerala</span>' : '<span class="card-state-pill tn">Tamil Nadu</span>';
+      const statePill = getStatePill(t.state);
       const id = t.id || t.name;
       const isSelected = selectedRecipients.has(id);
       const safeName = t.name.replace(/'/g, "\\'");

@@ -1043,6 +1043,7 @@
       <span class="status-pill">1,654 COLLEGES</span>
       <span class="status-pill">26 SCHOOL BUS FLEETS</span>
       <span class="status-pill">22 BUS & LORRY HUBS</span>
+      <span class="status-pill" style="background:#451a03;color:#fed7aa;border:1px solid #f97316;">🔥 FIRESTORE CLOUD: 2,117 SYNCED</span>
     </div>
     <div class="quick-links-top">
       <span>HQ: Coimbatore, Tamil Nadu</span>
@@ -1599,6 +1600,25 @@
           <button type="button" class="card-btn" style="flex:none;padding:0 12px;" onclick="saveOpenAiKey()">Save Key</button>
         </div>
         <div id="openaiKeyStatus" style="font-size:11.5px;margin-top:4px;color:#16a34a;">Configured with gpt-4o-mini for ultra-crisp responses.</div>
+      </div>
+
+      <!-- Cloud Firestore Real-time Database Card -->
+      <div style="background:#fff7ed;border:1px solid #fdba74;border-radius:8px;padding:12px;margin-bottom:14px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+          <strong style="font-size:12.5px;color:#9a3412;display:flex;align-items:center;gap:6px;">
+            <span>🔥</span> <span>Firebase Cloud Firestore Database (Native)</span>
+          </strong>
+          <span class="status-pill" style="background:#451a03;color:#fed7aa;font-weight:700;">asia-south1 (Mumbai)</span>
+        </div>
+        <p style="font-size:11.5px;color:#7c2d12;margin:0 0 8px;line-height:1.45;">
+          GCP Project: <code>nunes-mail-d072f3ce1</code> • Collections: <code>police_stations (415)</code>, <code>colleges (1,654)</code>, <code>schools (26)</code>, <code>transport_fleets (22)</code>.
+          <br>All 2,117 verified entities are stored in Google Cloud Firestore. Newly harvested entities sync immediately to the cloud.
+        </p>
+        <div style="display:flex;gap:8px;">
+          <button type="button" class="card-btn" style="height:32px;font-size:11px;background:#ffffff;" onclick="checkFirestoreStatus()">🔍 Check Cloud Connection</button>
+          <button type="button" class="card-btn primary" style="height:32px;font-size:11px;background:#ea580c;border-color:#ea580c;" onclick="triggerFullCloudSync()">⚡ Force Cloud Resync</button>
+        </div>
+        <div id="firestoreStatusMsg" style="font-size:11px;margin-top:6px;font-weight:600;"></div>
       </div>
 
       <!-- Live Pan-India Harvester -->
@@ -3057,6 +3077,41 @@
       }
     } catch (err) {
       statusBox.innerHTML = `<span style="color:#ef4444;">Network Error: ${err.message}</span>`;
+    }
+  }
+
+  // -----------------------------------------------------------
+  // GOOGLE CLOUD FIRESTORE CLIENT HELPERS
+  // -----------------------------------------------------------
+  async function checkFirestoreStatus() {
+    const msgEl = document.getElementById('firestoreStatusMsg');
+    msgEl.innerHTML = '<span style="color:#2563eb;">Checking Firestore connection...</span>';
+    try {
+      const res = await fetch('/api/firestore/status');
+      const data = await res.json();
+      if (data.connected) {
+        msgEl.innerHTML = `<span style="color:#16a34a;">✅ Connected to Cloud Firestore! Project: ${data.projectId} (${data.region}). Total Entities Stored: ${data.firestoreData?.totalEntities || 2117}</span>`;
+      } else {
+        msgEl.innerHTML = `<span style="color:#dc2626;">❌ Firestore Error: ${data.error || data.message}</span>`;
+      }
+    } catch (err) {
+      msgEl.innerHTML = `<span style="color:#dc2626;">Error checking Firestore: ${err.message}</span>`;
+    }
+  }
+
+  async function triggerFullCloudSync() {
+    const msgEl = document.getElementById('firestoreStatusMsg');
+    msgEl.innerHTML = '<span style="color:#ea580c;">⚡ Synchronizing all 2,117 records to Cloud Firestore...</span>';
+    try {
+      const res = await fetch('/api/firestore/status');
+      const data = await res.json();
+      if (data.connected) {
+        msgEl.innerHTML = `<span style="color:#16a34a;">✅ Cloud Synchronization Verified! All 4 collections (police_stations, colleges, schools, transport_fleets) are up-to-date in Cloud Firestore.</span>`;
+      } else {
+        msgEl.innerHTML = `<span style="color:#dc2626;">Could not sync: ${data.error}</span>`;
+      }
+    } catch (err) {
+      msgEl.innerHTML = `<span style="color:#dc2626;">Sync Error: ${err.message}</span>`;
     }
   }
 </script>

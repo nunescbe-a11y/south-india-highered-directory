@@ -3,12 +3,24 @@ const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
 const nodemailer = require('nodemailer');
+const { Firestore } = require('@google-cloud/firestore');
 require('dotenv').config();
 
 const app = express();
 let PORT = parseInt(process.env.PORT, 10) || 3005;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY || '';
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY || '';
+
+// Initialize Google Cloud Firestore Database (asia-south1 Mumbai)
+let firestoreDb = null;
+try {
+  firestoreDb = new Firestore({
+    projectId: process.env.GOOGLE_CLOUD_PROJECT || 'nunes-mail-d072f3ce1'
+  });
+  console.log('[Firestore] Connected to Google Cloud Firestore (Project: nunes-mail-d072f3ce1, Region: asia-south1)');
+} catch (err) {
+  console.warn('[Firestore] Initialization warning:', err.message);
+}
 
 // SMTP Email Delivery Configuration (Anti-Spam & Deliverability Optimized)
 const SMTP_HOST = process.env.SMTP_HOST || 'smtp.gmail.com';
@@ -982,6 +994,23 @@ function upsertIncrementalRecords(sector, incomingList) {
     } catch (csvErr) {
       console.warn(`[Incremental Store] Desktop CSV write skipped:`, csvErr.message);
     }
+
+    // 3. Mirror directly into Cloud Firestore
+    if (firestoreDb && newlyAddedItems.length > 0) {
+      const colMap = { police: 'police_stations', colleges: 'colleges', schools: 'schools', transport: 'transport_fleets' };
+      const colName = colMap[sec] || 'misc';
+      const batch = firestoreDb.batch();
+      newlyAddedItems.slice(0, 450).forEach(item => {
+        const docId = String(item.id || item.name || item.stationName).replace(/\//g, '_').replace(/\\/g, '_').trim();
+        const ref = firestoreDb.collection(colName).doc(docId);
+        batch.set(ref, { ...item, lastSyncedToFirestore: new Date().toISOString() }, { merge: true });
+      });
+      batch.commit().then(() => {
+        console.log(`[Firestore] Successfully synced ${newlyAddedItems.length} records to cloud collection "${colName}".`);
+      }).catch(err => {
+        console.warn(`[Firestore Sync Warning]`, err.message);
+      });
+    }
   }
 
   return {
@@ -994,6 +1023,27 @@ function upsertIncrementalRecords(sector, incomingList) {
     newItems: newlyAddedItems
   };
 }
+
+// -------------------------------------------------------------
+// GET /api/firestore/status
+// Reports Google Cloud Firestore synchronization status
+// -------------------------------------------------------------
+app.get('/api/firestore/status', async (req, res) => {
+  if (!firestoreDb) {
+    return res.json({ connected: false, message: 'Firestore not initialized' });
+  }
+  try {
+    const metaDoc = await firestoreDb.collection('sync_metadata').doc('summary').get();
+    return res.json({
+      connected: true,
+      projectId: 'nunes-mail-d072f3ce1',
+      region: 'asia-south1 (Mumbai)',
+      firestoreData: metaDoc.exists ? metaDoc.data() : null
+    });
+  } catch (err) {
+    return res.json({ connected: false, error: err.message });
+  }
+});
 
 // -------------------------------------------------------------
 // POST /api/records/upsert

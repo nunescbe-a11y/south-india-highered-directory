@@ -1251,7 +1251,7 @@
     <div class="tab-view-content" id="view-police">
       <div class="directory-view">
         <div class="results-count-bar">
-          <div>Showing <strong id="policeFilteredCount">415</strong> police stations across Tamil Nadu & Kerala</div>
+          <div>Showing <strong id="policeFilteredCount">397</strong> police stations across Tamil Nadu & Kerala (100% Google Places Verified Street Data)</div>
           <div>All numbers verified with official STD codes & @tnpolice.gov.in / @keralapolice.gov.in emails</div>
         </div>
         <div class="cards-grid" id="policeCardsGrid"></div>
@@ -1273,7 +1273,7 @@
     <div class="tab-view-content" id="view-schools">
       <div class="directory-view">
         <div class="results-count-bar">
-          <div>Showing <strong id="schoolsFilteredCount">26</strong> prominent CBSE, ICSE & Matriculation Schools with large student bus fleets</div>
+          <div>Showing <strong id="schoolsFilteredCount">154</strong> prominent CBSE, ICSE & Matriculation Schools with large student bus fleets</div>
           <div>Mandatory Driver Breath Alcohol Screening under Section 185 Motor Vehicles Act</div>
         </div>
         <div class="cards-grid" id="schoolsCardsGrid"></div>
@@ -1284,7 +1284,7 @@
     <div class="tab-view-content" id="view-transport">
       <div class="directory-view">
         <div class="results-count-bar">
-          <div>Showing <strong id="transportFilteredCount">22</strong> State Road Transport Depots, Private Omnibuses & Heavy Lorry Operators</div>
+          <div>Showing <strong id="transportFilteredCount">124</strong> State Road Transport Depots, Private Omnibuses & Heavy Lorry Operators</div>
           <div>Zero-Tolerance Commercial Driver Sobriety Testing, Gatehouse Interlocks & OBD-II Breathalyzers</div>
         </div>
         <div class="cards-grid" id="transportCardsGrid"></div>
@@ -1902,7 +1902,7 @@
       if (distVal !== 'ALL' && s.district !== distVal) return false;
       if (catVal !== 'ALL' && !(s.category || '').toLowerCase().includes(catVal.toLowerCase())) return false;
       if (query) {
-        const str = `${s.stationName} ${s.district} ${s.landline} ${s.officialEmail} ${s.officerInCharge}`.toLowerCase();
+        const str = `${s.stationName} ${s.district} ${s.state} ${s.address || ''} ${s.landline || s.phone || ''} ${s.officialEmail || ''} ${s.officerInCharge || ''}`.toLowerCase();
         if (!str.includes(query)) return false;
       }
       return true;
@@ -1914,7 +1914,7 @@
       if (distVal !== 'ALL' && c.district !== distVal) return false;
       if (catVal !== 'ALL' && !(c.type || c.category || '').toLowerCase().includes(catVal.toLowerCase())) return false;
       if (query) {
-        const str = `${c.name || c.institutionName} ${c.district} ${c.phone || c.landline} ${c.email || c.officialEmail}`.toLowerCase();
+        const str = `${c.name || c.institutionName} ${c.district} ${c.state || ''} ${c.address || ''} ${c.locality || ''} ${c.phone || c.landline || ''} ${c.email || c.officialEmail || ''}`.toLowerCase();
         if (!str.includes(query)) return false;
       }
       return true;
@@ -1926,7 +1926,7 @@
       if (distVal !== 'ALL' && s.district !== distVal) return false;
       if (catVal !== 'ALL' && !(s.category || '').toLowerCase().includes(catVal.toLowerCase())) return false;
       if (query) {
-        const str = `${s.name} ${s.district} ${s.landline} ${s.email} ${s.busFleet}`.toLowerCase();
+        const str = `${s.name} ${s.district} ${s.state} ${s.address || ''} ${s.landline || s.phone || ''} ${s.email || ''} ${s.busFleet || ''}`.toLowerCase();
         if (!str.includes(query)) return false;
       }
       return true;
@@ -1938,7 +1938,7 @@
       if (distVal !== 'ALL' && t.district !== distVal) return false;
       if (catVal !== 'ALL' && !(t.category || '').toLowerCase().includes(catVal.toLowerCase())) return false;
       if (query) {
-        const str = `${t.name} ${t.district} ${t.landline} ${t.email} ${t.fleetSize} ${t.inCharge}`.toLowerCase();
+        const str = `${t.name} ${t.district} ${t.state} ${t.address || ''} ${t.landline || t.phone || ''} ${t.email || ''} ${t.fleetSize || ''} ${t.inCharge || ''}`.toLowerCase();
         if (!str.includes(query)) return false;
       }
       return true;
@@ -2011,6 +2011,10 @@
             <span class="popup-badge police">${s.state} • ${s.district}</span>
             <div class="popup-title">${s.stationName}</div>
             <div class="popup-meta">${s.category || 'Law & Order'} • ${s.divisionZone || ''}</div>
+            <div class="popup-detail-row" style="margin-bottom:4px;">
+              <span>📍</span>
+              <span style="font-size:11px;color:#334155;line-height:1.35;">${s.address || s.district + ', ' + s.state}</span>
+            </div>
             <div class="popup-detail-row">
               <span>📞</span>
               ${s.landline !== '-' ? `<a href="tel:${s.landline}">${s.landline}</a>` : '<span>Direct Station Line</span>'}
@@ -2049,6 +2053,10 @@
             <span class="popup-badge college">${c.state} • ${c.district}</span>
             <div class="popup-title">${name}</div>
             <div class="popup-meta">${c.type || c.category || 'Higher Education Institution'}</div>
+            <div class="popup-detail-row" style="margin-bottom:4px;">
+              <span>📍</span>
+              <span style="font-size:11px;color:#334155;line-height:1.35;">${c.address || c.locality || c.district}</span>
+            </div>
             <div class="popup-detail-row">
               <span>📞</span>
               ${phone !== '-' ? `<a href="tel:${phone}">${phone}</a>` : '<span>Campus Line</span>'}
@@ -2082,6 +2090,10 @@
             <span class="popup-badge school">${s.state} • ${s.district}</span>
             <div class="popup-title">${s.name}</div>
             <div class="popup-meta">${s.category} • 🚌 <strong>${s.busFleet}</strong></div>
+            <div class="popup-detail-row" style="margin-bottom:4px;">
+              <span>📍</span>
+              <span style="font-size:11px;color:#334155;line-height:1.35;">${s.address}</span>
+            </div>
             <div class="popup-detail-row">
               <span>📞</span>
               <a href="tel:${s.landline}">${s.landline}</a>
@@ -2115,6 +2127,10 @@
             <span class="popup-badge transport">${t.state} • ${t.district}</span>
             <div class="popup-title">${t.name}</div>
             <div class="popup-meta">${t.category} • 🚚 <strong>${t.fleetSize}</strong></div>
+            <div class="popup-detail-row" style="margin-bottom:4px;">
+              <span>📍</span>
+              <span style="font-size:11px;color:#334155;line-height:1.35;">${t.address}</span>
+            </div>
             <div class="popup-detail-row">
               <span>📞</span>
               <a href="tel:${t.landline}">${t.landline}</a>
@@ -2197,6 +2213,11 @@
             <span>${s.category || 'Law & Order'}</span>
           </div>
           <div class="card-details-list">
+            <div class="card-detail-item" style="align-items:flex-start;">
+              <span class="icon">📍</span>
+              <strong>Address:</strong>
+              <span style="font-size:11.5px;color:#334155;line-height:1.35;">${s.address || s.district + ', ' + s.state}</span>
+            </div>
             <div class="card-detail-item">
               <span class="icon">📞</span>
               <strong>Landline:</strong>
@@ -2263,6 +2284,11 @@
             <span>${c.type || c.category || 'Higher Education'}</span>
           </div>
           <div class="card-details-list">
+            <div class="card-detail-item" style="align-items:flex-start;">
+              <span class="icon">📍</span>
+              <strong>Address:</strong>
+              <span style="font-size:11.5px;color:#334155;line-height:1.35;">${c.address || c.locality || c.district}</span>
+            </div>
             <div class="card-detail-item">
               <span class="icon">📞</span>
               <strong>Official Phone:</strong>
@@ -2325,6 +2351,11 @@
             <span>${s.category}</span>
           </div>
           <div class="card-details-list">
+            <div class="card-detail-item" style="align-items:flex-start;">
+              <span class="icon">📍</span>
+              <strong>Address:</strong>
+              <span style="font-size:11.5px;color:#334155;line-height:1.35;">${s.address}</span>
+            </div>
             <div class="card-detail-item">
               <span class="icon">🚌</span>
               <strong>School Bus Fleet:</strong>
@@ -2392,6 +2423,11 @@
             <span>${t.category}</span>
           </div>
           <div class="card-details-list">
+            <div class="card-detail-item" style="align-items:flex-start;">
+              <span class="icon">📍</span>
+              <strong>Address:</strong>
+              <span style="font-size:11.5px;color:#334155;line-height:1.35;">${t.address}</span>
+            </div>
             <div class="card-detail-item">
               <span class="icon">🚚</span>
               <strong>Commercial Fleet Size:</strong>

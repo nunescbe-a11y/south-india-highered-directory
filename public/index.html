@@ -1096,6 +1096,10 @@
           <span>🚚</span> <span>Bus & Lorry Fleets</span>
           <span class="tab-badge" id="badgeTransportCount">22</span>
         </button>
+        <button class="tab-btn" onclick="switchView('workspace')">
+          <span>💼</span> <span>Workspaces (WhatsApp & Email)</span>
+          <span class="tab-badge" id="badgeSelectedCount" style="background:#eff6ff;color:#2563eb;font-weight:700;">0</span>
+        </button>
         <button class="tab-btn" onclick="switchView('analytics')">
           <span>📊</span> <span>Analytics</span>
         </button>
@@ -1106,6 +1110,9 @@
 
       <!-- Header Actions -->
       <div class="header-actions">
+        <button class="btn-quote-header" style="background:#0f172a;box-shadow:0 2px 8px rgba(15,23,42,0.3);" onclick="openCloudModal()">
+          <span>☁️</span> <span>Google Cloud & AI Keys</span>
+        </button>
         <button class="btn-quote-header" onclick="openQuoteModal()">
           <span>📄</span> <span>Request Quotation</span>
         </button>
@@ -1143,6 +1150,12 @@
       </div>
 
       <div class="controls-right">
+        <button class="btn-export" style="background:#f0fdf4;color:#166534;border-color:#bbf7d0;font-weight:700;" onclick="selectAllVisible()">
+          <span>☑️</span> <span>Select Visible</span>
+        </button>
+        <button class="btn-export" style="background:#fef2f2;color:#991b1b;border-color:#fecaca;" onclick="clearAllSelections()">
+          <span>✕</span> <span>Clear</span>
+        </button>
         <button class="btn-export" onclick="exportData('csv')">
           <span>📥</span> <span>Export CSV</span>
         </button>
@@ -1308,6 +1321,171 @@
       </div>
     </div>
 
+    <!-- VIEW 8: COMMUNICATIONS & AI DISPATCH WORKSPACES -->
+    <div class="tab-view-content" id="view-workspace">
+      <div style="background:#ffffff;padding:16px 20px;border-radius:12px;border:1px solid #e2e8f0;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+        <div>
+          <h2 style="font-size:17px;font-weight:800;color:#0f172a;display:flex;align-items:center;gap:8px;">
+            <span>💼</span> <span>Multi-Channel Communications & AI Outreach Workspaces</span>
+          </h2>
+          <p style="font-size:12.5px;color:#64748b;margin:3px 0 0;">
+            Space 1: Direct 1-by-1 Web WhatsApp Dispatch • Space 2: Email BCC Broadcast Desk (From: nunesalcotest, CC: nunescbe) • Autonomous AI Follow-Up Agent
+          </p>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <button class="card-btn" style="height:36px;padding:0 12px;font-weight:700;" onclick="selectAllVisible()">☑️ Select Visible into Queue</button>
+          <button class="card-btn" style="height:36px;padding:0 12px;background:#fef2f2;color:#991b1b;border-color:#fecaca;" onclick="clearAllSelections()">✕ Clear Queue</button>
+        </div>
+      </div>
+
+      <div class="workspaces-container" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(420px, 1fr));gap:20px;width:100%;align-items:start;">
+        
+        <!-- SPACE 1: WHATSAPP 1-BY-1 DIRECT DISPATCH CONSOLE -->
+        <div class="workspace-card" style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:20px;box-shadow:0 4px 12px rgba(0,0,0,0.05);border-top:4px solid #25d366;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #f1f5f9;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:36px;height:36px;background:#dcfce7;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#16a34a;font-size:18px;">💬</div>
+              <div>
+                <h3 style="font-size:15px;font-weight:800;color:#0f172a;margin:0;">Space 1: WhatsApp 1-by-1 Smart Dispatch</h3>
+                <span style="font-size:11.5px;color:#64748b;">Direct Web WhatsApp integration • One-by-One Queue</span>
+              </div>
+            </div>
+            <span class="status-pill" id="waQueueProgress">Queue: 0 Contacts</span>
+          </div>
+
+          <!-- Target Selection in Queue -->
+          <div class="form-group">
+            <label class="form-label">Active Target (from Selected Queue or Directory)</label>
+            <select class="form-control" id="waTargetSelect" onchange="loadWaTargetFromSelect()"></select>
+          </div>
+
+          <!-- Active Contact Preview -->
+          <div id="waActiveContactBox" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px;margin-bottom:14px;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+              <strong id="waTargetName" style="font-size:13.5px;color:#0f172a;">No contact selected</strong>
+              <span class="card-state-pill tn" id="waTargetBadge">TN</span>
+            </div>
+            <div style="font-size:11.5px;color:#64748b;margin-bottom:6px;" id="waTargetMeta">Select an institution or station from the directory</div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span style="font-size:12px;font-weight:700;">📱 WhatsApp Phone:</span>
+              <input type="text" id="waTargetPhone" class="form-control" style="padding:4px 8px;font-size:12px;width:180px;" placeholder="+919443217030">
+            </div>
+          </div>
+
+          <!-- Template Picker -->
+          <div class="form-group">
+            <label class="form-label">Select Industry Message Pitch</label>
+            <select class="form-control" id="waTemplateSelect" onchange="applyWaTemplate()">
+              <option value="police">🛡️ Police Traffic: Fuel Cell Interceptor & Thermal Printout</option>
+              <option value="schools">🏫 School Bus: Section 185 Motor Vehicles Act Morning Screening</option>
+              <option value="transport">🚚 Transport Depot: Gatehouse Rapid Sniffer Baton & Turnstile</option>
+              <option value="colleges">🎓 College Safety: Campus & Hostel Alcohol-Free Policy</option>
+              <option value="custom">✍️ Custom Blank Message</option>
+            </select>
+          </div>
+
+          <!-- Live Message Text Area -->
+          <div class="form-group">
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+              <label class="form-label">Personalized WhatsApp Copy</label>
+              <button type="button" onclick="generateAiQuickFollowup()" style="background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe;border-radius:4px;padding:2px 8px;font-size:11px;font-weight:700;cursor:pointer;">✨ Ask AI Copilot</button>
+            </div>
+            <textarea id="waMessageText" class="form-control" rows="6" style="font-size:12px;line-height:1.45;resize:vertical;"></textarea>
+          </div>
+
+          <!-- WhatsApp Dispatch Buttons -->
+          <div style="display:flex;gap:10px;margin-top:14px;">
+            <button type="button" class="card-btn primary" style="background:#25d366;border-color:#25d366;height:42px;flex:2;font-size:13px;" onclick="launchWebWhatsApp()">
+              <span>🚀</span> <span>Open Web WhatsApp & Send</span>
+            </button>
+            <button type="button" class="card-btn" style="height:42px;flex:1;font-size:12.5px;" onclick="advanceWaQueue()">
+              <span>Next ⏭️</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- SPACE 2: EMAIL BCC BROADCAST DESK & AI FOLLOW-UP AGENT -->
+        <div class="workspace-card" style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:20px;box-shadow:0 4px 12px rgba(0,0,0,0.05);border-top:4px solid #2563eb;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #f1f5f9;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:36px;height:36px;background:#dbeafe;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#2563eb;font-size:18px;">✉️</div>
+              <div>
+                <h3 style="font-size:15px;font-weight:800;color:#0f172a;margin:0;">Space 2: Email BCC Broadcast Desk</h3>
+                <span style="font-size:11.5px;color:#64748b;">Automated Multi-BCC • Fixed From & CC • AI Follow-Up Agent</span>
+              </div>
+            </div>
+            <span class="status-pill" id="emailSelectedBadge" style="background:#eff6ff;color:#1e40af;font-weight:700;">0 in BCC</span>
+          </div>
+
+          <!-- Verified Sender & CC Badges -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
+            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:8px 10px;font-size:11.5px;">
+              <span style="color:#64748b;display:block;font-size:10px;text-transform:uppercase;font-weight:700;">FROM ADDRESS (Verified)</span>
+              <strong style="color:#1e3a8a;">nunesalcotest@gmail.com</strong>
+            </div>
+            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:8px 10px;font-size:11.5px;">
+              <span style="color:#64748b;display:block;font-size:10px;text-transform:uppercase;font-weight:700;">CC ADDRESS (Management)</span>
+              <strong style="color:#059669;">nunescbe@gmail.com</strong>
+            </div>
+          </div>
+
+          <!-- BCC Dynamic Counter & Chips -->
+          <div class="form-group">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+              <label class="form-label">BCC Recipients (<span id="bccCountLabel">0</span> selected)</label>
+              <div style="display:flex;gap:6px;">
+                <button type="button" onclick="selectAllVisible()" style="background:#f1f5f9;border:1px solid #cbd5e1;border-radius:4px;padding:1px 6px;font-size:10.5px;cursor:pointer;">+ Add Visible</button>
+                <button type="button" onclick="clearAllSelections()" style="background:#fee2e2;color:#b91c1c;border:1px solid #fecaca;border-radius:4px;padding:1px 6px;font-size:10.5px;cursor:pointer;">Clear</button>
+              </div>
+            </div>
+            <div id="bccChipsContainer" style="min-height:54px;max-height:110px;overflow-y:auto;background:#ffffff;border:1px solid #cbd5e1;border-radius:6px;padding:6px;display:flex;flex-wrap:wrap;gap:4px;font-size:11px;">
+              <span style="color:#94a3b8;font-style:italic;">No BCC recipients selected yet. Check boxes in directory cards or click "+ Add Visible".</span>
+            </div>
+          </div>
+
+          <!-- Subject Line -->
+          <div class="form-group">
+            <label class="form-label">Subject Line</label>
+            <input type="text" id="emailSubjectInput" class="form-control" value="Campus Breath Analyser Range | Nunes Instrumentation, Coimbatore">
+          </div>
+
+          <!-- Autonomous AI Follow-Up Agent Box -->
+          <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 12px;margin-bottom:12px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+              <strong style="font-size:12px;color:#166534;display:flex;align-items:center;gap:5px;">🤖 Autonomous AI Follow-Up Agent (OpenAI)</strong>
+              <span style="font-size:10.5px;color:#15803d;">Ultra-crisp 2 sentences</span>
+            </div>
+            <div style="display:flex;gap:6px;margin-bottom:6px;">
+              <input type="text" id="aiAgentPrompt" class="form-control" style="font-size:11.5px;padding:5px 8px;" placeholder="e.g. Principal requested demonstration date and warranty">
+              <button type="button" onclick="generateAiQuickFollowup()" style="background:#16a34a;color:white;border:none;border-radius:4px;padding:5px 10px;font-size:11.5px;font-weight:700;cursor:pointer;white-space:nowrap;">Generate</button>
+            </div>
+            <div id="aiAgentOutputBox" style="display:none;background:white;border:1px solid #86efac;border-radius:6px;padding:8px;font-size:11.5px;color:#14532d;line-height:1.4;">
+              <div id="aiAgentOutputText"></div>
+              <div style="display:flex;gap:6px;margin-top:6px;">
+                <button type="button" onclick="applyAiTextToEmail()" style="font-size:10.5px;padding:2px 6px;background:#dcfce7;border:1px solid #86efac;border-radius:4px;cursor:pointer;">Use in Email</button>
+                <button type="button" onclick="applyAiTextToWa()" style="font-size:10.5px;padding:2px 6px;background:#dcfce7;border:1px solid #86efac;border-radius:4px;cursor:pointer;">Use in WhatsApp</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Attachment & Template Options -->
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;font-size:12px;">
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-weight:600;color:#0f172a;">
+              <input type="checkbox" id="attachCatalogueChk" checked>
+              <span>📎 Attach 14-Model Catalogue PDF (5.16 MB)</span>
+            </label>
+            <span style="color:#64748b;font-size:11px;">Uses Official Nunes HTML Template</span>
+          </div>
+
+          <!-- Dispatch Button -->
+          <button type="button" class="card-btn primary" style="background:#2563eb;height:42px;width:100%;font-size:13px;" onclick="dispatchBccCampaign()">
+            <span>📧</span> <span>Send Campaign (From: nunesalcotest, CC: nunescbe, BCC: Selected)</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
   </main>
 </div>
 
@@ -1363,6 +1541,88 @@
           </button>
         </div>
       </form>
+    </div>
+  </div>
+</div>
+
+<!-- FLOATING MULTI-SELECT BAR -->
+<div id="multiSelectBar" style="position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#0f172a;color:white;padding:10px 22px;border-radius:100px;box-shadow:0 8px 30px rgba(0,0,0,0.35);display:none;align-items:center;gap:14px;z-index:1500;font-size:12.5px;font-weight:700;border:1px solid rgba(255,255,255,0.15);">
+  <span id="multiSelectCountText">⚡ 0 Selected</span>
+  <span style="color:#475569;">|</span>
+  <button onclick="switchView('workspace');" style="background:#2563eb;color:white;border:none;border-radius:100px;padding:6px 14px;font-size:11.5px;font-weight:700;cursor:pointer;">✉️ Open Email BCC Desk</button>
+  <button onclick="switchView('workspace');" style="background:#25d366;color:white;border:none;border-radius:100px;padding:6px 14px;font-size:11.5px;font-weight:700;cursor:pointer;">💬 Open WhatsApp Console</button>
+  <button onclick="clearAllSelections()" style="background:transparent;color:#94a3b8;border:none;cursor:pointer;font-size:12px;">✕ Clear</button>
+</div>
+
+<!-- GOOGLE CLOUD & AI KEYS MODAL -->
+<div class="modal-overlay" id="cloudModal">
+  <div class="modal-card" style="max-width:650px;">
+    <div class="modal-header">
+      <div class="modal-title">☁️ Pan-India Google Cloud & AI Credentials Studio</div>
+      <button class="modal-close" onclick="closeCloudModal()">✕</button>
+    </div>
+    <div class="modal-body" style="max-height:80vh;overflow-y:auto;">
+      <!-- Step by step instructions -->
+      <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;margin-bottom:16px;">
+        <h4 style="font-size:13px;font-weight:800;color:#0f172a;margin:0 0 6px;">How to Get Google Cloud Credentials (Step-by-Step)</h4>
+        <ol style="margin:0;padding-left:18px;font-size:12px;color:#334155;line-height:1.5;">
+          <li>Go to <a href="https://console.cloud.google.com/" target="_blank" style="color:#2563eb;font-weight:700;">Google Cloud Console</a> and sign in.</li>
+          <li>Click the project dropdown at the top & click <strong>"New Project"</strong> (e.g. <code>Nunes-Pan-India-Data</code>).</li>
+          <li>Go to <strong>APIs & Services > Library</strong> and enable <strong>Places API (New)</strong> and <strong>Geocoding API</strong>. (Google gives $200 free monthly credit).</li>
+          <li>Go to <strong>APIs & Services > Credentials</strong>, click <strong>"+ CREATE CREDENTIALS"</strong>, and choose <strong>API key</strong>.</li>
+          <li>Copy your generated key (starts with <code>AIzaSy...</code>) and paste it below.</li>
+        </ol>
+      </div>
+
+      <!-- Google Maps API Key Input -->
+      <div class="form-group">
+        <label class="form-label">Google Maps Places API Key</label>
+        <div style="display:flex;gap:8px;">
+          <input type="password" id="googleMapsKeyInput" class="form-control" placeholder="AIzaSy..." style="font-family:monospace;">
+          <button type="button" class="card-btn" style="flex:none;padding:0 12px;" onclick="testGoogleMapsKey()">Test Key</button>
+        </div>
+        <div id="googleKeyStatus" style="font-size:11.5px;margin-top:4px;"></div>
+      </div>
+
+      <!-- OpenAI API Key Input -->
+      <div class="form-group">
+        <label class="form-label">OpenAI API Key (For Autonomous AI Agent)</label>
+        <div style="display:flex;gap:8px;">
+          <input type="password" id="openaiKeyInput" class="form-control" placeholder="sk-..." style="font-family:monospace;">
+          <button type="button" class="card-btn" style="flex:none;padding:0 12px;" onclick="saveOpenAiKey()">Save Key</button>
+        </div>
+        <div id="openaiKeyStatus" style="font-size:11.5px;margin-top:4px;color:#16a34a;">Configured with gpt-4o-mini for ultra-crisp responses.</div>
+      </div>
+
+      <!-- Live Pan-India Harvester -->
+      <div style="border-top:1px solid #e2e8f0;padding-top:14px;margin-top:14px;">
+        <h4 style="font-size:13px;font-weight:800;color:#0f172a;margin:0 0 8px;">Harvest Any State in India (Live Ingestion)</h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px;">
+          <select id="harvestStateSelect" class="form-control" style="font-size:12px;">
+            <option value="Karnataka">Karnataka</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Delhi NCR">Delhi NCR</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="West Bengal">West Bengal</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Kerala">Kerala</option>
+          </select>
+          <input type="text" id="harvestDistrictInput" class="form-control" placeholder="District (e.g. Bengaluru)" style="font-size:12px;">
+          <select id="harvestSectorSelect" class="form-control" style="font-size:12px;">
+            <option value="police">🛡️ Police Stations</option>
+            <option value="colleges">🎓 Colleges & Varsities</option>
+            <option value="schools">🏫 Schools (Bus Fleet)</option>
+            <option value="transport">🚚 Bus & Lorry Hubs</option>
+          </select>
+        </div>
+        <button type="button" class="card-btn primary" style="width:100%;height:38px;" onclick="runPanIndiaHarvest()">
+          <span>⚡</span> <span>Harvest Live Verified Data from Google Cloud</span>
+        </button>
+        <div id="harvestStatusBox" style="margin-top:8px;font-size:11.5px;"></div>
+      </div>
     </div>
   </div>
 </div>
@@ -1844,13 +2104,22 @@
         (s.breathAnalyserPriority || '').toLowerCase().includes('very high') ? 'very-high' : 'high';
 
       const statePill = s.state === 'Kerala' ? '<span class="card-state-pill kl">Kerala</span>' : '<span class="card-state-pill tn">Tamil Nadu</span>';
+      const id = s.id || s.stationName;
+      const isSelected = selectedRecipients.has(id);
+      const safeName = s.stationName.replace(/'/g, "\\'");
 
       card.className = `entity-card ${priorityClass}`;
       card.innerHTML = `
         <div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;padding-bottom:6px;border-bottom:1px dashed #e2e8f0;">
+            <label style="display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:700;color:#1e3a8a;cursor:pointer;">
+              <input type="checkbox" onchange="toggleSelectRecipient('${id}', '${safeName}', '${s.officialEmail}', '${s.landline}', '${s.district}', 'Police', '${s.state}')" ${isSelected ? 'checked' : ''}>
+              <span>Select for Email BCC / WhatsApp</span>
+            </label>
+            ${statePill}
+          </div>
           <div class="card-top">
             <div class="card-title">${s.stationName}</div>
-            ${statePill}
           </div>
           <div class="card-meta">
             <span class="card-district">📍 ${s.district}</span>
@@ -1879,8 +2148,9 @@
           </div>
         </div>
         <div class="card-actions">
-          <button class="card-btn" onclick="focusOnMap(${s.lat}, ${s.lng})">🗺️ View on Map</button>
-          <button class="card-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(s.stationName)}')">📄 Request Quote</button>
+          <button class="card-btn" onclick="focusOnMap(${s.lat}, ${s.lng})">🗺️ Map</button>
+          <button class="card-btn" style="background:#f0fdf4;color:#16a34a;border-color:#bbf7d0;" onclick="openWaWorkspaceFor('${id}', '${safeName}', '${s.officialEmail}', '${s.landline}', '${s.district}', 'Police', '${s.state}')">💬 WhatsApp</button>
+          <button class="card-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(s.stationName)}')">📄 RFQ</button>
         </div>
       `;
       grid.appendChild(card);
@@ -1900,13 +2170,22 @@
       const phone = c.phone || c.landline || '-';
       const email = c.email || c.officialEmail || '-';
       const statePill = c.state === 'Kerala' ? '<span class="card-state-pill kl">Kerala</span>' : '<span class="card-state-pill tn">Tamil Nadu</span>';
+      const id = c.id || name;
+      const isSelected = selectedRecipients.has(id);
+      const safeName = name.replace(/'/g, "\\'");
 
       card.className = 'entity-card priority-high';
       card.innerHTML = `
         <div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;padding-bottom:6px;border-bottom:1px dashed #e2e8f0;">
+            <label style="display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:700;color:#059669;cursor:pointer;">
+              <input type="checkbox" onchange="toggleSelectRecipient('${id}', '${safeName}', '${email}', '${phone}', '${c.district}', 'HigherEd', '${c.state}')" ${isSelected ? 'checked' : ''}>
+              <span>Select for Email BCC / WhatsApp</span>
+            </label>
+            ${statePill}
+          </div>
           <div class="card-top">
             <div class="card-title">${name}</div>
-            ${statePill}
           </div>
           <div class="card-meta">
             <span class="card-district">📍 ${c.district}</span>
@@ -1935,8 +2214,9 @@
           </div>
         </div>
         <div class="card-actions">
-          <button class="card-btn" onclick="focusOnMap(${c.lat}, ${c.lng})">🗺️ View on Map</button>
-          <button class="card-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(name)}')">📄 Campus Safety RFQ</button>
+          <button class="card-btn" onclick="focusOnMap(${c.lat}, ${c.lng})">🗺️ Map</button>
+          <button class="card-btn" style="background:#f0fdf4;color:#16a34a;border-color:#bbf7d0;" onclick="openWaWorkspaceFor('${id}', '${safeName}', '${email}', '${phone}', '${c.district}', 'HigherEd', '${c.state}')">💬 WhatsApp</button>
+          <button class="card-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(name)}')">📄 RFQ</button>
         </div>
       `;
       grid.appendChild(card);
@@ -1952,13 +2232,22 @@
     currentFilteredSchools.forEach(s => {
       const card = document.createElement('div');
       const statePill = s.state === 'Kerala' ? '<span class="card-state-pill kl">Kerala</span>' : '<span class="card-state-pill tn">Tamil Nadu</span>';
+      const id = s.id || s.name;
+      const isSelected = selectedRecipients.has(id);
+      const safeName = s.name.replace(/'/g, "\\'");
 
       card.className = 'entity-card priority-school';
       card.innerHTML = `
         <div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;padding-bottom:6px;border-bottom:1px dashed #e2e8f0;">
+            <label style="display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:700;color:#7c3aed;cursor:pointer;">
+              <input type="checkbox" onchange="toggleSelectRecipient('${id}', '${safeName}', '${s.email}', '${s.landline}', '${s.district}', 'School', '${s.state}')" ${isSelected ? 'checked' : ''}>
+              <span>Select for Email BCC / WhatsApp</span>
+            </label>
+            ${statePill}
+          </div>
           <div class="card-top">
             <div class="card-title">${s.name}</div>
-            ${statePill}
           </div>
           <div class="card-meta">
             <span class="card-district">📍 ${s.district}</span>
@@ -1992,8 +2281,9 @@
           </div>
         </div>
         <div class="card-actions">
-          <button class="card-btn" onclick="focusOnMap(${s.lat}, ${s.lng})">🗺️ View on Map</button>
-          <button class="card-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(s.name)}')">📄 School Bus RFQ</button>
+          <button class="card-btn" onclick="focusOnMap(${s.lat}, ${s.lng})">🗺️ Map</button>
+          <button class="card-btn" style="background:#f0fdf4;color:#16a34a;border-color:#bbf7d0;" onclick="openWaWorkspaceFor('${id}', '${safeName}', '${s.email}', '${s.landline}', '${s.district}', 'School', '${s.state}')">💬 WhatsApp</button>
+          <button class="card-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(s.name)}')">📄 Bus RFQ</button>
         </div>
       `;
       grid.appendChild(card);
@@ -2009,13 +2299,22 @@
     currentFilteredTransport.forEach(t => {
       const card = document.createElement('div');
       const statePill = t.state === 'Kerala' ? '<span class="card-state-pill kl">Kerala</span>' : '<span class="card-state-pill tn">Tamil Nadu</span>';
+      const id = t.id || t.name;
+      const isSelected = selectedRecipients.has(id);
+      const safeName = t.name.replace(/'/g, "\\'");
 
       card.className = 'entity-card priority-transport';
       card.innerHTML = `
         <div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;padding-bottom:6px;border-bottom:1px dashed #e2e8f0;">
+            <label style="display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:700;color:#b45309;cursor:pointer;">
+              <input type="checkbox" onchange="toggleSelectRecipient('${id}', '${safeName}', '${t.email}', '${t.landline}', '${t.district}', 'Transport', '${t.state}')" ${isSelected ? 'checked' : ''}>
+              <span>Select for Email BCC / WhatsApp</span>
+            </label>
+            ${statePill}
+          </div>
           <div class="card-top">
             <div class="card-title">${t.name}</div>
-            ${statePill}
           </div>
           <div class="card-meta">
             <span class="card-district">📍 ${t.district}</span>
@@ -2049,8 +2348,9 @@
           </div>
         </div>
         <div class="card-actions">
-          <button class="card-btn" onclick="focusOnMap(${t.lat}, ${t.lng})">🗺️ View on Map</button>
-          <button class="card-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(t.name)}')">📄 Fleet Interlock RFQ</button>
+          <button class="card-btn" onclick="focusOnMap(${t.lat}, ${t.lng})">🗺️ Map</button>
+          <button class="card-btn" style="background:#f0fdf4;color:#16a34a;border-color:#bbf7d0;" onclick="openWaWorkspaceFor('${id}', '${safeName}', '${t.email}', '${t.landline}', '${t.district}', 'Transport', '${t.state}')">💬 WhatsApp</button>
+          <button class="card-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(t.name)}')">📄 Fleet RFQ</button>
         </div>
       `;
       grid.appendChild(card);
@@ -2262,6 +2562,435 @@
     const name = document.getElementById('quoteSenderName').value || 'Customer';
     const msg = `Hello Nunes Instrumentation Coimbatore, I am ${name}. Please provide an official quotation for ${model} for our fleet/campus: ${target}.`;
     window.open(`https://wa.me/919443217030?text=${encodeURIComponent(msg)}`, '_blank');
+  }
+
+  // -----------------------------------------------------------
+  // WORKSPACES & MULTI-SELECT MANAGEMENT
+  // -----------------------------------------------------------
+  let selectedRecipients = new Map();
+  let waCurrentQueueIndex = 0;
+
+  function toggleSelectRecipient(id, name, email, phone, district, sector, state) {
+    if (selectedRecipients.has(id)) {
+      selectedRecipients.delete(id);
+    } else {
+      selectedRecipients.set(id, { id, name, email, phone, district, sector, state });
+    }
+    updateSelectionUI();
+  }
+
+  function selectAllVisible() {
+    let list = [];
+    if (currentTab === 'police') {
+      list = currentFilteredPolice.slice(0, 90).map(s => ({
+        id: s.id || s.stationName,
+        name: s.stationName,
+        email: s.officialEmail,
+        phone: s.landline,
+        district: s.district,
+        sector: 'Police',
+        state: s.state
+      }));
+    } else if (currentTab === 'colleges') {
+      list = currentFilteredColleges.slice(0, 90).map(c => ({
+        id: c.id || c.name,
+        name: c.name || c.institutionName,
+        email: c.email || c.officialEmail,
+        phone: c.phone || c.landline,
+        district: c.district,
+        sector: 'HigherEd',
+        state: c.state
+      }));
+    } else if (currentTab === 'schools') {
+      list = currentFilteredSchools.map(s => ({
+        id: s.id || s.name,
+        name: s.name,
+        email: s.email,
+        phone: s.landline,
+        district: s.district,
+        sector: 'School',
+        state: s.state
+      }));
+    } else if (currentTab === 'transport') {
+      list = currentFilteredTransport.map(t => ({
+        id: t.id || t.name,
+        name: t.name,
+        email: t.email,
+        phone: t.landline,
+        district: t.district,
+        sector: 'Transport',
+        state: t.state
+      }));
+    } else {
+      [...currentFilteredPolice.slice(0, 30), ...currentFilteredSchools, ...currentFilteredTransport].forEach(item => {
+        list.push({
+          id: item.id || item.name || item.stationName,
+          name: item.name || item.stationName,
+          email: item.email || item.officialEmail,
+          phone: item.landline || item.phone,
+          district: item.district,
+          sector: item.category || 'General',
+          state: item.state
+        });
+      });
+    }
+
+    list.forEach(item => {
+      if (item.email && item.email.includes('@')) {
+        selectedRecipients.set(item.id, item);
+      }
+    });
+
+    updateSelectionUI();
+    renderAllViews();
+  }
+
+  function clearAllSelections() {
+    selectedRecipients.clear();
+    updateSelectionUI();
+    renderAllViews();
+  }
+
+  function updateSelectionUI() {
+    const count = selectedRecipients.size;
+    const badge = document.getElementById('badgeSelectedCount');
+    if (badge) badge.textContent = `${count}`;
+
+    const bar = document.getElementById('multiSelectBar');
+    if (bar) {
+      if (count > 0) {
+        bar.style.display = 'flex';
+        document.getElementById('multiSelectCountText').textContent = `⚡ ${count} Recipient${count > 1 ? 's' : ''} Selected`;
+      } else {
+        bar.style.display = 'none';
+      }
+    }
+
+    updateWorkspaceRecipients();
+  }
+
+  function updateWorkspaceRecipients() {
+    const bccContainer = document.getElementById('bccChipsContainer');
+    const bccCount = document.getElementById('bccCountLabel');
+    const emailBadge = document.getElementById('emailSelectedBadge');
+    const waSelect = document.getElementById('waTargetSelect');
+    const waProgress = document.getElementById('waQueueProgress');
+
+    const recipients = Array.from(selectedRecipients.values());
+
+    if (bccCount) bccCount.textContent = recipients.length;
+    if (emailBadge) emailBadge.textContent = `${recipients.length} in BCC`;
+
+    if (bccContainer) {
+      if (recipients.length === 0) {
+        bccContainer.innerHTML = '<span style="color:#94a3b8;font-style:italic;">No BCC recipients selected yet. Check boxes in directory cards or click "+ Add Visible".</span>';
+      } else {
+        bccContainer.innerHTML = recipients.map(r => `
+          <span style="display:inline-flex;align-items:center;gap:4px;background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe;border-radius:100px;padding:2px 8px;font-size:11px;">
+            <span>${r.name.slice(0, 24)}${r.name.length > 24 ? '...' : ''} &lt;${r.email}&gt;</span>
+            <button type="button" onclick="removeBccRecipient('${r.id}')" style="background:none;border:none;cursor:pointer;color:#94a3b8;font-weight:bold;margin-left:2px;">✕</button>
+          </span>
+        `).join('');
+      }
+    }
+
+    if (waSelect) {
+      waSelect.innerHTML = '';
+      if (recipients.length === 0) {
+        const opt = document.createElement('option');
+        opt.textContent = '-- Queue empty: Select cards from Police, Colleges, Schools or Transport --';
+        waSelect.appendChild(opt);
+      } else {
+        recipients.forEach((r, idx) => {
+          const opt = document.createElement('option');
+          opt.value = idx;
+          opt.textContent = `${idx + 1}. [${r.sector}] ${r.name} (${r.district}) - ${r.phone || 'Direct'}`;
+          waSelect.appendChild(opt);
+        });
+        waSelect.value = waCurrentQueueIndex < recipients.length ? waCurrentQueueIndex : 0;
+      }
+      loadWaTargetFromSelect();
+    }
+
+    if (waProgress) {
+      waProgress.textContent = recipients.length > 0 ? `Queue: ${waCurrentQueueIndex + 1} of ${recipients.length}` : 'Queue: 0 Contacts';
+    }
+  }
+
+  function removeBccRecipient(id) {
+    selectedRecipients.delete(id);
+    updateSelectionUI();
+    renderAllViews();
+  }
+
+  function openWaWorkspaceFor(id, name, email, phone, district, sector, state) {
+    selectedRecipients.set(id, { id, name, email, phone, district, sector, state });
+    updateSelectionUI();
+    const recipients = Array.from(selectedRecipients.values());
+    waCurrentQueueIndex = recipients.findIndex(r => r.id === id);
+    if (waCurrentQueueIndex < 0) waCurrentQueueIndex = 0;
+    switchView('workspace');
+    loadWaTargetFromSelect();
+  }
+
+  function loadWaTargetFromSelect() {
+    const recipients = Array.from(selectedRecipients.values());
+    const select = document.getElementById('waTargetSelect');
+    const idx = parseInt(select?.value || '0', 10);
+    waCurrentQueueIndex = idx;
+
+    const target = recipients[idx] || null;
+    const nameEl = document.getElementById('waTargetName');
+    const badgeEl = document.getElementById('waTargetBadge');
+    const metaEl = document.getElementById('waTargetMeta');
+    const phoneEl = document.getElementById('waTargetPhone');
+
+    if (target) {
+      nameEl.textContent = target.name;
+      badgeEl.textContent = target.state === 'Kerala' ? 'Kerala' : 'Tamil Nadu';
+      badgeEl.className = target.state === 'Kerala' ? 'card-state-pill kl' : 'card-state-pill tn';
+      metaEl.textContent = `${target.sector} • ${target.district} • Contact: ${target.email}`;
+      phoneEl.value = target.phone && target.phone !== '-' ? target.phone : '+91 94432 17030';
+      applyWaTemplate();
+    } else {
+      nameEl.textContent = 'No target selected';
+      badgeEl.textContent = 'Queue Empty';
+      metaEl.textContent = 'Select cards in Police, Colleges, Schools or Transport tabs';
+      phoneEl.value = '';
+      document.getElementById('waMessageText').value = '';
+    }
+
+    const waProgress = document.getElementById('waQueueProgress');
+    if (waProgress) {
+      waProgress.textContent = recipients.length > 0 ? `Queue: ${waCurrentQueueIndex + 1} of ${recipients.length}` : 'Queue: 0 Contacts';
+    }
+  }
+
+  function applyWaTemplate() {
+    const recipients = Array.from(selectedRecipients.values());
+    const target = recipients[waCurrentQueueIndex] || { name: 'Officer / Principal / Fleet Head', district: 'Coimbatore', sector: 'General' };
+    const templateType = document.getElementById('waTemplateSelect').value;
+    const msgBox = document.getElementById('waMessageText');
+
+    let text = '';
+    if (templateType === 'police') {
+      text = `Respected Officer In-Charge, ${target.name} (${target.district}).\n\nGreetings from Nunes Instrumentation Coimbatore (Est. 1978).\n\nWe provide certified Fuel-Cell Law-Enforcement Breath Analysers with instant Thermal Receipt Printers & GPS for highway and station drunken-driving interceptor teams.\n\nWe request a brief slot this week to arrange a live on-spot technical demonstration.\n\nNunes Instrumentation, Coimbatore\nPhone: +91 94432 17030 | Email: nunesalcotest@gmail.com`;
+    } else if (templateType === 'schools') {
+      text = `Respected Principal / Transport Coordinator, ${target.name} (${target.district}).\n\nGreetings from Nunes Instrumentation Coimbatore.\n\nUnder Section 185 of the Motor Vehicles Act & Supreme Court safety guidelines, mandatory daily breath alcohol screening is required for school bus drivers before every student trip.\n\nOur rapid 1-second non-contact Baton Analyser (Model 03 & Model 10) allows testing your entire driver fleet in under 5 minutes without mouthpieces.\n\nMay we dispatch the official compliance catalogue and demo unit?\n\nNunes Instrumentation Coimbatore | +91 94432 17030`;
+    } else if (templateType === 'transport') {
+      text = `Respected Fleet Manager / Depot In-Charge, ${target.name} (${target.district}).\n\nGreetings from Nunes Instrumentation Coimbatore.\n\nTo ensure 100% sober driving across commercial lorries and passenger buses, we equip fleet gatehouses with rapid Baton Sniffers (12 drivers/min) and Alco-Mobile OBD-II Ignition Interlocks.\n\nSpecial fleet volume pricing and calibration support available.\n\nPlease let us know when our technical representative can visit your depot.\n\nNunes Instrumentation Coimbatore | +91 94432 17030`;
+    } else if (templateType === 'colleges') {
+      text = `Respected Principal / Administration Officer, ${target.name} (${target.district}).\n\nGreetings from Nunes Instrumentation Coimbatore.\n\nWe are pleased to introduce our campus & hostel student safety Breath Analysers engineered for educational institutions.\n\nEnclosed is our 14-product range with institutional trust discounts.\n\nKindly advise a suitable time for a 10-minute briefing or campus demonstration.\n\nNunes Instrumentation Coimbatore | +91 94432 17030 | nunesalcotest@gmail.com`;
+    } else {
+      text = `Greetings from Nunes Instrumentation Coimbatore. Regarding Breath Alcohol Screening solutions for ${target.name}; please let us know when we may coordinate with your team.`;
+    }
+
+    msgBox.value = text;
+  }
+
+  function launchWebWhatsApp() {
+    const phoneRaw = document.getElementById('waTargetPhone').value.trim();
+    const msg = document.getElementById('waMessageText').value.trim();
+
+    let cleanPhone = phoneRaw.replace(/[^0-9]/g, '');
+    if (cleanPhone.length === 10) cleanPhone = '91' + cleanPhone;
+    else if (cleanPhone.length === 11 && cleanPhone.startsWith('0')) cleanPhone = '91' + cleanPhone.slice(1);
+
+    if (!cleanPhone || cleanPhone.length < 10) {
+      alert('Please enter a valid phone/mobile number for WhatsApp dispatch.');
+      return;
+    }
+
+    const waUrl = `https://web.whatsapp.com/send?phone=${cleanPhone}&text=${encodeURIComponent(msg)}`;
+    window.open(waUrl, '_blank');
+  }
+
+  function advanceWaQueue() {
+    const recipients = Array.from(selectedRecipients.values());
+    if (waCurrentQueueIndex < recipients.length - 1) {
+      waCurrentQueueIndex++;
+      document.getElementById('waTargetSelect').value = waCurrentQueueIndex;
+      loadWaTargetFromSelect();
+    } else {
+      alert('You have reached the end of the selected queue!');
+    }
+  }
+
+  async function dispatchBccCampaign() {
+    const recipients = Array.from(selectedRecipients.values());
+    if (recipients.length === 0) {
+      alert('Please select at least one institution/station checkbox for BCC broadcast.');
+      return;
+    }
+
+    const bccEmails = recipients.map(r => r.email).filter(e => e && e.includes('@'));
+    if (bccEmails.length === 0) {
+      alert('None of the selected recipients have a valid email address.');
+      return;
+    }
+
+    const subject = document.getElementById('emailSubjectInput').value.trim();
+    const attachCatalogue = document.getElementById('attachCatalogueChk').checked;
+
+    const confirmMsg = `Confirm Email Campaign Dispatch:\n\n• From: nunesalcotest@gmail.com\n• To: nunesalcotest@gmail.com\n• CC: nunescbe@gmail.com\n• BCC: ${bccEmails.length} Selected Recipients\n• Subject: "${subject}"\n• Attachment: ${attachCatalogue ? 'Breath Analyser 14-Model Catalogue PDF' : 'None'}\n\nProceed with dispatch?`;
+
+    if (!confirm(confirmMsg)) return;
+
+    try {
+      const res = await fetch('/api/email/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          to: 'nunesalcotest@gmail.com',
+          cc: 'nunescbe@gmail.com',
+          bcc: bccEmails,
+          subject: subject,
+          attachCatalogue: attachCatalogue
+        })
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        alert(`✅ Campaign Dispatched Successfully!\n\n• Message ID: ${data.messageId}\n• From: nunesalcotest@gmail.com\n• CC: nunescbe@gmail.com\n• Total BCC Recipients: ${data.bccCount}\n• Delivered via Gmail SMTP`);
+      } else {
+        alert(`❌ Dispatch Error: ${data.error || 'Server error'}`);
+      }
+    } catch (err) {
+      alert(`❌ Transmission Failed: ${err.message}`);
+    }
+  }
+
+  async function generateAiQuickFollowup() {
+    const promptInput = document.getElementById('aiAgentPrompt');
+    const userPrompt = promptInput.value.trim() || 'Principal requested demonstration date and warranty';
+    const recipients = Array.from(selectedRecipients.values());
+    const activeTarget = recipients[waCurrentQueueIndex] || { name: 'Institution', sector: 'HigherEd' };
+    const customOpenAiKey = localStorage.getItem('nunes_openai_api_key') || '';
+
+    const outputBox = document.getElementById('aiAgentOutputBox');
+    const outputText = document.getElementById('aiAgentOutputText');
+
+    outputBox.style.display = 'block';
+    outputText.innerHTML = '<em>Thinking with OpenAI Copilot...</em>';
+
+    try {
+      const res = await fetch('/api/agent/quick-followup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          targetName: activeTarget.name,
+          targetType: activeTarget.sector,
+          query: userPrompt,
+          channel: 'email',
+          apiKey: customOpenAiKey
+        })
+      });
+      const data = await res.json();
+      if (data.reply) {
+        outputText.innerHTML = `<strong>AI Suggestion (${data.source}):</strong><br>${data.reply}`;
+        window.lastAiText = data.reply;
+      } else {
+        outputText.textContent = 'Could not generate AI reply.';
+      }
+    } catch (err) {
+      outputText.textContent = 'Error: ' + err.message;
+    }
+  }
+
+  function applyAiTextToEmail() {
+    if (window.lastAiText) {
+      alert('AI Response Copied! Text is ready to send in email campaign.');
+    }
+  }
+
+  function applyAiTextToWa() {
+    if (window.lastAiText) {
+      document.getElementById('waMessageText').value = window.lastAiText;
+      alert('AI Response placed into WhatsApp Message Box!');
+    }
+  }
+
+  // -----------------------------------------------------------
+  // GOOGLE CLOUD MODAL & LIVE HARVESTER
+  // -----------------------------------------------------------
+  function openCloudModal() {
+    document.getElementById('cloudModal').style.display = 'flex';
+    const savedGKey = localStorage.getItem('nunes_google_maps_key') || '';
+    const savedOKey = localStorage.getItem('nunes_openai_api_key') || '';
+    if (savedGKey) document.getElementById('googleMapsKeyInput').value = savedGKey;
+    if (savedOKey) document.getElementById('openaiKeyInput').value = savedOKey;
+  }
+
+  function closeCloudModal() {
+    document.getElementById('cloudModal').style.display = 'none';
+  }
+
+  async function testGoogleMapsKey() {
+    const key = document.getElementById('googleMapsKeyInput').value.trim();
+    const statusEl = document.getElementById('googleKeyStatus');
+    if (!key) {
+      statusEl.innerHTML = '<span style="color:#ef4444;">Please paste an API key first.</span>';
+      return;
+    }
+    statusEl.innerHTML = '<span style="color:#2563eb;">Testing Google Cloud Places API connection...</span>';
+    try {
+      const res = await fetch('/api/google-places/test-key', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ apiKey: key })
+      });
+      const data = await res.json();
+      if (data.valid) {
+        localStorage.setItem('nunes_google_maps_key', key);
+        statusEl.innerHTML = `<span style="color:#16a34a;font-weight:700;">✅ Connected! ${data.message}</span>`;
+      } else {
+        statusEl.innerHTML = `<span style="color:#ef4444;font-weight:700;">❌ Validation Failed: ${data.message || data.error}</span>`;
+      }
+    } catch (err) {
+      statusEl.innerHTML = `<span style="color:#ef4444;">Error: ${err.message}</span>`;
+    }
+  }
+
+  function saveOpenAiKey() {
+    const key = document.getElementById('openaiKeyInput').value.trim();
+    if (key) {
+      localStorage.setItem('nunes_openai_api_key', key);
+      document.getElementById('openaiKeyStatus').innerHTML = '<span style="color:#16a34a;font-weight:700;">✅ OpenAI Key saved for this session!</span>';
+    } else {
+      localStorage.removeItem('nunes_openai_api_key');
+      document.getElementById('openaiKeyStatus').innerHTML = '<span style="color:#64748b;">Key cleared. Using server default.</span>';
+    }
+  }
+
+  async function runPanIndiaHarvest() {
+    const state = document.getElementById('harvestStateSelect').value;
+    const district = document.getElementById('harvestDistrictInput').value.trim() || 'Central';
+    const sector = document.getElementById('harvestSectorSelect').value;
+    const key = document.getElementById('googleMapsKeyInput').value.trim() || localStorage.getItem('nunes_google_maps_key');
+
+    const statusBox = document.getElementById('harvestStatusBox');
+    if (!key) {
+      statusBox.innerHTML = '<span style="color:#ef4444;font-weight:700;">Please provide and test your Google Maps Places API key above first.</span>';
+      return;
+    }
+
+    statusBox.innerHTML = `<span style="color:#2563eb;">Harvesting ${sector} in ${district}, ${state} via Google Cloud Places API...</span>`;
+
+    try {
+      const res = await fetch('/api/google-places/harvest', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ apiKey: key, state, district, sector })
+      });
+      const data = await res.json();
+      if (data.success) {
+        statusBox.innerHTML = `<span style="color:#16a34a;font-weight:700;">✅ Successfully harvested ${data.totalHarvested} verified ${sector} records for ${district}, ${state}!</span>`;
+      } else {
+        statusBox.innerHTML = `<span style="color:#ef4444;">Harvest Error: ${data.error}</span>`;
+      }
+    } catch (err) {
+      statusBox.innerHTML = `<span style="color:#ef4444;">Network Error: ${err.message}</span>`;
+    }
   }
 </script>
 

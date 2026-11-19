@@ -444,6 +444,7 @@ app.post('/api/email/send', async (req, res) => {
     const {
       to = DEFAULT_TO_EMAIL,
       cc = DEFAULT_CC_EMAIL,
+      bcc,
       subject = 'Campus Breath Analyser Range | Nunes Instrumentation, Coimbatore',
       body,
       html,
@@ -454,6 +455,17 @@ app.post('/api/email/send', async (req, res) => {
 
     const targetTo = to || DEFAULT_TO_EMAIL;
     const targetCc = cc || DEFAULT_CC_EMAIL;
+
+    // Parse & de-duplicate BCC list if provided
+    let bccList = [];
+    if (bcc) {
+      if (Array.isArray(bcc)) {
+        bccList = bcc.map(e => String(e).trim()).filter(e => e.includes('@'));
+      } else if (typeof bcc === 'string') {
+        bccList = bcc.split(',').map(e => e.trim()).filter(e => e.includes('@'));
+      }
+      bccList = [...new Set(bccList)];
+    }
 
     // Use user-provided template or custom html without extra text appended
     let htmlContent = html || nunesEmailTemplate;
@@ -528,6 +540,7 @@ Nunes Instrumentation Team`;
       from: '"Nunes Instrumentation" <nunesalcotest@gmail.com>',
       to: targetTo,
       cc: targetCc,
+      ...(bccList.length > 0 ? { bcc: bccList } : {}),
       replyTo: 'nunesalcotest@gmail.com, nunescbe@gmail.com',
       subject: subject,
       text: plainTextFallback,
@@ -540,13 +553,15 @@ Nunes Instrumentation Team`;
     };
 
     const info = await emailTransporter.sendMail(mailOptions);
-    console.log(`[Email Sent] Message ID: ${info.messageId} | To: ${targetTo} | CC: ${targetCc} | Attachment: ${attachments.length > 0 ? attachments[0].filename : 'None'}`);
+    console.log(`[Email Sent] Message ID: ${info.messageId} | To: ${targetTo} | CC: ${targetCc} | BCC Count: ${bccList.length} | Attachment: ${attachments.length > 0 ? attachments[0].filename : 'None'}`);
 
     return res.json({
       success: true,
       messageId: info.messageId,
       to: targetTo,
       cc: targetCc,
+      bccCount: bccList.length,
+      bccRecipients: bccList,
       attachedFiles: attachments.map(a => a.filename),
       spamReport: spamReport,
       timestamp: new Date().toISOString()
@@ -749,6 +764,153 @@ app.get('/api/transport', (req, res) => {
     return res.json(transportData);
   }
   return res.status(404).json({ error: 'Transport dataset not found' });
+});
+
+// -------------------------------------------------------------
+// POST /api/agent/quick-followup
+// Autonomous AI Follow-Up Agent - generates ultra-concise 2-3 sentence corporate response
+// -------------------------------------------------------------
+app.post('/api/agent/quick-followup', async (req, res) => {
+  const { targetName, targetType, contactPerson, query, channel = 'email', apiKey } = req.body;
+  const effectiveOpenAIKey = apiKey || OPENAI_API_KEY;
+
+  const prompt = `Target Name: ${targetName || 'Institution'}
+Target Type: ${targetType || 'General'} (Police, HigherEd, School, or Transport Fleet)
+Contact In-Charge: ${contactPerson || 'Administrative Officer'}
+Client Scenario / Question: ${query || 'Interested in technical demonstration, DGS&D/GeM rates and warranty.'}
+Dispatch Channel: ${channel} (WhatsApp or Email)
+
+Task: Draft an ultra-crisp, authoritative, executive B2B response on behalf of Nunes Instrumentation Coimbatore (Est. 1978).
+Strict Constraints:
+1. MAXIMUM 2 to 3 sentences only (Under 45 words total).
+2. Professional, decisive, polite B2B Indian commercial tone.
+3. Include an immediate next step (e.g. demonstration schedule, PDF dispatch, or GeM contract).
+4. Zero unnecessary filler words or long intros.`;
+
+  if (effectiveOpenAIKey) {
+    try {
+      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${effectiveOpenAIKey}`
+        },
+        body: JSON.stringify({
+          model: 'gpt-4o-mini',
+          messages: [
+            {
+              role: 'system',
+              content: 'You are the Senior Technical Sales Director at Nunes Instrumentation Coimbatore. You provide short, decisive, executive 2-sentence B2B responses without fluff.'
+            },
+            { role: 'user', content: prompt }
+          ],
+          max_tokens: 120,
+          temperature: 0.5
+        }),
+        signal: AbortSignal.timeout(10000)
+      });
+      if (response.ok) {
+        const data = await response.json();
+        const reply = data.choices?.[0]?.message?.content?.trim();
+        if (reply) {
+          return res.json({ success: true, reply, source: 'openai-gpt-4o-mini' });
+        }
+      }
+    } catch (e) {
+      console.warn('[AI Quick Followup OpenAI Error]', e.message);
+    }
+  }
+
+  // Deterministic fallback templates (instant, zero cost, 100% reliable)
+  let fallback = '';
+  if (targetType === 'Police') {
+    fallback = `Greetings from Nunes Instrumentation Coimbatore. We have shared the technical specifications and calibration certificate for our Fuel Cell Breath Analyser with Thermal Printer for ${targetName}; our technical officer is ready to arrange a live demonstration for your department this week.`;
+  } else if (targetType === 'School') {
+    fallback = `Greetings from Nunes Instrumentation. Under Section 185 Motor Vehicles Act regulations for school bus driver screening, we can deliver our rapid fuel-cell baton analyser directly to ${targetName} with full 1-year calibration warranty and institutional pricing.`;
+  } else if (targetType === 'Transport') {
+    fallback = `Greetings from Nunes Instrumentation Coimbatore. We can equip ${targetName}'s fleet depot gatehouse with rapid 1-second sniffer batons and certified printout units to ensure 100% pre-trip driver sobriety compliance; let us know when our technician can visit.`;
+  } else {
+    fallback = `Greetings from Nunes Instrumentation Coimbatore. We are pleased to share our 14-model institutional breath analyser range for ${targetName}; please let us know a convenient time this week for a 10-minute on-campus demonstration for your safety team.`;
+  }
+
+  return res.json({ success: true, reply: fallback, source: 'deterministic-rules-engine' });
+});
+
+// -------------------------------------------------------------
+// POST /api/google-places/test-key
+// Validates Google Cloud Maps / Places API key
+// -------------------------------------------------------------
+app.post('/api/google-places/test-key', async (req, res) => {
+  const { apiKey } = req.body;
+  if (!apiKey || !apiKey.trim()) {
+    return res.status(400).json({ valid: false, error: 'API key is required.' });
+  }
+
+  try {
+    const testUrl = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Coimbatore+Police+Commissioner+Office&inputtype=textquery&fields=name,formatted_address&key=${apiKey.trim()}`;
+    const response = await fetch(testUrl, { signal: AbortSignal.timeout(8000) });
+    const data = await response.json();
+
+    if (data.status === 'OK' || data.status === 'ZERO_RESULTS') {
+      return res.json({ valid: true, status: data.status, message: 'Google Places API connected successfully!' });
+    } else {
+      return res.json({ valid: false, status: data.status, message: data.error_message || 'API Key failed Google verification.' });
+    }
+  } catch (err) {
+    return res.status(500).json({ valid: false, error: err.message });
+  }
+});
+
+// -------------------------------------------------------------
+// POST /api/google-places/harvest
+// Harvests live verified places for any State / District in India
+// -------------------------------------------------------------
+app.post('/api/google-places/harvest', async (req, res) => {
+  const { apiKey, state = 'Tamil Nadu', district = 'Coimbatore', sector = 'police', keyword } = req.body;
+
+  if (!apiKey || !apiKey.trim()) {
+    return res.status(400).json({ error: 'Google Places API key is required to harvest live data.' });
+  }
+
+  const queryTerm = keyword || (
+    sector === 'police' ? `Police Station in ${district}, ${state}` :
+    sector === 'colleges' ? `Engineering Arts College in ${district}, ${state}` :
+    sector === 'schools' ? `Senior Secondary Matriculation School in ${district}, ${state}` :
+    `Bus Depot Lorry Transport in ${district}, ${state}`
+  );
+
+  try {
+    const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(queryTerm)}&key=${apiKey.trim()}`;
+    const response = await fetch(url, { signal: AbortSignal.timeout(12000) });
+    const data = await response.json();
+
+    if (data.status !== 'OK' && data.status !== 'ZERO_RESULTS') {
+      return res.status(400).json({ error: data.error_message || `Google API returned status: ${data.status}` });
+    }
+
+    const items = (data.results || []).map((p, idx) => ({
+      id: `gplaces-${Date.now()}-${idx}`,
+      name: p.name,
+      address: p.formatted_address,
+      state: state,
+      district: district,
+      category: sector,
+      rating: p.rating || 4.2,
+      lat: p.geometry?.location?.lat || null,
+      lng: p.geometry?.location?.lng || null,
+      placeId: p.place_id,
+      verifiedSource: 'Google Places API (Cloud Console)'
+    }));
+
+    return res.json({
+      success: true,
+      query: queryTerm,
+      totalHarvested: items.length,
+      items: items
+    });
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
 });
 
 // -------------------------------------------------------------

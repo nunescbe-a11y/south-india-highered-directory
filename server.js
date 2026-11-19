@@ -110,6 +110,18 @@ if (fs.existsSync(transportPath)) {
   }
 }
 
+// Cache Master 25 Categories Industries & Factories Dataset
+let industriesData = null;
+const industriesPath = path.join(publicDir, 'Industrial_Factories_Dataset.json');
+if (fs.existsSync(industriesPath)) {
+  try {
+    industriesData = JSON.parse(fs.readFileSync(industriesPath, 'utf8'));
+    console.log(`[Industries Dataset] Loaded ${industriesData.allIndustries?.length || 0} Factories & Industries across 25 Categories.`);
+  } catch (err) {
+    console.error('[Industries Dataset] Error reading industries dataset:', err.message);
+  }
+}
+
 // Cache the official Nunes Campus Breath Analyser email HTML template
 const templatePath = path.join(publicDir, 'nunes_campus_email_template.html');
 let nunesEmailTemplate = '';
@@ -972,6 +984,13 @@ app.get('/api/transport', (req, res) => {
   return res.status(404).json({ error: 'Transport dataset not found' });
 });
 
+app.get('/api/industries', (req, res) => {
+  if (industriesData) {
+    return res.json(industriesData);
+  }
+  return res.status(404).json({ error: 'Industries dataset not found' });
+});
+
 // -------------------------------------------------------------
 // POST /api/agent/quick-followup
 // Autonomous AI Follow-Up Agent - generates ultra-concise 2-3 sentence corporate response
@@ -1435,6 +1454,8 @@ app.get('/api/health', (req, res) => {
     totalSchools: schoolsData?.allSchools?.length || 0,
     transportLoaded: Boolean(transportData),
     totalTransportHubs: transportData?.allTransport?.length || 0,
+    industriesLoaded: Boolean(industriesData),
+    totalIndustries: industriesData?.allIndustries?.length || 0,
     timestamp: new Date().toISOString()
   });
 });

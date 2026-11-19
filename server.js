@@ -68,7 +68,7 @@ const policePath = path.join(publicDir, 'TamilNadu_Police_Stations_Dataset.json'
 if (fs.existsSync(policePath)) {
   try {
     policeData = JSON.parse(fs.readFileSync(policePath, 'utf8'));
-    console.log(`[Police Dataset] Loaded ${policeData.allStations?.length || 0} verified South India police stations.`);
+    console.log(`[Police Dataset] Loaded ${policeData.allStations?.length || 0} verified Pan-India police stations.`);
   } catch (err) {
     console.error('[Police Dataset] Error reading police dataset:', err.message);
   }
@@ -80,7 +80,7 @@ const schoolsPath = path.join(publicDir, 'Schools_Directory_Dataset.json');
 if (fs.existsSync(schoolsPath)) {
   try {
     schoolsData = JSON.parse(fs.readFileSync(schoolsPath, 'utf8'));
-    console.log(`[Schools Dataset] Loaded ${schoolsData.allSchools?.length || 0} verified schools.`);
+    console.log(`[Schools Dataset] Loaded ${schoolsData.allSchools?.length || 0} verified Pan-India schools.`);
   } catch (err) {
     console.error('[Schools Dataset] Error reading schools dataset:', err.message);
   }
@@ -92,7 +92,7 @@ const transportPath = path.join(publicDir, 'Transport_Lorry_Bus_Fleet_Dataset.js
 if (fs.existsSync(transportPath)) {
   try {
     transportData = JSON.parse(fs.readFileSync(transportPath, 'utf8'));
-    console.log(`[Transport Dataset] Loaded ${transportData.allTransport?.length || 0} transport & lorry hubs.`);
+    console.log(`[Transport Dataset] Loaded ${transportData.allTransport?.length || 0} Pan-India transport & lorry hubs.`);
   } catch (err) {
     console.error('[Transport Dataset] Error reading transport dataset:', err.message);
   }
@@ -1228,7 +1228,7 @@ app.get('/api/config/keys', (req, res) => {
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'online',
-    appName: 'TN & Kerala Police, HigherEd, Schools & Commercial Fleet Studio',
+    appName: 'Pan-India Police, HigherEd, Schools & Commercial Fleet Studio (28 States & UTs)',
     port: PORT,
     geminiConfigured: Boolean(GEMINI_API_KEY),
     openaiConfigured: Boolean(OPENAI_API_KEY),

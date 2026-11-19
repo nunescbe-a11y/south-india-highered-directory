@@ -1040,13 +1040,13 @@
     <div class="status-left">
       <div class="pulse-indicator">
         <span class="pulse-dot"></span>
-        <span>SOUTH INDIA LAW ENFORCEMENT, CAMPUS & FLEET REPO LIVE</span>
+        <span>ALL-INDIA 28 STATES LAW ENFORCEMENT, CAMPUS & FLEET REPO LIVE</span>
       </div>
-      <span class="status-pill">4,117 POLICE STATIONS</span>
-      <span class="status-pill">5,590 ACCREDITED COLLEGES</span>
-      <span class="status-pill">3,283 CBSE SCHOOLS</span>
-      <span class="status-pill">439 BUS & LORRY HUBS</span>
-      <span class="status-pill" style="background:#451a03;color:#fed7aa;border:1px solid #f97316;">🔥 FIRESTORE CLOUD: 13,429 SYNCED</span>
+      <span class="status-pill">13,170 POLICE STATIONS</span>
+      <span class="status-pill">13,468 ACCREDITED COLLEGES</span>
+      <span class="status-pill">13,011 CBSE SCHOOLS</span>
+      <span class="status-pill">475 BUS & LORRY HUBS</span>
+      <span class="status-pill" style="background:#451a03;color:#fed7aa;border:1px solid #f97316;">🔥 FIRESTORE CLOUD: 40,124 SYNCED</span>
     </div>
     <div class="quick-links-top">
       <span>HQ: Coimbatore, Tamil Nadu</span>
@@ -1128,14 +1128,58 @@
   <section class="controls-strip">
     <div class="controls-grid">
       <div class="controls-left">
-        <!-- State Selector -->
+        <!-- State Selector (Pan-India 28 States & UTs) -->
         <select class="filter-select state-select" id="stateFilter" onchange="handleStateChange()">
-          <option value="ALL" selected>🌐 All States (Pan-South India)</option>
-          <option value="Tamil Nadu">🏛️ Tamil Nadu</option>
-          <option value="Karnataka">🏰 Karnataka (Bengaluru)</option>
-          <option value="Kerala">🌴 Kerala</option>
-          <option value="Telangana">💎 Telangana (Hyderabad)</option>
-          <option value="Andhra Pradesh">🌾 Andhra Pradesh</option>
+          <option value="ALL" selected>🇮🇳 ALL INDIA (All 28 States & UTs)</option>
+          <optgroup label="South India">
+            <option value="Tamil Nadu">🏛️ Tamil Nadu</option>
+            <option value="Karnataka">🏰 Karnataka (Bengaluru)</option>
+            <option value="Kerala">🌴 Kerala</option>
+            <option value="Telangana">💎 Telangana (Hyderabad)</option>
+            <option value="Andhra Pradesh">🌾 Andhra Pradesh</option>
+          </optgroup>
+          <optgroup label="West India">
+            <option value="Maharashtra">🏙️ Maharashtra (Mumbai / Pune)</option>
+            <option value="Gujarat">🏭 Gujarat (Ahmedabad / Surat)</option>
+            <option value="Rajasthan">🏰 Rajasthan (Jaipur)</option>
+            <option value="Goa">🏖️ Goa</option>
+          </optgroup>
+          <optgroup label="North India">
+            <option value="Delhi">🏛️ Delhi (NCR)</option>
+            <option value="Uttar Pradesh">🕌 Uttar Pradesh (Lucknow / Kanpur)</option>
+            <option value="Punjab">🌾 Punjab (Chandigarh / Ludhiana)</option>
+            <option value="Haryana">🏢 Haryana (Gurugram / Faridabad)</option>
+            <option value="Uttarakhand">⛰️ Uttarakhand (Dehradun)</option>
+            <option value="Himachal Pradesh">🏔️ Himachal Pradesh (Shimla)</option>
+            <option value="Jammu and Kashmir">❄️ Jammu and Kashmir</option>
+            <option value="Ladakh">🏔️ Ladakh</option>
+            <option value="Chandigarh">🏛️ Chandigarh</option>
+          </optgroup>
+          <optgroup label="Central India">
+            <option value="Madhya Pradesh">🐅 Madhya Pradesh (Bhopal / Indore)</option>
+            <option value="Chhattisgarh">🌲 Chhattisgarh (Raipur)</option>
+          </optgroup>
+          <optgroup label="East India">
+            <option value="West Bengal">🌉 West Bengal (Kolkata)</option>
+            <option value="Bihar">🏛️ Bihar (Patna)</option>
+            <option value="Jharkhand">⛏️ Jharkhand (Ranchi)</option>
+            <option value="Odisha">🌊 Odisha (Bhubaneswar)</option>
+          </optgroup>
+          <optgroup label="North East India">
+            <option value="Assam">🫖 Assam (Guwahati)</option>
+            <option value="Arunachal Pradesh">🌄 Arunachal Pradesh</option>
+            <option value="Manipur">🌺 Manipur</option>
+            <option value="Meghalaya">🌧️ Meghalaya</option>
+            <option value="Mizoram">🌿 Mizoram</option>
+            <option value="Nagaland">🦅 Nagaland</option>
+            <option value="Sikkim">🏔️ Sikkim</option>
+            <option value="Tripura">🎋 Tripura</option>
+          </optgroup>
+          <optgroup label="Union Territories">
+            <option value="Puducherry">🏛️ Puducherry</option>
+            <option value="Andaman and Nicobar Islands">🏝️ Andaman & Nicobar</option>
+            <option value="Dadra and Nagar Haveli and Daman and Diu">🌴 Dadra & Nagar Haveli & Daman & Diu</option>
+          </optgroup>
         </select>
 
         <!-- District Selector -->
@@ -1257,7 +1301,7 @@
     <div class="tab-view-content" id="view-police">
       <div class="directory-view">
         <div class="results-count-bar">
-          <div>Showing <strong id="policeFilteredCount">4,117</strong> police stations across Tamil Nadu, Karnataka, Kerala, Telangana & Andhra Pradesh (Official Survey of India & Google Places API Geocoded)</div>
+          <div>Showing <strong id="policeFilteredCount">13,170</strong> police stations across all 28 States & UTs of India (Official Survey of India & Google Places API Geocoded)</div>
           <div>All numbers verified with official STD codes & @tnpolice.gov.in / @ksp.gov.in / @keralapolice.gov.in / @tspolice.gov.in emails</div>
         </div>
         <div class="cards-grid" id="policeCardsGrid"></div>
@@ -1268,7 +1312,7 @@
     <div class="tab-view-content" id="view-colleges">
       <div class="directory-view">
         <div class="results-count-bar">
-          <div>Showing <strong id="collegesFilteredCount">5,590</strong> premier engineering colleges, universities & deemed institutes across South India (Official AICTE & Google Places Verified)</div>
+          <div>Showing <strong id="collegesFilteredCount">13,468</strong> premier engineering colleges, universities & deemed institutes across all 28 States & UTs of India (Official AICTE & Google Places Verified)</div>
           <div>Direct principal contacts, landlines, and official institutional websites</div>
         </div>
         <div class="cards-grid" id="collegesCardsGrid"></div>
@@ -1279,7 +1323,7 @@
     <div class="tab-view-content" id="view-schools">
       <div class="directory-view">
         <div class="results-count-bar">
-          <div>Showing <strong id="schoolsFilteredCount">3,283</strong> prominent CBSE, ICSE & Matriculation Schools with large student bus fleets (Official CBSE National Directory & Google Places Verified)</div>
+          <div>Showing <strong id="schoolsFilteredCount">13,011</strong> prominent CBSE schools with large student bus fleets across all 28 States & UTs of India (Official CBSE National Directory & Google Places Verified)</div>
           <div>Mandatory Driver Breath Alcohol Screening under Section 185 Motor Vehicles Act</div>
         </div>
         <div class="cards-grid" id="schoolsCardsGrid"></div>
@@ -1290,7 +1334,7 @@
     <div class="tab-view-content" id="view-transport">
       <div class="directory-view">
         <div class="results-count-bar">
-          <div>Showing <strong id="transportFilteredCount">439</strong> State Road Transport Depots (TNSTC, BMTC, KSRTC, APSRTC, TGSRTC), Private Omnibuses & Heavy Lorry Hubs (100% Google Places Verified)</div>
+          <div>Showing <strong id="transportFilteredCount">475</strong> State Road Transport Depots (MSRTC, UPSRTC, GSRTC, RSRTC, TNSTC, BMTC, KSRTC, APSRTC, TGSRTC, WBTC, DTC), Private Omnibuses & Heavy Freight Hubs</div>
           <div>Zero-Tolerance Commercial Driver Sobriety Testing, Gatehouse Interlocks & OBD-II Breathalyzers</div>
         </div>
         <div class="cards-grid" id="transportCardsGrid"></div>
@@ -1886,18 +1930,46 @@
     handleFilterChange();
 
     const stateVal = document.getElementById('stateFilter').value;
-    if (stateVal === 'Kerala') {
-      map.flyTo([10.2, 76.4], 7.5, { duration: 1.2 });
-    } else if (stateVal === 'Tamil Nadu') {
-      map.flyTo([11.1, 78.6], 7.5, { duration: 1.2 });
-    } else if (stateVal === 'Karnataka') {
-      map.flyTo([13.5, 76.5], 7.0, { duration: 1.2 });
-    } else if (stateVal === 'Andhra Pradesh') {
-      map.flyTo([15.5, 80.0], 7.0, { duration: 1.2 });
-    } else if (stateVal === 'Telangana') {
-      map.flyTo([17.8, 79.0], 7.0, { duration: 1.2 });
+    const stateCoordsMap = {
+      'Tamil Nadu': [11.1, 78.6, 7.5],
+      'Kerala': [10.2, 76.4, 7.5],
+      'Karnataka': [13.5, 76.5, 7.0],
+      'Andhra Pradesh': [15.5, 80.0, 7.0],
+      'Telangana': [17.8, 79.0, 7.0],
+      'Maharashtra': [19.5, 76.0, 6.8],
+      'Gujarat': [22.5, 71.5, 6.8],
+      'Rajasthan': [26.5, 74.0, 6.5],
+      'Goa': [15.3, 74.0, 9.0],
+      'Delhi': [28.65, 77.2, 10.0],
+      'Uttar Pradesh': [27.0, 80.5, 6.5],
+      'Punjab': [31.0, 75.5, 7.5],
+      'Haryana': [29.2, 76.3, 7.5],
+      'Uttarakhand': [30.1, 79.0, 7.5],
+      'Himachal Pradesh': [31.8, 77.2, 7.5],
+      'Jammu and Kashmir': [33.8, 75.0, 7.0],
+      'Ladakh': [34.2, 77.6, 6.5],
+      'Madhya Pradesh': [23.5, 78.0, 6.5],
+      'Chhattisgarh': [21.5, 82.0, 6.8],
+      'West Bengal': [24.0, 88.0, 6.8],
+      'Bihar': [25.6, 85.8, 7.0],
+      'Jharkhand': [23.6, 85.5, 7.2],
+      'Odisha': [20.5, 84.5, 7.0],
+      'Assam': [26.2, 92.5, 7.0],
+      'Arunachal Pradesh': [28.0, 94.5, 6.8],
+      'Manipur': [24.7, 93.9, 8.0],
+      'Meghalaya': [25.5, 91.3, 8.0],
+      'Mizoram': [23.3, 92.8, 8.0],
+      'Nagaland': [26.1, 94.5, 8.0],
+      'Sikkim': [27.5, 88.5, 8.5],
+      'Tripura': [23.8, 91.5, 8.5],
+      'Chandigarh': [30.73, 76.78, 11.0],
+      'Puducherry': [11.94, 79.81, 10.0]
+    };
+    if (stateCoordsMap[stateVal]) {
+      const [lat, lng, zoom] = stateCoordsMap[stateVal];
+      map.flyTo([lat, lng], zoom, { duration: 1.2 });
     } else {
-      map.flyTo([13.0, 78.5], 6.0, { duration: 1.2 });
+      map.flyTo([22.5, 79.0], 5.0, { duration: 1.2 }); // Center of India
     }
   }
 
@@ -2011,7 +2083,8 @@
 
     // 1. Police Markers
     if (showPoliceLayer) {
-      currentFilteredPolice.forEach(s => {
+      const policeSubset = currentFilteredPolice.slice(0, 300);
+      policeSubset.forEach(s => {
         if (!s.lat || !s.lng) return;
         visibleMarkers++;
 
@@ -2090,7 +2163,8 @@
 
     // 3. School Markers
     if (showSchoolLayer) {
-      currentFilteredSchools.forEach(s => {
+      const schoolSubset = currentFilteredSchools.slice(0, 300);
+      schoolSubset.forEach(s => {
         if (!s.lat || !s.lng) return;
         visibleMarkers++;
 
@@ -2127,7 +2201,8 @@
 
     // 4. Transport & Lorry Hub Markers
     if (showTransportLayer) {
-      currentFilteredTransport.forEach(t => {
+      const transportSubset = currentFilteredTransport.slice(0, 300);
+      transportSubset.forEach(t => {
         if (!t.lat || !t.lng) return;
         visibleMarkers++;
 
@@ -2186,13 +2261,20 @@
     map.flyTo([10.5, 77.5], 7, { duration: 1.0 });
   }
 
-  // HELPER: PAN-SOUTH INDIA STATE PILL
+  // HELPER: PAN-INDIA STATE PILL
   function getStatePill(state) {
-    if (state === 'Karnataka') return '<span class="card-state-pill ka">Karnataka</span>';
-    if (state === 'Andhra Pradesh') return '<span class="card-state-pill ap">Andhra Pradesh</span>';
-    if (state === 'Telangana') return '<span class="card-state-pill tg">Telangana</span>';
-    if (state === 'Kerala') return '<span class="card-state-pill kl">Kerala</span>';
-    return '<span class="card-state-pill tn">Tamil Nadu</span>';
+    if (!state) return '<span class="card-state-pill tn">India</span>';
+    const s = state.trim();
+    if (s === 'Karnataka') return '<span class="card-state-pill ka">Karnataka</span>';
+    if (s === 'Andhra Pradesh') return '<span class="card-state-pill ap">Andhra Pradesh</span>';
+    if (s === 'Telangana') return '<span class="card-state-pill tg">Telangana</span>';
+    if (s === 'Kerala') return '<span class="card-state-pill kl">Kerala</span>';
+    if (s === 'Tamil Nadu') return '<span class="card-state-pill tn">Tamil Nadu</span>';
+    if (s === 'Maharashtra') return '<span class="card-state-pill mh" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;padding:2px 8px;border-radius:12px;font-size:10px;font-weight:700;">Maharashtra</span>';
+    if (s === 'Gujarat') return '<span class="card-state-pill gj" style="background:#ecfdf5;color:#065f46;border:1px solid #10b981;padding:2px 8px;border-radius:12px;font-size:10px;font-weight:700;">Gujarat</span>';
+    if (s === 'Uttar Pradesh') return '<span class="card-state-pill up" style="background:#ede9fe;color:#5b21b6;border:1px solid #8b5cf6;padding:2px 8px;border-radius:12px;font-size:10px;font-weight:700;">Uttar Pradesh</span>';
+    if (s === 'Delhi') return '<span class="card-state-pill dl" style="background:#fee2e2;color:#991b1b;border:1px solid #ef4444;padding:2px 8px;border-radius:12px;font-size:10px;font-weight:700;">Delhi</span>';
+    return `<span class="card-state-pill ind" style="background:#f1f5f9;color:#334155;border:1px solid #cbd5e1;padding:2px 8px;border-radius:12px;font-size:10px;font-weight:700;">${s}</span>`;
   }
 
   // 7. RENDER POLICE CARDS

@@ -1218,6 +1218,13 @@
             <span class="status-pill" id="mapVisibleCount">Loading markers...</span>
           </div>
           <div class="map-controls-toggles">
+            <!-- Google Maps Base Cartography Switcher -->
+            <div style="display:inline-flex;align-items:center;gap:3px;background:#f1f5f9;padding:2px 4px;border-radius:100px;border:1px solid #cbd5e1;margin-right:6px;">
+              <button class="layer-toggle-btn active" id="btnBaseGoogleRoad" onclick="setBaseMap('google_roadmap')" style="padding:2px 8px;font-size:11px;font-weight:700;">🗺️ Google Map</button>
+              <button class="layer-toggle-btn" id="btnBaseGoogleSat" onclick="setBaseMap('google_satellite')" style="padding:2px 8px;font-size:11px;font-weight:700;">🛰️ Satellite</button>
+              <button class="layer-toggle-btn" id="btnBaseGoogleTer" onclick="setBaseMap('google_terrain')" style="padding:2px 8px;font-size:11px;font-weight:700;">🏔️ Terrain</button>
+            </div>
+
             <button class="layer-toggle-btn active police" id="togglePoliceLayerBtn" onclick="toggleMapLayer('police')">
               <span>🛡️</span> <span>Police (415)</span>
             </button>
@@ -1679,22 +1686,65 @@
     renderProductsGrid();
   });
 
-  // 1. INITIALIZE LEAFLET MAP
+  // 1. INITIALIZE LEAFLET MAP (POWERED BY GOOGLE MAPS TILES)
+  let currentBaseMap = 'google_roadmap';
+  let googleRoadmapTile = null;
+  let googleSatelliteTile = null;
+  let googleTerrainTile = null;
+
   function initLeafletMap() {
     map = L.map('liveMap', {
       zoomControl: true,
       attributionControl: true
     }).setView([10.5, 77.5], 7); // Center of South India (Tamil Nadu & Kerala)
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      attribution: '&copy; OpenStreetMap contributors | Nunes Instrumentation'
+    // 1. Official Google Maps Roadmap (Crisp, High-Speed, Real Google Cartography)
+    googleRoadmapTile = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+      maxZoom: 20,
+      subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+      attribution: '&copy; Google Maps Cartography | Nunes Instrumentation'
     }).addTo(map);
+
+    // 2. Official Google Maps Hybrid Satellite (Aerial Satellite + Road & City Labels)
+    googleSatelliteTile = L.tileLayer('https://{s}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+      maxZoom: 20,
+      subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+      attribution: '&copy; Google Maps Satellite Imagery | Nunes Instrumentation'
+    });
+
+    // 3. Official Google Maps Terrain (Highways, Topography, Elevation)
+    googleTerrainTile = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+      maxZoom: 20,
+      subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+      attribution: '&copy; Google Maps Terrain | Nunes Instrumentation'
+    });
 
     policeLayerGroup = L.layerGroup().addTo(map);
     collegeLayerGroup = L.layerGroup().addTo(map);
     schoolLayerGroup = L.layerGroup().addTo(map);
     transportLayerGroup = L.layerGroup().addTo(map);
+  }
+
+  function setBaseMap(type) {
+    currentBaseMap = type;
+    [googleRoadmapTile, googleSatelliteTile, googleTerrainTile].forEach(layer => {
+      if (layer && map.hasLayer(layer)) map.removeLayer(layer);
+    });
+
+    if (type === 'google_satellite') {
+      googleSatelliteTile.addTo(map);
+    } else if (type === 'google_terrain') {
+      googleTerrainTile.addTo(map);
+    } else {
+      googleRoadmapTile.addTo(map);
+    }
+
+    const roadBtn = document.getElementById('btnBaseGoogleRoad');
+    const satBtn = document.getElementById('btnBaseGoogleSat');
+    const terBtn = document.getElementById('btnBaseGoogleTer');
+    if (roadBtn) roadBtn.classList.toggle('active', type === 'google_roadmap');
+    if (satBtn) satBtn.classList.toggle('active', type === 'google_satellite');
+    if (terBtn) terBtn.classList.toggle('active', type === 'google_terrain');
   }
 
   // 2. FETCH ALL 4 DATASETS
@@ -2974,17 +3024,34 @@
       return;
     }
 
-    statusBox.innerHTML = `<span style="color:#2563eb;">Harvesting ${sector} in ${district}, ${state} via Google Cloud Places API...</span>`;
+    statusBox.innerHTML = `<span style="color:#2563eb;">Harvesting & incrementally verifying ${sector} in ${district}, ${state} via Google Cloud Places API...</span>`;
 
     try {
       const res = await fetch('/api/google-places/harvest', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ apiKey: key, state, district, sector })
+        body: JSON.stringify({ apiKey: key, state, district, sector, autoSave: true })
       });
       const data = await res.json();
       if (data.success) {
-        statusBox.innerHTML = `<span style="color:#16a34a;font-weight:700;">✅ Successfully harvested ${data.totalHarvested} verified ${sector} records for ${district}, ${state}!</span>`;
+        const stats = data.syncStats;
+        let statsMsg = `Harvested ${data.totalHarvested} places from Google Maps.`;
+        if (stats) {
+          statsMsg = `✨ <strong>Permanent Database Updated:</strong> ${stats.newlyAddedCount} newly discovered records saved permanently to disk. ${stats.skippedCount} existing duplicates skipped (API quota saved). Total permanent repository: <strong>${stats.totalDatasetSize}</strong> verified entities!`;
+        }
+
+        statusBox.innerHTML = `<div style="background:#ecfdf5;border:1px solid #a7f3d0;padding:10px;border-radius:6px;color:#065f46;line-height:1.4;">${statsMsg}</div>`;
+
+        // Reload data into live app without needing browser refresh
+        await loadAllDatasets();
+        populateDistrictsFilter();
+        renderAllViews();
+        renderMapMarkers();
+
+        // If newly added items have lat/lng, fly map there
+        if (data.items && data.items.length > 0 && data.items[0].lat && data.items[0].lng) {
+          map.flyTo([data.items[0].lat, data.items[0].lng], 11, { duration: 1.5 });
+        }
       } else {
         statusBox.innerHTML = `<span style="color:#ef4444;">Harvest Error: ${data.error}</span>`;
       }

@@ -862,11 +862,163 @@ app.post('/api/google-places/test-key', async (req, res) => {
 });
 
 // -------------------------------------------------------------
+// INCREMENTAL PERSISTENT STORAGE ENGINE (Zero Duplicate Upsert)
+// Stores new verified records permanently to disk without reloading
+// -------------------------------------------------------------
+function upsertIncrementalRecords(sector, incomingList) {
+  let targetFile = '';
+  let targetArray = [];
+  let rootObj = null;
+  let keyInObj = '';
+  let desktopCsv = '';
+
+  const sec = (sector || 'police').toLowerCase();
+
+  if (sec === 'police') {
+    targetFile = policePath;
+    rootObj = policeData || { meta: {}, allStations: [] };
+    keyInObj = 'allStations';
+    desktopCsv = 'C:/Users/NUNES/Desktop/Tamil_Nadu_Police_Station_Directory_Verified.csv';
+  } else if (sec === 'colleges' || sec === 'highered') {
+    targetFile = datasetPath;
+    rootObj = institutionsData || { meta: {}, allInstitutions: [] };
+    keyInObj = 'allInstitutions';
+    desktopCsv = 'C:/Users/NUNES/Desktop/Coimbatore_Higher_Education_Colleges_Verified_Directory.csv';
+  } else if (sec === 'schools') {
+    targetFile = schoolsPath;
+    rootObj = schoolsData || { meta: {}, allSchools: [] };
+    keyInObj = 'allSchools';
+    desktopCsv = 'C:/Users/NUNES/Desktop/Schools_Directory_Verified.csv';
+  } else if (sec === 'transport') {
+    targetFile = transportPath;
+    rootObj = transportData || { meta: {}, allTransport: [] };
+    keyInObj = 'allTransport';
+    desktopCsv = 'C:/Users/NUNES/Desktop/Transport_Lorry_Bus_Fleet_Verified.csv';
+  } else {
+    throw new Error(`Unsupported sector: ${sector}`);
+  }
+
+  targetArray = rootObj[keyInObj] || [];
+
+  // Build index for O(1) duplicate checks
+  const existingMap = new Map();
+  for (const item of targetArray) {
+    const rawName = item.name || item.stationName || item.institutionName || '';
+    const rawDist = item.district || '';
+    const normKey = `${rawName.toLowerCase().replace(/[^a-z0-9]/g, '')}__${rawDist.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
+    existingMap.set(normKey, item);
+    if (item.placeId) {
+      existingMap.set(item.placeId, item);
+    }
+  }
+
+  let newlyAddedCount = 0;
+  let enrichedCount = 0;
+  let skippedCount = 0;
+  const newlyAddedItems = [];
+
+  for (const record of incomingList) {
+    const rawName = record.name || record.stationName || record.institutionName || '';
+    const rawDist = record.district || '';
+    const normKey = `${rawName.toLowerCase().replace(/[^a-z0-9]/g, '')}__${rawDist.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
+
+    const existing = (record.placeId && existingMap.get(record.placeId)) || existingMap.get(normKey);
+
+    if (existing) {
+      // Already in permanent database! Never duplicate
+      let changed = false;
+      if (!existing.phone && (record.phone || record.landline)) {
+        existing.phone = record.phone || record.landline;
+        changed = true;
+      }
+      if (!existing.email && (record.email || record.officialEmail)) {
+        existing.email = record.email || record.officialEmail;
+        changed = true;
+      }
+      if ((!existing.lat || !existing.lng) && record.lat && record.lng) {
+        existing.lat = record.lat;
+        existing.lng = record.lng;
+        changed = true;
+      }
+      if (changed) enrichedCount++;
+      else skippedCount++;
+    } else {
+      // Brand new discovery! Add to persistent store
+      const newEntity = {
+        ...record,
+        id: record.id || `${sec.slice(0, 3)}-${(record.state || 'IN').slice(0, 2).toLowerCase()}-${Date.now().toString().slice(-4)}-${newlyAddedCount + 1}`,
+        dateAdded: new Date().toISOString(),
+        isNew: true,
+        verifiedSource: record.verifiedSource || 'Google Places Persistent Harvest'
+      };
+      targetArray.push(newEntity);
+      newlyAddedItems.push(newEntity);
+      existingMap.set(normKey, newEntity);
+      if (newEntity.placeId) existingMap.set(newEntity.placeId, newEntity);
+      newlyAddedCount++;
+    }
+  }
+
+  // Save to Disk if new items or enrichments found
+  if (newlyAddedCount > 0 || enrichedCount > 0) {
+    rootObj[keyInObj] = targetArray;
+    rootObj.meta = rootObj.meta || {};
+    rootObj.meta.lastUpdated = new Date().toISOString();
+    rootObj.meta.totalCount = targetArray.length;
+
+    // 1. Write updated JSON
+    fs.writeFileSync(targetFile, JSON.stringify(rootObj, null, 2), 'utf8');
+    console.log(`[Incremental Store] Saved ${newlyAddedCount} new and ${enrichedCount} enriched records to ${targetFile}. Total: ${targetArray.length}`);
+
+    // 2. Write updated CSV to Desktop
+    try {
+      const headers = Object.keys(targetArray[0] || {});
+      const csvContent = [
+        headers.join(','),
+        ...targetArray.map(row => headers.map(h => `"${String(row[h] || '').replace(/"/g, '""')}"`).join(','))
+      ].join('\r\n');
+      fs.writeFileSync(desktopCsv, csvContent, 'utf8');
+      console.log(`[Incremental Store] Updated Desktop CSV: ${desktopCsv}`);
+    } catch (csvErr) {
+      console.warn(`[Incremental Store] Desktop CSV write skipped:`, csvErr.message);
+    }
+  }
+
+  return {
+    sector: sec,
+    totalExisting: targetArray.length - newlyAddedCount,
+    newlyAddedCount,
+    enrichedCount,
+    skippedCount,
+    totalDatasetSize: targetArray.length,
+    newItems: newlyAddedItems
+  };
+}
+
+// -------------------------------------------------------------
+// POST /api/records/upsert
+// Manually upsert records into persistent storage without duplicates
+// -------------------------------------------------------------
+app.post('/api/records/upsert', (req, res) => {
+  const { sector = 'police', records = [] } = req.body;
+  if (!Array.isArray(records) || records.length === 0) {
+    return res.status(400).json({ error: 'records array is required.' });
+  }
+  try {
+    const stats = upsertIncrementalRecords(sector, records);
+    return res.json({ success: true, ...stats });
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
+});
+
+// -------------------------------------------------------------
 // POST /api/google-places/harvest
 // Harvests live verified places for any State / District in India
+// Automatically synchronizes and saves to persistent database without duplicates
 // -------------------------------------------------------------
 app.post('/api/google-places/harvest', async (req, res) => {
-  const { apiKey, state = 'Tamil Nadu', district = 'Coimbatore', sector = 'police', keyword } = req.body;
+  const { apiKey, state = 'Tamil Nadu', district = 'Coimbatore', sector = 'police', keyword, autoSave = true } = req.body;
 
   if (!apiKey || !apiKey.trim()) {
     return res.status(400).json({ error: 'Google Places API key is required to harvest live data.' });
@@ -889,23 +1041,35 @@ app.post('/api/google-places/harvest', async (req, res) => {
     }
 
     const items = (data.results || []).map((p, idx) => ({
-      id: `gplaces-${Date.now()}-${idx}`,
+      id: `gp-${sector.slice(0,3)}-${Date.now().toString().slice(-4)}-${idx}`,
       name: p.name,
+      stationName: p.name,
+      institutionName: p.name,
       address: p.formatted_address,
       state: state,
       district: district,
-      category: sector,
+      category: sector === 'police' ? 'Law & Order' : (sector === 'colleges' ? 'Higher Education' : (sector === 'schools' ? 'Matriculation / CBSE' : 'Commercial Transport')),
       rating: p.rating || 4.2,
       lat: p.geometry?.location?.lat || null,
       lng: p.geometry?.location?.lng || null,
       placeId: p.place_id,
+      landline: '-',
+      phone: '-',
+      officialEmail: '-',
+      email: '-',
       verifiedSource: 'Google Places API (Cloud Console)'
     }));
+
+    let syncStats = null;
+    if (autoSave && items.length > 0) {
+      syncStats = upsertIncrementalRecords(sector, items);
+    }
 
     return res.json({
       success: true,
       query: queryTerm,
       totalHarvested: items.length,
+      syncStats: syncStats,
       items: items
     });
   } catch (err) {

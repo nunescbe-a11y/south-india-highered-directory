@@ -397,6 +397,32 @@
     }
     .btn-reset:hover { background: #fee2e2; }
 
+    .btn-search-primary {
+      height: 36px;
+      padding: 0 16px;
+      background: #1d4ed8;
+      border: 1px solid #1e40af;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 4px rgba(29, 78, 216, 0.25);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-search-primary:hover {
+      background: #1e40af;
+      box-shadow: 0 4px 8px rgba(30, 64, 175, 0.35);
+      transform: translateY(-1px);
+    }
+    .btn-search-primary:active {
+      transform: translateY(0);
+    }
+
     /* KPI Summary Row */
     .kpi-row {
       display: grid;
@@ -1201,9 +1227,17 @@
         <!-- Live Search -->
         <div class="search-box-wrapper">
           <span class="search-icon">🔍</span>
-          <input type="text" class="search-input" id="searchInput" placeholder="Search by name, district, postal PIN code (e.g. 641001), phone, email..." oninput="handleSearch()">
+          <input type="text" class="search-input" id="searchInput" placeholder="Search by name, district, postal PIN (e.g. 641001), phone, email..." oninput="handleSearchInput(event)" onkeydown="if(event.key==='Enter') executeSearch()">
           <button class="clear-search-btn" id="clearSearchBtn" onclick="clearSearch()">✕</button>
         </div>
+
+        <!-- Dedicated Primary Search Button -->
+        <button class="btn-search-primary" id="btnExecuteSearch" onclick="executeSearch()" title="Execute Search for Selected State, District, Category & Keywords">
+          <span>🔍</span> <span>Search</span>
+        </button>
+
+        <!-- Active Filter/Search Scope Chip -->
+        <div id="searchResultSummaryPill" style="display:none;align-items:center;gap:6px;background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe;padding:4px 10px;border-radius:100px;font-size:11.5px;font-weight:700;"></div>
       </div>
 
       <div class="controls-right">
@@ -1498,15 +1532,16 @@
 
           <!-- BCC Dynamic Counter & Chips -->
           <div class="form-group">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
-              <label class="form-label">BCC Recipients (<span id="bccCountLabel">0</span> selected)</label>
-              <div style="display:flex;gap:6px;">
-                <button type="button" onclick="selectAllVisible()" style="background:#f1f5f9;border:1px solid #cbd5e1;border-radius:4px;padding:1px 6px;font-size:10.5px;cursor:pointer;">+ Add Visible</button>
-                <button type="button" onclick="clearAllSelections()" style="background:#fee2e2;color:#b91c1c;border:1px solid #fecaca;border-radius:4px;padding:1px 6px;font-size:10.5px;cursor:pointer;">Clear</button>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;flex-wrap:wrap;gap:6px;">
+              <label class="form-label" style="margin-bottom:0;">BCC Recipients (<span id="bccCountLabel">0</span> selected)</label>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                <button type="button" onclick="setBccToActiveOnly()" style="background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;border-radius:4px;padding:3px 8px;font-size:11px;font-weight:700;cursor:pointer;" title="Set BCC to ONLY the active target shown in Space 1">🎯 Only Active Target in BCC</button>
+                <button type="button" onclick="addCurrentFilteredToBcc()" style="background:#f0fdf4;color:#166534;border:1px solid #bbf7d0;border-radius:4px;padding:3px 8px;font-size:11px;font-weight:700;cursor:pointer;" title="Add all currently filtered items of active view into BCC">+ Add Filtered</button>
+                <button type="button" onclick="clearAllSelections()" style="background:#fee2e2;color:#b91c1c;border:1px solid #fecaca;border-radius:4px;padding:3px 8px;font-size:11px;font-weight:700;cursor:pointer;" title="Clear all BCC recipients">✕ Clear BCC</button>
               </div>
             </div>
             <div id="bccChipsContainer" style="min-height:54px;max-height:110px;overflow-y:auto;background:#ffffff;border:1px solid #cbd5e1;border-radius:6px;padding:6px;display:flex;flex-wrap:wrap;gap:4px;font-size:11px;">
-              <span style="color:#94a3b8;font-style:italic;">No BCC recipients selected yet. Check boxes in directory cards or click "+ Add Visible".</span>
+              <span style="color:#94a3b8;font-style:italic;">No BCC recipients selected yet. Check boxes in directory cards or click "Only Active Target in BCC".</span>
             </div>
           </div>
 
@@ -2028,12 +2063,13 @@
     }
   }
 
-  // 4. FILTERING LOGIC
-  function handleFilterChange() {
+  // 4. FILTERING & SEARCH EXECUTION LOGIC
+  function executeSearch() {
     const stateVal = document.getElementById('stateFilter').value;
     const distVal = document.getElementById('districtFilter').value;
     const catVal = document.getElementById('categoryFilter').value;
     const query = document.getElementById('searchInput').value.trim().toLowerCase();
+    const verifiedOnly = document.getElementById('verifiedOnlyFilter') && document.getElementById('verifiedOnlyFilter').checked;
 
     // Filter Police
     currentFilteredPolice = policeStations.filter(s => {
@@ -2041,13 +2077,11 @@
       if (distVal !== 'ALL' && s.district !== distVal) return false;
       if (catVal !== 'ALL' && !(s.category || '').toLowerCase().includes(catVal.toLowerCase())) return false;
       if (query) {
-        const str = `${s.stationName} ${s.district} ${s.state} ${s.address || ''} ${s.landline || s.phone || ''} ${s.officialEmail || ''} ${s.officerInCharge || ''}`.toLowerCase();
+        const str = `${s.stationName} ${s.district} ${s.state} ${s.address || ''} ${s.pincode || ''} ${s.landline || s.phone || ''} ${s.officialEmail || ''} ${s.officerInCharge || ''}`.toLowerCase();
         if (!str.includes(query)) return false;
       }
       return true;
     });
-
-    const verifiedOnly = document.getElementById('verifiedOnlyFilter') && document.getElementById('verifiedOnlyFilter').checked;
 
     // Filter Colleges
     currentFilteredColleges = colleges.filter(c => {
@@ -2086,26 +2120,88 @@
       return true;
     });
 
+    // Fly Map to the target district or match
     if (distVal !== 'ALL') {
-      const match = currentFilteredPolice.find(s => s.lat) || currentFilteredTransport.find(t => t.lat) || currentFilteredSchools.find(s => s.lat);
+      const match = currentFilteredPolice.find(s => s.lat) || currentFilteredColleges.find(c => c.lat) || currentFilteredTransport.find(t => t.lat) || currentFilteredSchools.find(s => s.lat);
       if (match && match.lat) {
-        map.flyTo([match.lat, match.lng], 11, { duration: 1.0 });
+        map.flyTo([match.lat, match.lng], 12, { duration: 1.0 });
+      }
+    } else if (stateVal !== 'ALL') {
+      const stateCoordsMap = {
+        'Tamil Nadu': [11.1, 78.6, 7.5],
+        'Kerala': [10.2, 76.4, 7.5],
+        'Karnataka': [13.5, 76.5, 7.0],
+        'Andhra Pradesh': [15.5, 80.0, 7.0],
+        'Telangana': [17.8, 79.0, 7.0],
+        'Maharashtra': [19.5, 76.0, 6.8],
+        'Gujarat': [22.5, 71.5, 6.8],
+        'Rajasthan': [26.5, 74.0, 6.5],
+        'Goa': [15.3, 74.0, 9.0],
+        'Delhi': [28.65, 77.2, 10.0],
+        'Uttar Pradesh': [27.0, 80.5, 6.5],
+        'Punjab': [31.0, 75.5, 7.5],
+        'Haryana': [29.2, 76.3, 7.5],
+        'Uttarakhand': [30.1, 79.0, 7.5],
+        'Himachal Pradesh': [31.8, 77.2, 7.5],
+        'Jammu and Kashmir': [33.8, 75.0, 7.0],
+        'Ladakh': [34.2, 77.6, 6.5],
+        'Madhya Pradesh': [23.5, 78.0, 6.5],
+        'Chhattisgarh': [21.5, 82.0, 6.8],
+        'West Bengal': [24.0, 88.0, 6.8],
+        'Bihar': [25.6, 85.8, 7.0],
+        'Jharkhand': [23.6, 85.5, 7.2],
+        'Odisha': [20.5, 84.5, 7.0],
+        'Assam': [26.2, 92.5, 7.0],
+        'Arunachal Pradesh': [28.0, 94.5, 6.8],
+        'Manipur': [24.7, 93.9, 8.0],
+        'Meghalaya': [25.5, 91.3, 8.0],
+        'Mizoram': [23.3, 92.8, 8.0],
+        'Nagaland': [26.1, 94.5, 8.0],
+        'Sikkim': [27.5, 88.5, 8.5],
+        'Tripura': [23.8, 91.5, 8.5],
+        'Chandigarh': [30.73, 76.78, 11.0],
+        'Puducherry': [11.94, 79.81, 10.0]
+      };
+      if (stateCoordsMap[stateVal]) {
+        const [lat, lng, zoom] = stateCoordsMap[stateVal];
+        map.flyTo([lat, lng], zoom, { duration: 1.2 });
+      }
+    }
+
+    // Update Result Summary Chip
+    const pill = document.getElementById('searchResultSummaryPill');
+    if (pill) {
+      if (distVal !== 'ALL' || stateVal !== 'ALL' || query) {
+        const parts = [];
+        if (distVal !== 'ALL') parts.push(distVal);
+        if (stateVal !== 'ALL') parts.push(stateVal);
+        if (query) parts.push(`"${query}"`);
+        const scope = parts.join(', ') || 'Selected Filters';
+        pill.innerHTML = `<span>🎯 <strong>${scope}</strong>: ${currentFilteredPolice.length.toLocaleString()} Police • ${currentFilteredColleges.length.toLocaleString()} Colleges • ${currentFilteredSchools.length.toLocaleString()} Schools • ${currentFilteredTransport.length.toLocaleString()} Transport</span>`;
+        pill.style.display = 'inline-flex';
+      } else {
+        pill.style.display = 'none';
       }
     }
 
     renderAllViews();
   }
 
-  function handleSearch() {
+  const handleFilterChange = executeSearch;
+
+  function handleSearchInput(event) {
     const q = document.getElementById('searchInput').value.trim();
     document.getElementById('clearSearchBtn').style.display = q ? 'block' : 'none';
-    handleFilterChange();
+  }
+
+  function handleSearch() {
+    executeSearch();
   }
 
   function clearSearch() {
     document.getElementById('searchInput').value = '';
     document.getElementById('clearSearchBtn').style.display = 'none';
-    handleFilterChange();
+    executeSearch();
   }
 
   function resetFilters() {
@@ -2115,7 +2211,11 @@
     document.getElementById('categoryFilter').value = 'ALL';
     document.getElementById('searchInput').value = '';
     document.getElementById('clearSearchBtn').style.display = 'none';
-    handleFilterChange();
+    const verifiedChk = document.getElementById('verifiedOnlyFilter');
+    if (verifiedChk) verifiedChk.checked = false;
+    const pill = document.getElementById('searchResultSummaryPill');
+    if (pill) pill.style.display = 'none';
+    executeSearch();
     map.flyTo([22.5, 79.0], 5, { duration: 1.0 });
   }
 
@@ -2137,6 +2237,14 @@
 
     const stateFilterEl = document.getElementById('stateFilter');
     const stateVal = stateFilterEl ? stateFilterEl.value : 'ALL';
+    const distFilterEl = document.getElementById('districtFilter');
+    const distVal = distFilterEl ? distFilterEl.value : 'ALL';
+    const query = (document.getElementById('searchInput')?.value || '').trim();
+
+    // If filtered by specific district or search query, return the exact matched items without cross-state sampling
+    if (distVal !== 'ALL' || query !== '') {
+      return valid.slice(0, maxCount);
+    }
 
     // If filtered by a specific state, sample evenly within that state
     if (stateVal !== 'ALL') {
@@ -3008,8 +3116,13 @@
 
   function selectAllVisible() {
     let list = [];
+    let sectorName = 'General';
+    let subjectLine = 'Campus Breath Analyser Range | Nunes Instrumentation, Coimbatore';
+
     if (currentTab === 'police') {
-      list = currentFilteredPolice.slice(0, 90).map(s => ({
+      sectorName = 'Police';
+      subjectLine = 'Official Police Law-Enforcement Fuel-Cell Breath Analysers | Nunes Instrumentation, Coimbatore';
+      list = currentFilteredPolice.map(s => ({
         id: s.id || s.stationName,
         name: s.stationName,
         email: s.officialEmail,
@@ -3019,7 +3132,9 @@
         state: s.state
       }));
     } else if (currentTab === 'colleges') {
-      list = currentFilteredColleges.slice(0, 90).map(c => ({
+      sectorName = 'HigherEd';
+      subjectLine = 'Campus & Hostel Alcohol-Free Policy Breath Analysers | Nunes Instrumentation, Coimbatore';
+      list = currentFilteredColleges.map(c => ({
         id: c.id || c.name,
         name: c.name || c.institutionName,
         email: c.email || c.officialEmail,
@@ -3029,6 +3144,8 @@
         state: c.state
       }));
     } else if (currentTab === 'schools') {
+      sectorName = 'School';
+      subjectLine = 'School Bus Driver Alcohol Safety Screening (Sec 185 MVA) | Nunes Instrumentation, Coimbatore';
       list = currentFilteredSchools.map(s => ({
         id: s.id || s.name,
         name: s.name,
@@ -3039,6 +3156,8 @@
         state: s.state
       }));
     } else if (currentTab === 'transport') {
+      sectorName = 'Transport';
+      subjectLine = 'Commercial Fleet & Depot Alcohol Screening Solutions | Nunes Instrumentation, Coimbatore';
       list = currentFilteredTransport.map(t => ({
         id: t.id || t.name,
         name: t.name,
@@ -3049,33 +3168,76 @@
         state: t.state
       }));
     } else {
-      [...currentFilteredPolice.slice(0, 30), ...currentFilteredSchools, ...currentFilteredTransport].forEach(item => {
-        list.push({
-          id: item.id || item.name || item.stationName,
-          name: item.name || item.stationName,
-          email: item.email || item.officialEmail,
-          phone: item.landline || item.phone,
-          district: item.district,
-          sector: item.category || 'General',
-          state: item.state
-        });
-      });
+      // In workspace view: add filtered records from active sector
+      const recipients = Array.from(selectedRecipients.values());
+      const active = recipients[waCurrentQueueIndex] || recipients[0];
+      const sector = active ? active.sector : 'Police';
+      if (sector === 'Police') {
+        return selectSpecificSector('police');
+      } else if (sector === 'HigherEd' || sector === 'College') {
+        return selectSpecificSector('colleges');
+      } else if (sector === 'School') {
+        return selectSpecificSector('schools');
+      } else {
+        return selectSpecificSector('transport');
+      }
     }
 
+    // Always clear previous disparate items so only this sector and filter are selected!
+    selectedRecipients.clear();
+
     list.forEach(item => {
-      if (item.email && item.email.includes('@')) {
+      if (item.email && item.email.includes('@') && item.email !== '-') {
         selectedRecipients.set(item.id, item);
       }
     });
 
+    const emailSubject = document.getElementById('emailSubjectInput');
+    if (emailSubject) emailSubject.value = subjectLine;
+
+    const templateSelect = document.getElementById('waTemplateSelect');
+    if (templateSelect) {
+      if (sectorName === 'Police') templateSelect.value = 'police';
+      else if (sectorName === 'HigherEd') templateSelect.value = 'colleges';
+      else if (sectorName === 'School') templateSelect.value = 'schools';
+      else if (sectorName === 'Transport') templateSelect.value = 'transport';
+    }
+
+    waCurrentQueueIndex = 0;
     updateSelectionUI();
     renderAllViews();
+  }
+
+  function selectSpecificSector(sectorKey) {
+    const prevTab = currentTab;
+    currentTab = sectorKey;
+    selectAllVisible();
+    currentTab = prevTab;
   }
 
   function clearAllSelections() {
     selectedRecipients.clear();
     updateSelectionUI();
     renderAllViews();
+  }
+
+  function setBccToActiveOnly() {
+    const recipients = Array.from(selectedRecipients.values());
+    const select = document.getElementById('waTargetSelect');
+    const idx = parseInt(select?.value || '0', 10);
+    const active = recipients[idx] || null;
+    if (active) {
+      selectedRecipients.clear();
+      selectedRecipients.set(active.id, active);
+      updateSelectionUI();
+      renderAllViews();
+    } else {
+      alert('No active target currently selected in queue.');
+    }
+  }
+
+  function addCurrentFilteredToBcc() {
+    selectAllVisible();
   }
 
   function updateSelectionUI() {
@@ -3110,7 +3272,7 @@
 
     if (bccContainer) {
       if (recipients.length === 0) {
-        bccContainer.innerHTML = '<span style="color:#94a3b8;font-style:italic;">No BCC recipients selected yet. Check boxes in directory cards or click "+ Add Visible".</span>';
+        bccContainer.innerHTML = '<span style="color:#94a3b8;font-style:italic;">No BCC recipients selected. Check boxes in directory cards or click "🎯 Only Active Target in BCC".</span>';
       } else {
         bccContainer.innerHTML = recipients.map(r => `
           <span style="display:inline-flex;align-items:center;gap:4px;background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe;border-radius:100px;padding:2px 8px;font-size:11px;">
@@ -3151,11 +3313,30 @@
   }
 
   function openWaWorkspaceFor(id, name, email, phone, district, sector, state) {
+    // Crucial: When clicking an individual entity's WhatsApp/Email action,
+    // clear prior multi-selections so BCC contains strictly this focused entity!
+    selectedRecipients.clear();
     selectedRecipients.set(id, { id, name, email, phone, district, sector, state });
     updateSelectionUI();
-    const recipients = Array.from(selectedRecipients.values());
-    waCurrentQueueIndex = recipients.findIndex(r => r.id === id);
-    if (waCurrentQueueIndex < 0) waCurrentQueueIndex = 0;
+
+    // Auto-align email subject and template pitch
+    const templateSelect = document.getElementById('waTemplateSelect');
+    const emailSubject = document.getElementById('emailSubjectInput');
+    if (sector === 'Police') {
+      if (templateSelect) templateSelect.value = 'police';
+      if (emailSubject) emailSubject.value = 'Official Police Law-Enforcement Fuel-Cell Breath Analysers | Nunes Instrumentation, Coimbatore';
+    } else if (sector === 'School') {
+      if (templateSelect) templateSelect.value = 'schools';
+      if (emailSubject) emailSubject.value = 'School Bus Driver Alcohol Safety Screening (Sec 185 MVA) | Nunes Instrumentation, Coimbatore';
+    } else if (sector === 'Transport') {
+      if (templateSelect) templateSelect.value = 'transport';
+      if (emailSubject) emailSubject.value = 'Commercial Fleet & Depot Alcohol Screening Solutions | Nunes Instrumentation, Coimbatore';
+    } else {
+      if (templateSelect) templateSelect.value = 'colleges';
+      if (emailSubject) emailSubject.value = 'Campus & Hostel Alcohol-Free Policy Breath Analysers | Nunes Instrumentation, Coimbatore';
+    }
+
+    waCurrentQueueIndex = 0;
     switchView('workspace');
     loadWaTargetFromSelect();
   }
@@ -3174,10 +3355,28 @@
 
     if (target) {
       nameEl.textContent = target.name;
-      badgeEl.textContent = target.state === 'Kerala' ? 'Kerala' : 'Tamil Nadu';
-      badgeEl.className = target.state === 'Kerala' ? 'card-state-pill kl' : 'card-state-pill tn';
+      badgeEl.textContent = target.state || 'Tamil Nadu';
+      badgeEl.className = (target.state || '').toLowerCase().includes('kerala') ? 'card-state-pill kl' : 'card-state-pill tn';
       metaEl.textContent = `${target.sector} • ${target.district} • Contact: ${target.email}`;
       phoneEl.value = target.phone && target.phone !== '-' ? target.phone : '+91 94432 17030';
+
+      // Auto-align pitch and subject to target sector
+      const templateSelect = document.getElementById('waTemplateSelect');
+      const emailSubject = document.getElementById('emailSubjectInput');
+      if (target.sector === 'Police') {
+        if (templateSelect) templateSelect.value = 'police';
+        if (emailSubject) emailSubject.value = 'Official Police Law-Enforcement Fuel-Cell Breath Analysers | Nunes Instrumentation, Coimbatore';
+      } else if (target.sector === 'School') {
+        if (templateSelect) templateSelect.value = 'schools';
+        if (emailSubject) emailSubject.value = 'School Bus Driver Alcohol Safety Screening (Sec 185 MVA) | Nunes Instrumentation, Coimbatore';
+      } else if (target.sector === 'Transport') {
+        if (templateSelect) templateSelect.value = 'transport';
+        if (emailSubject) emailSubject.value = 'Commercial Fleet & Depot Alcohol Screening Solutions | Nunes Instrumentation, Coimbatore';
+      } else {
+        if (templateSelect) templateSelect.value = 'colleges';
+        if (emailSubject) emailSubject.value = 'Campus & Hostel Alcohol-Free Policy Breath Analysers | Nunes Instrumentation, Coimbatore';
+      }
+
       applyWaTemplate();
     } else {
       nameEl.textContent = 'No target selected';

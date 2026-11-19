@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>NUNES Instrumentation — South India Law Enforcement, Campus & Transport Safety Portal</title>
-  <meta name="description" content="Verified master census of 14,921+ Police Stations, 54,606+ Colleges, 25,536+ Schools, and 475 Bus/Lorry Transport Fleets across all 28 States & UTs of India with interactive live GIS map and 14-model Nunes Breath Analyser solutions.">
+  <meta name="description" content="Verified master census of 14,921+ Police Stations, 55,044+ Colleges, 52,277+ Schools, and 485 Bus/Lorry Transport Fleets across all 28 States & UTs of India with interactive live GIS map and 14-model Nunes Breath Analyser solutions.">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1043,9 +1043,9 @@
         <span>ALL-INDIA 28 STATES LAW ENFORCEMENT, CAMPUS & FLEET REPO LIVE</span>
       </div>
       <span class="status-pill">14,921 POLICE STATIONS</span>
-      <span class="status-pill">54,606 ACCREDITED COLLEGES</span>
-      <span class="status-pill">25,536 AFFILIATED SCHOOLS</span>
-      <span class="status-pill">475 BUS & LORRY HUBS</span>
+      <span class="status-pill">55,044 ACCREDITED COLLEGES</span>
+      <span class="status-pill">52,277 SCHOOLS WITH BUS FLEETS</span>
+      <span class="status-pill">485 BUS & LORRY HUBS</span>
       <span class="status-pill" style="background:#451a03;color:#fed7aa;border:1px solid #f97316;">🔥 FIRESTORE CLOUD: 95,538 SYNCED</span>
     </div>
     <div class="quick-links-top">
@@ -1094,7 +1094,7 @@
         </button>
         <button class="tab-btn" onclick="switchView('schools')">
           <span>🏫</span> <span>Schools</span>
-          <span class="tab-badge" id="badgeSchoolsCount">25,536</span>
+          <span class="tab-badge" id="badgeSchoolsCount">52,277</span>
         </button>
         <button class="tab-btn" onclick="switchView('transport')">
           <span>🚚</span> <span>Bus & Lorry Fleets</span>
@@ -1243,7 +1243,7 @@
     <div class="kpi-card">
       <div class="kpi-icon school">🏫</div>
       <div>
-        <div class="kpi-val" id="kpiSchoolsCount">25,536</div>
+        <div class="kpi-val" id="kpiSchoolsCount">52,277</div>
         <div class="kpi-label">Schools with Bus Fleets</div>
       </div>
     </div>
@@ -1289,7 +1289,7 @@
               <span>🎓</span> <span id="mapBtnColleges">Colleges (55,044)</span>
             </button>
             <button class="layer-toggle-btn active school" id="toggleSchoolLayerBtn" onclick="toggleMapLayer('schools')">
-              <span>🏫</span> <span id="mapBtnSchools">Schools (25,536)</span>
+              <span>🏫</span> <span id="mapBtnSchools">Schools (52,277)</span>
             </button>
             <button class="layer-toggle-btn active transport" id="toggleTransportLayerBtn" onclick="toggleMapLayer('transport')">
               <span>🚚</span> <span id="mapBtnTransport">Bus & Lorry Hubs (485)</span>
@@ -1329,7 +1329,7 @@
     <div class="tab-view-content" id="view-schools">
       <div class="directory-view">
         <div class="results-count-bar">
-          <div>Showing <strong id="schoolsFilteredCount">25,536</strong> affiliated CBSE, CISCE (ICSE/ISC) & Atal Tinkering Lab schools with student bus fleets across India</div>
+          <div>Showing <strong id="schoolsFilteredCount">52,277</strong> affiliated CBSE, CISCE (ICSE/ISC) & Atal Tinkering Lab schools with student bus fleets across India</div>
           <div>Mandatory Driver Breath Alcohol Screening under Section 185 Motor Vehicles Act</div>
         </div>
         <div class="cards-grid" id="schoolsCardsGrid"></div>
@@ -2312,7 +2312,7 @@
               <span>✉️</span>
               <a href="mailto:${s.email}">${s.email}</a>
             </div>
-            <div class="popup-priority">🚌 ${s.driverScreeningPriority}</div>
+            <div class="popup-priority">🚌 ${s.breathAnalyserPriority || s.driverScreeningPriority || 'Pre-Trip & Post-Trip School Bus Driver Safety Mandate'}</div>
             <div class="popup-actions">
               <a href="https://maps.google.com/?q=${s.lat},${s.lng}" target="_blank" class="popup-btn outline">Directions</a>
               <button class="popup-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(s.name)}')">Bus RFQ</button>
@@ -2621,7 +2621,7 @@
             </div>
           </div>
           <div class="card-priority-tag school">
-            🚌 ${s.driverScreeningPriority}
+            🚌 ${s.breathAnalyserPriority || s.driverScreeningPriority || 'Pre-Trip & Post-Trip School Bus Driver Safety Mandate'}
           </div>
         </div>
         <div class="card-actions">

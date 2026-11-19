@@ -2121,18 +2121,48 @@
   }
 
   function resetFilters() {
-    document.getElementById('stateFilter').value = 'ALL';
+    const stateEl = document.getElementById('stateFilter');
+    if (stateEl) stateEl.value = 'ALL';
     populateDistrictsFilter();
-    document.getElementById('districtFilter').value = 'ALL';
-    document.getElementById('categoryFilter').value = 'ALL';
-    document.getElementById('searchInput').value = '';
-    document.getElementById('clearSearchBtn').style.display = 'none';
+    const distEl = document.getElementById('districtFilter');
+    if (distEl) distEl.value = 'ALL';
+    const catEl = document.getElementById('categoryFilter');
+    if (catEl) catEl.value = 'ALL';
+    const searchEl = document.getElementById('searchInput');
+    if (searchEl) searchEl.value = '';
+    const clearBtn = document.getElementById('clearSearchBtn');
+    if (clearBtn) clearBtn.style.display = 'none';
     const verifiedChk = document.getElementById('verifiedOnlyFilter');
     if (verifiedChk) verifiedChk.checked = false;
     const pill = document.getElementById('searchResultSummaryPill');
     if (pill) pill.style.display = 'none';
+
+    clearAllSelections();
     executeSearch();
-    map.flyTo([22.5, 79.0], 5, { duration: 1.0 });
+
+    if (map) {
+      map.flyTo([22.5, 79.0], 5, { duration: 1.0 });
+    }
+
+    showToast('🔄 All filters and selections have been reset to All-India!');
+  }
+
+  function showToast(msg) {
+    let toast = document.getElementById('appNotificationToast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'appNotificationToast';
+      toast.style.cssText = 'position:fixed;top:18px;left:50%;transform:translateX(-50%);background:#0f172a;color:#ffffff;padding:10px 22px;border-radius:100px;box-shadow:0 10px 30px rgba(0,0,0,0.35);z-index:99999;font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,0.2);pointer-events:none;transition:all 0.25s ease;';
+      document.body.appendChild(toast);
+    }
+    toast.innerHTML = msg;
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateX(-50%) translateY(0)';
+    clearTimeout(toast._timer);
+    toast._timer = setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateX(-50%) translateY(-10px)';
+    }, 2800);
   }
 
   // 5. RENDER ALL VIEWS & DYNAMIC FILTERED COUNTERS
@@ -3052,13 +3082,13 @@
 
   function selectAllVisible() {
     let list = [];
-    let sectorName = 'General';
-    let subjectLine = 'Campus Breath Analyser Range | Nunes Instrumentation, Coimbatore';
+    let sectorName = 'Police';
+    let subjectLine = 'Official Police Law-Enforcement Fuel-Cell Breath Analysers | Nunes Instrumentation, Coimbatore';
 
     if (currentTab === 'police') {
       sectorName = 'Police';
       subjectLine = 'Official Police Law-Enforcement Fuel-Cell Breath Analysers | Nunes Instrumentation, Coimbatore';
-      list = currentFilteredPolice.map(s => ({
+      list = currentFilteredPolice.slice(0, 90).map(s => ({
         id: s.id || s.stationName,
         name: s.stationName,
         email: s.officialEmail,
@@ -3070,7 +3100,7 @@
     } else if (currentTab === 'colleges') {
       sectorName = 'HigherEd';
       subjectLine = 'Campus & Hostel Alcohol-Free Policy Breath Analysers | Nunes Instrumentation, Coimbatore';
-      list = currentFilteredColleges.map(c => ({
+      list = currentFilteredColleges.slice(0, 90).map(c => ({
         id: c.id || c.name,
         name: c.name || c.institutionName,
         email: c.email || c.officialEmail,
@@ -3082,7 +3112,7 @@
     } else if (currentTab === 'schools') {
       sectorName = 'School';
       subjectLine = 'School Bus Driver Alcohol Safety Screening (Sec 185 MVA) | Nunes Instrumentation, Coimbatore';
-      list = currentFilteredSchools.map(s => ({
+      list = currentFilteredSchools.slice(0, 90).map(s => ({
         id: s.id || s.name,
         name: s.name,
         email: s.email,
@@ -3094,7 +3124,7 @@
     } else if (currentTab === 'transport') {
       sectorName = 'Transport';
       subjectLine = 'Commercial Fleet & Depot Alcohol Screening Solutions | Nunes Instrumentation, Coimbatore';
-      list = currentFilteredTransport.map(t => ({
+      list = currentFilteredTransport.slice(0, 90).map(t => ({
         id: t.id || t.name,
         name: t.name,
         email: t.email,
@@ -3103,20 +3133,70 @@
         sector: 'Transport',
         state: t.state
       }));
+    } else if (currentTab === 'map') {
+      // Live Map Tab: select from whichever layer is toggled on!
+      if (showPoliceLayer && currentFilteredPolice.length > 0) {
+        sectorName = 'Police';
+        subjectLine = 'Official Police Law-Enforcement Fuel-Cell Breath Analysers | Nunes Instrumentation, Coimbatore';
+        list = currentFilteredPolice.slice(0, 90).map(s => ({
+          id: s.id || s.stationName,
+          name: s.stationName,
+          email: s.officialEmail,
+          phone: s.landline,
+          district: s.district,
+          sector: 'Police',
+          state: s.state
+        }));
+      } else if (showCollegeLayer && currentFilteredColleges.length > 0) {
+        sectorName = 'HigherEd';
+        subjectLine = 'Campus & Hostel Alcohol-Free Policy Breath Analysers | Nunes Instrumentation, Coimbatore';
+        list = currentFilteredColleges.slice(0, 90).map(c => ({
+          id: c.id || c.name,
+          name: c.name || c.institutionName,
+          email: c.email || c.officialEmail,
+          phone: c.phone || c.landline,
+          district: c.district,
+          sector: 'HigherEd',
+          state: c.state
+        }));
+      } else if (showSchoolLayer && currentFilteredSchools.length > 0) {
+        sectorName = 'School';
+        subjectLine = 'School Bus Driver Alcohol Safety Screening (Sec 185 MVA) | Nunes Instrumentation, Coimbatore';
+        list = currentFilteredSchools.slice(0, 90).map(s => ({
+          id: s.id || s.name,
+          name: s.name,
+          email: s.email,
+          phone: s.landline,
+          district: s.district,
+          sector: 'School',
+          state: s.state
+        }));
+      } else {
+        sectorName = 'Transport';
+        subjectLine = 'Commercial Fleet & Depot Alcohol Screening Solutions | Nunes Instrumentation, Coimbatore';
+        list = currentFilteredTransport.slice(0, 90).map(t => ({
+          id: t.id || t.name,
+          name: t.name,
+          email: t.email,
+          phone: t.landline,
+          district: t.district,
+          sector: 'Transport',
+          state: t.state
+        }));
+      }
     } else {
       // In workspace view: add filtered records from active sector
-      const recipients = Array.from(selectedRecipients.values());
-      const active = recipients[waCurrentQueueIndex] || recipients[0];
-      const sector = active ? active.sector : 'Police';
-      if (sector === 'Police') {
-        return selectSpecificSector('police');
-      } else if (sector === 'HigherEd' || sector === 'College') {
-        return selectSpecificSector('colleges');
-      } else if (sector === 'School') {
-        return selectSpecificSector('schools');
-      } else {
-        return selectSpecificSector('transport');
-      }
+      sectorName = 'Police';
+      subjectLine = 'Official Police Law-Enforcement Fuel-Cell Breath Analysers | Nunes Instrumentation, Coimbatore';
+      list = currentFilteredPolice.slice(0, 90).map(s => ({
+        id: s.id || s.stationName,
+        name: s.stationName,
+        email: s.officialEmail,
+        phone: s.landline,
+        district: s.district,
+        sector: 'Police',
+        state: s.state
+      }));
     }
 
     // Always clear previous disparate items so only this sector and filter are selected!
@@ -3124,6 +3204,8 @@
 
     list.forEach(item => {
       if (item.email && item.email.includes('@') && item.email !== '-') {
+        selectedRecipients.set(item.id, item);
+      } else if (item.phone && item.phone !== '-') {
         selectedRecipients.set(item.id, item);
       }
     });
@@ -3142,6 +3224,8 @@
     waCurrentQueueIndex = 0;
     updateSelectionUI();
     renderAllViews();
+
+    showToast(`✅ Selected ${selectedRecipients.size} visible ${sectorName} into Workspaces!`);
   }
 
   function selectSpecificSector(sectorKey) {
@@ -3210,12 +3294,13 @@
       if (recipients.length === 0) {
         bccContainer.innerHTML = '<span style="color:#94a3b8;font-style:italic;">No BCC recipients selected. Check boxes in directory cards or click "🎯 Only Active Target in BCC".</span>';
       } else {
-        bccContainer.innerHTML = recipients.map(r => `
+        const displayChips = recipients.slice(0, 50);
+        bccContainer.innerHTML = displayChips.map(r => `
           <span style="display:inline-flex;align-items:center;gap:4px;background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe;border-radius:100px;padding:2px 8px;font-size:11px;">
-            <span>${r.name.slice(0, 24)}${r.name.length > 24 ? '...' : ''} &lt;${r.email}&gt;</span>
+            <span>${r.name.slice(0, 24)}${r.name.length > 24 ? '...' : ''} &lt;${r.email || r.phone || 'Direct'}&gt;</span>
             <button type="button" onclick="removeBccRecipient('${r.id}')" style="background:none;border:none;cursor:pointer;color:#94a3b8;font-weight:bold;margin-left:2px;">✕</button>
           </span>
-        `).join('');
+        `).join('') + (recipients.length > 50 ? `<span style="font-size:11px;color:#64748b;font-weight:700;padding:2px 6px;">+ ${recipients.length - 50} more in queue</span>` : '');
       }
     }
 
@@ -3226,12 +3311,19 @@
         opt.textContent = '-- Queue empty: Select cards from Police, Colleges, Schools or Transport --';
         waSelect.appendChild(opt);
       } else {
-        recipients.forEach((r, idx) => {
+        const displayOpts = recipients.slice(0, 80);
+        displayOpts.forEach((r, idx) => {
           const opt = document.createElement('option');
           opt.value = idx;
           opt.textContent = `${idx + 1}. [${r.sector}] ${r.name} (${r.district}) - ${r.phone || 'Direct'}`;
           waSelect.appendChild(opt);
         });
+        if (recipients.length > 80) {
+          const moreOpt = document.createElement('option');
+          moreOpt.disabled = true;
+          moreOpt.textContent = `... and ${recipients.length - 80} more contacts in queue`;
+          waSelect.appendChild(moreOpt);
+        }
         waSelect.value = waCurrentQueueIndex < recipients.length ? waCurrentQueueIndex : 0;
       }
       loadWaTargetFromSelect();

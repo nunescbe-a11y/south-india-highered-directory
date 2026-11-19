@@ -1090,7 +1090,7 @@
         </button>
         <button class="tab-btn" onclick="switchView('colleges')">
           <span>🎓</span> <span>Colleges</span>
-          <span class="tab-badge" id="badgeCollegesCount">54,606</span>
+          <span class="tab-badge" id="badgeCollegesCount">55,044</span>
         </button>
         <button class="tab-btn" onclick="switchView('schools')">
           <span>🏫</span> <span>Schools</span>
@@ -1192,6 +1192,12 @@
           <option value="ALL">🏷️ All Categories</option>
         </select>
 
+        <!-- Verified Contacts Toggle -->
+        <label style="display:inline-flex;align-items:center;gap:6px;background:#f0fdf4;border:1px solid #bbf7d0;padding:6px 10px;border-radius:8px;font-size:12px;font-weight:700;color:#166534;cursor:pointer;user-select:none;margin-left:4px;" title="Filter institutions with 100% verified direct emails, phone numbers & principals">
+          <input type="checkbox" id="verifiedOnlyFilter" onchange="handleFilterChange()" style="cursor:pointer;accent-color:#16a34a;">
+          <span>⭐ Verified Contacts Only</span>
+        </label>
+
         <!-- Live Search -->
         <div class="search-box-wrapper">
           <span class="search-icon">🔍</span>
@@ -1230,7 +1236,7 @@
     <div class="kpi-card">
       <div class="kpi-icon college">🎓</div>
       <div>
-        <div class="kpi-val" id="kpiCollegesCount">54,606</div>
+        <div class="kpi-val" id="kpiCollegesCount">55,044</div>
         <div class="kpi-label">Colleges & Universities</div>
       </div>
     </div>
@@ -1280,7 +1286,7 @@
               <span>🛡️</span> <span id="mapBtnPolice">Police (14,921)</span>
             </button>
             <button class="layer-toggle-btn active college" id="toggleCollegeLayerBtn" onclick="toggleMapLayer('colleges')">
-              <span>🎓</span> <span id="mapBtnColleges">Colleges (54,606)</span>
+              <span>🎓</span> <span id="mapBtnColleges">Colleges (55,044)</span>
             </button>
             <button class="layer-toggle-btn active school" id="toggleSchoolLayerBtn" onclick="toggleMapLayer('schools')">
               <span>🏫</span> <span id="mapBtnSchools">Schools (25,536)</span>
@@ -1312,7 +1318,7 @@
     <div class="tab-view-content" id="view-colleges">
       <div class="directory-view">
         <div class="results-count-bar">
-          <div>Showing <strong id="collegesFilteredCount">54,606</strong> accredited universities, engineering, arts, science & medical colleges across all 28 States & UTs of India (AISHE & AICTE National Directories)</div>
+          <div>Showing <strong id="collegesFilteredCount">55,044</strong> accredited universities, engineering, arts, science & medical colleges across all 28 States & UTs of India (AISHE, AICTE & 864 Verified Direct Contacts)</div>
           <div>Direct campus contacts, landlines, and official institutional websites</div>
         </div>
         <div class="cards-grid" id="collegesCardsGrid"></div>
@@ -1992,8 +1998,11 @@
       return true;
     });
 
+    const verifiedOnly = document.getElementById('verifiedOnlyFilter') && document.getElementById('verifiedOnlyFilter').checked;
+
     // Filter Colleges
     currentFilteredColleges = colleges.filter(c => {
+      if (verifiedOnly && !c.isVerified) return false;
       if (stateVal !== 'ALL' && c.state !== stateVal) return false;
       if (distVal !== 'ALL' && c.district !== distVal) return false;
       if (catVal !== 'ALL' && !(c.type || c.category || '').toLowerCase().includes(catVal.toLowerCase())) return false;
@@ -2445,7 +2454,10 @@
               <input type="checkbox" onchange="toggleSelectRecipient('${id}', '${safeName}', '${email}', '${phone}', '${c.district}', 'HigherEd', '${c.state}')" ${isSelected ? 'checked' : ''}>
               <span>Select for Email BCC / WhatsApp</span>
             </label>
-            ${statePill}
+            <div style="display:flex;align-items:center;gap:6px;">
+              ${c.verificationBadge ? `<span style="background:#dcfce7;color:#15803d;border:1px solid #86efac;padding:2px 8px;border-radius:12px;font-size:10px;font-weight:700;">${c.verificationBadge}</span>` : ''}
+              ${statePill}
+            </div>
           </div>
           <div class="card-top">
             <div class="card-title">${name}</div>
@@ -2471,6 +2483,18 @@
               <strong>Official Email:</strong>
               ${email !== '-' ? `<a href="mailto:${email}">${email}</a>` : '<span>-</span>'}
             </div>
+            ${c.whatsapp && c.whatsapp !== '-' ? `
+            <div class="card-detail-item">
+              <span class="icon">💬</span>
+              <strong>Direct WhatsApp:</strong>
+              <strong style="color:#16a34a;">${c.whatsapp}</strong>
+            </div>` : ''}
+            ${c.website && c.website !== '-' ? `
+            <div class="card-detail-item">
+              <span class="icon">🌐</span>
+              <strong>Website:</strong>
+              <a href="${c.website.startsWith('http') ? c.website : 'https://' + c.website}" target="_blank" style="color:#2563eb;word-break:break-all;">${c.website}</a>
+            </div>` : ''}
             <div class="card-detail-item">
               <span class="icon">🎓</span>
               <strong>Principal / Head:</strong>

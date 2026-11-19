@@ -2144,8 +2144,28 @@
     map.flyTo([22.5, 79.0], 5, { duration: 1.0 });
   }
 
-  // 5. RENDER ALL VIEWS
+  // 5. RENDER ALL VIEWS & DYNAMIC FILTERED COUNTERS
   function renderAllViews() {
+    // Dynamically update Top KPI Cards with the filtered/selected counts!
+    const elKpiP = document.getElementById('kpiPoliceCount');
+    const elKpiC = document.getElementById('kpiCollegesCount');
+    const elKpiS = document.getElementById('kpiSchoolsCount');
+    const elKpiT = document.getElementById('kpiTransportCount');
+    if (elKpiP) elKpiP.textContent = currentFilteredPolice.length.toLocaleString();
+    if (elKpiC) elKpiC.textContent = currentFilteredColleges.length.toLocaleString();
+    if (elKpiS) elKpiS.textContent = currentFilteredSchools.length.toLocaleString();
+    if (elKpiT) elKpiT.textContent = currentFilteredTransport.length.toLocaleString();
+
+    // Dynamically update Navigation Tab Badges with the filtered/selected counts!
+    const badgeP = document.getElementById('badgePoliceCount');
+    const badgeC = document.getElementById('badgeCollegesCount');
+    const badgeS = document.getElementById('badgeSchoolsCount');
+    const badgeT = document.getElementById('badgeTransportCount');
+    if (badgeP) badgeP.textContent = currentFilteredPolice.length.toLocaleString();
+    if (badgeC) badgeC.textContent = currentFilteredColleges.length.toLocaleString();
+    if (badgeS) badgeS.textContent = currentFilteredSchools.length.toLocaleString();
+    if (badgeT) badgeT.textContent = currentFilteredTransport.length.toLocaleString();
+
     renderMapMarkers();
     renderPoliceCards();
     renderCollegesCards();

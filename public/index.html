@@ -1997,22 +1997,38 @@
     }
   }
 
+  const OFFICIAL_TN_DISTRICTS = [
+    'Ariyalur', 'Chengalpattu', 'Chennai', 'Coimbatore', 'Cuddalore',
+    'Dharmapuri', 'Dindigul', 'Erode', 'Kallakurichi', 'Kanchipuram',
+    'Kanyakumari', 'Karur', 'Krishnagiri', 'Madurai', 'Mayiladuthurai',
+    'Nagapattinam', 'Namakkal', 'Nilgiris', 'Perambalur', 'Pudukkottai',
+    'Ramanathapuram', 'Ranipet', 'Salem', 'Sivaganga', 'Tenkasi',
+    'Thanjavur', 'Theni', 'Thoothukudi', 'Tiruchirappalli', 'Tirunelveli',
+    'Tirupathur', 'Tiruppur', 'Tiruvallur', 'Tiruvannamalai', 'Tiruvarur',
+    'Vellore', 'Viluppuram', 'Virudhunagar'
+  ];
+
+  const OFFICIAL_KL_DISTRICTS = [
+    'Alappuzha', 'Ernakulam', 'Idukki', 'Kannur', 'Kasaragod',
+    'Kollam', 'Kottayam', 'Kozhikode', 'Malappuram', 'Palakkad',
+    'Pathanamthitta', 'Thiruvananthapuram', 'Thrissur', 'Wayanad'
+  ];
+
   function populateDistrictsFilter() {
     const stateVal = document.getElementById('stateFilter').value;
     const districtSelect = document.getElementById('districtFilter');
     districtSelect.innerHTML = '<option value="ALL">📍 All Districts</option>';
 
-    let distSet = new Set();
-    const allEntities = [...policeStations, ...colleges, ...schools, ...transportFleets, ...industries];
-
-    if (stateVal === 'ALL') {
-      allEntities.forEach(e => { if (e.district) distSet.add(e.district); });
+    let targetDists = [];
+    if (stateVal === 'Tamil Nadu') {
+      targetDists = OFFICIAL_TN_DISTRICTS;
+    } else if (stateVal === 'Kerala') {
+      targetDists = OFFICIAL_KL_DISTRICTS;
     } else {
-      allEntities.filter(e => e.state === stateVal).forEach(e => { if (e.district) distSet.add(e.district); });
+      targetDists = Array.from(new Set([...OFFICIAL_TN_DISTRICTS, ...OFFICIAL_KL_DISTRICTS])).sort();
     }
 
-    const sortedDists = Array.from(distSet).filter(Boolean).sort();
-    sortedDists.forEach(d => {
+    targetDists.forEach(d => {
       const opt = document.createElement('option');
       opt.value = d;
       opt.textContent = d;

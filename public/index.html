@@ -1041,6 +1041,164 @@
     }
     .floating-wa-pill:hover { transform: scale(1.05); }
 
+    /* PROFESSIONAL EMAIL COMPOSER STYLING */
+    .email-composer-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 18px 20px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      border-top: 4px solid #2563eb;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: all 0.3s ease;
+    }
+    .email-composer-card.expanded {
+      grid-column: 1 / -1;
+    }
+    .email-field-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 12.5px;
+    }
+    .email-field-label {
+      width: 58px;
+      font-weight: 800;
+      color: #64748b;
+      text-transform: uppercase;
+      font-size: 10.5px;
+      flex-shrink: 0;
+      letter-spacing: 0.05em;
+    }
+    .email-field-input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-size: 12.5px;
+      font-family: inherit;
+      color: #0f172a;
+      outline: none;
+      font-weight: 600;
+    }
+    .email-format-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4px;
+      padding: 6px 10px;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-bottom: none;
+      border-radius: 8px 8px 0 0;
+      flex-wrap: wrap;
+    }
+    .fmt-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .fmt-btn {
+      height: 28px;
+      min-width: 28px;
+      padding: 0 7px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #334155;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      transition: all 0.15s;
+    }
+    .fmt-btn:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    .fmt-btn.active {
+      background: #2563eb;
+      color: #ffffff;
+      border-color: #1d4ed8;
+    }
+    .email-editor-box {
+      min-height: 260px;
+      max-height: 480px;
+      overflow-y: auto;
+      padding: 14px 16px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 0 0 8px 8px;
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: #1e293b;
+      outline: none;
+    }
+    .email-editor-box:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(37,99,235,0.15);
+    }
+    .email-editor-box p { margin-bottom: 10px; }
+    .email-editor-box ul, .email-editor-box ol { margin-left: 20px; margin-bottom: 10px; }
+    .email-editor-box h2 { font-size: 16px; font-weight: 800; color: #0f172a; margin-bottom: 8px; }
+    .email-editor-box h3 { font-size: 14.5px; font-weight: 700; color: #1e3a8a; margin-bottom: 6px; }
+    .email-editor-box a { color: #2563eb; text-decoration: underline; font-weight: 600; }
+    .email-attachment-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e40af;
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-size: 11.5px;
+      font-weight: 600;
+    }
+    .email-attachment-pill.default-pdf {
+      background: #f0fdf4;
+      border-color: #86efac;
+      color: #166534;
+    }
+    .email-attachment-remove {
+      background: none;
+      border: none;
+      color: #ef4444;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 13px;
+      padding: 0 3px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .email-attachment-remove:hover { color: #991b1b; }
+    .email-view-tab-btn {
+      height: 24px;
+      padding: 0 8px;
+      border: none;
+      background: transparent;
+      font-size: 11px;
+      font-weight: 700;
+      color: #64748b;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .email-view-tab-btn.active {
+      background: #ffffff;
+      color: #2563eb;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
     /* Responsive */
     @media (max-width: 900px) {
       .header-inner { flex-direction: column; align-items: flex-start; }
@@ -1473,83 +1631,190 @@
           </div>
         </div>
 
-        <!-- SPACE 2: EMAIL BCC BROADCAST DESK & AI FOLLOW-UP AGENT -->
-        <div class="workspace-card" style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:20px;box-shadow:0 4px 12px rgba(0,0,0,0.05);border-top:4px solid #2563eb;">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #f1f5f9;">
+                <!-- SPACE 2: EMAIL BCC BROADCAST DESK & AI FOLLOW-UP AGENT -->
+        <div id="emailStudioCard" class="workspace-card" style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:20px;box-shadow:0 4px 14px rgba(0,0,0,0.06);border-top:4px solid #2563eb;display:flex;flex-direction:column;gap:12px;">
+          
+          <!-- Header Bar with Title, Status & Expand/Shrink Button -->
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid #e2e8f0;">
             <div style="display:flex;align-items:center;gap:10px;">
-              <div style="width:36px;height:36px;background:#dbeafe;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#2563eb;font-size:18px;">✉️</div>
+              <div style="width:38px;height:38px;background:#dbeafe;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#2563eb;font-size:20px;">✉️</div>
               <div>
-                <h3 style="font-size:15px;font-weight:800;color:#0f172a;margin:0;">Space 2: Email BCC Broadcast Desk</h3>
-                <span style="font-size:11.5px;color:#64748b;">Automated Multi-BCC • Fixed From & CC • AI Follow-Up Agent</span>
+                <h3 style="font-size:15px;font-weight:800;color:#0f172a;margin:0;">Space 2: Professional Email Broadcast Studio</h3>
+                <span style="font-size:11.5px;color:#64748b;">Gmail Verified SMTP • Full WYSIWYG Editor • Local PC Attachments • Multi-BCC Dispatch</span>
               </div>
             </div>
-            <span class="status-pill" id="emailSelectedBadge" style="background:#eff6ff;color:#1e40af;font-weight:700;">0 in BCC</span>
-          </div>
-
-          <!-- Verified Sender & CC Badges -->
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
-            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:8px 10px;font-size:11.5px;">
-              <span style="color:#64748b;display:block;font-size:10px;text-transform:uppercase;font-weight:700;">FROM ADDRESS (Verified)</span>
-              <strong style="color:#1e3a8a;">nunesalcotest@gmail.com</strong>
-            </div>
-            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:8px 10px;font-size:11.5px;">
-              <span style="color:#64748b;display:block;font-size:10px;text-transform:uppercase;font-weight:700;">CC ADDRESS (Management)</span>
-              <strong style="color:#059669;">nunescbe@gmail.com</strong>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span class="status-pill" id="emailSelectedBadge" style="background:#eff6ff;color:#1e40af;font-weight:700;">0 in BCC</span>
+              <button type="button" id="expandEmailStudioBtn" onclick="toggleEmailStudioExpand()" style="background:#f1f5f9;color:#334155;border:1px solid #cbd5e1;border-radius:6px;padding:4px 10px;font-size:11.5px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:4px;" title="Expand studio to full width for comfortable composing">
+                <span>⛶</span> <span id="expandEmailStudioText">Expand</span>
+              </button>
             </div>
           </div>
 
-          <!-- BCC Dynamic Counter & Chips -->
-          <div class="form-group">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;flex-wrap:wrap;gap:6px;">
-              <label class="form-label" style="margin-bottom:0;">BCC Recipients (<span id="bccCountLabel">0</span> selected)</label>
+          <!-- FROM Header Row -->
+          <div class="email-field-row">
+            <span class="email-field-label">FROM</span>
+            <div style="flex:1;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;">
+              <strong style="color:#1e3a8a;font-size:12.5px;">nunesalcotest@gmail.com</strong>
+              <span style="background:#dcfce7;color:#166534;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;border:1px solid #bbf7d0;">🛡️ Gmail Verified Primary Sender</span>
+            </div>
+          </div>
+
+          <!-- TO Header Row -->
+          <div class="email-field-row">
+            <span class="email-field-label">TO</span>
+            <input type="email" id="emailToInput" class="email-field-input" value="nunesalcotest@gmail.com" placeholder="Primary recipient or test address">
+            <span style="font-size:10px;color:#94a3b8;font-weight:600;">(Sent directly, all selected targets in BCC)</span>
+          </div>
+
+          <!-- CC Header Row -->
+          <div class="email-field-row">
+            <span class="email-field-label">CC</span>
+            <div style="flex:1;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;">
+              <strong style="color:#059669;font-size:12.5px;">nunescbe@gmail.com</strong>
+              <span style="color:#64748b;font-size:11px;">Management Copy & Dispatch Audit</span>
+            </div>
+          </div>
+
+          <!-- BCC Header Row & Recipients Queue -->
+          <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 12px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px;">
+              <div style="display:flex;align-items:center;gap:6px;">
+                <span class="email-field-label" style="width:auto;">BCC RECIPIENTS:</span>
+                <span style="font-size:12px;font-weight:700;color:#2563eb;" id="bccCountLabel">0</span>
+                <span style="font-size:11px;color:#64748b;">Institutions / Stations Selected</span>
+              </div>
               <div style="display:flex;gap:6px;flex-wrap:wrap;">
-                <button type="button" onclick="setBccToActiveOnly()" style="background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;border-radius:4px;padding:3px 8px;font-size:11px;font-weight:700;cursor:pointer;" title="Set BCC to ONLY the active target shown in Space 1">🎯 Only Active Target in BCC</button>
-                <button type="button" onclick="addCurrentFilteredToBcc()" style="background:#f0fdf4;color:#166534;border:1px solid #bbf7d0;border-radius:4px;padding:3px 8px;font-size:11px;font-weight:700;cursor:pointer;" title="Add all currently filtered items of active view into BCC">+ Add Filtered</button>
+                <button type="button" onclick="setBccToActiveOnly()" style="background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;border-radius:4px;padding:3px 8px;font-size:11px;font-weight:700;cursor:pointer;" title="Set BCC to ONLY the active target shown in Space 1">🎯 Only Active Target</button>
+                <button type="button" onclick="addCurrentFilteredToBcc()" style="background:#f0fdf4;color:#166534;border:1px solid #bbf7d0;border-radius:4px;padding:3px 8px;font-size:11px;font-weight:700;cursor:pointer;" title="Add all currently filtered items into BCC">+ Add All Filtered</button>
                 <button type="button" onclick="clearAllSelections()" style="background:#fee2e2;color:#b91c1c;border:1px solid #fecaca;border-radius:4px;padding:3px 8px;font-size:11px;font-weight:700;cursor:pointer;" title="Clear all BCC recipients">✕ Clear BCC</button>
               </div>
             </div>
-            <div id="bccChipsContainer" style="min-height:54px;max-height:110px;overflow-y:auto;background:#ffffff;border:1px solid #cbd5e1;border-radius:6px;padding:6px;display:flex;flex-wrap:wrap;gap:4px;font-size:11px;">
-              <span style="color:#94a3b8;font-style:italic;">No BCC recipients selected yet. Check boxes in directory cards or click "Only Active Target in BCC".</span>
+            <div id="bccChipsContainer" style="min-height:50px;max-height:100px;overflow-y:auto;background:#ffffff;border:1px solid #cbd5e1;border-radius:6px;padding:6px;display:flex;flex-wrap:wrap;gap:4px;font-size:11px;">
+              <span style="color:#94a3b8;font-style:italic;">No BCC recipients selected yet. Check boxes in directory cards or click "🎯 Only Active Target".</span>
             </div>
           </div>
 
-          <!-- Subject Line -->
-          <div class="form-group">
-            <label class="form-label">Subject Line</label>
-            <input type="text" id="emailSubjectInput" class="form-control" value="Campus Breath Analyser Range | Nunes Instrumentation, Coimbatore">
-          </div>
-
-          <!-- Autonomous AI Follow-Up Agent Box -->
-          <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 12px;margin-bottom:12px;">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-              <strong style="font-size:12px;color:#166534;display:flex;align-items:center;gap:5px;">🤖 Autonomous AI Follow-Up Agent (OpenAI)</strong>
-              <span style="font-size:10.5px;color:#15803d;">Ultra-crisp 2 sentences</span>
-            </div>
-            <div style="display:flex;gap:6px;margin-bottom:6px;">
-              <input type="text" id="aiAgentPrompt" class="form-control" style="font-size:11.5px;padding:5px 8px;" placeholder="e.g. Principal requested demonstration date and warranty">
-              <button type="button" onclick="generateAiQuickFollowup()" style="background:#16a34a;color:white;border:none;border-radius:4px;padding:5px 10px;font-size:11.5px;font-weight:700;cursor:pointer;white-space:nowrap;">Generate</button>
-            </div>
-            <div id="aiAgentOutputBox" style="display:none;background:white;border:1px solid #86efac;border-radius:6px;padding:8px;font-size:11.5px;color:#14532d;line-height:1.4;">
-              <div id="aiAgentOutputText"></div>
-              <div style="display:flex;gap:6px;margin-top:6px;">
-                <button type="button" onclick="applyAiTextToEmail()" style="font-size:10.5px;padding:2px 6px;background:#dcfce7;border:1px solid #86efac;border-radius:4px;cursor:pointer;">Use in Email</button>
-                <button type="button" onclick="applyAiTextToWa()" style="font-size:10.5px;padding:2px 6px;background:#dcfce7;border:1px solid #86efac;border-radius:4px;cursor:pointer;">Use in WhatsApp</button>
+          <!-- SUBJECT Line with Template Selector -->
+          <div class="email-field-row" style="align-items:flex-start;padding:8px 12px;">
+            <span class="email-field-label" style="margin-top:6px;">SUBJECT</span>
+            <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <input type="text" id="emailSubjectInput" class="email-field-input" style="font-size:13px;font-weight:700;background:#ffffff;border:1px solid #cbd5e1;border-radius:6px;padding:6px 10px;" value="Campus Breath Analyser Range | Nunes Instrumentation, Coimbatore">
+                <select id="emailTemplateSelect" onchange="loadEmailTemplate(this.value)" class="form-control" style="width:230px;font-size:11.5px;font-weight:700;padding:6px 8px;background:#ffffff;border:1px solid #2563eb;color:#1e40af;cursor:pointer;" title="Choose an industry template to auto-populate subject and body">
+                  <option value="highered">🎓 HigherEd & Universities</option>
+                  <option value="police">👮 Police & Law Enforcement</option>
+                  <option value="schools">🏫 Schools & Bus Fleets</option>
+                  <option value="fleet">🚚 Commercial Fleets & Transport</option>
+                  <option value="industry">🏭 Engineering & CNC Factories</option>
+                  <option value="textile">🧵 Textile & Spinning Mills</option>
+                  <option value="water">💧 Water Treatment & Testing</option>
+                  <option value="pharma">💊 Pharma & Diagnostic Labs</option>
+                  <option value="custom">✍️ Blank / Custom Template</option>
+                </select>
               </div>
             </div>
           </div>
 
-          <!-- Attachment & Template Options -->
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;font-size:12px;">
-            <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-weight:600;color:#0f172a;">
-              <input type="checkbox" id="attachCatalogueChk" checked>
-              <span>📎 Attach 14-Model Catalogue PDF (5.16 MB)</span>
-            </label>
-            <span style="color:#64748b;font-size:11px;">Uses Official Nunes HTML Template</span>
+          <!-- WYSIWYG FORMATTING TOOLBAR & VIEW TABS -->
+          <div>
+            <div class="email-format-toolbar">
+              <div class="fmt-group">
+                <button type="button" class="fmt-btn" onclick="formatDoc('bold')" title="Bold (Ctrl+B)"><b>B</b></button>
+                <button type="button" class="fmt-btn" onclick="formatDoc('italic')" title="Italic (Ctrl+I)"><i>I</i></button>
+                <button type="button" class="fmt-btn" onclick="formatDoc('underline')" title="Underline (Ctrl+U)"><u>U</u></button>
+                <button type="button" class="fmt-btn" onclick="formatDoc('strikeThrough')" title="Strikethrough"><s>S</s></button>
+                <span style="color:#cbd5e1;margin:0 2px;">|</span>
+                <button type="button" class="fmt-btn" onclick="formatDoc('formatBlock', '<h2>')" title="Heading 2">H2</button>
+                <button type="button" class="fmt-btn" onclick="formatDoc('formatBlock', '<h3>')" title="Heading 3">H3</button>
+                <button type="button" class="fmt-btn" onclick="formatDoc('formatBlock', '<p>')" title="Normal Paragraph">¶</button>
+                <span style="color:#cbd5e1;margin:0 2px;">|</span>
+                <button type="button" class="fmt-btn" onclick="formatDoc('insertUnorderedList')" title="Bullet List">• List</button>
+                <button type="button" class="fmt-btn" onclick="formatDoc('insertOrderedList')" title="Numbered List">1. List</button>
+                <span style="color:#cbd5e1;margin:0 2px;">|</span>
+                <button type="button" class="fmt-btn" onclick="insertEmailLink()" title="Insert Link">🔗 Link</button>
+                <button type="button" class="fmt-btn" onclick="formatDoc('insertHorizontalRule')" title="Divider Line">— Line</button>
+                <span style="color:#cbd5e1;margin:0 2px;">|</span>
+                <button type="button" class="fmt-btn" onclick="insertEmailVariable('{Recipient_Name}')" title="Insert Recipient Name Tag" style="color:#2563eb;font-size:11px;">+ {Name}</button>
+                <button type="button" class="fmt-btn" onclick="insertEmailVariable('{District}')" title="Insert District Tag" style="color:#2563eb;font-size:11px;">+ {District}</button>
+                <button type="button" class="fmt-btn" onclick="formatDoc('removeFormat')" title="Clear Formatting">🧹</button>
+              </div>
+              <div class="fmt-group">
+                <button type="button" id="tabBtnVisual" class="email-view-tab-btn active" onclick="switchEmailEditorTab('visual')">📝 Visual</button>
+                <button type="button" id="tabBtnHtml" class="email-view-tab-btn" onclick="switchEmailEditorTab('html')">💻 HTML Source</button>
+                <button type="button" id="tabBtnPreview" class="email-view-tab-btn" onclick="switchEmailEditorTab('preview')">👁️ Live Preview</button>
+              </div>
+            </div>
+
+            <!-- EMAIL BODY EDITOR CONTAINER -->
+            <div id="emailRichBody" contenteditable="true" class="email-editor-box" style="display:block;">
+              <p>Dear Principal / Campus Director,</p>
+              <p>Greetings from <strong>Nunes Instrumentation</strong>, Coimbatore — premier manufacturers & distributors of scientific, industrial, and precision safety instruments since 1996.</p>
+              <h3>Campus & Hostel Alcohol Safety Enforcement Systems</h3>
+              <p>To assist in maintaining a secure, alcohol-free learning environment across educational campuses and hostel premises, we introduce our certified <strong>Electrochemical Fuel-Cell Breath Alcohol Analysers</strong>.</p>
+              <ul>
+                <li><strong>Ultra-Fast Screening:</strong> Non-contact baton analysers for rapid gate screening during morning entry & hostel return.</li>
+                <li><strong>Precision Dot-Matrix Printing:</strong> Handheld units with onboard thermal printers for disciplinary records.</li>
+                <li><strong>Zero False Positives:</strong> Advanced platinum fuel-cell sensors unaffected by acetone, mouthwash, or ambient smoke.</li>
+                <li><strong>1-Year Warranty & Local Coimbatore Calibration Service:</strong> Dedicated on-site service support across Tamil Nadu & Kerala.</li>
+              </ul>
+              <p>Our complete 14-model technical product catalogue and pricing schedules are attached with this communication for your review.</p>
+              <p>We welcome the opportunity to conduct an <strong>on-campus demonstration</strong> at your convenience. Please feel free to reply directly to this email or call our Coimbatore office.</p>
+              <p>Warm regards,<br>
+              <strong>Sales & Technical Operations Team</strong><br>
+              Nunes Instrumentation<br>
+              Coimbatore, Tamil Nadu<br>
+              📞 +91 94432 17030 | ✉️ nunesalcotest@gmail.com / nunescbe@gmail.com</p>
+            </div>
+            <textarea id="emailHtmlBody" class="email-editor-box" style="display:none;width:100%;font-family:Consolas, Monaco, 'Courier New', monospace;font-size:12px;background:#0f172a;color:#f8fafc;resize:vertical;" oninput="syncFromHtmlSource()"></textarea>
+            <div id="emailPreviewContainer" class="email-editor-box" style="display:none;background:#f8fafc;"></div>
           </div>
 
-          <!-- Dispatch Button -->
-          <button type="button" class="card-btn primary" style="background:#2563eb;height:42px;width:100%;font-size:13px;" onclick="dispatchBccCampaign()">
-            <span>📧</span> <span>Send Campaign (From: nunesalcotest, CC: nunescbe, BCC: Selected)</span>
+          <!-- AUTONOMOUS AI FOLLOW-UP AGENT BOX -->
+          <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:8px 12px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+              <strong style="font-size:11.5px;color:#166534;display:flex;align-items:center;gap:5px;">🤖 AI Follow-Up Copilot (OpenAI GPT-4o-mini)</strong>
+              <span style="font-size:10.5px;color:#15803d;">Generates tailored follow-up & quotation notes</span>
+            </div>
+            <div style="display:flex;gap:6px;">
+              <input type="text" id="aiAgentPrompt" class="form-control" style="font-size:11.5px;padding:5px 8px;" placeholder="e.g. Principal requested on-campus demo schedule and 1-year warranty terms">
+              <button type="button" onclick="generateAiQuickFollowup()" style="background:#16a34a;color:white;border:none;border-radius:4px;padding:5px 12px;font-size:11.5px;font-weight:700;cursor:pointer;white-space:nowrap;">Generate</button>
+            </div>
+            <div id="aiAgentOutputBox" style="display:none;background:white;border:1px solid #86efac;border-radius:6px;padding:8px;font-size:11.5px;color:#14532d;line-height:1.4;margin-top:6px;">
+              <div id="aiAgentOutputText"></div>
+              <div style="display:flex;gap:6px;margin-top:6px;">
+                <button type="button" onclick="insertAiTextIntoEmailEditor()" style="font-size:11px;font-weight:700;padding:3px 8px;background:#dcfce7;color:#166534;border:1px solid #86efac;border-radius:4px;cursor:pointer;">+ Insert into Email Editor</button>
+                <button type="button" onclick="applyAiTextToWa()" style="font-size:11px;padding:3px 8px;background:#f1f5f9;border:1px solid #cbd5e1;border-radius:4px;cursor:pointer;">Use in WhatsApp</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ATTACHMENT TRAY: CATALOGUE PDF + LOCAL FILE PICKER -->
+          <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 12px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                <label style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-weight:700;color:#166534;font-size:12px;background:#f0fdf4;border:1px solid #86efac;padding:5px 10px;border-radius:6px;">
+                  <input type="checkbox" id="attachCatalogueChk" checked>
+                  <span>📑 Attach 14-Model Product Catalogue PDF (5.16 MB)</span>
+                </label>
+                <button type="button" onclick="triggerEmailAttachmentPicker()" class="fmt-btn" style="background:#eff6ff;border-color:#bfdbfe;color:#1e40af;padding:5px 12px;height:auto;font-size:12px;font-weight:700;">
+                  <span>📎 Attach Local Files from PC</span>
+                </button>
+                <input type="file" id="emailLocalFileInput" multiple style="display:none;" onchange="handleEmailAttachmentFiles(event)">
+              </div>
+              <span style="font-size:11px;color:#64748b;">Supports PDF, Images, Word, Excel, CSV</span>
+            </div>
+            <div id="customAttachmentsList" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;"></div>
+          </div>
+
+          <!-- DELIVERABILITY STATUS BAR & SEND BUTTON -->
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;font-size:11.5px;color:#475569;">
+            <span>🟢 <strong>Gmail Verified SMTP</strong> • 100% Deliverability • Zero Spam Score</span>
+            <span style="color:#64748b;">Direct Primary Inbox Placement</span>
+          </div>
+
+          <button type="button" class="card-btn primary" style="background:#2563eb;height:44px;width:100%;font-size:13.5px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 12px rgba(37,99,235,0.25);" onclick="dispatchBccCampaign()">
+            <span>🚀</span> <span>Send Email Campaign (From: nunesalcotest, CC: nunescbe, BCC: Selected)</span>
           </button>
         </div>
 
@@ -3919,6 +4184,366 @@
     }
   }
 
+  // ===========================================================
+  // SPACE 2: PROFESSIONAL EMAIL STUDIO & BROADCAST CLIENT JS
+  // ===========================================================
+  let emailCustomAttachments = [];
+  let currentEmailTab = 'visual';
+
+  function toggleEmailStudioExpand() {
+    const card = document.getElementById('emailStudioCard');
+    const btnText = document.getElementById('expandEmailStudioText');
+    if (!card) return;
+    card.classList.toggle('expanded');
+    const isExp = card.classList.contains('expanded');
+    if (btnText) btnText.textContent = isExp ? 'Shrink' : 'Expand';
+  }
+
+  function formatDoc(cmd, val = null) {
+    const editor = document.getElementById('emailRichBody');
+    if (editor) editor.focus();
+    document.execCommand(cmd, false, val);
+  }
+
+  function insertEmailLink() {
+    const url = prompt('Enter website URL to link (e.g. https://www.nunesinstruments.com):', 'https://');
+    if (url && url !== 'https://') {
+      formatDoc('createLink', url);
+    }
+  }
+
+  function insertEmailVariable(tag) {
+    const editor = document.getElementById('emailRichBody');
+    if (editor) {
+      editor.focus();
+      document.execCommand('insertText', false, tag);
+    }
+  }
+
+  function switchEmailEditorTab(tab) {
+    currentEmailTab = tab;
+    const richEl = document.getElementById('emailRichBody');
+    const htmlEl = document.getElementById('emailHtmlBody');
+    const prevEl = document.getElementById('emailPreviewContainer');
+    const btnVis = document.getElementById('tabBtnVisual');
+    const btnHtml = document.getElementById('tabBtnHtml');
+    const btnPrev = document.getElementById('tabBtnPreview');
+
+    [btnVis, btnHtml, btnPrev].forEach(b => b && b.classList.remove('active'));
+
+    if (tab === 'visual') {
+      if (btnVis) btnVis.classList.add('active');
+      if (htmlEl && richEl) richEl.innerHTML = htmlEl.value;
+      if (richEl) richEl.style.display = 'block';
+      if (htmlEl) htmlEl.style.display = 'none';
+      if (prevEl) prevEl.style.display = 'none';
+    } else if (tab === 'html') {
+      if (btnHtml) btnHtml.classList.add('active');
+      if (htmlEl && richEl) htmlEl.value = richEl.innerHTML;
+      if (richEl) richEl.style.display = 'none';
+      if (htmlEl) htmlEl.style.display = 'block';
+      if (prevEl) prevEl.style.display = 'none';
+    } else if (tab === 'preview') {
+      if (btnPrev) btnPrev.classList.add('active');
+      let previewHtml = (htmlEl && htmlEl.style.display === 'block') ? htmlEl.value : (richEl ? richEl.innerHTML : '');
+      
+      const recipients = Array.from(selectedRecipients.values());
+      const sampleTarget = recipients[0] || { name: 'PSG College of Technology', district: 'Coimbatore', sector: 'HigherEd' };
+      previewHtml = previewHtml.replace(/\{Recipient_Name\}/g, `<strong>${sampleTarget.name}</strong>`);
+      previewHtml = previewHtml.replace(/\{District\}/g, `<strong>${sampleTarget.district}</strong>`);
+      previewHtml = previewHtml.replace(/\{Category\}/g, `<strong>${sampleTarget.sector}</strong>`);
+      
+      const subject = document.getElementById('emailSubjectInput')?.value || 'Breath Analyser Range';
+      const toAddr = document.getElementById('emailToInput')?.value || 'nunesalcotest@gmail.com';
+      const bccCount = recipients.length;
+
+      let attPillsHtml = '';
+      if (document.getElementById('attachCatalogueChk')?.checked) {
+        attPillsHtml += '<span style="display:inline-flex;align-items:center;gap:4px;background:#f0fdf4;border:1px solid #86efac;color:#166534;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:600;">📑 14-Model Catalogue PDF (5.16 MB)</span> ';
+      }
+      emailCustomAttachments.forEach(att => {
+        attPillsHtml += `<span style="display:inline-flex;align-items:center;gap:4px;background:#eff6ff;border:1px solid #bfdbfe;color:#1e40af;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:600;">📎 ${att.filename} (${att.sizeFormatted})</span> `;
+      });
+
+      if (prevEl) {
+        prevEl.innerHTML = `
+          <div style="background:#ffffff;border:1px solid #cbd5e1;border-radius:8px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+            <div style="border-bottom:2px solid #e2e8f0;padding-bottom:12px;margin-bottom:14px;font-size:12px;color:#334155;line-height:1.6;">
+              <div style="font-size:16px;font-weight:800;color:#0f172a;margin-bottom:6px;">${subject}</div>
+              <div><strong>From:</strong> nunesalcotest@gmail.com (Nunes Instrumentation)</div>
+              <div><strong>To:</strong> ${toAddr}</div>
+              <div><strong>Cc:</strong> nunescbe@gmail.com</div>
+              <div><strong>Bcc:</strong> ${bccCount} Selected Recipients (${recipients.slice(0, 3).map(r => r.name).join(', ')}${bccCount > 3 ? ` + ${bccCount - 3} more` : ''})</div>
+              ${attPillsHtml ? `<div style="margin-top:8px;"><strong>Attachments:</strong> ${attPillsHtml}</div>` : ''}
+            </div>
+            <div style="font-family:'Plus Jakarta Sans', Arial, sans-serif;font-size:13.5px;color:#1e293b;line-height:1.65;">
+              ${previewHtml}
+            </div>
+          </div>
+        `;
+        if (richEl) richEl.style.display = 'none';
+        if (htmlEl) htmlEl.style.display = 'none';
+        prevEl.style.display = 'block';
+      }
+    }
+  }
+
+  function syncFromHtmlSource() {
+    const htmlEl = document.getElementById('emailHtmlBody');
+    const richEl = document.getElementById('emailRichBody');
+    if (htmlEl && richEl) {
+      richEl.innerHTML = htmlEl.value;
+    }
+  }
+
+  // ATTACHMENT SYSTEM
+  function triggerEmailAttachmentPicker() {
+    const input = document.getElementById('emailLocalFileInput');
+    if (input) input.click();
+  }
+
+  function formatBytes(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+  }
+
+  function handleEmailAttachmentFiles(e) {
+    const files = Array.from(e.target.files);
+    if (!files.length) return;
+
+    files.forEach(file => {
+      if (file.size > 20 * 1024 * 1024) {
+        alert(`File "${file.name}" exceeds 20MB limit. Most mail servers reject large files.`);
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const dataUrl = evt.target.result;
+        const base64 = dataUrl.split(',')[1];
+        emailCustomAttachments.push({
+          filename: file.name,
+          contentType: file.type || 'application/octet-stream',
+          size: file.size,
+          sizeFormatted: formatBytes(file.size),
+          content: base64
+        });
+        renderCustomAttachmentsList();
+      };
+      reader.readAsDataURL(file);
+    });
+    e.target.value = '';
+  }
+
+  function removeCustomAttachment(index) {
+    emailCustomAttachments.splice(index, 1);
+    renderCustomAttachmentsList();
+  }
+
+  function renderCustomAttachmentsList() {
+    const container = document.getElementById('customAttachmentsList');
+    if (!container) return;
+    if (emailCustomAttachments.length === 0) {
+      container.innerHTML = '';
+      return;
+    }
+    container.innerHTML = emailCustomAttachments.map((att, idx) => `
+      <div class="email-attachment-pill">
+        <span>📎</span>
+        <strong style="color:#1e3a8a;">${att.filename}</strong>
+        <span style="color:#64748b;font-size:10.5px;">(${att.sizeFormatted})</span>
+        <button type="button" class="email-attachment-remove" onclick="removeCustomAttachment(${idx})" title="Remove attachment">✕</button>
+      </div>
+    `).join('');
+  }
+
+  // INDUSTRY EMAIL TEMPLATES
+  const EMAIL_TEMPLATES = {
+    highered: {
+      subject: "Campus Breath Analyser Range & Safety Protocol | Nunes Instrumentation, Coimbatore",
+      body: `<p>Dear Principal / Campus Director,</p>
+<p>Greetings from <strong>Nunes Instrumentation</strong>, Coimbatore — premier manufacturers & distributors of scientific, industrial, and precision safety instruments since 1996.</p>
+<h3>Campus & Hostel Alcohol Safety Enforcement Systems</h3>
+<p>To assist in maintaining a secure, alcohol-free learning environment across educational campuses and hostel premises, we introduce our certified <strong>Electrochemical Fuel-Cell Breath Alcohol Analysers</strong>.</p>
+<ul>
+  <li><strong>Ultra-Fast Screening:</strong> Non-contact baton analysers for rapid gate screening during morning entry & hostel return.</li>
+  <li><strong>Precision Dot-Matrix Printing:</strong> Handheld units with onboard thermal printers for disciplinary records.</li>
+  <li><strong>Zero False Positives:</strong> Advanced platinum fuel-cell sensors unaffected by acetone, mouthwash, or ambient smoke.</li>
+  <li><strong>1-Year Warranty & Local Coimbatore Calibration Service:</strong> Dedicated on-site service support across Tamil Nadu & Kerala.</li>
+</ul>
+<p>Our complete 14-model technical product catalogue and pricing schedules are attached with this communication for your review.</p>
+<p>We welcome the opportunity to conduct an <strong>on-campus demonstration</strong> at your convenience. Please feel free to reply directly to this email or call our Coimbatore office.</p>
+<p>Warm regards,<br>
+<strong>Sales & Technical Operations Team</strong><br>
+Nunes Instrumentation<br>
+Coimbatore, Tamil Nadu<br>
+📞 +91 94432 17030 | ✉️ nunesalcotest@gmail.com / nunescbe@gmail.com</p>`
+    },
+    police: {
+      subject: "Law Enforcement Grade Fuel-Cell Breath Analysers Supply & Demo | Nunes Instrumentation",
+      body: `<p>Respected Officer / Traffic Enforcement Division,</p>
+<p>Greetings from <strong>Nunes Instrumentation</strong>, Coimbatore. We supply state-of-the-art breath alcohol screening devices to police departments, highway patrol units, and traffic checkpoints across South India.</p>
+<h3>Heavy-Duty Police Traffic Alcotest Instruments</h3>
+<ul>
+  <li><strong>Rapid Traffic Screening Baton:</strong> High-speed pump suction sensor with LED baton flashers for instant vehicle checks.</li>
+  <li><strong>Court-Admissible Evidence:</strong> Units featuring built-in thermal micro-printers printing Officer Name, Vehicle Number, Location & BAC level.</li>
+  <li><strong>Calibration Certification:</strong> Calibrated with NABL traceable standards with full annual maintenance support.</li>
+</ul>
+<p>Please find attached our 14-model technical catalogue. We are ready to provide field demonstrations at your station headquarters.</p>
+<p>Respectfully,<br>
+<strong>Government & Law Enforcement Procurement Desk</strong><br>
+Nunes Instrumentation, Coimbatore<br>
+📞 +91 94432 17030 | ✉️ nunesalcotest@gmail.com</p>`
+    },
+    schools: {
+      subject: "School Bus Driver Alcohol Safety Testing Equipment | Nunes Instrumentation, Coimbatore",
+      body: `<p>Dear Correspondent / Principal / Transport Manager,</p>
+<p>Ensuring student transit safety is the highest priority for school authorities. <strong>Nunes Instrumentation</strong> supplies certified rapid breath analysers specifically engineered for mandatory pre-trip school bus driver screening.</p>
+<h3>School Transport Driver Safety Systems</h3>
+<ul>
+  <li><strong>Instant Morning Screening:</strong> Fast 2-second check before drivers take charge of student transit buses.</li>
+  <li><strong>Digital Log & Record:</strong> Time-stamped testing records to ensure full compliance with transport safety guidelines.</li>
+  <li><strong>Hygienic Non-Contact Mode:</strong> No mouthpieces required for daily screening.</li>
+</ul>
+<p>Detailed technical catalogue is attached. Kindly contact us for institution demo arrangements.</p>
+<p>Warm regards,<br>
+<strong>Student Safety & Transport Support Desk</strong><br>
+Nunes Instrumentation, Coimbatore | 📞 +91 94432 17030</p>`
+    },
+    fleet: {
+      subject: "Commercial Fleet & Depot Breath Alcohol Safety Testers | Nunes Instrumentation",
+      body: `<p>Dear Fleet Operations Manager / Safety Officer,</p>
+<p>Driver sobriety is critical to preventing road accidents, cargo loss, and insurance liabilities. <strong>Nunes Instrumentation</strong> offers industrial-grade breath alcohol testing solutions for transport depots, logistics hubs, and bus terminals.</p>
+<h3>Fleet Driver Safety & Compliance Solutions</h3>
+<ul>
+  <li><strong>Heavy-Duty Depot Testing:</strong> Rapid driver turn-around before vehicle dispatch.</li>
+  <li><strong>Data Storage & Printout:</strong> Store up to 20,000 test logs with USB export and instant thermal receipt printing.</li>
+  <li><strong>Robust & Reliable:</strong> Designed for 24/7 depot environments.</li>
+</ul>
+<p>Review our attached catalogue and contact our Coimbatore office for trial units.</p>
+<p>Best regards,<br>
+<strong>Commercial Fleet Safety Division</strong><br>
+Nunes Instrumentation | 📞 +91 94432 17030</p>`
+    },
+    industry: {
+      subject: "Industrial Measuring Instruments & Workplace Alcohol Safety | Nunes Instrumentation",
+      body: `<p>Dear Plant Head / Safety & Quality Manager,</p>
+<p><strong>Nunes Instrumentation</strong> is a trusted partner for manufacturing plants, CNC machine shops, engineering factories, and industrial facilities across South India.</p>
+<h3>Industrial Instrumentation & Plant Safety</h3>
+<ul>
+  <li><strong>Workplace Alcohol Gate Screening:</strong> Eliminate industrial machinery accidents through mandatory gate sobriety screening.</li>
+  <li><strong>Precision Dimensional Metrology:</strong> Calipers, micrometers, height gauges, bore gauges, dial indicators.</li>
+  <li><strong>Process & Environmental Instruments:</strong> Digital thermometers, hygrometers, sound level meters, lux meters, tachometers.</li>
+</ul>
+<p>Enclosed is our technical catalogue. We invite your RFQ / inquiry for plant requirements.</p>
+<p>Regards,<br>
+<strong>Industrial Sales Division</strong><br>
+Nunes Instrumentation, Coimbatore | 📞 +91 94432 17030</p>`
+    },
+    textile: {
+      subject: "Textile Mill Process Instruments & Shift Safety Equipment | Nunes Instrumentation",
+      body: `<p>Dear General Manager / Maintenance & Safety Head,</p>
+<p>For textile, spinning, and weaving mills, maintaining precise humidity and shift operator safety is essential for productivity and zero machinery downtime.</p>
+<h3>Textile Instrumentation & Safety Solutions</h3>
+<ul>
+  <li><strong>Temperature & RH Monitoring:</strong> Precision thermo-hygrometers, infrared pyrometers, and moisture meters for yarn and fabric.</li>
+  <li><strong>Shift Operator Sobriety Testing:</strong> Fast gate breath analyzers ensuring safe spinning frame operation.</li>
+  <li><strong>Electrical & Motor Maintenance:</strong> Digital multimeters, clamp meters, and insulation resistance testers.</li>
+</ul>
+<p>Product catalogue attached. Contact us for quotation and on-site demonstration.</p>
+<p>Sincerely,<br>
+<strong>Textile Industry Solutions Team</strong><br>
+Nunes Instrumentation, Coimbatore | 📞 +91 94432 17030</p>`
+    },
+    water: {
+      subject: "Water Treatment, pH, TDS & Laboratory Analytical Instruments | Nunes Instrumentation",
+      body: `<p>Dear Plant Chemist / Operations Manager,</p>
+<p><strong>Nunes Instrumentation</strong> provides laboratory-grade and portable water testing instruments for treatment plants, beverage bottling, and industrial effluent management.</p>
+<h3>Water Testing & Analytical Solutions</h3>
+<ul>
+  <li><strong>Precision pH & Conductivity:</strong> Benchtop and handheld waterproof pH, EC, and TDS meters.</li>
+  <li><strong>Turbidity & Dissolved Oxygen:</strong> Digital DO meters and turbidity gauges for water purity validation.</li>
+  <li><strong>Refractometers & Salinity Testers:</strong> Accurate optical and digital Brix / Salinity meters.</li>
+</ul>
+<p>Please review our attached catalogue and submit your specifications for our best quote.</p>
+<p>Best regards,<br>
+<strong>Analytical Instruments Desk</strong><br>
+Nunes Instrumentation, Coimbatore | 📞 +91 94432 17030</p>`
+    },
+    pharma: {
+      subject: "Pharma Cleanroom Instruments & Laboratory Equipment | Nunes Instrumentation",
+      body: `<p>Dear QC Head / Purchase Manager,</p>
+<p><strong>Nunes Instrumentation</strong> supplies high-accuracy calibration tools and environmental monitors for pharmaceutical formulation units, diagnostic labs, and medical colleges.</p>
+<h3>Pharma & Lab Instrumentation</h3>
+<ul>
+  <li><strong>Cleanroom Monitoring:</strong> Anemometers, differential pressure manometers, particle counters, and lux meters.</li>
+  <li><strong>Temperature Data Loggers:</strong> USB PDF cold-chain data loggers and multi-channel thermometers.</li>
+  <li><strong>Laboratory Balances & Refractometers:</strong> High-precision analytical balances and digital refractometers.</li>
+</ul>
+<p>Enclosed is our technical catalogue. Contact us for NABL calibration certificates and demonstration.</p>
+<p>Warm regards,<br>
+<strong>Pharma & Diagnostics Support Desk</strong><br>
+Nunes Instrumentation, Coimbatore | 📞 +91 94432 17030</p>`
+    },
+    custom: {
+      subject: "Quotation & Product Information | Nunes Instrumentation, Coimbatore",
+      body: `<p>Dear Sir / Madam,</p>
+<p>Greetings from <strong>Nunes Instrumentation</strong>, Coimbatore.</p>
+<p>Please enter your customized message here...</p>
+<p>Sincerely,<br>
+<strong>Nunes Instrumentation</strong><br>
+Coimbatore, Tamil Nadu | 📞 +91 94432 17030 | ✉️ nunesalcotest@gmail.com</p>`
+    }
+  };
+
+  function loadEmailTemplate(templateKey) {
+    const tmpl = EMAIL_TEMPLATES[templateKey];
+    if (!tmpl) return;
+
+    const subInput = document.getElementById('emailSubjectInput');
+    const richEl = document.getElementById('emailRichBody');
+    const htmlEl = document.getElementById('emailHtmlBody');
+
+    if (subInput) subInput.value = tmpl.subject;
+    if (richEl) richEl.innerHTML = tmpl.body;
+    if (htmlEl) htmlEl.value = tmpl.body;
+
+    if (currentEmailTab === 'preview') {
+      switchEmailEditorTab('preview');
+    }
+  }
+
+  function insertAiTextIntoEmailEditor() {
+    if (window.lastAiText) {
+      const editor = document.getElementById('emailRichBody');
+      const htmlEl = document.getElementById('emailHtmlBody');
+      const textToInsert = `<p style="background:#f0fdf4;border-left:3px solid #22c55e;padding:6px 10px;margin:8px 0;"><strong>Follow-up Note:</strong> ${window.lastAiText}</p>`;
+      if (editor && editor.style.display !== 'none') {
+        editor.focus();
+        document.execCommand('insertHTML', false, textToInsert);
+      } else if (htmlEl) {
+        htmlEl.value += `
+${textToInsert}`;
+        if (editor) editor.innerHTML = htmlEl.value;
+      }
+      alert('AI Copilot note successfully inserted into email body!');
+    }
+  }
+
+  function applyAiTextToEmail() {
+    insertAiTextIntoEmailEditor();
+  }
+
+  function applyAiTextToWa() {
+    if (window.lastAiText) {
+      document.getElementById('waMessageText').value = window.lastAiText;
+      alert('AI Response placed into WhatsApp Message Box!');
+    }
+  }
+
+  // DISPATCH CAMPAIGN (EMAIL CLIENT POST)
   async function dispatchBccCampaign() {
     const recipients = Array.from(selectedRecipients.values());
     if (recipients.length === 0) {
@@ -3932,10 +4557,42 @@
       return;
     }
 
-    const subject = document.getElementById('emailSubjectInput').value.trim();
-    const attachCatalogue = document.getElementById('attachCatalogueChk').checked;
+    const toAddress = (document.getElementById('emailToInput')?.value || 'nunesalcotest@gmail.com').trim();
+    const subject = (document.getElementById('emailSubjectInput')?.value || 'Breath Analyser Range').trim();
+    const attachCatalogue = document.getElementById('attachCatalogueChk')?.checked || false;
 
-    const confirmMsg = `Confirm Email Campaign Dispatch:\n\n• From: nunesalcotest@gmail.com\n• To: nunesalcotest@gmail.com\n• CC: nunescbe@gmail.com\n• BCC: ${bccEmails.length} Selected Recipients\n• Subject: "${subject}"\n• Attachment: ${attachCatalogue ? 'Breath Analyser 14-Model Catalogue PDF' : 'None'}\n\nProceed with dispatch?`;
+    // Capture latest HTML from active view
+    let finalHtmlBody = '';
+    const htmlEl = document.getElementById('emailHtmlBody');
+    const richEl = document.getElementById('emailRichBody');
+
+    if (currentEmailTab === 'html' && htmlEl) {
+      finalHtmlBody = htmlEl.value;
+    } else if (richEl) {
+      finalHtmlBody = richEl.innerHTML;
+    }
+
+    // Default variable replacements for broadcast
+    finalHtmlBody = finalHtmlBody.replace(/\{Recipient_Name\}/g, 'Respected Authority / Management');
+    finalHtmlBody = finalHtmlBody.replace(/\{District\}/g, 'Tamil Nadu & Kerala');
+    finalHtmlBody = finalHtmlBody.replace(/\{Category\}/g, 'Institution');
+
+    let attachmentSummary = [];
+    if (attachCatalogue) attachmentSummary.push('14-Model Catalogue PDF (5.16 MB)');
+    if (emailCustomAttachments.length > 0) {
+      emailCustomAttachments.forEach(a => attachmentSummary.push(`${a.filename} (${a.sizeFormatted})`));
+    }
+
+    const confirmMsg = `Confirm Email Campaign Dispatch:
+
+• From: nunesalcotest@gmail.com
+• To: ${toAddress}
+• CC: nunescbe@gmail.com
+• BCC: ${bccEmails.length} Selected Recipients
+• Subject: "${subject}"
+• Attachments (${attachmentSummary.length}): ${attachmentSummary.join(', ') || 'None'}
+
+Proceed with dispatch?`;
 
     if (!confirm(confirmMsg)) return;
 
@@ -3944,17 +4601,30 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          to: 'nunesalcotest@gmail.com',
+          to: toAddress,
           cc: 'nunescbe@gmail.com',
           bcc: bccEmails,
           subject: subject,
-          attachCatalogue: attachCatalogue
+          html: finalHtmlBody,
+          attachCatalogue: attachCatalogue,
+          customAttachments: emailCustomAttachments.map(a => ({
+            filename: a.filename,
+            contentType: a.contentType,
+            content: a.content
+          }))
         })
       });
 
       const data = await res.json();
       if (data.success) {
-        alert(`✅ Campaign Dispatched Successfully!\n\n• Message ID: ${data.messageId}\n• From: nunesalcotest@gmail.com\n• CC: nunescbe@gmail.com\n• Total BCC Recipients: ${data.bccCount}\n• Delivered via Gmail SMTP`);
+        alert(`✅ Campaign Dispatched Successfully!
+
+• Message ID: ${data.messageId}
+• From: nunesalcotest@gmail.com
+• To: ${toAddress}
+• CC: nunescbe@gmail.com
+• Total BCC Recipients: ${data.bccCount}
+• Delivered via Gmail SMTP`);
       } else {
         alert(`❌ Dispatch Error: ${data.error || 'Server error'}`);
       }
@@ -3963,55 +4633,6 @@
     }
   }
 
-  async function generateAiQuickFollowup() {
-    const promptInput = document.getElementById('aiAgentPrompt');
-    const userPrompt = promptInput.value.trim() || 'Principal requested demonstration date and warranty';
-    const recipients = Array.from(selectedRecipients.values());
-    const activeTarget = recipients[waCurrentQueueIndex] || { name: 'Institution', sector: 'HigherEd' };
-    const customOpenAiKey = localStorage.getItem('nunes_openai_api_key') || '';
-
-    const outputBox = document.getElementById('aiAgentOutputBox');
-    const outputText = document.getElementById('aiAgentOutputText');
-
-    outputBox.style.display = 'block';
-    outputText.innerHTML = '<em>Thinking with OpenAI Copilot...</em>';
-
-    try {
-      const res = await fetch('/api/agent/quick-followup', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          targetName: activeTarget.name,
-          targetType: activeTarget.sector,
-          query: userPrompt,
-          channel: 'email',
-          apiKey: customOpenAiKey
-        })
-      });
-      const data = await res.json();
-      if (data.reply) {
-        outputText.innerHTML = `<strong>AI Suggestion (${data.source}):</strong><br>${data.reply}`;
-        window.lastAiText = data.reply;
-      } else {
-        outputText.textContent = 'Could not generate AI reply.';
-      }
-    } catch (err) {
-      outputText.textContent = 'Error: ' + err.message;
-    }
-  }
-
-  function applyAiTextToEmail() {
-    if (window.lastAiText) {
-      alert('AI Response Copied! Text is ready to send in email campaign.');
-    }
-  }
-
-  function applyAiTextToWa() {
-    if (window.lastAiText) {
-      document.getElementById('waMessageText').value = window.lastAiText;
-      alert('AI Response placed into WhatsApp Message Box!');
-    }
-  }
 
   // -----------------------------------------------------------
   // GOOGLE CLOUD MODAL & LIVE HARVESTER

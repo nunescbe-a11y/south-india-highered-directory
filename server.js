@@ -685,10 +685,14 @@ app.post('/api/email/send', async (req, res) => {
       bccList = [...new Set(bccList)];
     }
 
-    // Use user-provided template or custom html without extra text appended
-    let htmlContent = html || nunesEmailTemplate;
-    if (!htmlContent && fs.existsSync(templatePath)) {
-      htmlContent = fs.readFileSync(templatePath, 'utf8');
+    // Use user-provided html or body if given, otherwise fall back to template file
+    let htmlContent = html || (body ? `<div style="font-family:'Plus Jakarta Sans', Arial, sans-serif;font-size:14px;color:#1e293b;line-height:1.6;white-space:pre-wrap;">${body}</div>` : null);
+    if (!htmlContent) {
+      if (fs.existsSync(templatePath)) {
+        htmlContent = fs.readFileSync(templatePath, 'utf8');
+      } else {
+        htmlContent = nunesEmailTemplate;
+      }
     }
 
     const plainTextFallback = body || `Campus Breath Analyser Range - Nunes Instrumentation
@@ -720,11 +724,6 @@ Nunes Instrumentation Team`;
       });
     }
 
-    // Reload clean lightweight template dynamically
-    if (fs.existsSync(templatePath)) {
-      htmlContent = fs.readFileSync(templatePath, 'utf8');
-    }
-
     // Attachments configuration
     let attachments = [];
 
@@ -750,6 +749,19 @@ Nunes Instrumentation Team`;
           path: attachmentPath
         });
       }
+    }
+
+    // 3. User Custom Attached Files (from Local PC via Email Composer)
+    if (req.body.customAttachments && Array.isArray(req.body.customAttachments)) {
+      req.body.customAttachments.forEach(att => {
+        if (att.filename && att.content) {
+          attachments.push({
+            filename: att.filename,
+            content: Buffer.from(att.content, 'base64'),
+            contentType: att.contentType || 'application/octet-stream'
+          });
+        }
+      });
     }
 
 

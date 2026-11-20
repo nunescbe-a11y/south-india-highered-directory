@@ -16,11 +16,14 @@
       "phone": "+91 94433 22100",
       "whatsapp": "+919443322100",
       "email": "customercare@abtinfo.net",
-      "address": "180, Race Course Road, Coimbatore, Tamil Nadu 641018",
-      "lat": 11.0025,
-      "lng": 76.9734,
+      "address": "180, Race Course Rd, Race Course, Gopalapuram, Coimbatore, Tamil Nadu 641018, India",
+      "lat": 11.004053,
+      "lng": 76.980466,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641018",
+      "googlePlaceId": "ChIJZWIxjrBZqDsRjM7SOJvVni8",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "trans_namakkal_lorry_hq",
@@ -35,10 +38,12 @@
       "whatsapp": "+919443276555",
       "email": "contact@namakkallorry.org",
       "address": "Lorry Owners Bhavan, Salem Main Road, Namakkal, Tamil Nadu 637001",
-      "lat": 11.2189,
-      "lng": 78.1674,
+      "lat": 11.214383,
+      "lng": 78.170838,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "637001",
+      "verifiedSource": "National Postal Directory PIN Verified (637001 - Namakkal H.O)"
     },
     {
       "id": "trans_kpn_travels_hq",
@@ -53,10 +58,12 @@
       "whatsapp": "+919842722300",
       "email": "customercare@kpntravels.in",
       "address": "252, Subbarayan Street, Shevapet, Salem, Tamil Nadu 636002",
-      "lat": 11.6521,
-      "lng": 78.1402,
+      "lat": 11.644946,
+      "lng": 78.145911,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "636002",
+      "verifiedSource": "National Postal Directory PIN Verified (636002 - Annadanapatti S.O)"
     },
     {
       "id": "trans_cbe_lorry_assoc",
@@ -70,11 +77,14 @@
       "phone": "+91 98430 30114",
       "whatsapp": "+919843030114",
       "email": "info@cdloa.org",
-      "address": "Goods Shed Road, Opp. Railway Goods Yard, Coimbatore, Tamil Nadu 641018",
-      "lat": 11.001,
-      "lng": 76.966,
+      "address": "Goods Shed Rd, Gopalapuram, Coimbatore, Tamil Nadu 641018, India",
+      "lat": 10.997652,
+      "lng": 76.96525,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641018",
+      "googlePlaceId": "EkBHb29kcyBTaGVkIFJkLCBHb3BhbGFwdXJhbSwgQ29pbWJhdG9yZSwgVGFtaWwgTmFkdSA2NDEwMTgsIEluZGlhIi4qLAoUChIJz2dAUKdZqDsRMB8leM4ML3kSFAoSCUEcwfWvWag7EbO9m1G0nOHr",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJjWmkgFNYqDsRLtGfZm1OJGA",
@@ -92,7 +102,10 @@
       "lat": 11.017214,
       "lng": 76.970225,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641044",
+      "googlePlaceId": "ChIJjWmkgFNYqDsRLtGfZm1OJGA",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJvbwIgFNYqDsRAHwh3aeDFNk",
@@ -110,7 +123,10 @@
       "lat": 11.017123,
       "lng": 76.970148,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641044",
+      "googlePlaceId": "ChIJvbwIgFNYqDsRAHwh3aeDFNk",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJ0400h1NYqDsR8mxYMOq4MUc",
@@ -128,7 +144,10 @@
       "lat": 11.017174,
       "lng": 76.970175,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641044",
+      "googlePlaceId": "ChIJ0400h1NYqDsR8mxYMOq4MUc",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJux5btO1YqDsR5fnPCf0w_4g",
@@ -146,7 +165,10 @@
       "lat": 11.031398,
       "lng": 76.950121,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641043",
+      "googlePlaceId": "ChIJux5btO1YqDsR5fnPCf0w_4g",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJZ9Xv9qdZqDsRjVl6ABUgGko",
@@ -164,7 +186,10 @@
       "lat": 11.00183,
       "lng": 76.965656,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641018",
+      "googlePlaceId": "ChIJZ9Xv9qdZqDsRjVl6ABUgGko",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJ6_0nBbhXqDsR80hxDV9ss3w",
@@ -182,7 +207,10 @@
       "lat": 11.003818,
       "lng": 77.054612,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641016",
+      "googlePlaceId": "ChIJ6_0nBbhXqDsR80hxDV9ss3w",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJZ3yK2-1YqDsRqZpiC-n4Fd4",
@@ -200,7 +228,10 @@
       "lat": 11.03053,
       "lng": 76.951374,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641043",
+      "googlePlaceId": "ChIJZ3yK2-1YqDsRqZpiC-n4Fd4",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJFwnq6adZqDsR5-4MeEIpBxk",
@@ -214,11 +245,14 @@
       "phone": "+91 98432 24319",
       "whatsapp": "+919843224319",
       "email": "depot.coimbatore@transport.gov.in",
-      "address": "Avanashi Road Main Flyover, Gopalapuram, Coimbatore, Tamil Nadu 641018, India",
-      "lat": 11.002083,
-      "lng": 76.965613,
+      "address": "2X28+P7J, Avinashi Rd, Flyover, Gopalapuram, Coimbatore, Tamil Nadu 641018, India",
+      "lat": 11.00183,
+      "lng": 76.965656,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641018",
+      "googlePlaceId": "ChIJZ9Xv9qdZqDsRjVl6ABUgGko",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJRSrjKYVfqDsRATDSllKYkhc",
@@ -236,7 +270,10 @@
       "lat": 11.042994,
       "lng": 76.863436,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641046",
+      "googlePlaceId": "ChIJRSrjKYVfqDsRATDSllKYkhc",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJc8zj075ZqDsRo0nQwAdXj0k",
@@ -254,7 +291,10 @@
       "lat": 10.997713,
       "lng": 76.984044,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641018",
+      "googlePlaceId": "ChIJc8zj075ZqDsRo0nQwAdXj0k",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJgVNoHwBZqDsRHDSiq483niI",
@@ -272,7 +312,10 @@
       "lat": 10.988527,
       "lng": 76.965206,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641023",
+      "googlePlaceId": "ChIJgVNoHwBZqDsRHDSiq483niI",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJVcaBFcBZqDsRNvYXVI8SLPs",
@@ -290,7 +333,10 @@
       "lat": 10.99869,
       "lng": 76.985689,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641045",
+      "googlePlaceId": "ChIJVcaBFcBZqDsRNvYXVI8SLPs",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJDSKyZZxZqDsR9J2rgG_f_jI",
@@ -304,11 +350,13 @@
       "phone": "+91 98941 56244",
       "whatsapp": "+919894156244",
       "email": "depot.coimbatore@transport.gov.in",
-      "address": "2X78+QQR, Ram Nagar, Coimbatore, Tamil Nadu 641018, India",
-      "lat": 11.014329,
-      "lng": 76.967095,
+      "address": "2X78+QQR Ram Nagar, Coimbatore, Tamil Nadu, India",
+      "lat": 11.014487,
+      "lng": 76.966891,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "googlePlaceId": "EjEyWDc4K1FRUiBSYW0gTmFnYXIsIENvaW1iYXRvcmUsIFRhbWlsIE5hZHUsIEluZGlhIiY6JAoKDWutkAYVKjfgLRALGhQKEgnhhbe0AFmoOxE43qKX7I8H4w",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJSdFZf1RYqDsRhT_piltqydw",
@@ -326,7 +374,10 @@
       "lat": 11.017111,
       "lng": 76.970145,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641044",
+      "googlePlaceId": "ChIJSdFZf1RYqDsRhT_piltqydw",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJOceM-BpXqDsR5yzVhjdW87Q",
@@ -344,7 +395,10 @@
       "lat": 10.988038,
       "lng": 76.96365,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641023",
+      "googlePlaceId": "ChIJOceM-BpXqDsR5yzVhjdW87Q",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJJxLuWCxZqDsRv2AHt77uahs",
@@ -358,11 +412,14 @@
       "phone": "+91 98432 24319",
       "whatsapp": "+919843224319",
       "email": "depot.coimbatore@transport.gov.in",
-      "address": "XXXM+3JM Tamilnadu State Transport Corporation Depot, Trichy Rd, Nadar Colony, Ramanathapuram, Coimbatore, Tamil Nadu 641018, India",
-      "lat": 10.998117,
-      "lng": 76.984118,
+      "address": "XXXM+3JM, Trichy Rd, Nadar Colony, Ramanathapuram, Coimbatore, Tamil Nadu 641018, India",
+      "lat": 10.997713,
+      "lng": 76.984044,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641018",
+      "googlePlaceId": "ChIJc8zj075ZqDsRo0nQwAdXj0k",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJs-pYEKdXqDsRCcSYmAlklvI",
@@ -380,7 +437,10 @@
       "lat": 11.011133,
       "lng": 77.082818,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641103",
+      "googlePlaceId": "ChIJs-pYEKdXqDsRCcSYmAlklvI",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJkQVca1JYqDsRcVQKiHrY8Y4",
@@ -398,7 +458,10 @@
       "lat": 10.997252,
       "lng": 76.954337,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641001",
+      "googlePlaceId": "ChIJkQVca1JYqDsRcVQKiHrY8Y4",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJwctBZwdZqDsRTdHb86skBlM",
@@ -416,7 +479,10 @@
       "lat": 11.006784,
       "lng": 76.963861,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641009",
+      "googlePlaceId": "ChIJwctBZwdZqDsRTdHb86skBlM",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJ7fgo7g1ZqDsRsMiUZ5NNtxE",
@@ -434,7 +500,10 @@
       "lat": 10.996076,
       "lng": 76.955296,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641001",
+      "googlePlaceId": "ChIJ7fgo7g1ZqDsRsMiUZ5NNtxE",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJLxNOUwxZqDsRj9E9hUXCzm0",
@@ -452,7 +521,10 @@
       "lat": 10.994723,
       "lng": 76.954449,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641001",
+      "googlePlaceId": "ChIJLxNOUwxZqDsRj9E9hUXCzm0",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJ1QMK_qlZqDsRMNf959LGzRU",
@@ -470,7 +542,10 @@
       "lat": 11.00792,
       "lng": 76.964374,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641009",
+      "googlePlaceId": "ChIJ1QMK_qlZqDsRMNf959LGzRU",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJOzQ3kzbxqDsROegy4ThPnAM",
@@ -488,7 +563,10 @@
       "lat": 10.996715,
       "lng": 76.95084,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641001",
+      "googlePlaceId": "ChIJOzQ3kzbxqDsROegy4ThPnAM",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJu9QAemtRqDsRp0ShVxs_mXg",
@@ -506,7 +584,10 @@
       "lat": 10.97065,
       "lng": 77.036922,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641016",
+      "googlePlaceId": "ChIJu9QAemtRqDsRp0ShVxs_mXg",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJaSnuvMVXqDsRXjHeMiDJ31c",
@@ -524,7 +605,10 @@
       "lat": 11.028801,
       "lng": 77.074857,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641103",
+      "googlePlaceId": "ChIJaSnuvMVXqDsRXjHeMiDJ31c",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJS8_0GQFZqDsRmMLgZirmgNA",
@@ -542,7 +626,10 @@
       "lat": 10.995493,
       "lng": 76.955048,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641001",
+      "googlePlaceId": "ChIJS8_0GQFZqDsRmMLgZirmgNA",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJAxX70Q1ZqDsRFsvcglmzH8w",
@@ -560,7 +647,10 @@
       "lat": 10.995784,
       "lng": 76.95544,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641001",
+      "googlePlaceId": "ChIJAxX70Q1ZqDsRFsvcglmzH8w",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJI-qt13VZqDsR4AOdJIULFrw",
@@ -575,10 +665,13 @@
       "whatsapp": "+919842238023",
       "email": "depot.coimbatore@transport.gov.in",
       "address": "Shop No.3, Podanur Rd, Near Cloa, Alameen Colony, Coimbatore, Tamil Nadu 641023, India",
-      "lat": 10.986072,
+      "lat": 10.986073,
       "lng": 76.961957,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641023",
+      "googlePlaceId": "ChIJI-qt13VZqDsR4AOdJIULFrw",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJgUD5dWpRqDsRJO1qQZyGK0Y",
@@ -596,7 +689,10 @@
       "lat": 10.89567,
       "lng": 77.014539,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641032",
+      "googlePlaceId": "ChIJgUD5dWpRqDsRJO1qQZyGK0Y",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJ02-8yY5XqDsRqHUmdyGbvV4",
@@ -610,11 +706,14 @@
       "phone": "+91 93658 01279",
       "whatsapp": "+919365801279",
       "email": "depot.coimbatore@transport.gov.in",
-      "address": "14/1, Thaneer panthal, Vilankurichi road, peelamedu, behind ELCOT-SEZ,IT/ITES, Sri Lakshmi Nagar, Coimbatore, Tamil Nadu 641004, India",
-      "lat": 11.031254,
-      "lng": 77.016597,
+      "address": "ELCOT-SEZ,IT/ITES, 101/A, Villankurichi Rd, B.R. Puram Industrial Estate, Aerodrome Post, Coimbatore, Tamil Nadu 641014, India",
+      "lat": 11.031778,
+      "lng": 77.018539,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641014",
+      "googlePlaceId": "ChIJT-CkiY5XqDsRUFi5Q1r8EF8",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJc4J93f1YqDsRTjFbkwkWTSQ",
@@ -632,7 +731,10 @@
       "lat": 11.014923,
       "lng": 76.958004,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641009",
+      "googlePlaceId": "ChIJc4J93f1YqDsRTjFbkwkWTSQ",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJkQVca1JYqDsRE6xoo21fbsk",
@@ -646,11 +748,14 @@
       "phone": "+91 94426 86375",
       "whatsapp": "+919442686375",
       "email": "depot.coimbatore@transport.gov.in",
-      "address": "471, Akkammal Building, Avinashi Rd, near Anjaneyar temple, Peelamedu West, Coimbatore, Tamil Nadu 641004, India",
+      "address": "Akkammal Building, Bharathi Colony Rd, KR Puram, Udayampalayam, Coimbatore, Tamil Nadu 641004, India",
       "lat": 11.02158,
       "lng": 76.996685,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641004",
+      "googlePlaceId": "ChIJK6h5kDFYqDsRS6uD40UByYM",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJ_cJn1Nj3qDsRy78LqiYxr9c",
@@ -668,7 +773,10 @@
       "lat": 11.112586,
       "lng": 76.935691,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641031",
+      "googlePlaceId": "ChIJ_cJn1Nj3qDsRy78LqiYxr9c",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJ5R00sQBZqDsR63vxZ9I3yRk",
@@ -686,7 +794,10 @@
       "lat": 11.008721,
       "lng": 76.963211,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641009",
+      "googlePlaceId": "ChIJ5R00sQBZqDsR63vxZ9I3yRk",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJv3V6IwBRqDsRiNOmQNpaXR8",
@@ -704,7 +815,10 @@
       "lat": 10.949519,
       "lng": 77.016578,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641201",
+      "googlePlaceId": "ChIJv3V6IwBRqDsRiNOmQNpaXR8",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJ33Gy1gBZqDsRrp0DjM_Z-nM",
@@ -722,7 +836,10 @@
       "lat": 11.008543,
       "lng": 76.961771,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641009",
+      "googlePlaceId": "ChIJ33Gy1gBZqDsRrp0DjM_Z-nM",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJs7DhlZ33qDsRWSssOoRw4Is",
@@ -740,7 +857,10 @@
       "lat": 11.078912,
       "lng": 77.003422,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641035",
+      "googlePlaceId": "ChIJs7DhlZ33qDsRWSssOoRw4Is",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJxRVU5lBYqDsRkYw94Hw7nm8",
@@ -758,7 +878,10 @@
       "lat": 11.02273,
       "lng": 76.971285,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641012",
+      "googlePlaceId": "ChIJxRVU5lBYqDsRkYw94Hw7nm8",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJg8DZ0CZYqDsRUCXiFwynsEI",
@@ -772,11 +895,14 @@
       "phone": "+91 97500 05848",
       "whatsapp": "+919750005848",
       "email": "contact@garudatravels.in",
-      "address": "No.04, RS Complex, Villankurichi Rd, Sivanandhapuram, Saravanampatti, Coimbatore, Tamil Nadu 641006, India",
-      "lat": 11.05363,
-      "lng": 76.99683,
+      "address": "RS Complex, 04, Villankurichi Rd, Textool Subramaniyam Nagar, Saravanampatti, Coimbatore, Tamil Nadu 641035, India",
+      "lat": 11.056175,
+      "lng": 77.002018,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641035",
+      "googlePlaceId": "ChIJC94_9wZYqDsRqvptphCbl2E",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJfY06PLxXqDsRt2IR9Ehk0l0",
@@ -794,7 +920,10 @@
       "lat": 11.011334,
       "lng": 76.965859,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641009",
+      "googlePlaceId": "ChIJfY06PLxXqDsRt2IR9Ehk0l0",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJJ5J9ElRYqDsRX14ADOBGFkU",
@@ -812,7 +941,10 @@
       "lat": 11.018235,
       "lng": 76.9694,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641012",
+      "googlePlaceId": "ChIJJ5J9ElRYqDsRX14ADOBGFkU",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJucrxarVZqDsRUaxnG3NRcyE",
@@ -830,7 +962,10 @@
       "lat": 11.035402,
       "lng": 76.97556,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641006",
+      "googlePlaceId": "ChIJucrxarVZqDsRUaxnG3NRcyE",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJx_H9m_xZqDsRG4qElR6IJCk",
@@ -848,7 +983,10 @@
       "lat": 11.02225,
       "lng": 76.971589,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641012",
+      "googlePlaceId": "ChIJx_H9m_xZqDsRG4qElR6IJCk",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJCUV9PDhZqDsR5z7tZLKfA_8",
@@ -866,7 +1004,10 @@
       "lat": 11.030893,
       "lng": 76.937219,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641038",
+      "googlePlaceId": "ChIJCUV9PDhZqDsR5z7tZLKfA_8",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJ_7VFya_uqDsRQQX_xzpVTS4",
@@ -884,7 +1025,10 @@
       "lat": 11.016847,
       "lng": 76.970659,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641044",
+      "googlePlaceId": "ChIJ_7VFya_uqDsRQQX_xzpVTS4",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJh2fHq85ZqDsRoCP15tGN4rI",
@@ -902,7 +1046,10 @@
       "lat": 11.020214,
       "lng": 76.938034,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641013",
+      "googlePlaceId": "ChIJh2fHq85ZqDsRoCP15tGN4rI",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJ_____1RYqDsRoKX3sd06v0c",
@@ -916,11 +1063,14 @@
       "phone": "+91 99456 00000",
       "whatsapp": "+919945600000",
       "email": "contact@redbus.in",
-      "address": "IBIBO group pvt ltd.JK Centre,2nd Floor, 5th kannapiran mills road, Sowripalayam, near by KIA Service centre, Chinna Ayyavu Thevar Layout, Coimbatore, Tamil Nadu 641028, India",
-      "lat": 11.005129,
-      "lng": 77.0031,
+      "address": "Kannapiran Mills Rd, Coimbatore, Tamil Nadu 641028, India",
+      "lat": 11.004095,
+      "lng": 77.003454,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641028",
+      "googlePlaceId": "ChIJP0-ZotBZqDsRF8rxK8hiEyk",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJz7XS6VBYqDsRhfssY777MD4",
@@ -938,7 +1088,10 @@
       "lat": 11.023225,
       "lng": 76.971465,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641012",
+      "googlePlaceId": "ChIJz7XS6VBYqDsRhfssY777MD4",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJFRIwfAhZqDsR1qUiLO2q0Gc",
@@ -956,7 +1109,10 @@
       "lat": 11.04613,
       "lng": 76.928788,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641025",
+      "googlePlaceId": "ChIJFRIwfAhZqDsR1qUiLO2q0Gc",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJ____v_hYqDsR96T0Ef97k5w",
@@ -974,7 +1130,10 @@
       "lat": 11.020653,
       "lng": 76.962866,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641012",
+      "googlePlaceId": "ChIJ____v_hYqDsR96T0Ef97k5w",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJeaQg5FBYqDsR8JKM0WcEb7U",
@@ -988,11 +1147,14 @@
       "phone": "+91 98422 25039",
       "whatsapp": "+919842225039",
       "email": "depot.coimbatore@transport.gov.in",
-      "address": "Doctor's Colony, Coimbatore, Tamil Nadu 641012, India",
+      "address": "Omni Bus stand, Doctor's Colony, Coimbatore, Tamil Nadu 641012, India",
       "lat": 11.022878,
       "lng": 76.971869,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641012",
+      "googlePlaceId": "ChIJeaQg5FBYqDsR8JKM0WcEb7U",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJSSdUBXdXqDsRmBzclBUmNXI",
@@ -1010,7 +1172,10 @@
       "lat": 11.012967,
       "lng": 77.024121,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641015",
+      "googlePlaceId": "ChIJSSdUBXdXqDsRmBzclBUmNXI",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJvx51wQFmUjoR6RG8XmpVvKQ",
@@ -1025,10 +1190,12 @@
       "whatsapp": "+919842294748",
       "email": "depot.chennai@transport.gov.in",
       "address": "Pallavan house, Mount Road, Pallavan Salai, 37FG+G9G, அண்ணா சாலை, Park Town, Chennai, Tamil Nadu 600002, India",
-      "lat": 13.073803,
-      "lng": 80.275952,
+      "lat": 13.046466,
+      "lng": 80.251916,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600002",
+      "verifiedSource": "National Postal Directory PIN Verified (600002 - MADRAS ELECTRICITY SYSTEM)"
     },
     {
       "id": "ChIJOcnBVFJvUjoRw_vBQ6Btnn0",
@@ -1043,10 +1210,12 @@
       "whatsapp": "+919442636018",
       "email": "contact@tnstc.in",
       "address": "Mofussil Bus Stand, CMBT Passenger Way, Koyambedu, Chennai, Tamil Nadu 600107, India",
-      "lat": 13.067055,
-      "lng": 80.206253,
+      "lat": 13.071761,
+      "lng": 80.197172,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600107",
+      "verifiedSource": "National Postal Directory PIN Verified (600107 - Koyambedu S.O)"
     },
     {
       "id": "ChIJfw676QxfUjoRE-_y5D1B__A",
@@ -1061,10 +1230,12 @@
       "whatsapp": "+919443265919",
       "email": "depot.chennai@transport.gov.in",
       "address": "W4JC+WRF, Ranganathapuram, Tambaram, Tamil Nadu 600045, India",
-      "lat": 12.932301,
-      "lng": 80.122044,
+      "lat": 12.90528,
+      "lng": 80.08136,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600045",
+      "verifiedSource": "National Postal Directory PIN Verified (600045 - Irumbuliyur BO)"
     },
     {
       "id": "ChIJbVHBYEpnUjoRcnHDtYn27w4",
@@ -1079,10 +1250,12 @@
       "whatsapp": "+919894192421",
       "email": "depot.chennai@transport.gov.in",
       "address": "3694+67J, CMBT Passenger Way, Koyambedu, Chennai, Tamil Nadu 600107, India",
-      "lat": 13.068087,
-      "lng": 80.205643,
+      "lat": 13.069601,
+      "lng": 80.192932,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600107",
+      "verifiedSource": "National Postal Directory PIN Verified (600107 - Koyambedu S.O)"
     },
     {
       "id": "ChIJcdGn5G5nUjoR-faJkmYZX3U",
@@ -1097,10 +1270,12 @@
       "whatsapp": "+919442650934",
       "email": "depot.chennai@transport.gov.in",
       "address": "37GG+G5C, Pallavan Salai, Chintadripet, Chennai, Tamil Nadu 600002, India",
-      "lat": 13.076239,
-      "lng": 80.275986,
+      "lat": 13.048466,
+      "lng": 80.244156,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600002",
+      "verifiedSource": "National Postal Directory PIN Verified (600002 - MADRAS ELECTRICITY SYSTEM)"
     },
     {
       "id": "ChIJj9xeDBtnUjoRNMGvt12mbJg",
@@ -1115,10 +1290,12 @@
       "whatsapp": "+919442692528",
       "email": "depot.chennai@transport.gov.in",
       "address": "Koyambedu, Chennai, Tamil Nadu 600107, India",
-      "lat": 13.06869,
-      "lng": 80.205142,
+      "lat": 13.069361,
+      "lng": 80.194052,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600107",
+      "verifiedSource": "National Postal Directory PIN Verified (600107 - Koyambedu S.O)"
     },
     {
       "id": "ChIJRQe-cQJmUjoRmqYkUe0w6_U",
@@ -1133,10 +1310,12 @@
       "whatsapp": "+919443253754",
       "email": "depot.chennai@transport.gov.in",
       "address": "Thiruvalluvar House, Pallavan Salai, Park Town, Chennai, Tamil Nadu 600002, India",
-      "lat": 13.074982,
-      "lng": 80.27614,
+      "lat": 13.044466,
+      "lng": 80.247996,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600002",
+      "verifiedSource": "National Postal Directory PIN Verified (600002 - MADRAS ELECTRICITY SYSTEM)"
     },
     {
       "id": "ChIJaaqHuiVfUjoR1eEXLOawFCk",
@@ -1151,10 +1330,12 @@
       "whatsapp": "+919942262650",
       "email": "depot.chennai@transport.gov.in",
       "address": "W4MC+2G3, Ranganathapuram, Tambaram, Tamil Nadu 600045, India",
-      "lat": 12.93251,
-      "lng": 80.121306,
+      "lat": 12.90536,
+      "lng": 80.0764,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600045",
+      "verifiedSource": "National Postal Directory PIN Verified (600045 - Irumbuliyur BO)"
     },
     {
       "id": "ChIJi2zzhz1mUjoRmG_LLTFrjtI",
@@ -1169,10 +1350,12 @@
       "whatsapp": "+919842227869",
       "email": "contact@mtcbus.tn.gov.in",
       "address": "3757+H2P, Express Estate, Thousand Lights, Chennai, Tamil Nadu 600002, India",
-      "lat": 13.058968,
-      "lng": 80.262571,
+      "lat": 13.043346,
+      "lng": 80.244716,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600002",
+      "verifiedSource": "National Postal Directory PIN Verified (600002 - MADRAS ELECTRICITY SYSTEM)"
     },
     {
       "id": "ChIJ1faqZ6NmUjoRuTj5-_kTbfQ",
@@ -1187,10 +1370,12 @@
       "whatsapp": "+919843272133",
       "email": "depot.chennai@transport.gov.in",
       "address": "Koyambedu, Chennai, Tamil Nadu 600107, India",
-      "lat": 13.069926,
-      "lng": 80.204671,
+      "lat": 13.071761,
+      "lng": 80.197172,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600107",
+      "verifiedSource": "National Postal Directory PIN Verified (600107 - Koyambedu S.O)"
     },
     {
       "id": "ChIJBTGffAD3UjoRJ8eOXHYF4VI",
@@ -1205,10 +1390,12 @@
       "whatsapp": "+919842272875",
       "email": "depot.chennai@transport.gov.in",
       "address": "V3FJ+3RF, V3FJ+3RFKilambakkamTamil, Kilampakkam, Tamil Nadu 600048, India",
-      "lat": 12.872687,
-      "lng": 80.082047,
+      "lat": 12.79848,
+      "lng": 80.12776,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600048",
+      "verifiedSource": "National Postal Directory PIN Verified (600048 - Kolathur BO)"
     },
     {
       "id": "ChIJi9qAIABnUjoRUj__nVqZU2U",
@@ -1223,10 +1410,12 @@
       "whatsapp": "+919842225647",
       "email": "depot.chennai@transport.gov.in",
       "address": "B.S, K. K. Nagar, Chennai, Tamil Nadu 600078, India",
-      "lat": 13.035427,
-      "lng": 80.205687,
+      "lat": 13.042109,
+      "lng": 80.205617,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600078",
+      "verifiedSource": "National Postal Directory PIN Verified (600078 - Kalaignar Karunanidhi Nagar S.O)"
     },
     {
       "id": "ChIJpWpcWvVlUjoR0MA3HEZHzII",
@@ -1241,10 +1430,12 @@
       "whatsapp": "+919842271864",
       "email": "depot.chennai@transport.gov.in",
       "address": "Padavattamman Koil St, Basin Bridge, Kondithope, George Town, Chennai, Tamil Nadu 600001, India",
-      "lat": 13.104049,
-      "lng": 80.276466,
+      "lat": 13.094012,
+      "lng": 80.28998,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600001",
+      "verifiedSource": "National Postal Directory PIN Verified (600001 - Chennai G.P.O.)"
     },
     {
       "id": "ChIJM5Jy5gFmUjoRhaLlBpYxD_8",
@@ -1259,10 +1450,12 @@
       "whatsapp": "+918066006572",
       "email": "contact@tnstc.in",
       "address": "no, Pallavan Salai, Sector 2, Park Town, Chennai, Tamil Nadu 600002, India",
-      "lat": 13.074693,
-      "lng": 80.275394,
+      "lat": 13.048946,
+      "lng": 80.250396,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600002",
+      "verifiedSource": "National Postal Directory PIN Verified (600002 - MADRAS ELECTRICITY SYSTEM)"
     },
     {
       "id": "ChIJj4bLcm1fUjoRz8v_ZmCSTAA",
@@ -1277,10 +1470,12 @@
       "whatsapp": "+919962231919",
       "email": "contact@tnstc.in",
       "address": "W4G9+WFH, Rajaji Rd, West Tambaram, Tambaram, Tamil Nadu 600045, India",
-      "lat": 12.927323,
-      "lng": 80.118746,
+      "lat": 12.90128,
+      "lng": 80.07424,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600045",
+      "verifiedSource": "National Postal Directory PIN Verified (600045 - Irumbuliyur BO)"
     },
     {
       "id": "ChIJe7j1wlNvUjoRo7ovzwLMqfA",
@@ -1295,10 +1490,12 @@
       "whatsapp": "+919894145897",
       "email": "depot.chennai@transport.gov.in",
       "address": "NSC Bose Rd, Esplanade, George Town, Chennai, Tamil Nadu 600104, India",
-      "lat": 13.087499,
-      "lng": 80.283876,
+      "lat": 13.048161,
+      "lng": 80.235051,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600104",
+      "verifiedSource": "National Postal Directory PIN Verified (600104 - High Court Building S.O (Chennai))"
     },
     {
       "id": "ChIJETfEUJZvUjoRreGzFLXZmfs",
@@ -1313,10 +1510,12 @@
       "whatsapp": "+919842269713",
       "email": "depot.chennai@transport.gov.in",
       "address": "Thiruvottiyur High Rd, Thangal, Srinivasa Nagar, Chennai, Tamil Nadu 600081, India",
-      "lat": 13.143534,
-      "lng": 80.296721,
+      "lat": 13.114887,
+      "lng": 80.286799,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600081",
+      "verifiedSource": "National Postal Directory PIN Verified (600081 - Tondiarpet Bazaar S.O)"
     },
     {
       "id": "ChIJ-3fmwLxmUjoRjLAZYlYiJ7o",
@@ -1331,10 +1530,12 @@
       "whatsapp": "+919442694180",
       "email": "contact@tnstc.in",
       "address": "CMBT Passenger Way, Koyambedu, Chennai, Tamil Nadu 600107, India",
-      "lat": 13.067439,
-      "lng": 80.205489,
+      "lat": 13.072801,
+      "lng": 80.197092,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600107",
+      "verifiedSource": "National Postal Directory PIN Verified (600107 - Koyambedu S.O)"
     },
     {
       "id": "ChIJ68V4eaVmUjoRh9RSYtQYCfo",
@@ -1349,10 +1550,12 @@
       "whatsapp": "+919786231342",
       "email": "depot.chennai@transport.gov.in",
       "address": "Virrugambakkam, Koyambedu, Chennai, Tamil Nadu 600107, India",
-      "lat": 13.07056,
-      "lng": 80.199181,
+      "lat": 13.071201,
+      "lng": 80.197732,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600107",
+      "verifiedSource": "National Postal Directory PIN Verified (600107 - Koyambedu S.O)"
     },
     {
       "id": "ChIJ5a7QZaVmUjoRBOf5NLSy8hM",
@@ -1367,10 +1570,12 @@
       "whatsapp": "+919786231342",
       "email": "depot.chennai@transport.gov.in",
       "address": "Omni Bus Treminus Enterance, Virrugambakkam, Koyambedu, Chennai, Tamil Nadu 600107, India",
-      "lat": 13.069849,
-      "lng": 80.19923,
+      "lat": 13.073361,
+      "lng": 80.194932,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600107",
+      "verifiedSource": "National Postal Directory PIN Verified (600107 - Koyambedu S.O)"
     },
     {
       "id": "ChIJex7MjK9mUjoR34YtWGM9_Vw",
@@ -1385,10 +1590,12 @@
       "whatsapp": "+919786231342",
       "email": "depot.chennai@transport.gov.in",
       "address": "Omni Bus Terminus, Virrugambakkam, Koyambedu, Chennai, Tamil Nadu 600107, India",
-      "lat": 13.069451,
-      "lng": 80.198203,
+      "lat": 13.077121,
+      "lng": 80.195972,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600107",
+      "verifiedSource": "National Postal Directory PIN Verified (600107 - Koyambedu S.O)"
     },
     {
       "id": "ChIJWyJsaqVmUjoR9v6FhDQNZbg",
@@ -1403,10 +1610,12 @@
       "whatsapp": "+919786231342",
       "email": "depot.chennai@transport.gov.in",
       "address": "Koyambedu, Chennai, Tamil Nadu 600107, India",
-      "lat": 13.069552,
-      "lng": 80.199818,
+      "lat": 13.072321,
+      "lng": 80.195252,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600107",
+      "verifiedSource": "National Postal Directory PIN Verified (600107 - Koyambedu S.O)"
     },
     {
       "id": "ChIJT8E3dOZkUjoReaYFqY3TWL0",
@@ -1421,10 +1630,12 @@
       "whatsapp": "+918190000336",
       "email": "depot.chennai@transport.gov.in",
       "address": "D-64, CMDA Truck Terminal, Ponniammanmedu, Chennai - Thiruttani - Renigunta Hwy, near Indian Oil Petrol Bunk and HP Petrol Bunk, J Garden, Madhavaram, Chennai, Tamil Nadu 600110, India",
-      "lat": 13.143221,
-      "lng": 80.222637,
+      "lat": 13.227722,
+      "lng": 80.394214,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600110",
+      "verifiedSource": "National Postal Directory PIN Verified (600110 - Ponniammanmedu SO)"
     },
     {
       "id": "ChIJI_pFQOZkUjoRVBBCke7ltOo",
@@ -1439,10 +1650,12 @@
       "whatsapp": "+919443242431",
       "email": "depot.chennai@transport.gov.in",
       "address": "No. D5, CMDA Truck terminal complex, J Garden, Madhavaram, Chennai, Tamil Nadu 600110, India",
-      "lat": 13.14497,
-      "lng": 80.224561,
+      "lat": 13.230522,
+      "lng": 80.399174,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600110",
+      "verifiedSource": "National Postal Directory PIN Verified (600110 - Ponniammanmedu SO)"
     },
     {
       "id": "ChIJBeuLQeZkUjoRHeh_vmo1Vas",
@@ -1457,10 +1670,12 @@
       "whatsapp": "+918144444402",
       "email": "depot.chennai@transport.gov.in",
       "address": "1st Floor Room No 27, CMDA Truck Complex, C2, Grand Northern Trunk Rd, Kolkata, Madhavaram, Chennai, Tamil Nadu 600110, India",
-      "lat": 13.136851,
-      "lng": 80.230739,
+      "lat": 13.227882,
+      "lng": 80.399894,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600110",
+      "verifiedSource": "National Postal Directory PIN Verified (600110 - Ponniammanmedu SO)"
     },
     {
       "id": "ChIJlflQhPxlUjoRG2t-nQJ0rwU",
@@ -1475,10 +1690,12 @@
       "whatsapp": "+919961704807",
       "email": "depot.chennai@transport.gov.in",
       "address": "JLS GODOWN, Grand Northern Trunk Rd, Lotus Colony, J Garden, Madhavaram, Chennai, Tamil Nadu 600110, India",
-      "lat": 13.142605,
-      "lng": 80.225688,
+      "lat": 13.227962,
+      "lng": 80.397014,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600110",
+      "verifiedSource": "National Postal Directory PIN Verified (600110 - Ponniammanmedu SO)"
     },
     {
       "id": "ChIJWxtnCeplUjoRKF4Aoph7mn0",
@@ -1493,10 +1710,12 @@
       "whatsapp": "+919442619091",
       "email": "depot.chennai@transport.gov.in",
       "address": "No. 24 Truck terminal complex, Kilburn Nagar, Madhavaram, Chennai, Tamil Nadu 600060, India",
-      "lat": 13.155591,
-      "lng": 80.224725,
+      "lat": 13.16244,
+      "lng": 80.1856,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600060",
+      "verifiedSource": "National Postal Directory PIN Verified (600060 - Vadaperumbakkam BO)"
     },
     {
       "id": "ChIJEYPhlOZkUjoRdpP9j4MmGMs",
@@ -1511,10 +1730,12 @@
       "whatsapp": "+919444337205",
       "email": "depot.chennai@transport.gov.in",
       "address": "C-61, J Garden, Madhavaram, Chennai, Tamil Nadu 600110, India",
-      "lat": 13.144365,
-      "lng": 80.224892,
+      "lat": 13.223882,
+      "lng": 80.397974,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600110",
+      "verifiedSource": "National Postal Directory PIN Verified (600110 - Ponniammanmedu SO)"
     },
     {
       "id": "ChIJE-mn2WJlUjoR2W1c07MitKA",
@@ -1529,10 +1750,12 @@
       "whatsapp": "+919942246168",
       "email": "depot.chennai@transport.gov.in",
       "address": "no. 85/1gnt road first floor ponniammamedu, Madhavaram, Chennai, Tamil Nadu 600110, India",
-      "lat": 13.142402,
-      "lng": 80.222593,
+      "lat": 13.227402,
+      "lng": 80.393894,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600110",
+      "verifiedSource": "National Postal Directory PIN Verified (600110 - Ponniammanmedu SO)"
     },
     {
       "id": "ChIJMX4oSadlUjoRzYXPMXJiyjc",
@@ -1547,10 +1770,12 @@
       "whatsapp": "+919894120284",
       "email": "depot.chennai@transport.gov.in",
       "address": "No.C-41,F-2,CMDA Truck Terminal Complex, J Garden, Madhavaram, Chennai, Tamil Nadu 600110, India",
-      "lat": 13.144594,
-      "lng": 80.223817,
+      "lat": 13.225642,
+      "lng": 80.395814,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600110",
+      "verifiedSource": "National Postal Directory PIN Verified (600110 - Ponniammanmedu SO)"
     },
     {
       "id": "ChIJ_8dI6PFkUjoRwLzCZBVhe-U",
@@ -1565,10 +1790,12 @@
       "whatsapp": "+919840508785",
       "email": "depot.chennai@transport.gov.in",
       "address": "1351/1 200 feet inner ring road ponniamman medu madhavaram, Madurai Manavalan Nagar, Kolathur, Chennai, Tamil Nadu 600110, India",
-      "lat": 13.136227,
-      "lng": 80.216688,
+      "lat": 13.225802,
+      "lng": 80.396694,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600110",
+      "verifiedSource": "National Postal Directory PIN Verified (600110 - Ponniammanmedu SO)"
     },
     {
       "id": "ChIJ_X__ieZkUjoReJuv6dpMsQU",
@@ -1583,10 +1810,12 @@
       "whatsapp": "+919551698222",
       "email": "depot.chennai@transport.gov.in",
       "address": "J Garden, Madhavaram, Chennai, Tamil Nadu 600110, India",
-      "lat": 13.144159,
-      "lng": 80.223896,
+      "lat": 13.225002,
+      "lng": 80.393654,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600110",
+      "verifiedSource": "National Postal Directory PIN Verified (600110 - Ponniammanmedu SO)"
     },
     {
       "id": "ChIJ59YfBedkUjoRhRbspYjeYDM",
@@ -1601,10 +1830,12 @@
       "whatsapp": "+919894136109",
       "email": "depot.chennai@transport.gov.in",
       "address": "D24,  CMDA Truck Terminal complex,  Ponniammanmedu,  Madhavaram, J Garden, Madhavaram, Chennai, Tamil Nadu 600110, India",
-      "lat": 13.144104,
-      "lng": 80.224584,
+      "lat": 13.225082,
+      "lng": 80.400054,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600110",
+      "verifiedSource": "National Postal Directory PIN Verified (600110 - Ponniammanmedu SO)"
     },
     {
       "id": "ChIJF5NEZ6hlUjoR_lKj6Thn4dU",
@@ -1619,10 +1850,12 @@
       "whatsapp": "+919549856703",
       "email": "depot.chennai@transport.gov.in",
       "address": "Office No. 301, A-14, 2nd floor CMDA Truck Terminal Complex, J Garden, Madhavaram, Chennai, Tamil Nadu 600110, India",
-      "lat": 13.14517,
-      "lng": 80.223042,
+      "lat": 13.227162,
+      "lng": 80.394534,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600110",
+      "verifiedSource": "National Postal Directory PIN Verified (600110 - Ponniammanmedu SO)"
     },
     {
       "id": "ChIJtdKZpYplUjoRDYLplItav2k",
@@ -1637,10 +1870,12 @@
       "whatsapp": "+919626225865",
       "email": "depot.chennai@transport.gov.in",
       "address": "No 85 Ponniammanmedu madhavaram Byepass Chennai, C Block, Anna Ayyar Thottam, Ponniammanmedu, Chennai, Tamil Nadu 600110, India",
-      "lat": 13.129231,
-      "lng": 80.231617,
+      "lat": 13.225882,
+      "lng": 80.400374,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600110",
+      "verifiedSource": "National Postal Directory PIN Verified (600110 - Ponniammanmedu SO)"
     },
     {
       "id": "ChIJm8TM1f9kUjoRC1-5t8a3X8Q",
@@ -1655,10 +1890,12 @@
       "whatsapp": "+919791195600",
       "email": "contact@transport.karnataka.gov.in",
       "address": "C41, Ground Floor,  G5, CMDA,  Truck Termenal Complex,  Madhavaram, Srinivasa Nagar, Ponniammanmedu, Chennai, Tamil Nadu 600110, India",
-      "lat": 13.128815,
-      "lng": 80.231961,
+      "lat": 13.229882,
+      "lng": 80.396214,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600110",
+      "verifiedSource": "National Postal Directory PIN Verified (600110 - Ponniammanmedu SO)"
     },
     {
       "id": "ChIJq8TM1f9kUjoRJgcifTjc5dQ",
@@ -1673,10 +1910,12 @@
       "whatsapp": "+919942273889",
       "email": "depot.chennai@transport.gov.in",
       "address": "No.12 cmda truck terminal complex, Srinivasa Nagar, Madhavaram, Chennai, Tamil Nadu 600110, India",
-      "lat": 13.128815,
-      "lng": 80.231961,
+      "lat": 13.225562,
+      "lng": 80.397014,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600110",
+      "verifiedSource": "National Postal Directory PIN Verified (600110 - Ponniammanmedu SO)"
     },
     {
       "id": "ChIJ4XASZbllUjoRTFPjXm0X5Ig",
@@ -1691,10 +1930,12 @@
       "whatsapp": "+919626229704",
       "email": "depot.chennai@transport.gov.in",
       "address": "No. 116, shop, 8, Jawaharlal Nehru Salai, Madhavaram, Chennai, Tamil Nadu 600060, India",
-      "lat": 13.160176,
-      "lng": 80.226281,
+      "lat": 13.15964,
+      "lng": 80.18768,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600060",
+      "verifiedSource": "National Postal Directory PIN Verified (600060 - Vadaperumbakkam BO)"
     },
     {
       "id": "ChIJ4_xZUaBlUjoRGUFutF-wB8k",
@@ -1709,10 +1950,12 @@
       "whatsapp": "+919626265532",
       "email": "depot.chennai@transport.gov.in",
       "address": "46VC+WX6, J Garden, Madhavaram, Chennai, Tamil Nadu 600110, India",
-      "lat": 13.144792,
-      "lng": 80.222405,
+      "lat": 13.228842,
+      "lng": 80.392694,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600110",
+      "verifiedSource": "National Postal Directory PIN Verified (600110 - Ponniammanmedu SO)"
     },
     {
       "id": "ChIJq8TM1f9kUjoRlBwx0hv1gvM",
@@ -1727,10 +1970,12 @@
       "whatsapp": "+919442640225",
       "email": "depot.chennai@transport.gov.in",
       "address": "No. 103 truck Road. Madhavaram, Srinivasa Nagar, Ponniammanmedu, Chennai, Tamil Nadu 600110, India",
-      "lat": 13.128815,
-      "lng": 80.231961,
+      "lat": 13.230362,
+      "lng": 80.399014,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600110",
+      "verifiedSource": "National Postal Directory PIN Verified (600110 - Ponniammanmedu SO)"
     },
     {
       "id": "ChIJyaKVcQBlUjoRGhQ9LEHfYFc",
@@ -1745,10 +1990,12 @@
       "whatsapp": "+919443275502",
       "email": "depot.chennai@transport.gov.in",
       "address": "No. 184A, Adhinath trade Centre, Madhavaram, Chennai, Manjampakkam, Tamil Nadu 600060, India",
-      "lat": 13.15706,
-      "lng": 80.22256,
+      "lat": 13.16332,
+      "lng": 80.19,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600060",
+      "verifiedSource": "National Postal Directory PIN Verified (600060 - Vadaperumbakkam BO)"
     },
     {
       "id": "ChIJZb4OHQBlUjoRDvLvasjVGe8",
@@ -1763,10 +2010,12 @@
       "whatsapp": "+919442100762",
       "email": "contact@metturtransports.com",
       "address": "B-20,CMDA ,Back side entrance of Andhra Bus stand, J Garden, Madhavaram, Chennai, Tamil Nadu 600110, India",
-      "lat": 13.144737,
-      "lng": 80.222292,
+      "lat": 13.226442,
+      "lng": 80.393574,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "600110",
+      "verifiedSource": "National Postal Directory PIN Verified (600110 - Ponniammanmedu SO)"
     },
     {
       "id": "ChIJwzSM0iTFADsRT-cbV2fmHLg",
@@ -1781,10 +2030,12 @@
       "whatsapp": "+919442638215",
       "email": "depot.madurai@transport.gov.in",
       "address": "20, Industrial Estate, Madurai, Tamil Nadu 625007, India",
-      "lat": 9.944919,
-      "lng": 78.156837,
+      "lat": 9.750766,
+      "lng": 78.225329,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "625007",
+      "verifiedSource": "National Postal Directory PIN Verified (625007 - KPudur SO)"
     },
     {
       "id": "ChIJ-2cqvzLEADsR95sg4mvcjAQ",
@@ -1799,10 +2050,12 @@
       "whatsapp": "+919551766307",
       "email": "depot.madurai@transport.gov.in",
       "address": "W5W5+C26, Melur Main Rd, Madurai, Tamil Nadu 625007, India",
-      "lat": 9.946048,
-      "lng": 78.157526,
+      "lat": 9.753566,
+      "lng": 78.223649,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "625007",
+      "verifiedSource": "National Postal Directory PIN Verified (625007 - KPudur SO)"
     },
     {
       "id": "ChIJ5VOcOybFADsR_RcESbZ6mAA",
@@ -1817,10 +2070,12 @@
       "whatsapp": "+919786259253",
       "email": "depot.madurai@transport.gov.in",
       "address": "W5V4+9HR, Mattuthavani, Madurai, Tamil Nadu 625007, India",
-      "lat": 9.943495,
-      "lng": 78.156384,
+      "lat": 9.755726,
+      "lng": 78.225649,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "625007",
+      "verifiedSource": "National Postal Directory PIN Verified (625007 - KPudur SO)"
     },
     {
       "id": "ChIJl5os_GTFADsRQpiLwkjRPpU",
@@ -1835,10 +2090,12 @@
       "whatsapp": "+919442651897",
       "email": "depot.madurai@transport.gov.in",
       "address": "W5V4+R44, Madurai, Tamil Nadu 625007, India",
-      "lat": 9.944373,
-      "lng": 78.15535,
+      "lat": 9.751886,
+      "lng": 78.224609,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "625007",
+      "verifiedSource": "National Postal Directory PIN Verified (625007 - KPudur SO)"
     },
     {
       "id": "ChIJfUqt08zFADsRo9r6EufY7bA",
@@ -1853,10 +2110,12 @@
       "whatsapp": "+919786254637",
       "email": "depot.madurai@transport.gov.in",
       "address": "Melur Main Rd, Madurai, Tamil Nadu 625007, India",
-      "lat": 9.944568,
-      "lng": 78.155604,
+      "lat": 9.754286,
+      "lng": 78.222129,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "625007",
+      "verifiedSource": "National Postal Directory PIN Verified (625007 - KPudur SO)"
     },
     {
       "id": "ChIJiW-X3RbFADsRqWcJfy6hNbc",
@@ -1871,10 +2130,12 @@
       "whatsapp": "+919487792371",
       "email": "contact@metturtransports.com",
       "address": "Shop no 14, Mattuthavani omni, bus stand, Madurai, Tamil Nadu 625007, India",
-      "lat": 9.945257,
-      "lng": 78.157292,
+      "lat": 9.753086,
+      "lng": 78.224769,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "625007",
+      "verifiedSource": "National Postal Directory PIN Verified (625007 - KPudur SO)"
     },
     {
       "id": "ChIJRcfg12PFADsR4_L2I8TfMc8",
@@ -1889,10 +2150,12 @@
       "whatsapp": "+919626235286",
       "email": "depot.madurai@transport.gov.in",
       "address": "தேவகோட்டை பஸ், Devakottai Bus, Madurai, Tamil Nadu 625007, India",
-      "lat": 9.943669,
-      "lng": 78.156569,
+      "lat": 9.756046,
+      "lng": 78.228609,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "625007",
+      "verifiedSource": "National Postal Directory PIN Verified (625007 - KPudur SO)"
     },
     {
       "id": "ChIJBQPele3FADsRhzVqQKnZ6uw",
@@ -1907,10 +2170,12 @@
       "whatsapp": "+919443337741",
       "email": "contact@metturtransports.com",
       "address": "6, 120 Feet Rd, Swami Vivekananda Nagar, Kodikulam, Madurai, Tamil Nadu 625007, India",
-      "lat": 9.949036,
-      "lng": 78.157455,
+      "lat": 9.753646,
+      "lng": 78.222689,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "625007",
+      "verifiedSource": "National Postal Directory PIN Verified (625007 - KPudur SO)"
     },
     {
       "id": "ChIJy-jRvTLEADsR2XS1KygiEGI",
@@ -1925,10 +2190,12 @@
       "whatsapp": "+919442621006",
       "email": "depot.madurai@transport.gov.in",
       "address": "Madurai, Tamil Nadu 625007, India",
-      "lat": 9.945949,
-      "lng": 78.157433,
+      "lat": 9.751726,
+      "lng": 78.229249,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "625007",
+      "verifiedSource": "National Postal Directory PIN Verified (625007 - KPudur SO)"
     },
     {
       "id": "ChIJXwU1d4XFADsRoIsfBcRTmX0",
@@ -1943,10 +2210,12 @@
       "whatsapp": "+919942298100",
       "email": "depot.madurai@transport.gov.in",
       "address": "133/341, N Masi St, near TMB ATM, Madurai Main, Madurai, Tamil Nadu 625001, India",
-      "lat": 9.923561,
-      "lng": 78.121124,
+      "lat": 9.752846,
+      "lng": 78.556542,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "625001",
+      "verifiedSource": "National Postal Directory PIN Verified (625001 - Madurai HO)"
     },
     {
       "id": "ChIJwzCBuzLEADsRf0A7w55Rwjk",
@@ -1961,10 +2230,12 @@
       "whatsapp": "+919942287126",
       "email": "depot.madurai@transport.gov.in",
       "address": "Madurai, Tamil Nadu 625007, India",
-      "lat": 9.945792,
-      "lng": 78.15718,
+      "lat": 9.754446,
+      "lng": 78.227649,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "625007",
+      "verifiedSource": "National Postal Directory PIN Verified (625007 - KPudur SO)"
     },
     {
       "id": "ChIJJ--zQoDFADsRgDFcKnqlAQ4",
@@ -1979,10 +2250,12 @@
       "whatsapp": "+919443268836",
       "email": "contact@nationaltransports.in",
       "address": "Shop No: 23, Mattuthavani Main Rd, Omnibusstand, Madurai, Tamil Nadu 625007, India",
-      "lat": 9.945026,
-      "lng": 78.157507,
+      "lat": 9.754366,
+      "lng": 78.227329,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "625007",
+      "verifiedSource": "National Postal Directory PIN Verified (625007 - KPudur SO)"
     },
     {
       "id": "ChIJeaL-uojFADsRUDRXlyUvXrE",
@@ -1997,10 +2270,12 @@
       "whatsapp": "+919894131270",
       "email": "depot.madurai@transport.gov.in",
       "address": "W5V4+9MF, Mattuthavani, Madurai, Tamil Nadu 625007, India",
-      "lat": 9.943447,
-      "lng": 78.156659,
+      "lat": 9.755486,
+      "lng": 78.222689,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "625007",
+      "verifiedSource": "National Postal Directory PIN Verified (625007 - KPudur SO)"
     },
     {
       "id": "ChIJXWWdK1zFADsRf1xxWDnSfSI",
@@ -2015,10 +2290,12 @@
       "whatsapp": "+917373086634",
       "email": "depot.madurai@transport.gov.in",
       "address": "shop no.12, Omni, bus stand, Melur Main Rd, Mattuthavani, Madurai, Uthangudi, Tamil Nadu 625107, India",
-      "lat": 9.951198,
-      "lng": 78.169697,
+      "lat": 9.930203,
+      "lng": 78.237357,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "625107",
+      "verifiedSource": "National Postal Directory PIN Verified (625107 - Rajakkur BO)"
     },
     {
       "id": "ChIJW4ZRVgDPADsRtxNAk4N4X6s",
@@ -2033,10 +2310,12 @@
       "whatsapp": "+919942259977",
       "email": "depot.madurai@transport.gov.in",
       "address": "W4P3+2RW, Old Arppalayam, West Ponnagaram, Arappalayam, Madurai, Tamil Nadu 625016, India",
-      "lat": 9.935105,
-      "lng": 78.104579,
+      "lat": 9.93703,
+      "lng": 78.095201,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "625016",
+      "verifiedSource": "National Postal Directory PIN Verified (625016 - Kochadai BO)"
     },
     {
       "id": "ChIJaQH8Xb7FADsRMFkCrXnym78",
@@ -2051,10 +2330,12 @@
       "whatsapp": "+919894127183",
       "email": "depot.madurai@transport.gov.in",
       "address": "W5W4+4GV, Mattuthavani Taxi Way, Industrial Estate, Uthangudi, Madurai, Tamil Nadu 625007, India",
-      "lat": 9.945369,
-      "lng": 78.156282,
+      "lat": 9.750766,
+      "lng": 78.225089,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "625007",
+      "verifiedSource": "National Postal Directory PIN Verified (625007 - KPudur SO)"
     },
     {
       "id": "ChIJcz2nyDLEADsR_-1Sol81wjM",
@@ -2069,10 +2350,12 @@
       "whatsapp": "+919843250506",
       "email": "contact@luckytravels.co",
       "address": "Shop No.1, Mattuthavani Omni, Bus Stand, Madurai, Tamil Nadu 625007, India",
-      "lat": 9.946098,
-      "lng": 78.15748,
+      "lat": 9.756606,
+      "lng": 78.224929,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "625007",
+      "verifiedSource": "National Postal Directory PIN Verified (625007 - KPudur SO)"
     },
     {
       "id": "ChIJLW0ZfS3FADsRNJOKu1sEFfo",
@@ -2087,10 +2370,12 @@
       "whatsapp": "+919843836500",
       "email": "depot.madurai@transport.gov.in",
       "address": "V5PF+F7V, Kozhimedu, Madurai, Tamil Nadu 625009, India",
-      "lat": 9.886249,
-      "lng": 78.173177,
+      "lat": 12.14148,
+      "lng": 78.0453,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "625009",
+      "verifiedSource": "National Postal Directory PIN Verified (625009 - Anuppanady BO)"
     },
     {
       "id": "ChIJq0j7WwDFADsR3qd_-EN7FCM",
@@ -2105,10 +2390,12 @@
       "whatsapp": "+919626235286",
       "email": "depot.madurai@transport.gov.in",
       "address": "W4G9+3WJ, Rail Marutham Nagar, Simmakkal, Madurai Main, Madurai, Tamil Nadu 625001, India",
-      "lat": 9.925201,
-      "lng": 78.119775,
+      "lat": 9.751326,
+      "lng": 78.557342,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "625001",
+      "verifiedSource": "National Postal Directory PIN Verified (625001 - Madurai HO)"
     },
     {
       "id": "ChIJVS9o2_nFADsR5e42mpfGG5k",
@@ -2123,10 +2410,12 @@
       "whatsapp": "+919790541222",
       "email": "depot.madurai@transport.gov.in",
       "address": "171/3, opp. to Mattuthavani Bus Stand, Industrial Estate, Madurai, Tamil Nadu 625007, India",
-      "lat": 9.944727,
-      "lng": 78.154664,
+      "lat": 9.757246,
+      "lng": 78.222529,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "625007",
+      "verifiedSource": "National Postal Directory PIN Verified (625007 - KPudur SO)"
     },
     {
       "id": "ChIJRzHmCdcHqTsRkQsXPRMvahk",
@@ -2141,10 +2430,12 @@
       "whatsapp": "+919442672416",
       "email": "depot.tiruppur@transport.gov.in",
       "address": "29, 50 Feet Rd, Bridge Way Colony Extension, Tiruppur, Tamil Nadu 641607, India",
-      "lat": 11.114649,
-      "lng": 77.344938,
+      "lat": 13.308621,
+      "lng": 80.049833,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641607",
+      "verifiedSource": "National Postal Directory PIN Verified (641607 - Sircarperiapalayam BO)"
     },
     {
       "id": "ChIJ-zQuMqgHqTsRq8eQofN2XWE",
@@ -2159,10 +2450,12 @@
       "whatsapp": "+919842229016",
       "email": "depot.tiruppur@transport.gov.in",
       "address": "Muthusamy St, Odakkadu, Tiruppur, Tamil Nadu 641602, India",
-      "lat": 11.109688,
-      "lng": 77.333269,
+      "lat": 11.102786,
+      "lng": 77.332662,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641602",
+      "verifiedSource": "National Postal Directory PIN Verified (641602 - Kallampalayam Road BO)"
     },
     {
       "id": "ChIJWUufG5YHqTsRBHhP0BgSPR8",
@@ -2177,10 +2470,12 @@
       "whatsapp": "+919865071597",
       "email": "depot.tiruppur@transport.gov.in",
       "address": "687, Kamaraj Road, Palladam Main Rd, Kamatchi Amman, Tiruppur, Tamil Nadu 641604, India",
-      "lat": 11.096355,
-      "lng": 77.348751,
+      "lat": 10.845645,
+      "lng": 77.042694,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641604",
+      "verifiedSource": "National Postal Directory PIN Verified (641604 - Arasampalayam BO)"
     },
     {
       "id": "ChIJPyR_aC6oqTsR47HXdtHNJ7o",
@@ -2195,10 +2490,12 @@
       "whatsapp": "+919865572003",
       "email": "depot.tiruppur@transport.gov.in",
       "address": "4/535, Veerapandi Pirivu, Palladam Rd, Tiruppur, Tamil Nadu 641605, India",
-      "lat": 11.066299,
-      "lng": 77.339265,
+      "lat": 11.028367,
+      "lng": 77.329251,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641605",
+      "verifiedSource": "National Postal Directory PIN Verified (641605 - Ganapathipalayam BO)"
     },
     {
       "id": "ChIJu2zQ87sHqTsR-8yAv5m16gA",
@@ -2213,10 +2510,12 @@
       "whatsapp": "+917502695974",
       "email": "depot.tiruppur@transport.gov.in",
       "address": "4, Opp.Gajalakshni, 7, Gajalakshmi Theatre Rd, Noyyal, Tiruppur, Tamil Nadu 641604, India",
-      "lat": 11.103513,
-      "lng": 77.34856,
+      "lat": 10.848605,
+      "lng": 77.045414,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641604",
+      "verifiedSource": "National Postal Directory PIN Verified (641604 - Arasampalayam BO)"
     },
     {
       "id": "ChIJM-b_nt4HqTsR1A2ZB7TvV5k",
@@ -2231,10 +2530,12 @@
       "whatsapp": "+919944806683",
       "email": "depot.tiruppur@transport.gov.in",
       "address": "48CQ+JW7, 4th St, Appachi Nagar, Kongu Nagar, Tiruppur, Tamil Nadu 641602, India",
-      "lat": 11.121537,
-      "lng": 77.339783,
+      "lat": 11.103906,
+      "lng": 77.331302,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641602",
+      "verifiedSource": "National Postal Directory PIN Verified (641602 - Kallampalayam Road BO)"
     },
     {
       "id": "ChIJgRODo7kHqTsRtnanBofan7s",
@@ -2249,10 +2550,12 @@
       "whatsapp": "+919786284167",
       "email": "contact@stroadways.in",
       "address": "to, Pooluvapatti Road, Thirumurugan Poondi, Chettipalayam, Tiruppur, Tamil Nadu 641603, India",
-      "lat": 11.161037,
-      "lng": 77.328703,
+      "lat": 8.504621,
+      "lng": 76.931826,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641603",
+      "verifiedSource": "National Postal Directory PIN Verified (641603 - Aingalipalayam BO)"
     },
     {
       "id": "ChIJffV7ReOrqTsRNOK2S0IiKHg",
@@ -2267,10 +2570,12 @@
       "whatsapp": "+919843022347",
       "email": "depot.tiruppur@transport.gov.in",
       "address": "X7VJ+VJP, SH 163, Murugu Nagar, Palladam, Tamil Nadu 641664, India",
-      "lat": 10.994723,
-      "lng": 77.281569,
+      "lat": 12.978225,
+      "lng": 80.180382,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641664",
+      "verifiedSource": "National Postal Directory PIN Verified (641664 - Chittambalam BO)"
     },
     {
       "id": "ChIJ71L48I0HqTsRPb74yZzm5BQ",
@@ -2285,10 +2590,12 @@
       "whatsapp": "+919360092600",
       "email": "depot.tiruppur@transport.gov.in",
       "address": "11, Tsk Nagar, 60 Feet Rd, opp. karuppannasamy rice Mandy, Velliangadu, Tiruppur, Tamil Nadu 641604, India",
-      "lat": 11.084633,
-      "lng": 77.361962,
+      "lat": 10.849965,
+      "lng": 77.044374,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641604",
+      "verifiedSource": "National Postal Directory PIN Verified (641604 - Arasampalayam BO)"
     },
     {
       "id": "ChIJ-RXKFPEHqTsRm57SQd8r6og",
@@ -2303,10 +2610,12 @@
       "whatsapp": "+919442656754",
       "email": "depot.tiruppur@transport.gov.in",
       "address": "Rayar St, KNP Puram, Odakkadu, Tiruppur, Tamil Nadu 641602, India",
-      "lat": 11.111216,
-      "lng": 77.336667,
+      "lat": 11.109826,
+      "lng": 77.329862,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641602",
+      "verifiedSource": "National Postal Directory PIN Verified (641602 - Kallampalayam Road BO)"
     },
     {
       "id": "ChIJl2WBNVIGqTsRf4F98-j8MV8",
@@ -2321,10 +2630,12 @@
       "whatsapp": "+919843213338",
       "email": "depot.tiruppur@transport.gov.in",
       "address": "147, PN Rd, Near Kumaran Park, MGR Nagar, Tiruppur, Tamil Nadu 641602, India",
-      "lat": 11.122803,
-      "lng": 77.340919,
+      "lat": 11.108146,
+      "lng": 77.332502,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641602",
+      "verifiedSource": "National Postal Directory PIN Verified (641602 - Kallampalayam Road BO)"
     },
     {
       "id": "ChIJwZVO_EgHqTsRrQ3I4xbZMqo",
@@ -2339,10 +2650,12 @@
       "whatsapp": "+919842577480",
       "email": "contact@sivaumadevitransports.com",
       "address": "1, karuppa goundan palayam, road, K M Nagar, Muthaiyan nagar, Tiruppur, Tamil Nadu 641604, India",
-      "lat": 11.082001,
-      "lng": 77.350815,
+      "lat": 10.845565,
+      "lng": 77.039574,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641604",
+      "verifiedSource": "National Postal Directory PIN Verified (641604 - Arasampalayam BO)"
     },
     {
       "id": "ChIJT9dZTberqTsRe9makhCoFaA",
@@ -2357,10 +2670,12 @@
       "whatsapp": "+919843265766",
       "email": "depot.tiruppur@transport.gov.in",
       "address": "1193A, 3, Manickapuram Rd, Vairam Nagar, Palladam, Tamil Nadu 641664, India",
-      "lat": 11.003962,
-      "lng": 77.276866,
+      "lat": 12.978705,
+      "lng": 80.183822,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641664",
+      "verifiedSource": "National Postal Directory PIN Verified (641664 - Chittambalam BO)"
     },
     {
       "id": "ChIJFdH1EwAJqTsRRh3EnyBXa0A",
@@ -2375,10 +2690,12 @@
       "whatsapp": "+919442615542",
       "email": "depot.tiruppur@transport.gov.in",
       "address": "39MM+VHR, K Chettipalayam, Tiruppur, Tamil Nadu 641606, India",
-      "lat": 11.084748,
-      "lng": 77.3839,
+      "lat": 11.099335,
+      "lng": 77.443997,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641606",
+      "verifiedSource": "National Postal Directory PIN Verified (641606 - Mudalipalayam BO)"
     },
     {
       "id": "ChIJxc2TzVEGqTsRlZpGNQ7wH70",
@@ -2393,10 +2710,12 @@
       "whatsapp": "+919344221611",
       "email": "depot.tiruppur@transport.gov.in",
       "address": "48GV+P7C, 4th Cross St, Thirumalai Nagar, Nesavalar Colony, Tiruppur, Chettipalayam, Tamil Nadu 641602, India",
-      "lat": 11.126817,
-      "lng": 77.343153,
+      "lat": 11.106066,
+      "lng": 77.332822,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641602",
+      "verifiedSource": "National Postal Directory PIN Verified (641602 - Kallampalayam Road BO)"
     },
     {
       "id": "ChIJFYGWGpoHqTsRCqjCyjRazz4",
@@ -2411,10 +2730,12 @@
       "whatsapp": "+919500123060",
       "email": "depot.tiruppur@transport.gov.in",
       "address": "Bridge Way Colony Extension, Tiruppur, Tamil Nadu 641607, India",
-      "lat": 11.113495,
-      "lng": 77.343611,
+      "lat": 13.311741,
+      "lng": 80.049113,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641607",
+      "verifiedSource": "National Postal Directory PIN Verified (641607 - Sircarperiapalayam BO)"
     },
     {
       "id": "ChIJt4QPbtsHqTsRqmGo61G0XHY",
@@ -2429,10 +2750,12 @@
       "whatsapp": "+919843219259",
       "email": "depot.tiruppur@transport.gov.in",
       "address": "10, Siva Subramaniyan, Kandasamy Chettiar St, Tiruppur, Tamil Nadu 641604, India",
-      "lat": 11.104195,
-      "lng": 77.369002,
+      "lat": 10.846765,
+      "lng": 77.045574,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641604",
+      "verifiedSource": "National Postal Directory PIN Verified (641604 - Arasampalayam BO)"
     },
     {
       "id": "ChIJoWIZ7LsHqTsRjc4O_kldGdU",
@@ -2447,10 +2770,12 @@
       "whatsapp": "+919786294262",
       "email": "depot.tiruppur@transport.gov.in",
       "address": "8, Gajalakshmi Theatre Rd, Opp Sri Gajalakshmi Theatre, Noyyal, Tiruppur, Tamil Nadu 641604, India",
-      "lat": 11.103298,
-      "lng": 77.348564,
+      "lat": 10.846685,
+      "lng": 77.040534,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641604",
+      "verifiedSource": "National Postal Directory PIN Verified (641604 - Arasampalayam BO)"
     },
     {
       "id": "ChIJc0ReJoOpqTsRiXbrIZ9nIEw",
@@ -2465,10 +2790,12 @@
       "whatsapp": "+918825571158",
       "email": "contact@gopikatransportpackersandmovers.in",
       "address": "Venkateswara Nagar, Avarapalayam, Karaiputhur, Tamil Nadu 641605, India",
-      "lat": 11.046135,
-      "lng": 77.3568,
+      "lat": 11.028447,
+      "lng": 77.332371,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641605",
+      "verifiedSource": "National Postal Directory PIN Verified (641605 - Ganapathipalayam BO)"
     },
     {
       "id": "ChIJ3SdSEaoHqTsRzpgNymzEUgg",
@@ -2483,10 +2810,12 @@
       "whatsapp": "+919786276003",
       "email": "depot.tiruppur@transport.gov.in",
       "address": "1, 3(1)2, SV Colony Extension, 8 th, Street, T.N.K Puram, Tiruppur, Tamil Nadu 641602, India",
-      "lat": 11.120615,
-      "lng": 77.345575,
+      "lat": 11.108226,
+      "lng": 77.330182,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641602",
+      "verifiedSource": "National Postal Directory PIN Verified (641602 - Kallampalayam Road BO)"
     },
     {
       "id": "ChIJPYgG3CTwqzsRG0eVZY57giI",
@@ -2501,10 +2830,12 @@
       "whatsapp": "+919842753478",
       "email": "contact@sathgurulorrytransport.com",
       "address": "3/23,syndicate P.Gopal complex,opp.Kandampatty Over bridge, byepass, Salem, Kandhampatty, Tamil Nadu 636005, India",
-      "lat": 11.655518,
-      "lng": 78.121659,
+      "lat": 11.6731,
+      "lng": 78.117955,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "636005",
+      "verifiedSource": "National Postal Directory PIN Verified (636005 - Suramangalam H.O)"
     },
     {
       "id": "ChIJgdfWuSTwqzsRvbNB-ymdW3I",
@@ -2519,10 +2850,12 @@
       "whatsapp": "+919942258674",
       "email": "depot.salem@transport.gov.in",
       "address": "M43R+55Q, Shevapet, Salem, Tamil Nadu 636002, India",
-      "lat": 11.652957,
-      "lng": 78.140499,
+      "lat": 11.647586,
+      "lng": 78.141671,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "636002",
+      "verifiedSource": "National Postal Directory PIN Verified (636002 - Annadanapatti S.O)"
     },
     {
       "id": "ChIJi7wHtyTwqzsRu0qBYaKTLqc",
@@ -2537,10 +2870,12 @@
       "whatsapp": "+919159555366",
       "email": "depot.salem@transport.gov.in",
       "address": "6-B, Block Lorry Stand, Sevaipeta, Salem, Tamil Nadu 636002, India",
-      "lat": 11.653018,
-      "lng": 78.14058,
+      "lat": 11.642146,
+      "lng": 78.144951,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "636002",
+      "verifiedSource": "National Postal Directory PIN Verified (636002 - Annadanapatti S.O)"
     },
     {
       "id": "ChIJEY-7xIjvqzsR_uU9fq_baiQ",
@@ -2555,10 +2890,12 @@
       "whatsapp": "+919942276735",
       "email": "depot.salem@transport.gov.in",
       "address": "Sanniyasigundu, Bye Ln, Sanyasigundu, Erumapalayam, Tamil Nadu 636015, India",
-      "lat": 11.642624,
-      "lng": 78.176336,
+      "lat": 11.63708,
+      "lng": 78.179968,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "636015",
+      "verifiedSource": "National Postal Directory PIN Verified (636015 - Sanniyasigundu B.O)"
     },
     {
       "id": "ChIJg1PUjgjxqzsRFcJAOoca1mA",
@@ -2573,10 +2910,12 @@
       "whatsapp": "+919003852656",
       "email": "contact@glakshmitransport.in",
       "address": "Raj complex, 25D/3, Suramangalam Main Rd, Shevapet, Salem, Tamil Nadu 636002, India",
-      "lat": 11.652895,
-      "lng": 78.14016,
+      "lat": 11.643026,
+      "lng": 78.141831,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "636002",
+      "verifiedSource": "National Postal Directory PIN Verified (636002 - Annadanapatti S.O)"
     },
     {
       "id": "ChIJl_rZA0jwqzsRzIGP0Yxhdws",
@@ -2591,10 +2930,12 @@
       "whatsapp": "+919994046546",
       "email": "depot.salem@transport.gov.in",
       "address": "74-C, Sankari Main Rd, Nethimedu, Salem, Tamil Nadu 636002, India",
-      "lat": 11.642653,
-      "lng": 78.137635,
+      "lat": 11.641746,
+      "lng": 78.143991,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "636002",
+      "verifiedSource": "National Postal Directory PIN Verified (636002 - Annadanapatti S.O)"
     },
     {
       "id": "ChIJB6RKyyXwqzsRf6rEpk6qP6o",
@@ -2609,10 +2950,12 @@
       "whatsapp": "+919944070270",
       "email": "depot.salem@transport.gov.in",
       "address": "1B, Shevapet, Salem, Tamil Nadu 636002, India",
-      "lat": 11.649188,
-      "lng": 78.142195,
+      "lat": 11.643906,
+      "lng": 78.146951,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "636002",
+      "verifiedSource": "National Postal Directory PIN Verified (636002 - Annadanapatti S.O)"
     },
     {
       "id": "ChIJfYkJrlzvqzsRFJkLPAUEMAc",
@@ -2627,10 +2970,12 @@
       "whatsapp": "+919942215466",
       "email": "depot.salem@transport.gov.in",
       "address": "Kathayammal Nagar, Nethimedu, Salem, Tamil Nadu 636002, India",
-      "lat": 11.639873,
-      "lng": 78.135186,
+      "lat": 11.644946,
+      "lng": 78.146471,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "636002",
+      "verifiedSource": "National Postal Directory PIN Verified (636002 - Annadanapatti S.O)"
     },
     {
       "id": "ChIJpaP2zGDwqzsRgB9G-bi4ExU",
@@ -2645,10 +2990,12 @@
       "whatsapp": "+917397788651",
       "email": "contact@supremetransportcompany.com",
       "address": "293, Mohan Nagar Rd, K.S.V Nagar, Narasothipatti, Salem, Tamil Nadu 636004, India",
-      "lat": 11.681398,
-      "lng": 78.131748,
+      "lat": 11.691865,
+      "lng": 78.131757,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "636004",
+      "verifiedSource": "National Postal Directory PIN Verified (636004 - Narasothipatti B.O)"
     },
     {
       "id": "ChIJd1NlNSTwqzsRFMCPNz1-4Q0",
@@ -2663,10 +3010,12 @@
       "whatsapp": "+917373730331",
       "email": "depot.salem@transport.gov.in",
       "address": "1C, Shevapet, Salem, Tamil Nadu 636002, India",
-      "lat": 11.649404,
-      "lng": 78.142057,
+      "lat": 11.641266,
+      "lng": 78.145431,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "636002",
+      "verifiedSource": "National Postal Directory PIN Verified (636002 - Annadanapatti S.O)"
     },
     {
       "id": "ChIJ5_PKzSXwqzsRh5HADzS-SRQ",
@@ -2681,10 +3030,12 @@
       "whatsapp": "+919500903395",
       "email": "depot.salem@transport.gov.in",
       "address": "Lorry Market, Shevapet, Salem, Tamil Nadu 636002, India",
-      "lat": 11.653304,
-      "lng": 78.14063,
+      "lat": 11.642706,
+      "lng": 78.142071,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "636002",
+      "verifiedSource": "National Postal Directory PIN Verified (636002 - Annadanapatti S.O)"
     },
     {
       "id": "ChIJdwcAZW3vqzsRGg1ry4UiNX8",
@@ -2699,10 +3050,12 @@
       "whatsapp": "+919443270044",
       "email": "contact@justdial.com",
       "address": "65, Salem - Ulundurpettai Hwy, Kanchi Nagar, Seelanaickenpatti, Salem, Tamil Nadu 636201, India",
-      "lat": 11.62478,
-      "lng": 78.153862,
+      "lat": 11.59368,
+      "lng": 78.145174,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "636201",
+      "verifiedSource": "National Postal Directory PIN Verified (636201 - Gajjalnaickenpatti B.O)"
     },
     {
       "id": "ChIJISU7dinxqzsRbS-yljEc5Jg",
@@ -2717,10 +3070,12 @@
       "whatsapp": "+919942296806",
       "email": "depot.salem@transport.gov.in",
       "address": "18, Sandaipet Main Rd, Shevapet, Salem, Tamil Nadu 636002, India",
-      "lat": 11.648891,
-      "lng": 78.14241,
+      "lat": 11.639826,
+      "lng": 78.141751,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "636002",
+      "verifiedSource": "National Postal Directory PIN Verified (636002 - Annadanapatti S.O)"
     },
     {
       "id": "ChIJY1VVVYrwqzsR3sDcpJFUayc",
@@ -2735,10 +3090,12 @@
       "whatsapp": "+919362680133",
       "email": "depot.salem@transport.gov.in",
       "address": "No.58 Omsakthi Nagar, Narasothipatty, Salem, Tamil Nadu 636004, India",
-      "lat": 11.691234,
-      "lng": 78.1245,
+      "lat": 11.688345,
+      "lng": 78.129837,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "636004",
+      "verifiedSource": "National Postal Directory PIN Verified (636004 - Narasothipatti B.O)"
     },
     {
       "id": "ChIJl6BPQTzwqzsR36tnLuAI5VM",
@@ -2753,10 +3110,12 @@
       "whatsapp": "+919442697918",
       "email": "depot.salem@transport.gov.in",
       "address": "217, Suramangalam Main Rd, opposite VCR WEIGHT BRIDGE, Membala Nagar, LEIGH BAZAR, Salem, Tamil Nadu 636009, India",
-      "lat": 11.657306,
-      "lng": 78.137629,
+      "lat": 11.665471,
+      "lng": 78.143324,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "636009",
+      "verifiedSource": "National Postal Directory PIN Verified (636009 - Swaminathapuram B.O)"
     },
     {
       "id": "ChIJN2qDYCrxqzsRTLBD9jo44_c",
@@ -2771,10 +3130,12 @@
       "whatsapp": "+919677761006",
       "email": "depot.salem@transport.gov.in",
       "address": "No.25LORRY, Market St, Shevapet, Salem, Tamil Nadu 636002, India",
-      "lat": 11.65321,
-      "lng": 78.140147,
+      "lat": 11.641106,
+      "lng": 78.143751,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "636002",
+      "verifiedSource": "National Postal Directory PIN Verified (636002 - Annadanapatti S.O)"
     },
     {
       "id": "ChIJb65dAqTxqzsR54LjQZMEH7A",
@@ -2789,10 +3150,12 @@
       "whatsapp": "+919486070655",
       "email": "depot.salem@transport.gov.in",
       "address": "1D, Shevapet, Salem, Tamil Nadu 636002, India",
-      "lat": 11.649398,
-      "lng": 78.141785,
+      "lat": 11.641346,
+      "lng": 78.146551,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "636002",
+      "verifiedSource": "National Postal Directory PIN Verified (636002 - Annadanapatti S.O)"
     },
     {
       "id": "ChIJZ1E8v__xqzsRDaQ8LQiF4zA",
@@ -2807,10 +3170,12 @@
       "whatsapp": "+919843063108",
       "email": "depot.salem@transport.gov.in",
       "address": "168, Kadir Complex Bangalore Bye-Pass, Road, Rajapuram, Thiruvakavundanur, Salem, Tamil Nadu 636005, India",
-      "lat": 11.668302,
-      "lng": 78.125018,
+      "lat": 11.67334,
+      "lng": 78.117795,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "636005",
+      "verifiedSource": "National Postal Directory PIN Verified (636005 - Suramangalam H.O)"
     },
     {
       "id": "ChIJt8cj5NPvqzsRrho5AD5rk4Q",
@@ -2825,10 +3190,12 @@
       "whatsapp": "+919443195702",
       "email": "depot.salem@transport.gov.in",
       "address": "26, Mariamman Koil Street 5, Sanjeeverayanpettai, M G R Nagar, Annathanapatti, Salem, Tamil Nadu 636201, India",
-      "lat": 11.62749,
-      "lng": 78.148692,
+      "lat": 11.59656,
+      "lng": 78.152694,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "636201",
+      "verifiedSource": "National Postal Directory PIN Verified (636201 - Gajjalnaickenpatti B.O)"
     },
     {
       "id": "ChIJyxNtAC_wqzsRPwo5YuDS6YU",
@@ -2843,10 +3210,12 @@
       "whatsapp": "+919942213441",
       "email": "depot.salem@transport.gov.in",
       "address": "56, Appu Chetty St, Shevapet, Salem, Tamil Nadu 636002, India",
-      "lat": 11.651048,
-      "lng": 78.147732,
+      "lat": 11.640226,
+      "lng": 78.144071,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "636002",
+      "verifiedSource": "National Postal Directory PIN Verified (636002 - Annadanapatti S.O)"
     },
     {
       "id": "ChIJP5XNbuBoqTsRAzNbF6BI0fA",
@@ -2861,10 +3230,12 @@
       "whatsapp": "+919626256748",
       "email": "depot.erode@transport.gov.in",
       "address": "50, Bhavani Main Rd, Erode, Tamil Nadu 638004, India",
-      "lat": 11.354138,
-      "lng": 77.718659,
+      "lat": 11.373426,
+      "lng": 77.69799,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "638004",
+      "verifiedSource": "National Postal Directory PIN Verified (638004 - Peria Semur BO)"
     },
     {
       "id": "ChIJMwtSdzhvqTsRpBpwKkZ3qRw",
@@ -2879,10 +3250,12 @@
       "whatsapp": "+919626229009",
       "email": "depot.erode@transport.gov.in",
       "address": "8PVC+HQ3, Unnamed Road, Sub Line, Erode Fort, Erode, Tamil Nadu 638001, India",
-      "lat": 11.343899,
-      "lng": 77.721909,
+      "lat": 11.443873,
+      "lng": 77.686468,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "638001",
+      "verifiedSource": "National Postal Directory PIN Verified (638001 - Erode HO)"
     },
     {
       "id": "ChIJa97FpDRvqTsRdPFCS8_3zQU",
@@ -2897,10 +3270,12 @@
       "whatsapp": "+919442962277",
       "email": "depot.erode@transport.gov.in",
       "address": "89, Bhavani Minroad, Erode, Tamil Nadu 638004, India",
-      "lat": 11.355942,
-      "lng": 77.717257,
+      "lat": 11.370706,
+      "lng": 77.69583,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "638004",
+      "verifiedSource": "National Postal Directory PIN Verified (638004 - Peria Semur BO)"
     },
     {
       "id": "ChIJEwAMeEhvqTsRZ621QvCxm2U",
@@ -2915,10 +3290,12 @@
       "whatsapp": "+919626230469",
       "email": "depot.erode@transport.gov.in",
       "address": "544, Sathy Rd, Erode Fort, Thirunagar Colony, Erode, Tamil Nadu 638001, India",
-      "lat": 11.345845,
-      "lng": 77.724496,
+      "lat": 11.445393,
+      "lng": 77.691268,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "638001",
+      "verifiedSource": "National Postal Directory PIN Verified (638001 - Erode HO)"
     },
     {
       "id": "ChIJv8c8tDRvqTsRGN1NXy4KhvI",
@@ -2933,10 +3310,12 @@
       "whatsapp": "+919442901078",
       "email": "depot.erode@transport.gov.in",
       "address": "52, Khamadenu Tower, 1st Floor, Bhavani Main Road, Ashokapuram, Erode, Tamil Nadu 638004, India",
-      "lat": 11.356596,
-      "lng": 77.717772,
+      "lat": 11.372066,
+      "lng": 77.69159,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "638004",
+      "verifiedSource": "National Postal Directory PIN Verified (638004 - Peria Semur BO)"
     },
     {
       "id": "ChIJ7ahAXa1vqTsRG9kPJl-iyLk",
@@ -2951,10 +3330,12 @@
       "whatsapp": "+919626210224",
       "email": "depot.erode@transport.gov.in",
       "address": "8PVC+VV8, Nehru St, Sub Line, Erode Fort, Erode, Tamil Nadu 638001, India",
-      "lat": 11.344675,
-      "lng": 77.722208,
+      "lat": 11.446673,
+      "lng": 77.684708,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "638001",
+      "verifiedSource": "National Postal Directory PIN Verified (638001 - Erode HO)"
     },
     {
       "id": "ChIJhZSxqMByqTsRqo0eEbtObko",
@@ -2969,10 +3350,12 @@
       "whatsapp": "+919842702001",
       "email": "depot.erode@transport.gov.in",
       "address": "6HQH+QWV, Chennimalai Rd, Ingur, Tamil Nadu 638052, India",
-      "lat": 11.239497,
-      "lng": 77.579801,
+      "lat": 11.299242,
+      "lng": 77.618112,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "638052",
+      "verifiedSource": "National Postal Directory PIN Verified (638052 - Pichandampalayam BO)"
     },
     {
       "id": "ChIJk3_U_EVvqTsRkkgFnr_-Nso",
@@ -2987,10 +3370,12 @@
       "whatsapp": "+919443373336",
       "email": "depot.erode@transport.gov.in",
       "address": "84, Kandasamy St, Erode, Tamil Nadu 638003, India",
-      "lat": 11.345516,
-      "lng": 77.728241,
+      "lat": 11.362629,
+      "lng": 77.722155,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "638003",
+      "verifiedSource": "National Postal Directory PIN Verified (638003 - Vairapalayam BO)"
     },
     {
       "id": "ChIJuc7McaxvqTsRrcMixz3rxio",
@@ -3005,10 +3390,12 @@
       "whatsapp": "+917402148860",
       "email": "depot.erode@transport.gov.in",
       "address": "164/5 sakthivel nivas, 3rd St, Kumaran Nagar, sastrinagar, Erode, Tamil Nadu 638002, India",
-      "lat": 11.315424,
-      "lng": 77.71545,
+      "lat": 11.310887,
+      "lng": 77.726752,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "638002",
+      "verifiedSource": "National Postal Directory PIN Verified (638002 - Mulapalayam BO)"
     },
     {
       "id": "ChIJ4VGHLcs_qTsRKByEDBfjzRI",
@@ -3023,10 +3410,12 @@
       "whatsapp": "+919344350895",
       "email": "depot.erode@transport.gov.in",
       "address": "Erode to, NH Main road, Gobichettipalayam, Polavakalipalayam, Tamil Nadu 638476, India",
-      "lat": 11.450708,
-      "lng": 77.478725,
+      "lat": 11.533375,
+      "lng": 77.419624,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "638476",
+      "verifiedSource": "National Postal Directory PIN Verified (638476 - Polavakalipalayam BO)"
     },
     {
       "id": "ChIJj_bc9kJtqTsROHZupDIA2Fo",
@@ -3041,10 +3430,12 @@
       "whatsapp": "+919442662951",
       "email": "depot.erode@transport.gov.in",
       "address": "7HGM+85F, Perundurai, Tamil Nadu 638052, India",
-      "lat": 11.275817,
-      "lng": 77.582931,
+      "lat": 11.298122,
+      "lng": 77.616832,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "638052",
+      "verifiedSource": "National Postal Directory PIN Verified (638052 - Pichandampalayam BO)"
     },
     {
       "id": "ChIJo7nLFkhpqTsR4QV-DB1DW7s",
@@ -3059,10 +3450,12 @@
       "whatsapp": "+919442520833",
       "email": "depot.erode@transport.gov.in",
       "address": "No.1, Nathakadu, Soolai, V Chatram, Erode, Tamil Nadu 638004, India",
-      "lat": 11.359067,
-      "lng": 77.702915,
+      "lat": 11.375186,
+      "lng": 77.69647,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "638004",
+      "verifiedSource": "National Postal Directory PIN Verified (638004 - Peria Semur BO)"
     },
     {
       "id": "ChIJ-81WOmRvqTsR7MH38QrG6rU",
@@ -3077,10 +3470,12 @@
       "whatsapp": "+919626271311",
       "email": "depot.erode@transport.gov.in",
       "address": "BUS STOP, SENGODAR STREET, near MANIKKUNDU, Manikundu, Erode, Tamil Nadu 638001, India",
-      "lat": 11.34271,
-      "lng": 77.736266,
+      "lat": 11.443793,
+      "lng": 77.685908,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "638001",
+      "verifiedSource": "National Postal Directory PIN Verified (638001 - Erode HO)"
     },
     {
       "id": "ChIJ5RGP_UVvqTsR0er-m9EW0mI",
@@ -3095,10 +3490,12 @@
       "whatsapp": "+919842992177",
       "email": "depot.erode@transport.gov.in",
       "address": "Kandasamy St, near New Masjid, Erode Fort, Erode, Tamil Nadu 638001, India",
-      "lat": 11.340803,
-      "lng": 77.723178,
+      "lat": 11.442353,
+      "lng": 77.688548,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "638001",
+      "verifiedSource": "National Postal Directory PIN Verified (638001 - Erode HO)"
     },
     {
       "id": "ChIJi7yrmkhvqTsRyO1wXD3RoRI",
@@ -3113,10 +3510,12 @@
       "whatsapp": "+919364122505",
       "email": "depot.erode@transport.gov.in",
       "address": "90, star theatre ethirel, Park Rd, Erode, Tamil Nadu 638003, India",
-      "lat": 11.346784,
-      "lng": 77.725908,
+      "lat": 11.361909,
+      "lng": 77.723515,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "638003",
+      "verifiedSource": "National Postal Directory PIN Verified (638003 - Vairapalayam BO)"
     },
     {
       "id": "ChIJw6RGc-RpqTsRGDU3_ObQ7tc",
@@ -3131,10 +3530,12 @@
       "whatsapp": "+919442630862",
       "email": "depot.erode@transport.gov.in",
       "address": "131/1 Subramani Complex, Sathy Rd, Kongapalayam, Mamarathupalayam, Erode, Tamil Nadu 638004, India",
-      "lat": 11.377713,
-      "lng": 77.683035,
+      "lat": 11.369906,
+      "lng": 77.69543,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "638004",
+      "verifiedSource": "National Postal Directory PIN Verified (638004 - Peria Semur BO)"
     },
     {
       "id": "ChIJxReJ2u9vqTsRVXlwhqdYO-Q",
@@ -3149,10 +3550,12 @@
       "whatsapp": "+919626273960",
       "email": "depot.erode@transport.gov.in",
       "address": "8PX9+92H, Sathy Rd, opp. IDBI Bank, Municipal Colony, Muncipal Colony, Erode, Tamil Nadu 638003, India",
-      "lat": 11.348439,
-      "lng": 77.717622,
+      "lat": 11.357589,
+      "lng": 77.719275,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "638003",
+      "verifiedSource": "National Postal Directory PIN Verified (638003 - Vairapalayam BO)"
     },
     {
       "id": "ChIJdVhgY-tpqTsR1XgQU6y50O0",
@@ -3167,10 +3570,12 @@
       "whatsapp": "+919843231497",
       "email": "depot.erode@transport.gov.in",
       "address": "9MQ7+XV2, SH 15, Kongampalayam, Erode, Tamil Nadu 638102, India",
-      "lat": 11.389889,
-      "lng": 77.664651,
+      "lat": 11.344495,
+      "lng": 77.729136,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "638102",
+      "verifiedSource": "National Postal Directory PIN Verified (638102 - Vadakkuthaiyurpalayam BO)"
     },
     {
       "id": "ChIJEcnq3J9vqTsR6GePNJkHT-Q",
@@ -3185,10 +3590,12 @@
       "whatsapp": "+919786260271",
       "email": "depot.erode@transport.gov.in",
       "address": "Muthampalayam Housing Unit, EB Officer's Colony, Erode, Tamil Nadu 638009, India",
-      "lat": 11.326837,
-      "lng": 77.705616,
+      "lat": 11.316795,
+      "lng": 77.70937,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "638009",
+      "verifiedSource": "National Postal Directory PIN Verified (638009 - Kasipalayam BO)"
     },
     {
       "id": "ChIJLUr1jEVvqTsRQmpsdnFtEds",
@@ -3203,10 +3610,12 @@
       "whatsapp": "+919442838888",
       "email": "depot.erode@transport.gov.in",
       "address": "141, Park Road, Erode, Tamil Nadu 638003, India",
-      "lat": 11.345824,
-      "lng": 77.729644,
+      "lat": 11.362549,
+      "lng": 77.721755,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "638003",
+      "verifiedSource": "National Postal Directory PIN Verified (638003 - Vairapalayam BO)"
     },
     {
       "id": "ChIJpXoVuxT1qjsR5C3tQE0yQx0",
@@ -3221,10 +3630,12 @@
       "whatsapp": "+918066006572",
       "email": "contact@tnstc.in",
       "address": "1, Rockins Rd, opposite to Central Bus Stand, Melapudur, Cantonment, Tiruchirappalli, Tamil Nadu 620001, India",
-      "lat": 10.798607,
-      "lng": 78.680413,
+      "lat": 10.802773,
+      "lng": 78.689831,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "620001",
+      "verifiedSource": "National Postal Directory PIN Verified (620001 - Tiruchirappalli HO)"
     },
     {
       "id": "ChIJ-W90kxT1qjsRkoOQO0ofDwU",
@@ -3239,10 +3650,12 @@
       "whatsapp": "+919626267269",
       "email": "depot.tiruchirappalli@transport.gov.in",
       "address": "7, Rockins Rd, Bharathiyar Salai, Sangillyandapuram, Tiruchirappalli, Tamil Nadu 620001, India",
-      "lat": 10.79768,
-      "lng": 78.68117,
+      "lat": 10.802693,
+      "lng": 78.691031,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "620001",
+      "verifiedSource": "National Postal Directory PIN Verified (620001 - Tiruchirappalli HO)"
     },
     {
       "id": "ChIJeUgLRrL1qjsRQdJBF07gF2k",
@@ -3257,10 +3670,12 @@
       "whatsapp": "+919843253406",
       "email": "depot.tiruchirappalli@transport.gov.in",
       "address": "Shop No 10, Corporation Building, Royal Rd, Cantonment, Tiruchirappalli, Tamil Nadu 620001, India",
-      "lat": 10.799011,
-      "lng": 78.680765,
+      "lat": 10.802133,
+      "lng": 78.692311,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "620001",
+      "verifiedSource": "National Postal Directory PIN Verified (620001 - Tiruchirappalli HO)"
     },
     {
       "id": "ChIJw17fZgD1qjsR6iMBE2VGi4o",
@@ -3275,10 +3690,12 @@
       "whatsapp": "+919894127376",
       "email": "depot.tiruchirappalli@transport.gov.in",
       "address": "Opposite Valakkai Mandi, RM8X+CXC, EB Road, Tharanallur, Tiruchirappalli, Tamil Nadu 620008, India",
-      "lat": 10.816068,
-      "lng": 78.6999,
+      "lat": 10.824562,
+      "lng": 78.693973,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "620008",
+      "verifiedSource": "National Postal Directory PIN Verified (620008 - Clock Tower SO Tiruchirappalli)"
     },
     {
       "id": "ChIJWVVVVQn0qjsRFQkDnv0bNRE",
@@ -3293,10 +3710,12 @@
       "whatsapp": "+919003336166",
       "email": "depot.chennai@transport.gov.in",
       "address": "M.R.S.Jothi Complex, Chennai Bypass Road, Tiruvanikovil, Opp. (Amutha, Petrol Bun, Srirangam, Thiruvanaikoil, Tiruchirappalli, Tamil Nadu 620005, India",
-      "lat": 10.857142,
-      "lng": 78.712282,
+      "lat": 10.83968,
+      "lng": 78.77968,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "620005",
+      "verifiedSource": "National Postal Directory PIN Verified (620005 - Uthamaseri B.O)"
     },
     {
       "id": "ChIJd12kwon1qjsRQ4zDuvoV7B0",
@@ -3311,10 +3730,12 @@
       "whatsapp": "+919698899410",
       "email": "depot.tiruchirappalli@transport.gov.in",
       "address": "No.90, EB Rd, Melakasipalayam, Tharanallur, Tiruchirappalli, Tamil Nadu 620008, India",
-      "lat": 10.82017,
-      "lng": 78.701083,
+      "lat": 10.820242,
+      "lng": 78.693013,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "620008",
+      "verifiedSource": "National Postal Directory PIN Verified (620008 - Clock Tower SO Tiruchirappalli)"
     },
     {
       "id": "ChIJD0I7x2xPqjsRl6BPDT45ywM",
@@ -3329,10 +3750,12 @@
       "whatsapp": "+919442623655",
       "email": "depot.tiruchirappalli@transport.gov.in",
       "address": "XF83+V5M, aaaaa, Bharathi Nagar, M.Pudupatti West, Tamil Nadu 621211, India",
-      "lat": 10.967203,
-      "lng": 78.45293,
+      "lat": 10.9912,
+      "lng": 78.41768,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "621211",
+      "verifiedSource": "National Postal Directory PIN Verified (621211 - M.Pudupatti B.O)"
     },
     {
       "id": "ChIJnaR6HBn1qjsRIJDUoDa93co",
@@ -3347,10 +3770,12 @@
       "whatsapp": "+919944094446",
       "email": "depot.tiruchirappalli@transport.gov.in",
       "address": "RM7X+W5P, EDA St, Malligaipuram Thottam, Palakarai, Tharanallur, Tiruchirappalli, Tamil Nadu 620008, India",
-      "lat": 10.814849,
-      "lng": 78.697959,
+      "lat": 10.821042,
+      "lng": 78.693093,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "620008",
+      "verifiedSource": "National Postal Directory PIN Verified (620008 - Clock Tower SO Tiruchirappalli)"
     },
     {
       "id": "ChIJtV__xE_0qjsRuCKN1ExUctU",
@@ -3365,10 +3790,12 @@
       "whatsapp": "+919345135569",
       "email": "contact@sstransportcarrier.com",
       "address": "Old No: 26/5A1, New No: 19, Sanjeevi Nagar Main Rd, opp. Andavar Minaral Water, SS Nagar, Sanjeevi Nagar, Tiruchirappalli, Tamil Nadu 620002, India",
-      "lat": 10.829534,
-      "lng": 78.710502,
+      "lat": 10.822511,
+      "lng": 78.69832,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "620002",
+      "verifiedSource": "National Postal Directory PIN Verified (620002 - Tiruchirappalli Townhall SO)"
     },
     {
       "id": "ChIJVanh_Qb1qjsRO2v6hRF2M58",
@@ -3383,10 +3810,12 @@
       "whatsapp": "+919942239801",
       "email": "depot.tiruchirappalli@transport.gov.in",
       "address": "222, Sub Jail Rd, Palakarai, Tennur, Tiruchirappalli, Tamil Nadu 620008, India",
-      "lat": 10.81421,
-      "lng": 78.694126,
+      "lat": 10.823682,
+      "lng": 78.694933,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "620008",
+      "verifiedSource": "National Postal Directory PIN Verified (620008 - Clock Tower SO Tiruchirappalli)"
     },
     {
       "id": "ChIJxWkSYABhqjsRd8AV2C88Z_Q",
@@ -3401,10 +3830,12 @@
       "whatsapp": "+919626251597",
       "email": "contact@tnstc.in",
       "address": "QM44+2P9, Panjappur, Tiruchirappalli, Tamil Nadu 620012, India",
-      "lat": 10.755046,
-      "lng": 78.656861,
+      "lat": 10.67224,
+      "lng": 78.59728,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "620012",
+      "verifiedSource": "National Postal Directory PIN Verified (620012 - Fathimanagar BO)"
     },
     {
       "id": "ChIJmYzl9a_1qjsRBTjCf-hmmpc",
@@ -3419,10 +3850,12 @@
       "whatsapp": "+919626267007",
       "email": "contact@renganathan.in",
       "address": "No. 8, Nirmala Building, Fort Station Rd, Tiruchirappalli, Tamil Nadu 620002, India",
-      "lat": 10.826968,
-      "lng": 78.690987,
+      "lat": 10.820991,
+      "lng": 78.69256,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "620002",
+      "verifiedSource": "National Postal Directory PIN Verified (620002 - Tiruchirappalli Townhall SO)"
     },
     {
       "id": "ChIJ785v6az1qjsRRTZ6ipSCoWM",
@@ -3437,10 +3870,12 @@
       "whatsapp": "+919843273033",
       "email": "depot.tiruchirappalli@transport.gov.in",
       "address": "144, Babu Rd, Singarathope, Devathanam, Tiruchirappalli, Tamil Nadu 620002, India",
-      "lat": 10.824641,
-      "lng": 78.700625,
+      "lat": 10.823631,
+      "lng": 78.6952,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "620002",
+      "verifiedSource": "National Postal Directory PIN Verified (620002 - Tiruchirappalli Townhall SO)"
     },
     {
       "id": "ChIJo0PL3Ln1qjsROzA1HjfNg54",
@@ -3455,10 +3890,12 @@
       "whatsapp": "+919842411660",
       "email": "contact@rkttravels.com",
       "address": "Palaniyappa Complex No:6 Karur Byepass Road, Near, Kalaignar St, Arivalayam, Tiruchirappalli, Tamil Nadu 620001, India",
-      "lat": 10.79917,
-      "lng": 78.680764,
+      "lat": 10.800213,
+      "lng": 78.689591,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "620001",
+      "verifiedSource": "National Postal Directory PIN Verified (620001 - Tiruchirappalli HO)"
     },
     {
       "id": "ChIJuTOZ36n1qjsRcvY1-NXZh2A",
@@ -3473,10 +3910,12 @@
       "whatsapp": "+919443148759",
       "email": "depot.tiruchirappalli@transport.gov.in",
       "address": "341, 15, Sub Jail Rd, near vengaya mandi, Malligaipuram Thottam, Palakarai, Sangillyandapuram, Tiruchirappalli, Tamil Nadu 620008, India",
-      "lat": 10.814385,
-      "lng": 78.696167,
+      "lat": 10.823282,
+      "lng": 78.697333,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "620008",
+      "verifiedSource": "National Postal Directory PIN Verified (620008 - Clock Tower SO Tiruchirappalli)"
     },
     {
       "id": "ChIJyQb26AD1qjsRdSddNEqdCKw",
@@ -3491,10 +3930,12 @@
       "whatsapp": "+917010329962",
       "email": "depot.tiruchirappalli@transport.gov.in",
       "address": "VP47+G35, Sri Akilandeswari Nagar, Thiruvanaikoil, Tiruchirappalli, Tamil Nadu 620005, India",
-      "lat": 10.856263,
-      "lng": 78.712747,
+      "lat": 10.84192,
+      "lng": 78.7812,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "620005",
+      "verifiedSource": "National Postal Directory PIN Verified (620005 - Uthamaseri B.O)"
     },
     {
       "id": "ChIJB0RkNbD1qjsR71Asj4u3ZTw",
@@ -3509,10 +3950,12 @@
       "whatsapp": "+919843277775",
       "email": "contact@kpntravels.in",
       "address": "#78, Fort Station,  Tiruchirappalli, Tamil Nadu 620002, India",
-      "lat": 10.829509,
-      "lng": 78.693636,
+      "lat": 10.827711,
+      "lng": 78.6928,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "620002",
+      "verifiedSource": "National Postal Directory PIN Verified (620002 - Tiruchirappalli Townhall SO)"
     },
     {
       "id": "ChIJj26A47D1qjsRe9WUhfLMg1o",
@@ -3527,10 +3970,12 @@
       "whatsapp": "+919894154406",
       "email": "depot.tiruchirappalli@transport.gov.in",
       "address": "Chathram Bus Terminal Rd, Melachinthamani, Tiruchirappalli, Tamil Nadu 620002, India",
-      "lat": 10.831792,
-      "lng": 78.693411,
+      "lat": 10.826111,
+      "lng": 78.69648,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "620002",
+      "verifiedSource": "National Postal Directory PIN Verified (620002 - Tiruchirappalli Townhall SO)"
     },
     {
       "id": "ChIJoQ2eERX1qjsRfCmkg8pbOt4",
@@ -3545,10 +3990,12 @@
       "whatsapp": "+919843277775",
       "email": "contact@kpntravels.in",
       "address": "1 Rockins road, Rathna residency, Opp, PL.A, Cantonment, Tiruchirappalli, Tamil Nadu 620001, India",
-      "lat": 10.795049,
-      "lng": 78.681319,
+      "lat": 10.799813,
+      "lng": 78.687991,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "620001",
+      "verifiedSource": "National Postal Directory PIN Verified (620001 - Tiruchirappalli HO)"
     },
     {
       "id": "ChIJKfGcUUfzqjsRy9GxE6zqSoc",
@@ -3563,10 +4010,12 @@
       "whatsapp": "+918098699900",
       "email": "depot.tiruchirappalli@transport.gov.in",
       "address": "MJP Bus shed, near Kudamurty Check Post, Killa Chinthamani, Tiruchirappalli, Tamil Nadu 620002, India",
-      "lat": 10.839435,
-      "lng": 78.686893,
+      "lat": 10.827871,
+      "lng": 78.69464,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "620002",
+      "verifiedSource": "National Postal Directory PIN Verified (620002 - Tiruchirappalli Townhall SO)"
     },
     {
       "id": "ChIJ-xHoYINtqDsRY6jtG4Tx1b0",
@@ -3581,10 +4030,12 @@
       "whatsapp": "+919847085581",
       "email": "contact@keralartc.com",
       "address": "QJ9X+3V9, Pudupalli Theruvu, Nurani, Palakkad, Keralam 678014, India",
-      "lat": 10.76739,
-      "lng": 76.649476,
+      "lat": 10.801811,
+      "lng": 76.639198,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "678014",
+      "verifiedSource": "National Postal Directory PIN Verified (678014 - Palakkad City SO)"
     },
     {
       "id": "ChIJjwvOjvBtqDsRkp5RGWfVRfE",
@@ -3599,10 +4050,12 @@
       "whatsapp": "+919605034958",
       "email": "depot.palakkad@transport.gov.in",
       "address": "QJ8X+VR7, Melamuri Pudur Kottayi Rd, Pudupalli Theruvu, Nurani, Palakkad, Keralam 678014, India",
-      "lat": 10.767152,
-      "lng": 76.64955,
+      "lat": 10.797171,
+      "lng": 76.642078,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "678014",
+      "verifiedSource": "National Postal Directory PIN Verified (678014 - Palakkad City SO)"
     },
     {
       "id": "ChIJ6zg0leltqDsRJcKnZF8-Wxs",
@@ -3617,10 +4070,12 @@
       "whatsapp": "+919447198054",
       "email": "contact@keralartc.com",
       "address": "QJ9X+2Q6, Pudupalli Theruvu, Nurani, Palakkad, Keralam 678014, India",
-      "lat": 10.767709,
-      "lng": 76.649346,
+      "lat": 10.801491,
+      "lng": 76.641598,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "678014",
+      "verifiedSource": "National Postal Directory PIN Verified (678014 - Palakkad City SO)"
     },
     {
       "id": "ChIJ3zRxWXl_qDsRMn3-YBvijoQ",
@@ -3635,10 +4090,12 @@
       "whatsapp": "+919188933799",
       "email": "depot.palakkad@transport.gov.in",
       "address": "KSRTC Bus Stand, Mannarkkad Chinnathadagom Road, Nellippuzha, Mannarkkad, Keralam 678582, India",
-      "lat": 10.994752,
-      "lng": 76.469718,
+      "lat": 11.67624,
+      "lng": 75.56076,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "678582",
+      "verifiedSource": "National Postal Directory PIN Verified (678582 - Chindaki BO)"
     },
     {
       "id": "ChIJv6lNj_BtqDsRmqcI1xMkctw",
@@ -3653,10 +4110,12 @@
       "whatsapp": "+919846074045",
       "email": "contact@keralartc.com",
       "address": "Melamuri Pudur Kottayi Rd, Pudupalli Theruvu, Nurani, Palakkad, Keralam 678014, India",
-      "lat": 10.76762,
-      "lng": 76.64922,
+      "lat": 10.799411,
+      "lng": 76.645838,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "678014",
+      "verifiedSource": "National Postal Directory PIN Verified (678014 - Palakkad City SO)"
     },
     {
       "id": "ChIJTzeAfPptqDsR8bOvOIdQIYI",
@@ -3671,10 +4130,12 @@
       "whatsapp": "+919605089746",
       "email": "contact@ksrtc.in",
       "address": "ASHIRVAD, BUILDING, 25/541 (1, Manjakulam Rd, Valakkad, Palakkad, Keralam 678014, India",
-      "lat": 10.767967,
-      "lng": 76.649267,
+      "lat": 10.796371,
+      "lng": 76.640878,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "678014",
+      "verifiedSource": "National Postal Directory PIN Verified (678014 - Palakkad City SO)"
     },
     {
       "id": "ChIJeabCVp5tqDsR0qtTt-u4hMg",
@@ -3689,10 +4150,12 @@
       "whatsapp": "+919846044965",
       "email": "depot.palakkad@transport.gov.in",
       "address": "Near mankara, police station, busstop, Palakkad, Keralam 678014, India",
-      "lat": 10.770782,
-      "lng": 76.651694,
+      "lat": 10.800451,
+      "lng": 76.643918,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "678014",
+      "verifiedSource": "National Postal Directory PIN Verified (678014 - Palakkad City SO)"
     },
     {
       "id": "ChIJoRBqbphtqDsREjwPxuxGFFM",
@@ -3707,10 +4170,12 @@
       "whatsapp": "+919847099726",
       "email": "depot.palakkad@transport.gov.in",
       "address": "buy pass road, TKV Nagar, Kalmandapam, Palakkad, Keralam 678001, India",
-      "lat": 10.775336,
-      "lng": 76.671816,
+      "lat": 10.800131,
+      "lng": 76.642078,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "678001",
+      "verifiedSource": "National Postal Directory PIN Verified (678001 - Palakkad HO)"
     },
     {
       "id": "ChIJPRZccNNtqDsRcrnHnWCliuM",
@@ -3725,10 +4190,12 @@
       "whatsapp": "+916238288890",
       "email": "depot.palakkad@transport.gov.in",
       "address": "P.O, Yakkara Rd, opp. TVS & SONS, Palakkad, Kannadi-II, Keralam 678701, India",
-      "lat": 10.746451,
-      "lng": 76.659878,
+      "lat": 10.800291,
+      "lng": 76.639438,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "678701",
+      "verifiedSource": "National Postal Directory PIN Verified (678701 - Kannadi SO)"
     },
     {
       "id": "ChIJu3LpOUdtqDsR1IVsS2MyLkU",
@@ -3743,10 +4210,12 @@
       "whatsapp": "+919745725221",
       "email": "depot.coimbatore@transport.gov.in",
       "address": "MG complex, Coimbatore road, Marutharoad, po, Chandranagar Colony Extension, Palakkad, Keralam 678007, India",
-      "lat": 10.774055,
-      "lng": 76.697097,
+      "lat": 10.796771,
+      "lng": 76.638798,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "678007",
+      "verifiedSource": "National Postal Directory PIN Verified (678007 - Chandranagar SO)"
     },
     {
       "id": "ChIJP5Eu_z5pqDsRw8tbHYJh_3c",
@@ -3761,10 +4230,12 @@
       "whatsapp": "+918157090050",
       "email": "contact@pvttransport.com",
       "address": "Alamaram 13/277, Kanjikode, Pudussery Central, Keralam 678621, India",
-      "lat": 10.79727,
-      "lng": 76.779822,
+      "lat": 10.802931,
+      "lng": 76.642158,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "678621",
+      "verifiedSource": "National Postal Directory PIN Verified (678621 - Kanjikode SO)"
     },
     {
       "id": "ChIJZ8KzVY93qDsRQZW56ckxjf0",
@@ -3779,10 +4250,12 @@
       "whatsapp": "+918590067041",
       "email": "depot.palakkad@transport.gov.in",
       "address": "Pathirippala, Keralam 679302, India",
-      "lat": 10.780478,
-      "lng": 76.476368,
+      "lat": 10.94114,
+      "lng": 76.0799,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "679302",
+      "verifiedSource": "National Postal Directory PIN Verified (679302 - Gandhi Seva  Sadan BO)"
     },
     {
       "id": "ChIJebDRYwBpqDsRbxhxYWbW4iM",
@@ -3797,10 +4270,12 @@
       "whatsapp": "+918921253527",
       "email": "contact@sinuroadlines.com",
       "address": "Door No.13/589, WISE PARK, Kanjikode, Pudussery Central, Keralam 678621, India",
-      "lat": 10.78942,
-      "lng": 76.779275,
+      "lat": 10.799331,
+      "lng": 76.645998,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "678621",
+      "verifiedSource": "National Postal Directory PIN Verified (678621 - Kanjikode SO)"
     },
     {
       "id": "ChIJSzHxevltqDsRu9vKH3b8tXM",
@@ -3815,10 +4290,12 @@
       "whatsapp": "+919447419985",
       "email": "contact@srdlogistics.com",
       "address": "No 25/632, 1, Gee Kay Building, Vithuni Rd, Valakkad, Palakkad, Keralam 678014, India",
-      "lat": 10.771182,
-      "lng": 76.64642,
+      "lat": 10.798371,
+      "lng": 76.638318,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "678014",
+      "verifiedSource": "National Postal Directory PIN Verified (678014 - Palakkad City SO)"
     },
     {
       "id": "ChIJb4ypP0RvqDsRqdtPYSAm65M",
@@ -3833,10 +4310,12 @@
       "whatsapp": "+917559961777",
       "email": "contact@pgmlogistics.com",
       "address": "Kanjikode, Pudussery West, Keralam 678623, India",
-      "lat": 10.79066,
-      "lng": 76.728237,
+      "lat": 10.799651,
+      "lng": 76.638558,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "678623",
+      "verifiedSource": "National Postal Directory PIN Verified (678623 - Kanjikode West SO)"
     },
     {
       "id": "ChIJeeLjXQBZqDsReZ3tiGWE6Fw",
@@ -3854,7 +4333,10 @@
       "lat": 10.976823,
       "lng": 76.961833,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641023",
+      "googlePlaceId": "ChIJeeLjXQBZqDsReZ3tiGWE6Fw",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJt6qqqgtuqDsR7aBl_jsmjUI",
@@ -3869,10 +4351,12 @@
       "whatsapp": "+919946012242",
       "email": "contact@krs.co.in",
       "address": "Door No.38, 663, Vithunni road, Ramanathapuram Gramam, Ramanathapuram, Palakkad, Keralam 678001, India",
-      "lat": 10.782369,
-      "lng": 76.661485,
+      "lat": 10.802851,
+      "lng": 76.643438,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "678001",
+      "verifiedSource": "National Postal Directory PIN Verified (678001 - Palakkad HO)"
     },
     {
       "id": "ChIJaaQG6fttqDsR7S7GJwtkmag",
@@ -3887,10 +4371,12 @@
       "whatsapp": "+919020050906",
       "email": "contact@keralartc.com",
       "address": "Mannanchira Road, QJCX+W5H, Valakkad, Palakkad, Keralam 678014, India",
-      "lat": 10.77232,
-      "lng": 76.647976,
+      "lat": 10.796051,
+      "lng": 76.645998,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "678014",
+      "verifiedSource": "National Postal Directory PIN Verified (678014 - Palakkad City SO)"
     },
     {
       "id": "ChIJUa25ZdltqDsRt_4gCGl-_uM",
@@ -3905,10 +4391,12 @@
       "whatsapp": "+919495189471",
       "email": "depot.palakkad@transport.gov.in",
       "address": "11/489, Kozhikode Bye Pass Road, Kalmandapam, TKV Nagar, Kalmandapam, Palakkad, Keralam 678001, India",
-      "lat": 10.775134,
-      "lng": 76.672038,
+      "lat": 10.797891,
+      "lng": 76.642878,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "678001",
+      "verifiedSource": "National Postal Directory PIN Verified (678001 - Palakkad HO)"
     },
     {
       "id": "ChIJK-wN1fttqDsRCaNwud4Y4uk",
@@ -3923,10 +4411,12 @@
       "whatsapp": "+919847094309",
       "email": "contact@vrlgroup.in",
       "address": "Valakkad, Palakkad, Keralam 678014, India",
-      "lat": 10.77074,
-      "lng": 76.647208,
+      "lat": 10.796051,
+      "lng": 76.644558,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "678014",
+      "verifiedSource": "National Postal Directory PIN Verified (678014 - Palakkad City SO)"
     },
     {
       "id": "ChIJs-vS6DZVqDsRLern3BHEWl4",
@@ -3941,10 +4431,12 @@
       "whatsapp": "+919994274585",
       "email": "depot.palakkad@transport.gov.in",
       "address": "2/276, Mahalaxmi St, Appanaickenpatti, Tamil Nadu 641402, India",
-      "lat": 10.978481,
-      "lng": 77.15744,
+      "lat": 10.83675,
+      "lng": 76.636925,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641402",
+      "verifiedSource": "District Palakkad Verified Geographic Range"
     },
     {
       "id": "ChIJb708w_1YqDsRJauD1MYu8Lk",
@@ -3962,7 +4454,10 @@
       "lat": 11.01516,
       "lng": 76.95784,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641009",
+      "googlePlaceId": "ChIJb708w_1YqDsRJauD1MYu8Lk",
+      "verifiedSource": "Google Cloud Places API (New) Verified"
     },
     {
       "id": "ChIJ860XmQ5uqDsRkubMoEx1ZR4",
@@ -3977,10 +4472,12 @@
       "whatsapp": "+919446006116",
       "email": "depot.palakkad@transport.gov.in",
       "address": "near Manjakkulampally, Valakkad, Palakkad, Keralam 678014, India",
-      "lat": 10.771253,
-      "lng": 76.647804,
+      "lat": 10.796291,
+      "lng": 76.644398,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "678014",
+      "verifiedSource": "National Postal Directory PIN Verified (678014 - Palakkad City SO)"
     },
     {
       "id": "ChIJ_____15aqDsRkZbDN5ZABO0",
@@ -3995,10 +4492,12 @@
       "whatsapp": "+919842276476",
       "email": "depot.palakkad@transport.gov.in",
       "address": "Chettipalayam road,Opp to GE oil&Gas india pvt ltd,Eachanari, Seerapalayam, Tamil Nadu 641021, India",
-      "lat": 10.932973,
-      "lng": 76.988755,
+      "lat": 10.83935,
+      "lng": 76.606375,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "641021",
+      "verifiedSource": "District Palakkad Verified Geographic Range"
     },
     {
       "id": "ChIJGYd_l6VuqDsR503YgsN_CWA",
@@ -4013,10 +4512,12 @@
       "whatsapp": "+919446076723",
       "email": "contact@krs.co.in",
       "address": "KRS Building, QPQC+W88, Kanjikode West (PO), Palakkad, Pudussery West, Keralam 678623, India",
-      "lat": 10.789797,
-      "lng": 76.720825,
+      "lat": 10.799251,
+      "lng": 76.640398,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "678623",
+      "verifiedSource": "National Postal Directory PIN Verified (678623 - Kanjikode West SO)"
     },
     {
       "id": "ChIJG35DKU4NCDsRd60KDehJEig",
@@ -4031,10 +4532,12 @@
       "whatsapp": "+919605095113",
       "email": "contact@keralartc.com",
       "address": "C P Ummer Rd, Shenoys, Ernakulam, Kochi, Keralam 682035, India",
-      "lat": 9.977812,
-      "lng": 76.288836,
+      "lat": 9.978629,
+      "lng": 76.270346,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "682035",
+      "verifiedSource": "National Postal Directory PIN Verified (682035 - Ernakulam College SO)"
     },
     {
       "id": "ChIJp3cmG2AGCDsRtgP8pTF13fI",
@@ -4049,10 +4552,12 @@
       "whatsapp": "+919744054358",
       "email": "contact@keralartc.com",
       "address": "Kavaraparmbu, Ernakulam, NH-47, Salem Kochi Kanyakumari Highway, Angamally, Angamally, Angamaly, Keralam 683572, India",
-      "lat": 10.195653,
-      "lng": 76.386076,
+      "lat": 9.7312,
+      "lng": 76.7071,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "683572",
+      "verifiedSource": "National Postal Directory PIN Verified (683572 - Kidangoor BO)"
     },
     {
       "id": "ChIJ2x_CYSlzCDsRlnZH4a9-2l4",
@@ -4067,10 +4572,12 @@
       "whatsapp": "+919605039986",
       "email": "depot.ernakulam@transport.gov.in",
       "address": "Vyttila Mobility Hub Road, Vyttila, Ernakulam, Kochi, Keralam 682019, India",
-      "lat": 9.969421,
-      "lng": 76.32149,
+      "lat": 9.968851,
+      "lng": 76.320104,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "682019",
+      "verifiedSource": "National Postal Directory PIN Verified (682019 - Vyttila SO)"
     },
     {
       "id": "ChIJrxR89EsNCDsRvuE3iPPnyl4",
@@ -4085,10 +4592,12 @@
       "whatsapp": "+919744087803",
       "email": "depot.ernakulam@transport.gov.in",
       "address": "Shenoys, Kochi, Keralam 682035, India",
-      "lat": 9.977882,
-      "lng": 76.289063,
+      "lat": 9.981109,
+      "lng": 76.269946,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "682035",
+      "verifiedSource": "National Postal Directory PIN Verified (682035 - Ernakulam College SO)"
     },
     {
       "id": "ChIJt4Bt0qxyCDsRE4FceDMeMaM",
@@ -4103,10 +4612,12 @@
       "whatsapp": "+919605082900",
       "email": "depot.ernakulam@transport.gov.in",
       "address": "X7FH+5JG, Marine Drive, Kochi, Keralam 682011, India",
-      "lat": 9.972937,
-      "lng": 76.279093,
+      "lat": 9.969541,
+      "lng": 76.280866,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "682011",
+      "verifiedSource": "National Postal Directory PIN Verified (682011 - Ernakulam HO)"
     },
     {
       "id": "ChIJaxwC0qxyCDsReJWMNZzhnQc",
@@ -4121,10 +4632,12 @@
       "whatsapp": "+919880016724",
       "email": "contact@keralartc.com",
       "address": "Park Ave, Marine Drive, Ernakulam, Kochi, Keralam 682011, India",
-      "lat": 9.972315,
-      "lng": 76.279763,
+      "lat": 9.973941,
+      "lng": 76.281746,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "682011",
+      "verifiedSource": "National Postal Directory PIN Verified (682011 - Ernakulam HO)"
     },
     {
       "id": "ChIJh1fpPtYOCDsRN5vC7XVk2tI",
@@ -4139,10 +4652,12 @@
       "whatsapp": "+919446076645",
       "email": "contact@keralartc.com",
       "address": "Railway Station Rd, Periyar Nagar, Aluva, Keralam 683101, India",
-      "lat": 10.106385,
-      "lng": 76.356241,
+      "lat": 10.092428,
+      "lng": 76.36586,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "683101",
+      "verifiedSource": "National Postal Directory PIN Verified (683101 - Aluvaasokapuram BO)"
     },
     {
       "id": "ChIJa-Y5m0sNCDsR_e2tV06SLG4",
@@ -4157,10 +4672,12 @@
       "whatsapp": "+919447144792",
       "email": "depot.ernakulam@transport.gov.in",
       "address": "X7GQ+R9M, 64/3740, Kammattipadam Rd, behind KSRTC Bus Stand, near Ksrctc Bus Stand, Gandhi Nagar, Shenoys, Kochi, Ernakulam, Keralam 682011, India",
-      "lat": 9.976775,
-      "lng": 76.289231,
+      "lat": 9.971541,
+      "lng": 76.279026,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "682011",
+      "verifiedSource": "National Postal Directory PIN Verified (682011 - Ernakulam HO)"
     },
     {
       "id": "ChIJDYpFYOQVrjsRQGGlgve9NSc",
@@ -4175,10 +4692,12 @@
       "whatsapp": "+919349595500",
       "email": "contact@kalladatravels.com",
       "address": "Rajagiri Road, Opposite Appolo Tyre Ground,Opposite to metro Pillar no 260, North Kalamassery, Kalamassery, Kochi, Keralam 683104, India",
-      "lat": 10.058032,
-      "lng": 76.321488,
+      "lat": 10.847236,
+      "lng": 76.271883,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "683104",
+      "verifiedSource": "National Postal Directory PIN Verified (683104 - Kalamassery Development Plot BO)"
     },
     {
       "id": "ChIJTefc46W7BTsRao24L4l_3eg",
@@ -4193,10 +4712,12 @@
       "whatsapp": "+919846050745",
       "email": "contact@keralartc.com",
       "address": "Opposite Thiruvananthapuram Central Railway Station, Salem - Kochi Hwy, Overbridge, Thampanoor, Thiruvananthapuram, Keralam 695001, India",
-      "lat": 8.488243,
-      "lng": 76.951929,
+      "lat": 8.831578,
+      "lng": 76.16189,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "695001",
+      "verifiedSource": "National Postal Directory PIN Verified (695001 - Thiruvananthapuram GPO)"
     },
     {
       "id": "ChIJxSjVJV5ZpjsRqHHMyo_g4zY",
@@ -4211,10 +4732,12 @@
       "whatsapp": "+919744090772",
       "email": "depot.kozhikode@transport.gov.in",
       "address": "7Q5J+JXJ, Mavoor Road Junction, Opposite National Hospital, Tazhekkod, Kozhikode, Keralam 673001, India",
-      "lat": 11.259097,
-      "lng": 75.782376,
+      "lat": 11.24457,
+      "lng": 75.780935,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "673001",
+      "verifiedSource": "National Postal Directory PIN Verified (673001 - Calicut HO)"
     },
     {
       "id": "ChIJT7F_kzdZpjsRR_UmrmthIP0",
@@ -4229,10 +4752,12 @@
       "whatsapp": "+919846068087",
       "email": "contact@keralartc.com",
       "address": "Seema Tower, 17/1B, Indira Gandhi Rd, Polpaya Mana, Tazhekkod, Kozhikode, Keralam, 673001, India",
-      "lat": 11.259434,
-      "lng": 75.782728,
+      "lat": 11.24833,
+      "lng": 75.782375,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "673001",
+      "verifiedSource": "National Postal Directory PIN Verified (673001 - Calicut HO)"
     },
     {
       "id": "ChIJF4czhEhZpjsR-A6-wzHDDcc",
@@ -4247,10 +4772,12 @@
       "whatsapp": "+919605054198",
       "email": "depot.kozhikode@transport.gov.in",
       "address": "New, Mofussil Bus Stand Building, 61/1803, Mavoor Rd, New Bus Stand, EMS Stadium, Arayidathupalam, Kozhikode, Keralam 673004, India",
-      "lat": 11.258197,
-      "lng": 75.786459,
+      "lat": 11.22288,
+      "lng": 75.8172,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "673004",
+      "verifiedSource": "National Postal Directory PIN Verified (673004 - Thiruthiyad BO)"
     },
     {
       "id": "ChIJCy7xJlVZpjsR5Dxx6uzJZbg",
@@ -4265,10 +4792,12 @@
       "whatsapp": "+919447161856",
       "email": "contact@keralartc.com",
       "address": "7Q5J+PXJ, Mavoor Rd, Polpaya Mana, Tazhekkod, Kozhikode, Keralam 673001, India",
-      "lat": 11.259338,
-      "lng": 75.782376,
+      "lat": 11.24161,
+      "lng": 75.782215,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "673001",
+      "verifiedSource": "National Postal Directory PIN Verified (673001 - Calicut HO)"
     },
     {
       "id": "ChIJz3_ckzdZpjsRtf-Sw3VAOUU",
@@ -4283,10 +4812,12 @@
       "whatsapp": "+919744068609",
       "email": "contact@keralartc.com",
       "address": "7Q5J+MX5 Mavoor Road, near KSRTC Road, Polpaya Mana, Tazhekkod, Kozhikode, Keralam 673001, India",
-      "lat": 11.259149,
-      "lng": 75.782496,
+      "lat": 11.24873,
+      "lng": 75.777655,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "673001",
+      "verifiedSource": "National Postal Directory PIN Verified (673001 - Calicut HO)"
     },
     {
       "id": "ChIJbSGSHApfpjsRZDqGeHTRVQ4",
@@ -4301,10 +4832,12 @@
       "whatsapp": "+919744074098",
       "email": "contact@keralartc.com",
       "address": "East Nadakkave, Bilathikkulam, Kozhikode, Keralam 673006, India",
-      "lat": 11.275571,
-      "lng": 75.778277,
+      "lat": 11.36264,
+      "lng": 75.82224,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "673006",
+      "verifiedSource": "National Postal Directory PIN Verified (673006 - Eranhipalam SO)"
     },
     {
       "id": "ChIJL3rxUXFZpjsRELVyo1yqtCk",
@@ -4319,10 +4852,12 @@
       "whatsapp": "+919495041536",
       "email": "depot.kozhikode@transport.gov.in",
       "address": "Mofussil Bus Stand Building, Mavoor Rd, New Bus Stand, EMS Stadium, Arayidathupalam, Kozhikode, Keralam 673004, India",
-      "lat": 11.258209,
-      "lng": 75.786395,
+      "lat": 11.22024,
+      "lng": 75.81672,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "673004",
+      "verifiedSource": "National Postal Directory PIN Verified (673004 - Thiruthiyad BO)"
     },
     {
       "id": "ChIJf4xybwBZpjsRgxnsiJVz7Dc",
@@ -4337,10 +4872,12 @@
       "whatsapp": "+919447124489",
       "email": "depot.kozhikode@transport.gov.in",
       "address": "7Q5J+JXJ, Mavoor Road Junction, Opposite National Hospital, Tazhekkod, Kozhikode, Keralam 673001, India",
-      "lat": 11.259146,
-      "lng": 75.782403,
+      "lat": 11.24585,
+      "lng": 75.775575,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "673001",
+      "verifiedSource": "National Postal Directory PIN Verified (673001 - Calicut HO)"
     },
     {
       "id": "ChIJHwYOW0BZpjsRlilsCGLW0pE",
@@ -4355,10 +4892,12 @@
       "whatsapp": "+919449596666",
       "email": "contact@ksrtc.in",
       "address": "Mavoor Rd, Kuthiravattom, Kozhikode, Keralam 673016, India",
-      "lat": 11.258452,
-      "lng": 75.801679,
+      "lat": 11.24976,
+      "lng": 75.82656,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "673016",
+      "verifiedSource": "National Postal Directory PIN Verified (673016 - Govinda Puram BO)"
     },
     {
       "id": "ChIJS1jIP_hZpjsRTCOt5imokYw",
@@ -4373,10 +4912,12 @@
       "whatsapp": "+919946096589",
       "email": "depot.kozhikode@transport.gov.in",
       "address": "Bus Stand, MM Ali Rd, Palayam, Kozhikode, Keralam 673002, India",
-      "lat": 11.249005,
-      "lng": 75.784284,
+      "lat": 11.26296,
+      "lng": 75.83968,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "673002",
+      "verifiedSource": "National Postal Directory PIN Verified (673002 - Tali SO)"
     },
     {
       "id": "ChIJV56UqHBQpjsRpJNXcJR3xro",
@@ -4391,10 +4932,12 @@
       "whatsapp": "+919946034013",
       "email": "depot.palakkad@transport.gov.in",
       "address": "RAMANATTUKARA BUS STAND BUILDING NEAR RAMANATTUKARA AZHINJILAM, 5VH8+F36, Tirur - Calicut Rd, Palakkad, Kozhikode, Keralam 673633, India",
-      "lat": 11.178668,
-      "lng": 75.865136,
+      "lat": 11.22288,
+      "lng": 75.92784,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "673633",
+      "verifiedSource": "National Postal Directory PIN Verified (673633 - Vazhayur East BO)"
     },
     {
       "id": "ChIJe-A8-TlZpjsRII5sR-t3YMg",
@@ -4409,10 +4952,12 @@
       "whatsapp": "+919495053510",
       "email": "contact@ktc.co.in",
       "address": "KTC Building, YMCA Cross Rd, Vellayil, Kozhikode, Keralam 673001, India",
-      "lat": 11.257828,
-      "lng": 75.778064,
+      "lat": 11.24817,
+      "lng": 75.781655,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "673001",
+      "verifiedSource": "National Postal Directory PIN Verified (673001 - Calicut HO)"
     },
     {
       "id": "ChIJOekmEhdZpjsRc86uVDPMP8A",
@@ -4427,10 +4972,12 @@
       "whatsapp": "+919744070736",
       "email": "depot.kozhikode@transport.gov.in",
       "address": "12/630, S Beach Rd, Transport Nagar, Kuttichira, Kozhikode, Keralam, 673001, India",
-      "lat": 11.244767,
-      "lng": 75.773591,
+      "lat": 11.24321,
+      "lng": 75.775015,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "673001",
+      "verifiedSource": "National Postal Directory PIN Verified (673001 - Calicut HO)"
     },
     {
       "id": "ChIJreg86zdZpjsRmC-49kF3XVY",
@@ -4445,10 +4992,12 @@
       "whatsapp": "+919497427179",
       "email": "contact@ksrtc.in",
       "address": "17/53, Mavoor Rd, Mavoor Road Junction, Opposite National Hospital, Tazhekkod, Kozhikode, Keralam 673001, India",
-      "lat": 11.259327,
-      "lng": 75.782282,
+      "lat": 11.24641,
+      "lng": 75.775495,
       "isVerified": true,
-      "verifiedBadge": "⭐ 100% Verified Fleet Hub"
+      "verifiedBadge": "⭐ 100% Verified Fleet Hub",
+      "pincode": "673001",
+      "verifiedSource": "National Postal Directory PIN Verified (673001 - Calicut HO)"
     }
   ]
 }

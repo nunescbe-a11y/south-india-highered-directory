@@ -1435,6 +1435,68 @@ app.post('/api/google-places/harvest', async (req, res) => {
 // GET /api/config/keys
 // Returns loaded API keys configuration status for UI studio
 // -------------------------------------------------------------
+
+// -------------------------------------------------------------
+// POST /api/google-places/geocode-one
+// Real-time precision geocoding via Google Maps / Places API
+// -------------------------------------------------------------
+app.post('/api/google-places/geocode-one', async (req, res) => {
+  const { name, address, district = 'Coimbatore', state = 'Tamil Nadu', apiKey } = req.body;
+  const keyToUse = (apiKey && apiKey.trim()) || GOOGLE_MAPS_API_KEY;
+
+  if (!keyToUse) {
+    return res.status(400).json({ error: 'Google Maps / Places API key is required.' });
+  }
+
+  const queryTerm = `${name || ''}, ${address || ''}, ${district}, ${state}`.trim();
+  try {
+    const geoUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(queryTerm)}&key=${keyToUse}`;
+    const response = await fetch(geoUrl);
+    const data = await response.json();
+
+    if (data.status === 'OK' && data.results && data.results.length > 0) {
+      const top = data.results[0];
+      const loc = top.geometry.location;
+      return res.json({
+        success: true,
+        lat: loc.lat,
+        lng: loc.lng,
+        formattedAddress: top.formatted_address,
+        placeId: top.place_id,
+        googleMapsUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((name || '') + ' ' + (address || district))}`
+      });
+    }
+
+    // Fallback: Places Text Search (New)
+    const newApiUrl = 'https://places.googleapis.com/v1/places:searchText';
+    const newRes = await fetch(newApiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Goog-Api-Key': keyToUse,
+        'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.location,places.id'
+      },
+      body: JSON.stringify({ textQuery: `${name || ''} ${district}` })
+    });
+    const newData = await newRes.json();
+    if (newRes.ok && Array.isArray(newData.places) && newData.places.length > 0) {
+      const p = newData.places[0];
+      return res.json({
+        success: true,
+        lat: p.location.latitude,
+        lng: p.location.longitude,
+        formattedAddress: p.formattedAddress,
+        placeId: p.id,
+        googleMapsUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((name || '') + ' ' + (address || district))}`
+      });
+    }
+
+    return res.status(404).json({ error: 'Place not found on Google Maps.' });
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
+});
+
 app.get('/api/config/keys', (req, res) => {
   res.json({
     googleMapsKey: GOOGLE_MAPS_API_KEY,

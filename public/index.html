@@ -1076,23 +1076,23 @@
         </button>
         <button class="tab-btn" onclick="switchView('police')">
           <span>🛡️</span> <span>Police</span>
-          <span class="tab-badge" id="badgePoliceCount">14,921</span>
+          <span class="tab-badge" id="badgePoliceCount">1,653</span>
         </button>
         <button class="tab-btn" onclick="switchView('colleges')">
           <span>🎓</span> <span>Colleges</span>
-          <span class="tab-badge" id="badgeCollegesCount">55,044</span>
+          <span class="tab-badge" id="badgeCollegesCount">6,883</span>
         </button>
         <button class="tab-btn" onclick="switchView('schools')">
           <span>🏫</span> <span>Schools</span>
-          <span class="tab-badge" id="badgeSchoolsCount">52,277</span>
+          <span class="tab-badge" id="badgeSchoolsCount">5,354</span>
         </button>
         <button class="tab-btn" onclick="switchView('transport')">
           <span>🚚</span> <span>Bus & Lorry Fleets</span>
-          <span class="tab-badge" id="badgeTransportCount">485</span>
+          <span class="tab-badge" id="badgeTransportCount">247</span>
         </button>
         <button class="tab-btn" id="tabBtnIndustries" onclick="switchView('industries')">
           <span>🏭</span> <span>Industries & 25 Categories</span>
-          <span class="tab-badge" id="badgeIndustriesCount">396</span>
+          <span class="tab-badge" id="badgeIndustriesCount">416</span>
         </button>
         <button class="tab-btn" onclick="switchView('workspace')">
           <span>💼</span> <span>Workspaces (WhatsApp & Email)</span>
@@ -1122,58 +1122,11 @@
   <section class="controls-strip">
     <div class="controls-grid">
       <div class="controls-left">
-        <!-- State Selector (Pan-India 28 States & UTs) -->
+        <!-- State Selector (Tamil Nadu & Kerala South India Focus) -->
         <select class="filter-select state-select" id="stateFilter" onchange="handleStateChange()">
-          <option value="ALL" selected>🇮🇳 ALL INDIA (All 28 States & UTs)</option>
-          <optgroup label="South India">
-            <option value="Tamil Nadu">🏛️ Tamil Nadu</option>
-            <option value="Karnataka">🏰 Karnataka (Bengaluru)</option>
-            <option value="Kerala">🌴 Kerala</option>
-            <option value="Telangana">💎 Telangana (Hyderabad)</option>
-            <option value="Andhra Pradesh">🌾 Andhra Pradesh</option>
-          </optgroup>
-          <optgroup label="West India">
-            <option value="Maharashtra">🏙️ Maharashtra (Mumbai / Pune)</option>
-            <option value="Gujarat">🏭 Gujarat (Ahmedabad / Surat)</option>
-            <option value="Rajasthan">🏰 Rajasthan (Jaipur)</option>
-            <option value="Goa">🏖️ Goa</option>
-          </optgroup>
-          <optgroup label="North India">
-            <option value="Delhi">🏛️ Delhi (NCR)</option>
-            <option value="Uttar Pradesh">🕌 Uttar Pradesh (Lucknow / Kanpur)</option>
-            <option value="Punjab">🌾 Punjab (Chandigarh / Ludhiana)</option>
-            <option value="Haryana">🏢 Haryana (Gurugram / Faridabad)</option>
-            <option value="Uttarakhand">⛰️ Uttarakhand (Dehradun)</option>
-            <option value="Himachal Pradesh">🏔️ Himachal Pradesh (Shimla)</option>
-            <option value="Jammu and Kashmir">❄️ Jammu and Kashmir</option>
-            <option value="Ladakh">🏔️ Ladakh</option>
-            <option value="Chandigarh">🏛️ Chandigarh</option>
-          </optgroup>
-          <optgroup label="Central India">
-            <option value="Madhya Pradesh">🐅 Madhya Pradesh (Bhopal / Indore)</option>
-            <option value="Chhattisgarh">🌲 Chhattisgarh (Raipur)</option>
-          </optgroup>
-          <optgroup label="East India">
-            <option value="West Bengal">🌉 West Bengal (Kolkata)</option>
-            <option value="Bihar">🏛️ Bihar (Patna)</option>
-            <option value="Jharkhand">⛏️ Jharkhand (Ranchi)</option>
-            <option value="Odisha">🌊 Odisha (Bhubaneswar)</option>
-          </optgroup>
-          <optgroup label="North East India">
-            <option value="Assam">🫖 Assam (Guwahati)</option>
-            <option value="Arunachal Pradesh">🌄 Arunachal Pradesh</option>
-            <option value="Manipur">🌺 Manipur</option>
-            <option value="Meghalaya">🌧️ Meghalaya</option>
-            <option value="Mizoram">🌿 Mizoram</option>
-            <option value="Nagaland">🦅 Nagaland</option>
-            <option value="Sikkim">🏔️ Sikkim</option>
-            <option value="Tripura">🎋 Tripura</option>
-          </optgroup>
-          <optgroup label="Union Territories">
-            <option value="Puducherry">🏛️ Puducherry</option>
-            <option value="Andaman and Nicobar Islands">🏝️ Andaman & Nicobar</option>
-            <option value="Dadra and Nagar Haveli and Daman and Diu">🌴 Dadra & Nagar Haveli & Daman & Diu</option>
-          </optgroup>
+          <option value="Tamil Nadu" selected>🏛️ Tamil Nadu (All 38 Districts)</option>
+          <option value="Kerala">🌴 Kerala (All 14 Districts)</option>
+          <option value="ALL">🌐 South India (Tamil Nadu + Kerala)</option>
         </select>
 
         <!-- District Selector -->
@@ -1183,7 +1136,7 @@
 
         <!-- Sector / Target Type Selector (College, Police, Schools, Fleets, Industries) -->
         <select class="filter-select sector-select" id="sectorFilter" onchange="handleSectorFilterChange()" title="Select Target Sector: Colleges, Police, Schools, Fleets, or Industries">
-          <option value="ALL">🎯 Target: All Sectors</option>
+          <option value="ALL">🎯 Target: All Categories</option>
           <option value="colleges">🎓 Colleges & Universities</option>
           <option value="police">🛡️ Police Stations</option>
           <option value="schools">🏫 Schools (with Bus Fleets)</option>
@@ -1215,13 +1168,13 @@
         <!-- Live Search -->
         <div class="search-box-wrapper">
           <span class="search-icon">🔍</span>
-          <input type="text" class="search-input" id="searchInput" placeholder="Search by name, district, postal PIN (e.g. 641001), phone, email..." oninput="handleSearchInput(event)" onkeydown="if(event.key==='Enter') executeSearch()">
+          <input type="text" class="search-input" id="searchInput" placeholder="Search by name, district, postal PIN (e.g. 641001), phone, email..." oninput="handleSearchInput(event)" onkeydown="if(event.key==='Enter') executeSearch(true)">
           <button class="clear-search-btn" id="clearSearchBtn" onclick="clearSearch()">✕</button>
         </div>
 
         <!-- Dedicated Primary Search Button -->
-        <button class="btn-search-primary" id="btnExecuteSearch" onclick="executeSearch()" title="Execute Search for Selected Sector, State, District, Category & Keywords">
-          <span>🔍</span> <span>Search & Show Results</span>
+        <button class="btn-search-primary" id="btnExecuteSearch" onclick="executeSearch(true)" title="Execute Search for Selected Sector, State, District, Category & Keywords">
+          <span>🔍</span> <span>Search</span>
         </button>
 
         <!-- Quick View Toggle Buttons (Map vs List) -->
@@ -1234,13 +1187,12 @@
       </div>
 
       <div class="controls-right">
-        <button class="btn-export" style="background:#f0fdf4;color:#166534;border-color:#bbf7d0;font-weight:700;" onclick="selectAllVisible()">
+        <button class="btn-export" style="background:#f0fdf4;color:#166534;border:1px solid #86efac;font-weight:700;padding:0 14px;height:36px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;" onclick="selectAllVisible()" title="Select all visible filtered cards into BCC & WhatsApp Queue">
           <span>☑️</span> <span>Select Visible</span>
         </button>
-        <button class="btn-export" id="btnImportData" style="background:#eff6ff;color:#1d4ed8;border-color:#bfdbfe;font-weight:700;" onclick="openImportModal()">
-          <span>📤</span> <span>Import Data</span>
+        <button class="btn-reset" onclick="resetFilters()" style="background:#fef2f2;color:#dc2626;border:1px solid #fecaca;font-weight:700;padding:0 14px;height:36px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;" title="Reset all filters to Tamil Nadu default">
+          <span>🔄</span> <span>Reset</span>
         </button>
-        <button class="btn-reset" onclick="resetFilters()">Reset</button>
       </div>
     </div>
   </section>
@@ -1250,43 +1202,43 @@
     <div class="kpi-card">
       <div class="kpi-icon police">🛡️</div>
       <div>
-        <div class="kpi-val" id="kpiPoliceCount">14,921</div>
+        <div class="kpi-val" id="kpiPoliceCount">1,653</div>
         <div class="kpi-label">Verified Police Stations</div>
       </div>
     </div>
     <div class="kpi-card">
       <div class="kpi-icon college">🎓</div>
       <div>
-        <div class="kpi-val" id="kpiCollegesCount">55,044</div>
+        <div class="kpi-val" id="kpiCollegesCount">6,883</div>
         <div class="kpi-label">Colleges & Universities</div>
       </div>
     </div>
     <div class="kpi-card">
       <div class="kpi-icon school">🏫</div>
       <div>
-        <div class="kpi-val" id="kpiSchoolsCount">52,277</div>
+        <div class="kpi-val" id="kpiSchoolsCount">5,354</div>
         <div class="kpi-label">Schools with Bus Fleets</div>
       </div>
     </div>
     <div class="kpi-card">
       <div class="kpi-icon transport">🚚</div>
       <div>
-        <div class="kpi-val" id="kpiTransportCount">485</div>
+        <div class="kpi-val" id="kpiTransportCount">247</div>
         <div class="kpi-label">Bus & Lorry Transport Hubs</div>
       </div>
     </div>
     <div class="kpi-card">
       <div class="kpi-icon industry" style="background:#fee2e2;color:#dc2626;">🏭</div>
       <div>
-        <div class="kpi-val" id="kpiIndustriesCount">396</div>
+        <div class="kpi-val" id="kpiIndustriesCount">416</div>
         <div class="kpi-label">Factories & Industries</div>
       </div>
     </div>
-    <div class="kpi-card">
-      <div class="kpi-icon device">💨</div>
+    <div class="kpi-card" id="kpiSelectedCard" style="background:#eff6ff;border:1px solid #bfdbfe;cursor:pointer;" onclick="switchView('workspace')" title="Click to open BCC & WhatsApp Workspace">
+      <div class="kpi-icon" style="background:#dbeafe;color:#2563eb;">⚡</div>
       <div>
-        <div class="kpi-val">14</div>
-        <div class="kpi-label">Precision Analyser Models</div>
+        <div class="kpi-val" id="kpiSelectedCount" style="color:#2563eb;">0</div>
+        <div class="kpi-label" style="color:#1e40af;font-weight:700;">Selected in Queue (BCC)</div>
       </div>
     </div>
   </section>
@@ -1311,19 +1263,19 @@
             </div>
 
             <button class="layer-toggle-btn active police" id="togglePoliceLayerBtn" onclick="toggleMapLayer('police')">
-              <span>🛡️</span> <span id="mapBtnPolice">Police (14,921)</span>
+              <span>🛡️</span> <span id="mapBtnPolice">Police (1,653)</span>
             </button>
             <button class="layer-toggle-btn active college" id="toggleCollegeLayerBtn" onclick="toggleMapLayer('colleges')">
-              <span>🎓</span> <span id="mapBtnColleges">Colleges (55,044)</span>
+              <span>🎓</span> <span id="mapBtnColleges">Colleges (6,883)</span>
             </button>
             <button class="layer-toggle-btn active school" id="toggleSchoolLayerBtn" onclick="toggleMapLayer('schools')">
-              <span>🏫</span> <span id="mapBtnSchools">Schools (52,277)</span>
+              <span>🏫</span> <span id="mapBtnSchools">Schools (5,354)</span>
             </button>
             <button class="layer-toggle-btn active transport" id="toggleTransportLayerBtn" onclick="toggleMapLayer('transport')">
-              <span>🚚</span> <span id="mapBtnTransport">Bus & Lorry Hubs (485)</span>
+              <span>🚚</span> <span id="mapBtnTransport">Bus & Lorry Hubs (247)</span>
             </button>
             <button class="layer-toggle-btn active industry" id="toggleIndustryLayerBtn" onclick="toggleMapLayer('industries')" style="border-left:3px solid #ef4444;">
-              <span>🏭</span> <span id="mapBtnIndustries">Industries (396)</span>
+              <span>🏭</span> <span id="mapBtnIndustries">Industries (416)</span>
             </button>
             <button class="layer-toggle-btn" onclick="fitMapBounds()">
               <span>🎯</span> <span>Reset View</span>
@@ -1338,7 +1290,7 @@
     <div class="tab-view-content" id="view-police">
       <div class="directory-view">
         <div class="results-count-bar">
-          <div>Showing <strong id="policeFilteredCount">14,921</strong> police stations across all 28 States & UTs of India (Official Survey of India & Google Places API Geocoded)</div>
+          <div>Showing <strong id="policeFilteredCount">1,653</strong> verified police stations across Tamil Nadu & Kerala</div>
           <div>All numbers verified with official STD codes & state police domain emails</div>
         </div>
         <div class="cards-grid" id="policeCardsGrid"></div>
@@ -1349,7 +1301,7 @@
     <div class="tab-view-content" id="view-colleges">
       <div class="directory-view">
         <div class="results-count-bar">
-          <div>Showing <strong id="collegesFilteredCount">55,044</strong> accredited universities, engineering, arts, science & medical colleges across all 28 States & UTs of India (AISHE, AICTE & 864 Verified Direct Contacts)</div>
+          <div>Showing <strong id="collegesFilteredCount">6,883</strong> accredited universities, engineering, arts, science & medical colleges in Tamil Nadu & Kerala</div>
           <div>Direct campus contacts, landlines, and official institutional websites</div>
         </div>
         <div class="cards-grid" id="collegesCardsGrid"></div>
@@ -1360,7 +1312,7 @@
     <div class="tab-view-content" id="view-schools">
       <div class="directory-view">
         <div class="results-count-bar">
-          <div>Showing <strong id="schoolsFilteredCount">52,277</strong> affiliated CBSE, CISCE (ICSE/ISC) & Atal Tinkering Lab schools with student bus fleets across India</div>
+          <div>Showing <strong id="schoolsFilteredCount">5,354</strong> affiliated schools with student bus fleets in Tamil Nadu & Kerala</div>
           <div>Mandatory Driver Breath Alcohol Screening under Section 185 Motor Vehicles Act</div>
         </div>
         <div class="cards-grid" id="schoolsCardsGrid"></div>
@@ -1371,7 +1323,7 @@
     <div class="tab-view-content" id="view-transport">
       <div class="directory-view">
         <div class="results-count-bar">
-          <div>Showing <strong id="transportFilteredCount">485</strong> State Road Transport Depots (MSRTC, UPSRTC, GSRTC, RSRTC, TNSTC, BMTC, KSRTC, APSRTC, TGSRTC, WBTC, DTC), Private Omnibuses & Heavy Freight Hubs</div>
+          <div>Showing <strong id="transportFilteredCount">247</strong> State Road Transport Depots (TNSTC, SETC, KSRTC) & Private Freight Hubs</div>
           <div>Zero-Tolerance Commercial Driver Sobriety Testing, Gatehouse Interlocks & OBD-II Breathalyzers</div>
         </div>
         <div class="cards-grid" id="transportCardsGrid"></div>
@@ -1384,10 +1336,10 @@
         <div class="results-count-bar" style="background:linear-gradient(90deg, #fef2f2 0%, #fff 100%);border-left:4px solid #ef4444;padding:12px 16px;border-radius:8px;margin-bottom:14px;">
           <div>
             <strong style="color:#991b1b;font-size:14px;">🏭 Master 25 Customer Categories Directory</strong>
-            <span style="color:#475569;font-size:12px;margin-left:8px;">Showing <strong id="industriesFilteredCount" style="color:#b91c1c;">396</strong> Filtered Industrial, Manufacturing, Hospital & Commercial Units</span>
+            <span style="color:#475569;font-size:12px;margin-left:8px;">Showing <strong id="industriesFilteredCount" style="color:#b91c1c;">416</strong> Filtered Industrial, Manufacturing, Hospital & Commercial Units</span>
           </div>
           <div style="font-size:11.5px;color:#64748b;margin-top:4px;">
-            Targeting Quality Managers, Maintenance Heads, Biomedical Engineers, and Purchase Officers across Coimbatore & South India
+            Targeting Quality Managers, Maintenance Heads, Biomedical Engineers, and Purchase Officers across Tamil Nadu & Kerala
           </div>
         </div>
         <div class="cards-grid" id="industriesCardsGrid"></div>
@@ -2051,12 +2003,12 @@
     districtSelect.innerHTML = '<option value="ALL">📍 All Districts</option>';
 
     let distSet = new Set();
-    const allEntities = [...policeStations, ...colleges, ...schools, ...transportFleets];
+    const allEntities = [...policeStations, ...colleges, ...schools, ...transportFleets, ...industries];
 
     if (stateVal === 'ALL') {
-      allEntities.forEach(e => distSet.add(e.district));
+      allEntities.forEach(e => { if (e.district) distSet.add(e.district); });
     } else {
-      allEntities.filter(e => e.state === stateVal).forEach(e => distSet.add(e.district));
+      allEntities.filter(e => e.state === stateVal).forEach(e => { if (e.district) distSet.add(e.district); });
     }
 
     const sortedDists = Array.from(distSet).filter(Boolean).sort();
@@ -2149,49 +2101,17 @@
 
   function handleStateChange() {
     populateDistrictsFilter();
-    handleFilterChange();
+    executeSearch();
 
     const stateVal = document.getElementById('stateFilter').value;
     const stateCoordsMap = {
       'Tamil Nadu': [11.1, 78.6, 7.5],
-      'Kerala': [10.2, 76.4, 7.5],
-      'Karnataka': [13.5, 76.5, 7.0],
-      'Andhra Pradesh': [15.5, 80.0, 7.0],
-      'Telangana': [17.8, 79.0, 7.0],
-      'Maharashtra': [19.5, 76.0, 6.8],
-      'Gujarat': [22.5, 71.5, 6.8],
-      'Rajasthan': [26.5, 74.0, 6.5],
-      'Goa': [15.3, 74.0, 9.0],
-      'Delhi': [28.65, 77.2, 10.0],
-      'Uttar Pradesh': [27.0, 80.5, 6.5],
-      'Punjab': [31.0, 75.5, 7.5],
-      'Haryana': [29.2, 76.3, 7.5],
-      'Uttarakhand': [30.1, 79.0, 7.5],
-      'Himachal Pradesh': [31.8, 77.2, 7.5],
-      'Jammu and Kashmir': [33.8, 75.0, 7.0],
-      'Ladakh': [34.2, 77.6, 6.5],
-      'Madhya Pradesh': [23.5, 78.0, 6.5],
-      'Chhattisgarh': [21.5, 82.0, 6.8],
-      'West Bengal': [24.0, 88.0, 6.8],
-      'Bihar': [25.6, 85.8, 7.0],
-      'Jharkhand': [23.6, 85.5, 7.2],
-      'Odisha': [20.5, 84.5, 7.0],
-      'Assam': [26.2, 92.5, 7.0],
-      'Arunachal Pradesh': [28.0, 94.5, 6.8],
-      'Manipur': [24.7, 93.9, 8.0],
-      'Meghalaya': [25.5, 91.3, 8.0],
-      'Mizoram': [23.3, 92.8, 8.0],
-      'Nagaland': [26.1, 94.5, 8.0],
-      'Sikkim': [27.5, 88.5, 8.5],
-      'Tripura': [23.8, 91.5, 8.5],
-      'Chandigarh': [30.73, 76.78, 11.0],
-      'Puducherry': [11.94, 79.81, 10.0]
+      'Kerala': [10.2, 76.4, 7.8],
+      'ALL': [10.8, 77.5, 7.2]
     };
     if (stateCoordsMap[stateVal]) {
       const [lat, lng, zoom] = stateCoordsMap[stateVal];
-      map.flyTo([lat, lng], zoom, { duration: 1.2 });
-    } else {
-      map.flyTo([22.5, 79.0], 5.0, { duration: 1.2 }); // Center of India
+      map.flyTo([lat, lng], zoom, { duration: 1.0 });
     }
   }
 
@@ -2205,117 +2125,107 @@
     const verifiedOnly = document.getElementById('verifiedOnlyFilter') && document.getElementById('verifiedOnlyFilter').checked;
 
     // Filter Police
-    currentFilteredPolice = policeStations.filter(s => {
-      if (stateVal !== 'ALL' && s.state !== stateVal) return false;
-      if (distVal !== 'ALL' && s.district !== distVal) return false;
-      if (catVal !== 'ALL' && !(s.category || '').toLowerCase().includes(catVal.toLowerCase())) return false;
-      if (query) {
-        const str = `${s.stationName} ${s.district} ${s.state} ${s.address || ''} ${s.pincode || ''} ${s.landline || s.phone || ''} ${s.officialEmail || ''} ${s.officerInCharge || ''}`.toLowerCase();
-        if (!str.includes(query)) return false;
-      }
-      return true;
-    });
+    if (sectorVal === 'ALL' || sectorVal === 'police') {
+      currentFilteredPolice = policeStations.filter(s => {
+        if (stateVal !== 'ALL' && s.state !== stateVal) return false;
+        if (distVal !== 'ALL' && s.district !== distVal) return false;
+        if (catVal !== 'ALL' && !(s.category || '').toLowerCase().includes(catVal.toLowerCase())) return false;
+        if (query) {
+          const str = `${s.stationName} ${s.district} ${s.state} ${s.address || ''} ${s.pincode || ''} ${s.landline || s.phone || ''} ${s.officialEmail || ''} ${s.officerInCharge || ''}`.toLowerCase();
+          if (!str.includes(query)) return false;
+        }
+        return true;
+      });
+    } else {
+      currentFilteredPolice = [];
+    }
 
     // Filter Colleges
-    currentFilteredColleges = colleges.filter(c => {
-      if (verifiedOnly && !c.isVerified) return false;
-      if (stateVal !== 'ALL' && c.state !== stateVal) return false;
-      if (distVal !== 'ALL' && c.district !== distVal) return false;
-      if (catVal !== 'ALL' && !(c.type || c.category || '').toLowerCase().includes(catVal.toLowerCase())) return false;
-      if (query) {
-        const str = `${c.name || c.institutionName} ${c.district} ${c.state || ''} ${c.pincode || ''} ${c.address || ''} ${c.locality || ''} ${c.phone || c.landline || ''} ${c.email || c.officialEmail || ''}`.toLowerCase();
-        if (!str.includes(query)) return false;
-      }
-      return true;
-    });
+    if (sectorVal === 'ALL' || sectorVal === 'colleges') {
+      currentFilteredColleges = colleges.filter(c => {
+        if (verifiedOnly && !c.isVerified) return false;
+        if (stateVal !== 'ALL' && c.state !== stateVal) return false;
+        if (distVal !== 'ALL' && c.district !== distVal) return false;
+        if (catVal !== 'ALL' && !(c.type || c.category || '').toLowerCase().includes(catVal.toLowerCase())) return false;
+        if (query) {
+          const str = `${c.name || c.institutionName} ${c.district} ${c.state || ''} ${c.pincode || ''} ${c.address || ''} ${c.locality || ''} ${c.phone || c.landline || ''} ${c.email || c.officialEmail || ''}`.toLowerCase();
+          if (!str.includes(query)) return false;
+        }
+        return true;
+      });
+    } else {
+      currentFilteredColleges = [];
+    }
 
     // Filter Schools
-    currentFilteredSchools = schools.filter(s => {
-      if (stateVal !== 'ALL' && s.state !== stateVal) return false;
-      if (distVal !== 'ALL' && s.district !== distVal) return false;
-      if (catVal !== 'ALL' && !(s.category || '').toLowerCase().includes(catVal.toLowerCase())) return false;
-      if (query) {
-        const str = `${s.name} ${s.district} ${s.state} ${s.pincode || ''} ${s.address || ''} ${s.landline || s.phone || ''} ${s.email || ''} ${s.busFleet || ''}`.toLowerCase();
-        if (!str.includes(query)) return false;
-      }
-      return true;
-    });
+    if (sectorVal === 'ALL' || sectorVal === 'schools') {
+      currentFilteredSchools = schools.filter(s => {
+        if (stateVal !== 'ALL' && s.state !== stateVal) return false;
+        if (distVal !== 'ALL' && s.district !== distVal) return false;
+        if (catVal !== 'ALL' && !(s.category || '').toLowerCase().includes(catVal.toLowerCase())) return false;
+        if (query) {
+          const str = `${s.name} ${s.district} ${s.state} ${s.pincode || ''} ${s.address || ''} ${s.landline || s.phone || ''} ${s.email || ''} ${s.busFleet || ''}`.toLowerCase();
+          if (!str.includes(query)) return false;
+        }
+        return true;
+      });
+    } else {
+      currentFilteredSchools = [];
+    }
 
     // Filter Transport Fleets
-    currentFilteredTransport = transportFleets.filter(t => {
-      if (stateVal !== 'ALL' && t.state !== stateVal) return false;
-      if (distVal !== 'ALL' && t.district !== distVal) return false;
-      if (catVal !== 'ALL' && !(t.category || '').toLowerCase().includes(catVal.toLowerCase())) return false;
-      if (query) {
-        const str = `${t.name} ${t.district} ${t.state} ${t.address || ''} ${t.landline || t.phone || ''} ${t.email || ''} ${t.fleetSize || ''} ${t.inCharge || ''}`.toLowerCase();
-        if (!str.includes(query)) return false;
-      }
-      return true;
-    });
+    if (sectorVal === 'ALL' || sectorVal === 'transport') {
+      currentFilteredTransport = transportFleets.filter(t => {
+        if (stateVal !== 'ALL' && t.state !== stateVal) return false;
+        if (distVal !== 'ALL' && t.district !== distVal) return false;
+        if (catVal !== 'ALL' && !(t.category || '').toLowerCase().includes(catVal.toLowerCase())) return false;
+        if (query) {
+          const str = `${t.name} ${t.district} ${t.state} ${t.address || ''} ${t.landline || t.phone || ''} ${t.email || ''} ${t.fleetSize || ''} ${t.inCharge || ''}`.toLowerCase();
+          if (!str.includes(query)) return false;
+        }
+        return true;
+      });
+    } else {
+      currentFilteredTransport = [];
+    }
 
     // Filter Industries & Factories across 25 Customer Categories
-    currentFilteredIndustries = industries.filter(ind => {
-      if (stateVal !== 'ALL' && ind.state !== stateVal) return false;
-      if (distVal !== 'ALL' && ind.district !== distVal) return false;
-      if (catVal !== 'ALL') {
-        const cleanCat = catVal.toLowerCase();
-        const matchesName = (ind.category || '').toLowerCase().includes(cleanCat);
-        const matchesGroup = (ind.categoryGroup || '').toLowerCase().includes(cleanCat);
-        const matchesId = String(ind.categoryId) === cleanCat.replace(/[^0-9]/g, '');
-        if (!matchesName && !matchesGroup && !matchesId) return false;
-      }
-      if (query) {
-        const str = `${ind.name} ${ind.category} ${ind.categoryGroup || ''} ${ind.productsPromoted || ''} ${ind.inCharge || ''} ${ind.district} ${ind.state} ${ind.address || ''} ${ind.pincode || ''} ${ind.phone || ind.landline || ''} ${ind.email || ''}`.toLowerCase();
-        if (!str.includes(query)) return false;
-      }
-      return true;
-    });
+    if (sectorVal === 'ALL' || sectorVal === 'industries') {
+      currentFilteredIndustries = industries.filter(ind => {
+        if (stateVal !== 'ALL' && ind.state !== stateVal) return false;
+        if (distVal !== 'ALL' && ind.district !== distVal) return false;
+        if (catVal !== 'ALL') {
+          const cleanCat = catVal.toLowerCase();
+          const matchesName = (ind.category || '').toLowerCase().includes(cleanCat);
+          const matchesGroup = (ind.categoryGroup || '').toLowerCase().includes(cleanCat);
+          const matchesId = String(ind.categoryId) === cleanCat.replace(/[^0-9]/g, '');
+          if (!matchesName && !matchesGroup && !matchesId) return false;
+        }
+        if (query) {
+          const str = `${ind.name} ${ind.category} ${ind.categoryGroup || ''} ${ind.productsPromoted || ''} ${ind.inCharge || ''} ${ind.district} ${ind.state} ${ind.address || ''} ${ind.pincode || ''} ${ind.phone || ind.landline || ''} ${ind.email || ''}`.toLowerCase();
+          if (!str.includes(query)) return false;
+        }
+        return true;
+      });
+    } else {
+      currentFilteredIndustries = [];
+    }
 
     // Fly Map to the target district or match
     if (distVal !== 'ALL') {
-      const match = currentFilteredPolice.find(s => s.lat) || currentFilteredColleges.find(c => c.lat) || currentFilteredTransport.find(t => t.lat) || currentFilteredSchools.find(s => s.lat);
+      const match = currentFilteredColleges.find(c => c.lat) || currentFilteredPolice.find(s => s.lat) || currentFilteredSchools.find(s => s.lat) || currentFilteredTransport.find(t => t.lat) || currentFilteredIndustries.find(i => i.lat);
       if (match && match.lat) {
         map.flyTo([match.lat, match.lng], 12, { duration: 1.0 });
       }
     } else if (stateVal !== 'ALL') {
       const stateCoordsMap = {
         'Tamil Nadu': [11.1, 78.6, 7.5],
-        'Kerala': [10.2, 76.4, 7.5],
-        'Karnataka': [13.5, 76.5, 7.0],
-        'Andhra Pradesh': [15.5, 80.0, 7.0],
-        'Telangana': [17.8, 79.0, 7.0],
-        'Maharashtra': [19.5, 76.0, 6.8],
-        'Gujarat': [22.5, 71.5, 6.8],
-        'Rajasthan': [26.5, 74.0, 6.5],
-        'Goa': [15.3, 74.0, 9.0],
-        'Delhi': [28.65, 77.2, 10.0],
-        'Uttar Pradesh': [27.0, 80.5, 6.5],
-        'Punjab': [31.0, 75.5, 7.5],
-        'Haryana': [29.2, 76.3, 7.5],
-        'Uttarakhand': [30.1, 79.0, 7.5],
-        'Himachal Pradesh': [31.8, 77.2, 7.5],
-        'Jammu and Kashmir': [33.8, 75.0, 7.0],
-        'Ladakh': [34.2, 77.6, 6.5],
-        'Madhya Pradesh': [23.5, 78.0, 6.5],
-        'Chhattisgarh': [21.5, 82.0, 6.8],
-        'West Bengal': [24.0, 88.0, 6.8],
-        'Bihar': [25.6, 85.8, 7.0],
-        'Jharkhand': [23.6, 85.5, 7.2],
-        'Odisha': [20.5, 84.5, 7.0],
-        'Assam': [26.2, 92.5, 7.0],
-        'Arunachal Pradesh': [28.0, 94.5, 6.8],
-        'Manipur': [24.7, 93.9, 8.0],
-        'Meghalaya': [25.5, 91.3, 8.0],
-        'Mizoram': [23.3, 92.8, 8.0],
-        'Nagaland': [26.1, 94.5, 8.0],
-        'Sikkim': [27.5, 88.5, 8.5],
-        'Tripura': [23.8, 91.5, 8.5],
-        'Chandigarh': [30.73, 76.78, 11.0],
-        'Puducherry': [11.94, 79.81, 10.0]
+        'Kerala': [10.2, 76.4, 7.8],
+        'ALL': [10.8, 77.5, 7.2]
       };
       if (stateCoordsMap[stateVal]) {
         const [lat, lng, zoom] = stateCoordsMap[stateVal];
-        map.flyTo([lat, lng], zoom, { duration: 1.2 });
+        map.flyTo([lat, lng], zoom, { duration: 1.0 });
       }
     }
 
@@ -2394,7 +2304,9 @@
     }
   }
 
-  const handleFilterChange = executeSearch;
+  function handleFilterChange() {
+    executeSearch();
+  }
 
   function handleSearchInput(event) {
     const q = document.getElementById('searchInput').value.trim();
@@ -2413,7 +2325,7 @@
 
   function resetFilters() {
     const stateEl = document.getElementById('stateFilter');
-    if (stateEl) stateEl.value = 'ALL';
+    if (stateEl) stateEl.value = 'Tamil Nadu';
     populateDistrictsFilter();
     const distEl = document.getElementById('districtFilter');
     if (distEl) distEl.value = 'ALL';
@@ -2443,10 +2355,10 @@
     executeSearch();
 
     if (map) {
-      map.flyTo([22.5, 79.0], 5, { duration: 1.0 });
+      map.flyTo([10.8, 78.2], 7.5, { duration: 1.0 });
     }
 
-    showToast('🔄 All filters and selections have been reset to All-India!');
+    showToast('🔄 Filters reset to Tamil Nadu default');
   }
 
   function showToast(msg) {
@@ -2474,28 +2386,32 @@
     const elKpiC = document.getElementById('kpiCollegesCount');
     const elKpiS = document.getElementById('kpiSchoolsCount');
     const elKpiT = document.getElementById('kpiTransportCount');
+    const elKpiI = document.getElementById('kpiIndustriesCount');
+    const elKpiSel = document.getElementById('kpiSelectedCount');
+
     if (elKpiP) elKpiP.textContent = currentFilteredPolice.length.toLocaleString();
     if (elKpiC) elKpiC.textContent = currentFilteredColleges.length.toLocaleString();
     if (elKpiS) elKpiS.textContent = currentFilteredSchools.length.toLocaleString();
     if (elKpiT) elKpiT.textContent = currentFilteredTransport.length.toLocaleString();
+    if (elKpiI) elKpiI.textContent = currentFilteredIndustries.length.toLocaleString();
+    if (elKpiSel) elKpiSel.textContent = selectedRecipients.size.toLocaleString();
 
     // Dynamically update Navigation Tab Badges with the filtered/selected counts!
     const badgeP = document.getElementById('badgePoliceCount');
     const badgeC = document.getElementById('badgeCollegesCount');
     const badgeS = document.getElementById('badgeSchoolsCount');
     const badgeT = document.getElementById('badgeTransportCount');
+    const badgeI = document.getElementById('badgeIndustriesCount');
+    const badgeSel = document.getElementById('badgeSelectedCount');
+
     if (badgeP) badgeP.textContent = currentFilteredPolice.length.toLocaleString();
     if (badgeC) badgeC.textContent = currentFilteredColleges.length.toLocaleString();
     if (badgeS) badgeS.textContent = currentFilteredSchools.length.toLocaleString();
     if (badgeT) badgeT.textContent = currentFilteredTransport.length.toLocaleString();
+    if (badgeI) badgeI.textContent = currentFilteredIndustries.length.toLocaleString();
+    if (badgeSel) badgeSel.textContent = selectedRecipients.size.toLocaleString();
 
     renderMapMarkers();
-    // Dynamically update Industries KPI Card & Navigation Badge
-    const elKpiI = document.getElementById('kpiIndustriesCount');
-    if (elKpiI) elKpiI.textContent = currentFilteredIndustries.length.toLocaleString();
-    const badgeI = document.getElementById('badgeIndustriesCount');
-    if (badgeI) badgeI.textContent = currentFilteredIndustries.length.toLocaleString();
-
     renderPoliceCards();
     renderCollegesCards();
     renderSchoolsCards();
@@ -2831,7 +2747,7 @@
   }
 
   function fitMapBounds() {
-    map.flyTo([22.5, 79.0], 5, { duration: 1.0 });
+    map.flyTo([10.8, 78.2], 7.5, { duration: 1.0 });
   }
 
   // HELPER: PAN-INDIA STATE PILL
@@ -2875,7 +2791,7 @@
         <div>
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;padding-bottom:6px;border-bottom:1px dashed #e2e8f0;">
             <label style="display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:700;color:#1e3a8a;cursor:pointer;">
-              <input type="checkbox" onchange="toggleSelectRecipient('${id}', '${safeName}', '${s.officialEmail}', '${s.landline}', '${s.district}', 'Police', '${s.state}')" ${isSelected ? 'checked' : ''}>
+              <input type="checkbox" onchange="toggleSelectRecipient('${id}', '${safeName}', '${s.officialEmail}', '${s.whatsapp || s.phone || s.landline}', '${s.district}', 'Police', '${s.state}')" ${isSelected ? 'checked' : ''}>
               <span>Select for Email BCC / WhatsApp</span>
             </label>
             ${statePill}
@@ -2904,6 +2820,12 @@
               <strong>Official Email:</strong>
               ${s.officialEmail && s.officialEmail !== '-' ? `<a href="mailto:${s.officialEmail}">${s.officialEmail}</a>` : '<span>-</span>'}
             </div>
+            ${s.whatsapp && s.whatsapp !== '-' ? `
+            <div class="card-detail-item">
+              <span class="icon">💬</span>
+              <strong>WhatsApp:</strong>
+              <strong style="color:#16a34a;">${s.whatsapp}</strong>
+            </div>` : ''}
             <div class="card-detail-item">
               <span class="icon">👮</span>
               <strong>In-Charge:</strong>
@@ -2916,7 +2838,8 @@
         </div>
         <div class="card-actions">
           <button class="card-btn" onclick="focusOnMap(${s.lat}, ${s.lng})">🗺️ Map</button>
-          <button class="card-btn" style="background:#f0fdf4;color:#16a34a;border-color:#bbf7d0;" onclick="openWaWorkspaceFor('${id}', '${safeName}', '${s.officialEmail}', '${s.landline}', '${s.district}', 'Police', '${s.state}')">💬 WhatsApp</button>
+          <button class="card-btn" style="background:#f0fdf4;color:#16a34a;border-color:#bbf7d0;" onclick="openWaWorkspaceFor('${id}', '${safeName}', '${s.officialEmail}', '${s.whatsapp || s.phone || s.landline}', '${s.district}', 'Police', '${s.state}')">💬 WhatsApp</button>
+          ${s.whatsapp && s.whatsapp !== '-' ? `<a href="https://wa.me/${s.whatsapp.replace(/[^0-9]/g, '')}" target="_blank" class="card-btn" style="background:#22c55e;color:#ffffff;border:none;font-weight:700;">📲 Chat</a>` : ''}
           <button class="card-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(s.stationName)}')">📄 RFQ</button>
         </div>
       `;
@@ -2934,7 +2857,7 @@
     displayList.forEach(c => {
       const card = document.createElement('div');
       const name = c.name || c.institutionName || 'College';
-      const phone = c.phone || c.landline || '-';
+      const phone = c.whatsapp || c.mobile || c.phone || c.landline || '-';
       const email = c.email || c.officialEmail || '-';
       const statePill = getStatePill(c.state);
       const id = c.id || name;
@@ -3009,6 +2932,7 @@
         <div class="card-actions">
           <button class="card-btn" onclick="focusOnMap(${c.lat}, ${c.lng})">🗺️ Map</button>
           <button class="card-btn" style="background:#f0fdf4;color:#16a34a;border-color:#bbf7d0;" onclick="openWaWorkspaceFor('${id}', '${safeName}', '${email}', '${phone}', '${c.district}', 'HigherEd', '${c.state}')">💬 WhatsApp</button>
+          ${c.whatsapp && c.whatsapp !== '-' ? `<a href="https://wa.me/${c.whatsapp.replace(/[^0-9]/g, '')}" target="_blank" class="card-btn" style="background:#22c55e;color:#ffffff;border:none;font-weight:700;">📲 Chat</a>` : ''}
           <button class="card-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(name)}')">📄 RFQ</button>
         </div>
       `;
@@ -3029,13 +2953,14 @@
       const id = s.id || s.name;
       const isSelected = selectedRecipients.has(id);
       const safeName = s.name.replace(/'/g, "\\'");
+      const schPhone = s.whatsapp || s.phone || s.landline || '-';
 
       card.className = 'entity-card priority-school';
       card.innerHTML = `
         <div>
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;padding-bottom:6px;border-bottom:1px dashed #e2e8f0;">
             <label style="display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:700;color:#7c3aed;cursor:pointer;">
-              <input type="checkbox" onchange="toggleSelectRecipient('${id}', '${safeName}', '${s.email}', '${s.landline}', '${s.district}', 'School', '${s.state}')" ${isSelected ? 'checked' : ''}>
+              <input type="checkbox" onchange="toggleSelectRecipient('${id}', '${safeName}', '${s.email}', '${schPhone}', '${s.district}', 'School', '${s.state}')" ${isSelected ? 'checked' : ''}>
               <span>Select for Email BCC / WhatsApp</span>
             </label>
             ${statePill}
@@ -3075,10 +3000,16 @@
               <strong>Official Email:</strong>
               <a href="mailto:${s.email}">${s.email}</a>
             </div>
+            ${s.whatsapp && s.whatsapp !== '-' ? `
+            <div class="card-detail-item">
+              <span class="icon">💬</span>
+              <strong>WhatsApp:</strong>
+              <strong style="color:#16a34a;">${s.whatsapp}</strong>
+            </div>` : ''}
             <div class="card-detail-item">
               <span class="icon">👤</span>
               <strong>In-Charge:</strong>
-              <span>${s.principalName}</span>
+              <span>${s.principalName || s.inCharge || 'Principal / Transport Manager'}</span>
             </div>
           </div>
           <div class="card-priority-tag school">
@@ -3087,7 +3018,8 @@
         </div>
         <div class="card-actions">
           <button class="card-btn" onclick="focusOnMap(${s.lat}, ${s.lng})">🗺️ Map</button>
-          <button class="card-btn" style="background:#f0fdf4;color:#16a34a;border-color:#bbf7d0;" onclick="openWaWorkspaceFor('${id}', '${safeName}', '${s.email}', '${s.landline}', '${s.district}', 'School', '${s.state}')">💬 WhatsApp</button>
+          <button class="card-btn" style="background:#f0fdf4;color:#16a34a;border-color:#bbf7d0;" onclick="openWaWorkspaceFor('${id}', '${safeName}', '${s.email}', '${schPhone}', '${s.district}', 'School', '${s.state}')">💬 WhatsApp</button>
+          ${s.whatsapp && s.whatsapp !== '-' ? `<a href="https://wa.me/${s.whatsapp.replace(/[^0-9]/g, '')}" target="_blank" class="card-btn" style="background:#22c55e;color:#ffffff;border:none;font-weight:700;">📲 Chat</a>` : ''}
           <button class="card-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(s.name)}')">📄 Bus RFQ</button>
         </div>
       `;
@@ -3169,6 +3101,89 @@
           <button class="card-btn" style="background:#f0fdf4;color:#16a34a;border-color:#bbf7d0;" onclick="openWaWorkspaceFor('${id}', '${safeName}', '${t.email}', '${t.whatsapp && t.whatsapp !== '-' ? t.whatsapp : t.landline}', '${t.district}', 'Transport', '${t.state}')">💬 WhatsApp</button>
           ${t.whatsapp && t.whatsapp !== '-' ? `<a href="https://wa.me/${t.whatsapp.replace(/[^0-9]/g, '')}" target="_blank" class="card-btn" style="background:#22c55e;color:#ffffff;border:none;font-weight:700;">📲 Chat</a>` : ''}
           <button class="card-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(t.name)}')">📄 Fleet RFQ</button>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  // 10B. RENDER FACTORIES & INDUSTRIES CARDS (25 Customer Categories)
+  function renderIndustriesCards() {
+    const grid = document.getElementById('industriesCardsGrid');
+    if (!grid) return;
+    const countEl = document.getElementById('industriesFilteredCount');
+    if (countEl) countEl.textContent = currentFilteredIndustries.length.toLocaleString();
+    grid.innerHTML = '';
+
+    const displayList = currentFilteredIndustries.slice(0, 90);
+    displayList.forEach(ind => {
+      const card = document.createElement('div');
+      const statePill = getStatePill(ind.state);
+      const id = ind.id || ind.name;
+      const isSelected = selectedRecipients.has(id);
+      const safeName = (ind.name || '').replace(/'/g, "\\'");
+      const cleanWa = (ind.whatsapp || '').replace(/[^0-9]/g, '');
+
+      card.className = 'entity-card priority-critical';
+      card.innerHTML = `
+        <div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;padding-bottom:6px;border-bottom:1px dashed #e2e8f0;">
+            <label style="display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:700;color:#dc2626;cursor:pointer;">
+              <input type="checkbox" onchange="toggleSelectRecipient('${id}', '${safeName}', '${ind.email}', '${ind.whatsapp || ind.phone || ind.landline}', '${ind.district}', 'Industry', '${ind.state}')" ${isSelected ? 'checked' : ''}>
+              <span>Select for Email BCC / WhatsApp</span>
+            </label>
+            ${statePill}
+          </div>
+          <div class="card-top">
+            <div class="card-title">${ind.name}</div>
+          </div>
+          <div class="card-meta">
+            <span class="card-district">📍 ${ind.district}</span>
+            <span class="card-divider">•</span>
+            <span style="color:#b91c1c;font-weight:700;">Cat ${ind.categoryId}: ${ind.category}</span>
+          </div>
+          <div class="card-details-list">
+            <div class="card-detail-item">
+              <span class="icon">👤</span>
+              <strong>Key Contact:</strong>
+              <span style="color:#b91c1c;font-weight:700;">${ind.inCharge}</span>
+            </div>
+            <div class="card-detail-item">
+              <span class="icon">📦</span>
+              <strong>Promoted Products:</strong>
+              <span style="color:#15803d;font-weight:600;">${ind.productsPromoted}</span>
+            </div>
+            <div class="card-detail-item">
+              <span class="icon">🏢</span>
+              <strong>Address:</strong>
+              <span>${ind.address}</span>
+            </div>
+            <div class="card-detail-item">
+              <span class="icon">📞</span>
+              <strong>Office Phone:</strong>
+              <a href="tel:${ind.phone || ind.landline}">${ind.phone || ind.landline}</a>
+            </div>
+            <div class="card-detail-item">
+              <span class="icon">✉️</span>
+              <strong>Official Email:</strong>
+              <a href="mailto:${ind.email}">${ind.email}</a>
+            </div>
+            ${ind.whatsapp && ind.whatsapp !== '-' ? `
+            <div class="card-detail-item">
+              <span class="icon">💬</span>
+              <strong>Direct WhatsApp:</strong>
+              <strong style="color:#16a34a;">${ind.whatsapp}</strong>
+            </div>` : ''}
+          </div>
+          <div class="card-priority-tag critical">
+            🏭 Category ${ind.categoryId} • ${ind.inCharge}
+          </div>
+        </div>
+        <div class="card-actions">
+          <button class="card-btn" onclick="focusOnMap(${ind.lat}, ${ind.lng})">🗺️ Map</button>
+          <button class="card-btn" style="background:#f0fdf4;color:#16a34a;border-color:#bbf7d0;" onclick="openWaWorkspaceFor('${id}', '${safeName}', '${ind.email}', '${ind.whatsapp && ind.whatsapp !== '-' ? ind.whatsapp : (ind.phone || ind.landline)}', '${ind.district}', 'Industry', '${ind.state}', ${ind.categoryId})">💬 WhatsApp</button>
+          ${cleanWa ? `<a href="https://wa.me/${cleanWa}" target="_blank" class="card-btn" style="background:#22c55e;color:#ffffff;border:none;font-weight:700;">📲 Chat</a>` : ''}
+          <button class="card-btn primary" onclick="openQuoteModalFor('${encodeURIComponent(ind.name)}')">📄 RFQ</button>
         </div>
       `;
       grid.appendChild(card);
@@ -3294,8 +3309,28 @@
     // Sync sector filter dropdown and pills if viewing a specific sector
     const sectorFilter = document.getElementById('sectorFilter');
     if (sectorFilter && ['colleges', 'police', 'schools', 'transport', 'industries'].includes(tab)) {
-      sectorFilter.value = tab;
-      currentSelectedSector = tab;
+      if (sectorFilter.value !== tab) {
+        sectorFilter.value = tab;
+        currentSelectedSector = tab;
+        const btnsMap = {
+          'ALL': document.getElementById('secBtnAll'),
+          'colleges': document.getElementById('secBtnColleges'),
+          'police': document.getElementById('secBtnPolice'),
+          'schools': document.getElementById('secBtnSchools'),
+          'transport': document.getElementById('secBtnTransport'),
+          'industries': document.getElementById('secBtnIndustries')
+        };
+        Object.entries(btnsMap).forEach(([sec, btn]) => {
+          if (btn) {
+            btn.className = 'sector-quick-btn';
+            if (sec === tab) {
+              btn.classList.add('active');
+              btn.classList.add(sec);
+            }
+          }
+        });
+        executeSearch();
+      }
     }
 
     // Sync toggle button label (Map vs List)
@@ -3473,134 +3508,91 @@
 
   function selectAllVisible() {
     let list = [];
-    let sectorName = 'Police';
-    let subjectLine = 'Official Police Law-Enforcement Fuel-Cell Breath Analysers | Nunes Instrumentation, Coimbatore';
+    let sectorName = 'Entities';
+    let subjectLine = 'Nunes Instrumentation | Industrial & Safety Equipment, Coimbatore HQ';
 
-    if (currentTab === 'police') {
-      sectorName = 'Police';
+    // Determine target sector to select
+    let targetSector = currentSelectedSector;
+    if (targetSector === 'ALL') {
+      if (['police', 'colleges', 'schools', 'transport', 'industries'].includes(currentTab)) {
+        targetSector = currentTab;
+      } else {
+        // In map tab: check which layer is active
+        if (showCollegeLayer && currentFilteredColleges.length > 0) targetSector = 'colleges';
+        else if (showPoliceLayer && currentFilteredPolice.length > 0) targetSector = 'police';
+        else if (showSchoolLayer && currentFilteredSchools.length > 0) targetSector = 'schools';
+        else if (showTransportLayer && currentFilteredTransport.length > 0) targetSector = 'transport';
+        else if (showIndustryLayer && currentFilteredIndustries.length > 0) targetSector = 'industries';
+        else targetSector = 'colleges';
+      }
+    }
+
+    if (targetSector === 'police') {
+      sectorName = 'Police Stations';
       subjectLine = 'Official Police Law-Enforcement Fuel-Cell Breath Analysers | Nunes Instrumentation, Coimbatore';
-      list = currentFilteredPolice.slice(0, 90).map(s => ({
+      list = currentFilteredPolice.slice(0, 100).map(s => ({
         id: s.id || s.stationName,
         name: s.stationName,
-        email: s.officialEmail,
-        phone: s.landline,
+        email: s.officialEmail || s.email,
+        phone: s.whatsapp || s.phone || s.landline,
         district: s.district,
         sector: 'Police',
         state: s.state
       }));
-    } else if (currentTab === 'colleges') {
-      sectorName = 'HigherEd';
+    } else if (targetSector === 'colleges') {
+      sectorName = 'Colleges & Universities';
       subjectLine = 'Campus & Hostel Alcohol-Free Policy Breath Analysers | Nunes Instrumentation, Coimbatore';
-      list = currentFilteredColleges.slice(0, 90).map(c => ({
+      list = currentFilteredColleges.slice(0, 100).map(c => ({
         id: c.id || c.name,
         name: c.name || c.institutionName,
         email: c.email || c.officialEmail,
-        phone: c.phone || c.landline,
+        phone: c.whatsapp || c.mobile || c.phone || c.landline,
         district: c.district,
         sector: 'HigherEd',
         state: c.state
       }));
-    } else if (currentTab === 'schools') {
-      sectorName = 'School';
+    } else if (targetSector === 'schools') {
+      sectorName = 'Schools';
       subjectLine = 'School Bus Driver Alcohol Safety Screening (Sec 185 MVA) | Nunes Instrumentation, Coimbatore';
-      list = currentFilteredSchools.slice(0, 90).map(s => ({
+      list = currentFilteredSchools.slice(0, 100).map(s => ({
         id: s.id || s.name,
         name: s.name,
         email: s.email,
-        phone: s.landline,
+        phone: s.whatsapp || s.mobile || s.phone || s.landline,
         district: s.district,
         sector: 'School',
         state: s.state
       }));
-    } else if (currentTab === 'transport') {
-      sectorName = 'Transport';
+    } else if (targetSector === 'transport') {
+      sectorName = 'Transport Hubs';
       subjectLine = 'Commercial Fleet & Depot Alcohol Screening Solutions | Nunes Instrumentation, Coimbatore';
-      list = currentFilteredTransport.slice(0, 90).map(t => ({
+      list = currentFilteredTransport.slice(0, 100).map(t => ({
         id: t.id || t.name,
         name: t.name,
         email: t.email,
-        phone: t.landline,
+        phone: t.whatsapp || t.phone || t.landline,
         district: t.district,
         sector: 'Transport',
         state: t.state
       }));
-    } else if (currentTab === 'industries') {
-      sectorName = 'Industry';
+    } else if (targetSector === 'industries') {
+      sectorName = 'Factories & Industries';
       subjectLine = 'Precision Measuring, Calibration & Laboratory Instruments Supply | Nunes Instrumentation, Coimbatore';
-      list = currentFilteredIndustries.slice(0, 90).map(ind => ({
+      list = currentFilteredIndustries.slice(0, 100).map(ind => ({
         id: ind.id || ind.name,
         name: ind.name,
         email: ind.email,
-        phone: ind.phone || ind.landline,
+        phone: ind.whatsapp || ind.phone || ind.landline,
         district: ind.district,
         sector: 'Industry',
         state: ind.state,
         categoryId: ind.categoryId
       }));
-    } else if (currentTab === 'map') {
-      // Live Map Tab: select from whichever layer is toggled on!
-      if (showPoliceLayer && currentFilteredPolice.length > 0) {
-        sectorName = 'Police';
-        subjectLine = 'Official Police Law-Enforcement Fuel-Cell Breath Analysers | Nunes Instrumentation, Coimbatore';
-        list = currentFilteredPolice.slice(0, 90).map(s => ({
-          id: s.id || s.stationName,
-          name: s.stationName,
-          email: s.officialEmail,
-          phone: s.landline,
-          district: s.district,
-          sector: 'Police',
-          state: s.state
-        }));
-      } else if (showCollegeLayer && currentFilteredColleges.length > 0) {
-        sectorName = 'HigherEd';
-        subjectLine = 'Campus & Hostel Alcohol-Free Policy Breath Analysers | Nunes Instrumentation, Coimbatore';
-        list = currentFilteredColleges.slice(0, 90).map(c => ({
-          id: c.id || c.name,
-          name: c.name || c.institutionName,
-          email: c.email || c.officialEmail,
-          phone: c.phone || c.landline,
-          district: c.district,
-          sector: 'HigherEd',
-          state: c.state
-        }));
-      } else if (showSchoolLayer && currentFilteredSchools.length > 0) {
-        sectorName = 'School';
-        subjectLine = 'School Bus Driver Alcohol Safety Screening (Sec 185 MVA) | Nunes Instrumentation, Coimbatore';
-        list = currentFilteredSchools.slice(0, 90).map(s => ({
-          id: s.id || s.name,
-          name: s.name,
-          email: s.email,
-          phone: s.landline,
-          district: s.district,
-          sector: 'School',
-          state: s.state
-        }));
-      } else {
-        sectorName = 'Transport';
-        subjectLine = 'Commercial Fleet & Depot Alcohol Screening Solutions | Nunes Instrumentation, Coimbatore';
-        list = currentFilteredTransport.slice(0, 90).map(t => ({
-          id: t.id || t.name,
-          name: t.name,
-          email: t.email,
-          phone: t.landline,
-          district: t.district,
-          sector: 'Transport',
-          state: t.state
-        }));
-      }
-    } else {
-      // In workspace view: add filtered records from active sector
-      sectorName = 'Police';
-      subjectLine = 'Official Police Law-Enforcement Fuel-Cell Breath Analysers | Nunes Instrumentation, Coimbatore';
-      list = currentFilteredPolice.slice(0, 90).map(s => ({
-        id: s.id || s.stationName,
-        name: s.stationName,
-        email: s.officialEmail,
-        phone: s.landline,
-        district: s.district,
-        sector: 'Police',
-        state: s.state
-      }));
+    }
+
+    if (!list || list.length === 0) {
+      showToast('⚠️ No entities found in current filter to select.');
+      return;
     }
 
     // Always clear previous disparate items so only this sector and filter are selected!
@@ -3619,17 +3611,18 @@
 
     const templateSelect = document.getElementById('waTemplateSelect');
     if (templateSelect) {
-      if (sectorName === 'Police') templateSelect.value = 'police';
-      else if (sectorName === 'HigherEd') templateSelect.value = 'colleges';
-      else if (sectorName === 'School') templateSelect.value = 'schools';
-      else if (sectorName === 'Transport') templateSelect.value = 'transport';
+      if (targetSector === 'police') templateSelect.value = 'police';
+      else if (targetSector === 'colleges') templateSelect.value = 'colleges';
+      else if (targetSector === 'schools') templateSelect.value = 'schools';
+      else if (targetSector === 'transport') templateSelect.value = 'transport';
+      else if (targetSector === 'industries') templateSelect.value = 'cnc';
     }
 
     waCurrentQueueIndex = 0;
     updateSelectionUI();
     renderAllViews();
 
-    showToast(`✅ Selected ${selectedRecipients.size} visible ${sectorName} into Workspaces!`);
+    showToast(`✅ Selected ${selectedRecipients.size} ${sectorName} into BCC Desk & WhatsApp Queue!`);
   }
 
   function selectSpecificSector(sectorKey) {

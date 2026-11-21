@@ -2451,7 +2451,7 @@
         if (distVal !== 'ALL' && s.district !== distVal) return false;
         if (catVal !== 'ALL' && !(s.category || '').toLowerCase().includes(catVal.toLowerCase())) return false;
         if (query) {
-          const str = `${s.name} ${s.district} ${s.state} ${s.pincode || ''} ${s.address || ''} ${s.landline || s.phone || ''} ${s.email || ''} ${s.busFleet || ''}`.toLowerCase();
+          const str = `${s.name} ${s.district} ${s.block || ''} ${s.state} ${s.pincode || ''} ${s.address || ''} ${s.landline || s.phone || ''} ${s.email || ''} ${s.busFleet || ''}`.toLowerCase();
           if (!str.includes(query)) return false;
         }
         return true;
@@ -3095,7 +3095,7 @@
             <div class="card-title">${s.stationName}</div>
           </div>
           <div class="card-meta">
-            <span class="card-district">📍 ${s.district}</span>
+            <span class="card-district">📍 ${s.district}${s.block ? ' • 🏛️ Block: ' + s.block : ''}</span>
             <span class="card-divider">•</span>
             <span>${s.category || 'Law & Order'}</span>
           </div>
